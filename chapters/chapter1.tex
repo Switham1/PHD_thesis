@@ -20,7 +20,7 @@ To ensure even coverage, 10 genes were selected randomly from 10 bins covering t
 
 \subsection{Extraction of \textit{cis}-regulatory modules}\label{extraction-of-cis-regulatory-modules}
 
-Promoters were extracted from the Arabidopsis TAIR 10 \autocite{lameschArabidopsisInformationResource2012} genome assembly and Ensembl Plants \autocite{howeEnsemblGenomes20202020} annotation (\href{ftp://ftp.ensemblgenomes.org/pub/release-47/plants/gff3/arabidopsis_thaliana/}{.gff3 release 47 date 08/03/2020}) using a custom python script (\texttt{extract\_promoter.py}, available at \url{https://github.com/Switham1/PromoterArchitecture}).
+Promoters were extracted from the Arabidopsis TAIR 10 \autocite{lameschArabidopsisInformationResource2012} genome assembly and Ensembl Plants \autocite{howeEnsemblGenomes20202020} annotation (\href{ftp://ftp.ensemblgenomes.org/pub/release-47/plants/gff3/arabidopsis_thaliana/}{.gff3 release 47 date 08/03/2020}) using a custom python script (\href{https://github.com/Switham1/PromoterArchitecture/blob/master/src/data_sorting/extract_promoter.py}{\texttt{extract\_promoter.py}}, available at \url{https://github.com/Switham1/PromoterArchitecture}).
 
 Promoters were extracted from protein coding genes that did not overlap other protein coding genes using pybedtools \autocite{dalePybedtoolsFlexiblePython2011}.
 Promoters were extracted up to 1000 base pairs (bp) upstream of the longest annotated transcript TSS or until the nearest annotated protein coding gene, and 5'UTRs were included downstream of the TSS until the closest annotated coding sequence (CDS) ATG start codon.
