@@ -1,0 +1,48 @@
+\chapter{Chapter 1}
+\label{ch:1}
+\section{Introduction}\label{chapter1:introduction}
+\section{Methods}\label{chapter1:methods}
+See progressreview 2020
+Methods since then:
+
+
+All data analysis and plotting was done using Python 3~\autocite{pythoncoreteamPythonDynamicOpen2020}.
+The Shapiro\hyp{}Wilk normality test~\autocite{shapiroAnalysisVarianceTest1965} and Levene's homogeneity of variance~\autocite{leveneRobustTestsEquality1960} were used to test assumptions for parametric tests.
+
+\subsection{Gene selection}\label{gene-selection}
+
+To investigate the stability of expression, \textcite*{czechowskiGenomeWideIdentificationTesting2005} analysed gene expression data from \textit{Arabidopsis thaliana} Col-0 across 79 different tissues, organs, developmental stages and genotypes.
+This data enables genes to be ranked according to stability of expression across tissues using coefficient of variation (CV) values.
+Recreating the methodology used by \textcite*{czechowskiGenomeWideIdentificationTesting2005}, CV was used to select the 100 most constitutively expressed genes from raw expression data generated in their study.
+Alongside this, the 100 most variable genes were chosen.
+100 promoters were selected from the central distribution of expression CV in the \textcite*{czechowskiGenomeWideIdentificationTesting2005} dataset.
+To ensure even coverage, 10 genes were selected randomly from 10 bins covering the range of CV between the constitutive and variable gene sets.
+
+\subsection{Extraction of \textit{cis}-regulatory modules}\label{extraction-of-cis-regulatory-modules}
+
+Promoters were extracted from the Arabidopsis TAIR 10 \autocite{lameschArabidopsisInformationResource2012} genome assembly and Ensembl Plants annotation (\href{ftp://ftp.ensemblgenomes.org/pub/release-47/plants/gff3/arabidopsis_thaliana/}{.gff3 release 47 date 08/03/2020}) using a custom python script (\texttt{extract\_promoter.py}, available at \url{https://github.com/Switham1/PromoterArchitecture}).
+
+Promoters were extracted from protein coding genes that did not overlap other protein coding genes using pybedtools \autocite{dalePybedtoolsFlexiblePython2011}.
+Promoters were extracted up to 1000 bp upstream of the longest annotated transcript TSS or until the nearest annotated protein coding gene, and 5'UTRs were included downstream of the TSS until the closest annotated coding sequence (CDS) ATG start codon.
+%This is because coding sequences have different conservation patterns to non-coding regions.%see intro XXX%
+Promoters with an upstream gene oriented in the reverse direction less than 2000 bp away were flagged to mitigate for potentially overlapping promoters.
+This was because with overlapping promoters it is difficult to determine whether CREs belong to one promoter over the other or are used by both promoters.
+
+\subsection{Transcription factor binding site identification}
+\label{transcription-factor-binding-site-identification}
+
+The resulting promoter annotations were transformed to bed format using BEDOPS gff2bed~\autocite{nephBEDOPSHighperformanceGenomic2012},and BEDTools getfasta~\autocite{quinlanBEDToolsFlexibleSuite2010} was used to extract promoter sequences from the reference genome.
+Promoters were scanned for DAP\hyp{}seq TFBS motifs~\autocite{omalleyCistromeEpicistromeFeatures2016} using FIMO~\autocite{grantFIMOScanningOccurrences2011} with a zero\hyp{}order background model created using fasta\hyp{}get\hyp{}markov~\autocite{baileyMEMESuiteTools2009}.
+A \textit{p}-value threshold of \texttildelow0.0001 and max stored sequences \texttildelow5000000 was used, and the output was filtered using a \textit{q}\hyp{}value threshold of 0.05 using the \texttt{FIMO\_filter.py} script.
+The script then converts the .tsv file into a BED file by rearranging the columns into the correct order and then utilising BEDTools~\autocite{quinlanBEDToolsFlexibleSuite2010} and pybedtools~\autocite{dalePybedtoolsFlexiblePython2011}.
+This BED file was then used in the \texttt{map\_motif\_ids.py} script (for use with DAP\hyp{}seq cistrome motifs only) which maps the 4th column of the bedfile to the Arabidopsis gene ID nomenclature (eg. AT4G3800) using a gene ID table downloaded from \url{http://neomorph.salk.edu/dap\_web/pages/browse\_table\_aj.php}.
+This gene ID table was created by inspecting the web page source and
+downloading the mapping table as
+a~\href{http://neomorph.salk.edu/dev/pages/shhuang/dap_web/pages/dap-grid-data3.php?_=1573587374712}{.html
+	file} and renaming it to a .json file. To make it into .json format
+several characters were removed as documented in the~\texttt{map\_motif\_Ids.ipynb} notebook file. The .json was then converted to a
+dataframe table. The~\texttt{map\_motif\_ids.py} script also adds a
+transcription factor name column. A mapped motif bed file was created as
+the output.
+
+
