@@ -28,3 +28,4 @@
 *.pdf
 *.bcf
 .olauth
+.gitcommit.sh
