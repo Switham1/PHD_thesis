@@ -20,10 +20,10 @@ To ensure even coverage, 10 genes were selected randomly from 10 bins covering t
 
 \subsection{Extraction of \textit{cis}-regulatory modules}\label{extraction-of-cis-regulatory-modules}
 
-Promoters were extracted from the Arabidopsis TAIR 10 \autocite{lameschArabidopsisInformationResource2012} genome assembly and Ensembl Plants annotation (\href{ftp://ftp.ensemblgenomes.org/pub/release-47/plants/gff3/arabidopsis_thaliana/}{.gff3 release 47 date 08/03/2020}) using a custom python script (\texttt{extract\_promoter.py}, available at \url{https://github.com/Switham1/PromoterArchitecture}).
+Promoters were extracted from the Arabidopsis TAIR 10 \autocite{lameschArabidopsisInformationResource2012} genome assembly and Ensembl Plants \autocite{howeEnsemblGenomes20202020} annotation (\href{ftp://ftp.ensemblgenomes.org/pub/release-47/plants/gff3/arabidopsis_thaliana/}{.gff3 release 47 date 08/03/2020}) using a custom python script (\texttt{extract\_promoter.py}, available at \url{https://github.com/Switham1/PromoterArchitecture}).
 
 Promoters were extracted from protein coding genes that did not overlap other protein coding genes using pybedtools \autocite{dalePybedtoolsFlexiblePython2011}.
-Promoters were extracted up to 1000 bp upstream of the longest annotated transcript TSS or until the nearest annotated protein coding gene, and 5'UTRs were included downstream of the TSS until the closest annotated coding sequence (CDS) ATG start codon.
+Promoters were extracted up to 1000 base pairs (bp) upstream of the longest annotated transcript TSS or until the nearest annotated protein coding gene, and 5'UTRs were included downstream of the TSS until the closest annotated coding sequence (CDS) ATG start codon.
 %This is because coding sequences have different conservation patterns to non-coding regions.%see intro XXX%
 Promoters with an upstream gene oriented in the reverse direction less than 2000 bp away were flagged to mitigate for potentially overlapping promoters.
 This was because with overlapping promoters it is difficult to determine whether CREs belong to one promoter over the other or are used by both promoters.
@@ -33,16 +33,41 @@ This was because with overlapping promoters it is difficult to determine whether
 
 The resulting promoter annotations were transformed to bed format using BEDOPS gff2bed~\autocite{nephBEDOPSHighperformanceGenomic2012},and BEDTools getfasta~\autocite{quinlanBEDToolsFlexibleSuite2010} was used to extract promoter sequences from the reference genome.
 Promoters were scanned for DAP\hyp{}seq TFBS motifs~\autocite{omalleyCistromeEpicistromeFeatures2016} using FIMO~\autocite{grantFIMOScanningOccurrences2011} with a zero\hyp{}order background model created using fasta\hyp{}get\hyp{}markov~\autocite{baileyMEMESuiteTools2009}.
-A \textit{p}-value threshold of \texttildelow0.0001 and max stored sequences \texttildelow5000000 was used, and the output was filtered using a \textit{q}\hyp{}value threshold of 0.05 using the \texttt{FIMO\_filter.py} script.
-The script then converts the .tsv file into a BED file by rearranging the columns into the correct order and then utilising BEDTools~\autocite{quinlanBEDToolsFlexibleSuite2010} and pybedtools~\autocite{dalePybedtoolsFlexiblePython2011}.
-This BED file was then used in the \texttt{map\_motif\_ids.py} script (for use with DAP\hyp{}seq cistrome motifs only) which maps the 4th column of the bedfile to the Arabidopsis gene ID nomenclature (eg. AT4G3800) using a gene ID table downloaded from \url{http://neomorph.salk.edu/dap\_web/pages/browse\_table\_aj.php}.
-This gene ID table was created by inspecting the web page source and
-downloading the mapping table as
-a~\href{http://neomorph.salk.edu/dev/pages/shhuang/dap_web/pages/dap-grid-data3.php?_=1573587374712}{.html
-	file} and renaming it to a .json file. To make it into .json format
-several characters were removed as documented in the~\texttt{map\_motif\_Ids.ipynb} notebook file. The .json was then converted to a
-dataframe table. The~\texttt{map\_motif\_ids.py} script also adds a
-transcription factor name column. A mapped motif bed file was created as
-the output.
+A \textit{p}-value threshold of \texttildelow0.0001 and max stored sequences \texttildelow5000000 was used, and the output was filtered using a \textit{q}\hyp{}value threshold of 0.05.
+Arabidopsis gene IDs for promoters and the TFs binding them were recovered for further analysis.
+
+\subsection{Sliding window creation}
+\label{sliding-window-creation}
+%describe how sliding windows were created%
+
+\subsection{GC content}
+{\label{gc-content}}
+
+Percentage GC content of promoters and each promoter window was determined using python to test the hypothesis that constitutive genes have a higher GC content that variable genes. The Mann\hyp{}Whitney U test~\autocite{mannTestWhetherOne1947}
+was used to test for differences in GC content between constitutive and variable promoters.
+
+\subsection{Transcription factor binding site coverage}
+{\label{transcription-factor-binding-site-coverage}}
+
+To test the hypothesis that the CRMs of variable genes will have a lower percentage of base pairs covered by at least one TFBS than CRMs of constitutive genes, BedTools coverage tool was utilised. The number of base pairs covered by at least one motif in a given sequence was calculated using the BEDTools coverage tool~\autocite{quinlanBEDToolsFlexibleSuite2010}.
+The proportion of base pairs covered by TFBSs in constitutive promoters
+was compared to variable promoters using a Mann Whitney U
+test~\autocite{mannTestWhetherOne1947}.
+
+\subsection{TF diversity}
+{\label{tf-diversity}}
+
+The unique TF count for each promoter was calculated \ie{} if
+TFBSs for a TF were found several times in a promoter, that TF was only counted once.
+To test the hypothesis that constitutive CRMs will have a more diverse TFBS profile than variable CRMs the Shannon diversity was calculated.
+The mapped motif annotations were analysed using the the skbio.diversity.alpha.shannon Python module (\url{https://github.com/biocore/scikit-bio}) to calculate the Shannon diversity of individual TFs and also TF families binding each promoter.
+The Shannon diversity, unique TFBS counts and raw TFBS counts were analysed comparing constitutively expressed promoters to variable promoters.
+The Mann\hyp{}Whitney U test was used~\autocite{mannTestWhetherOne1947}.
+
+As documented in\href{https://github.com/Switham1/PromoterArchitecture/blob/master/src/plotting/TF_diversity_plots_wholeprom.ipynb}{\texttt{TF\_diversity\_plots\_wholeprom.ipynb}}, a table was created containing each promoter on a different row with each TF family in a different column.
+The numbers in each cell represent the number of times TFs belonging to a particular TF family are predicted to bind to a certain promoter.
+A principle component analysis was run where \SI{95}{\percent} of the variation was maintained with 22 components.
+Then hierarchical clustering was used (Python code from \url{http://www.nxn.se/valent/extract-cluster-elements-by-color-in-python}) to estimate the number of clusters, K, to be used in Kmeans clustering.
+The number of clusters was predicted using the silhouette method~\autocite{rousseeuwSilhouettesGraphicalAid1987} and then used as K in Kmeans clustering using the sklearn.cluster.KMeans Python module (\url{https://github.com/scikit-learn/scikit-learn/tree/master/sklearn/cluster}).
 
 
