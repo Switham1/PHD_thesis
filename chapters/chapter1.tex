@@ -14,7 +14,7 @@ If necessary, Dunn's post-hoc tests \autocite{dunnMultipleComparisonsUsing1964} 
 \subsection{Extraction of \textit{cis}-regulatory modules}\label{chapter1:methods:extraction-of-cis-regulatory-modules}
 
 Promoters were extracted from the Arabidopsis TAIR 10 \autocite{lameschArabidopsisInformationResource2012} genome assembly and Ensembl Plants \autocite{howeEnsemblGenomes20202020} annotation (\href{ftp://ftp.ensemblgenomes.org/pub/release-47/plants/gff3/arabidopsis_thaliana/}{.gff3 release 47 date 08/03/2020}) using a custom Python script (\href{https://github.com/Switham1/PromoterArchitecture/blob/master/src/data_sorting/extract_promoter.py}{\texttt{extract\_promoter.py}}, available at \url{https://github.com/Switham1/PromoterArchitecture}).
-
+Only promoters from genes on Arabidopsis chromosomes 1-5 were extracted.
 Promoters were extracted from protein coding genes that did not overlap other protein coding genes using pybedtools \autocite{dalePybedtoolsFlexiblePython2011}.
 Promoters were extracted 1000 base pairs (bp) upstream of the longest annotated transcript TSS or until the nearest annotated protein coding gene, and 5'UTRs were included downstream of the TSS up until the closest annotated coding sequence (CDS) ATG start codon.
 %This is because coding sequences have different conservation patterns to non-coding regions.%see intro XXX%
@@ -95,8 +95,21 @@ The 15 bp TATA boxes were used as segments of interest. Both the 100 constitutiv
 
 \section{Results}\label{chapter1:results}
 
+3299 genes were flagged and removed from the analysis as they were overlapping other genes.
 An analysis pipeline was created to analyse promoter architecture of constitutive and responsive genes.
-66 constitutive and 56 variable promoters were flagged as overlapping other genes.
-Additionally, genes were flagged as having potentially overlapping promoters when the upstream gene was positioned in the opposite direction and was less than 2000 bp away from the TSS.
-53 constitutive genes and 27 variable genes were flagged as having
-potentially overlapping promoters.
+Genes were flagged as having potentially overlapping promoters when the upstream gene was positioned in the opposite direction and was less than 2000 bp away from the TSS.
+66 constitutive, 87 variable and 70 control genes were flagged as having potentially overlapping promoters.
+\begin{figure}[!h]
+	\begin{center}
+		\capstart
+		\includegraphics[width=0.70\columnwidth]{genetype_bp_covered_boxplot/whole_prom/Czechowski_TFBS_coverage_box}
+		\caption{
+			The percentage of base pairs covered by at least one transcription
+			factor binding motif in 100 constitutive (blue), 100 variable (orange) and 100 control (green)
+			Arabidopsis \textit{cis}-regulatory modules (CRMs). Promoters were extracted 1000 bp upstream of the
+			annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene. 5UTRs extended downstream of the TSS to the closest coding region.
+			\label{fig:bp-covered}
+		}
+	\end{center}
+\end{figure}
+
