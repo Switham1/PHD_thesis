@@ -16,7 +16,7 @@ If necessary, Dunn's post-hoc tests \autocite{dunnMultipleComparisonsUsing1964} 
 Promoters were extracted from the Arabidopsis TAIR 10 \autocite{lameschArabidopsisInformationResource2012} genome assembly and Ensembl Plants \autocite{howeEnsemblGenomes20202020} annotation (\href{ftp://ftp.ensemblgenomes.org/pub/release-47/plants/gff3/arabidopsis_thaliana/}{.gff3 release 47 date 08/03/2020}) using a custom Python script (\href{https://github.com/Switham1/PromoterArchitecture/blob/master/src/data_sorting/extract_promoter.py}{\texttt{extract\_promoter.py}}, available at \url{https://github.com/Switham1/PromoterArchitecture}).
 
 Promoters were extracted from protein coding genes that did not overlap other protein coding genes using pybedtools \autocite{dalePybedtoolsFlexiblePython2011}.
-Promoters were extracted up to 1000 base pairs (bp) upstream of the longest annotated transcript TSS or until the nearest annotated protein coding gene, and 5'UTRs were included downstream of the TSS until the closest annotated coding sequence (CDS) ATG start codon.
+Promoters were extracted 1000 base pairs (bp) upstream of the longest annotated transcript TSS or until the nearest annotated protein coding gene, and 5'UTRs were included downstream of the TSS up until the closest annotated coding sequence (CDS) ATG start codon.
 %This is because coding sequences have different conservation patterns to non-coding regions.%see intro XXX%
 Promoters with an upstream gene oriented in the reverse direction less than 2000 bp away were flagged to mitigate for potentially overlapping promoters.
 This was because with overlapping promoters it is difficult to determine whether CREs belong to one promoter over the other or are used by both promoters.
