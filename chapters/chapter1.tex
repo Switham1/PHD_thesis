@@ -1,4 +1,4 @@
-%\chapter{Chapter 1}\label{ch:1}
+\chapter{Chapter 1}\label{ch:1}
 
 \section{Introduction}\label{chapter1:introduction}
 \section{Methods}\label{chapter1:methods}
@@ -8,8 +8,8 @@ Methods since then:
 
 All data analysis and plotting was done using Python 3~\autocite{pythoncoreteamPythonDynamicOpen2020}.
 The Shapiro\hyp{}Wilk normality test~\autocite{shapiroAnalysisVarianceTest1965} and Levene's homogeneity of variance~\autocite{leveneRobustTestsEquality1960} were used to test assumptions for parametric tests.
-For non-parametric analyses the Kruskal-Wallis \textit{H} test \autocite{kruskalUseRanksOneCriterion1952} was used to test for differences between constitutive, variable and control promoters.
-If necessary, Dunn's post-hoc tests \autocite{dunnMultipleComparisonsUsing1964} were used with Bonferroni adjustment for multiple comparisons.
+For non\hyp{}parametric analyses the Kruskal\hyp{}Wallis \textit{H} test \autocite{kruskalUseRanksOneCriterion1952} was used to test for differences between constitutive, variable and control promoters.
+If necessary, Dunn's post\hyp{}hoc tests \autocite{dunnMultipleComparisonsUsing1964} were used with Bonferroni adjustment for multiple comparisons.
 
 \subsection{Extraction of \textit{cis}-regulatory modules}\label{chapter1:methods:extraction-of-cis-regulatory-modules}
 
@@ -26,7 +26,7 @@ This was because with overlapping promoters it is difficult to determine whether
 
 The resulting promoter annotations were transformed to bed format using BEDOPS gff2bed~\autocite{nephBEDOPSHighperformanceGenomic2012},and BEDTools getfasta~\autocite{quinlanBEDToolsFlexibleSuite2010} was used to extract promoter sequences from the reference genome.
 Promoters were scanned for DAP\hyp{}seq TFBS motifs~\autocite{omalleyCistromeEpicistromeFeatures2016} using FIMO~\autocite{grantFIMOScanningOccurrences2011} with a zero\hyp{}order background model created using fasta\hyp{}get\hyp{}markov~\autocite{baileyMEMESuiteTools2009}.
-A \textit{p}-value threshold of \texttildelow0.0001 and max stored sequences \texttildelow5000000 was used, and the output was filtered using a \textit{q}\hyp{}value threshold of 0.05.
+A \textit{p}\hyp{}value threshold of \texttildelow0.0001 and max stored sequences \texttildelow5000000 was used, and the output was filtered using a \textit{q}\hyp{}value threshold of 0.05.
 Arabidopsis gene IDs for promoters and the TFs binding them were recovered for further analysis.
 
 \subsection{Gene selection}\label{chapter1:methods:gene-selection}
@@ -62,11 +62,11 @@ The proportion of base pairs covered by TFBSs in constitutive promoters was comp
 \subsection{Open chromatin coverage}
 {\label{chapter1:methods:open-chromatin-coverage}}
 
-Negative control (treated with NaOH) ATAC-seq data was downloaded from \textcite{potterCytokininModulatesContextdependent2018} for root and shoot tissues.
+Negative control (treated with NaOH) ATAC\hyp{}seq data was downloaded from \textcite{potterCytokininModulatesContextdependent2018} for root and shoot tissues.
 Individual bed files for each replicated were concatenated and BedTools merge was used to combine overlapping peaks.
 An intersection for root and shoot open chromatin was created using BedTools intersect.
 To test the hypothesis that the CRMs of variable genes will have a lower proportion of open chromatin, BedTools coverage tool was used.
-The number of base pairs covered by root, shoot or the root-shoot intersect open chromatin was calculated using BedTools coverage.
+The number of base pairs covered by root, shoot or the root\hyp{}shoot intersect open chromatin was calculated using BedTools coverage.
 
 
 \subsection{TF diversity}
@@ -99,6 +99,15 @@ The 15 bp TATA boxes were used as segments of interest. Both the 100 constitutiv
 An analysis pipeline was created to analyse promoter architecture of constitutive and responsive genes.
 Genes were flagged as having potentially overlapping promoters when the upstream gene was positioned in the opposite direction and was less than 2000 bp away from the TSS.
 66 constitutive, 87 variable and 70 control genes were flagged as having potentially overlapping promoters.
+
+
+\subsection{GC content}
+
+The hypothesis that constitutive genes have a higher GC content than variable genes was tested.
+GC content was significantly different between variable, constitutive and control promoters (Kruskal\hyp{}Wallis~\textit{H} = 8.7,~\textit{P} \textgreater{} 0.05). Dunn's post\hyp{}hoc tests with Bonferroni adjustment revealed that constitutive promoters ()
+
+
+
 \begin{figure}[!h]
 	\begin{center}
 		\capstart
@@ -106,10 +115,9 @@ Genes were flagged as having potentially overlapping promoters when the upstream
 		\caption{
 			The percentage of base pairs covered by at least one transcription
 			factor binding motif in 100 constitutive (blue), 100 variable (orange) and 100 control (green)
-			Arabidopsis \textit{cis}-regulatory modules (CRMs). Promoters were extracted 1000 bp upstream of the
+			Arabidopsis \textit{cis}\hyp{}regulatory modules (CRMs). Promoters were extracted 1000 bp upstream of the
 			annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene. 5UTRs extended downstream of the TSS to the closest coding region.
 			\label{fig:bp-covered-wholeprom}
 		}
 	\end{center}
 \end{figure}
-
