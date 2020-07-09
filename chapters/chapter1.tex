@@ -9,7 +9,7 @@ Methods since then:
 All data analysis and plotting was done using Python 3~\autocite{pythoncoreteamPythonDynamicOpen2020}.
 The Shapiro\hyp{}Wilk normality test~\autocite{shapiroAnalysisVarianceTest1965} and Levene's homogeneity of variance~\autocite{leveneRobustTestsEquality1960} were used to test assumptions for parametric tests.
 
-\subsection{Gene selection}\label{gene-selection}
+\subsection{Gene selection}\label{chapter1:methods:gene-selection}
 
 To investigate the stability of expression, \textcite*{czechowskiGenomeWideIdentificationTesting2005} analysed gene expression data from \textit{Arabidopsis thaliana} Col-0 across 79 different tissues, organs, developmental stages and genotypes.
 This data enables genes to be ranked according to stability of expression across tissues using coefficient of variation (CV) values.
@@ -18,9 +18,9 @@ Alongside this, the 100 most variable genes were chosen.
 100 promoters were selected from the central distribution of expression CV in the \textcite*{czechowskiGenomeWideIdentificationTesting2005} dataset.
 To ensure even coverage, 10 genes were selected randomly from 10 bins covering the range of CV between the constitutive and variable gene sets.
 
-\subsection{Extraction of \textit{cis}-regulatory modules}\label{extraction-of-cis-regulatory-modules}
+\subsection{Extraction of \textit{cis}-regulatory modules}\label{chapter1:methods:extraction-of-cis-regulatory-modules}
 
-Promoters were extracted from the Arabidopsis TAIR 10 \autocite{lameschArabidopsisInformationResource2012} genome assembly and Ensembl Plants \autocite{howeEnsemblGenomes20202020} annotation (\href{ftp://ftp.ensemblgenomes.org/pub/release-47/plants/gff3/arabidopsis_thaliana/}{.gff3 release 47 date 08/03/2020}) using a custom python script (\href{https://github.com/Switham1/PromoterArchitecture/blob/master/src/data_sorting/extract_promoter.py}{\texttt{extract\_promoter.py}}, available at \url{https://github.com/Switham1/PromoterArchitecture}).
+Promoters were extracted from the Arabidopsis TAIR 10 \autocite{lameschArabidopsisInformationResource2012} genome assembly and Ensembl Plants \autocite{howeEnsemblGenomes20202020} annotation (\href{ftp://ftp.ensemblgenomes.org/pub/release-47/plants/gff3/arabidopsis_thaliana/}{.gff3 release 47 date 08/03/2020}) using a custom Python script (\href{https://github.com/Switham1/PromoterArchitecture/blob/master/src/data_sorting/extract_promoter.py}{\texttt{extract\_promoter.py}}, available at \url{https://github.com/Switham1/PromoterArchitecture}).
 
 Promoters were extracted from protein coding genes that did not overlap other protein coding genes using pybedtools \autocite{dalePybedtoolsFlexiblePython2011}.
 Promoters were extracted up to 1000 base pairs (bp) upstream of the longest annotated transcript TSS or until the nearest annotated protein coding gene, and 5'UTRs were included downstream of the TSS until the closest annotated coding sequence (CDS) ATG start codon.
@@ -29,7 +29,7 @@ Promoters with an upstream gene oriented in the reverse direction less than 2000
 This was because with overlapping promoters it is difficult to determine whether CREs belong to one promoter over the other or are used by both promoters.
 
 \subsection{Transcription factor binding site identification}
-\label{transcription-factor-binding-site-identification}
+\label{chapter1:methods:transcription-factor-binding-site-identification}
 
 The resulting promoter annotations were transformed to bed format using BEDOPS gff2bed~\autocite{nephBEDOPSHighperformanceGenomic2012},and BEDTools getfasta~\autocite{quinlanBEDToolsFlexibleSuite2010} was used to extract promoter sequences from the reference genome.
 Promoters were scanned for DAP\hyp{}seq TFBS motifs~\autocite{omalleyCistromeEpicistromeFeatures2016} using FIMO~\autocite{grantFIMOScanningOccurrences2011} with a zero\hyp{}order background model created using fasta\hyp{}get\hyp{}markov~\autocite{baileyMEMESuiteTools2009}.
@@ -37,17 +37,19 @@ A \textit{p}-value threshold of \texttildelow0.0001 and max stored sequences \te
 Arabidopsis gene IDs for promoters and the TFs binding them were recovered for further analysis.
 
 \subsection{Sliding window creation}
-\label{sliding-window-creation}
+\label{chapter1:methods:sliding-window-creation}
 %describe how sliding windows were created%
+Promoters were split into 100 bp sliding windows with a 50 bp step size using a custom Python script (\href{https://github.com/Switham1/PromoterArchitecture/blob/master/src/rolling_window/rolling_window.py}{rolling\_window.py}).
+
 
 \subsection{GC content}
-{\label{gc-content}}
+{\label{chapter1:methods:gc-content}}
 
-Percentage GC content of promoters and each promoter window was determined using python to test the hypothesis that constitutive genes have a higher GC content that variable genes. The Mann\hyp{}Whitney U test~\autocite{mannTestWhetherOne1947}
+Percentage GC content of promoters and each promoter window was determined using python to test the hypothesis that constitutive genes have a higher GC content than variable genes. The Mann\hyp{}Whitney U test~\autocite{mannTestWhetherOne1947}
 was used to test for differences in GC content between constitutive and variable promoters.
 
 \subsection{Transcription factor binding site coverage}
-{\label{transcription-factor-binding-site-coverage}}
+{\label{chapter1:methods:transcription-factor-binding-site-coverage}}
 
 To test the hypothesis that the CRMs of variable genes will have a lower percentage of base pairs covered by at least one TFBS than CRMs of constitutive genes, BedTools coverage tool was utilised. The number of base pairs covered by at least one motif in a given sequence was calculated using the BEDTools coverage tool~\autocite{quinlanBEDToolsFlexibleSuite2010}.
 The proportion of base pairs covered by TFBSs in constitutive promoters
@@ -55,7 +57,7 @@ was compared to variable promoters using a Mann Whitney U
 test~\autocite{mannTestWhetherOne1947}.
 
 \subsection{TF diversity}
-{\label{tf-diversity}}
+{\label{chapter1:methods:tf-diversity}}
 
 The unique TF count for each promoter was calculated \ie{} if
 TFBSs for a TF were found several times in a promoter, that TF was only counted once.
@@ -64,7 +66,7 @@ The mapped motif annotations were analysed using the the skbio.diversity.alpha.s
 The Shannon diversity, unique TFBS counts and raw TFBS counts were analysed comparing constitutively expressed promoters to variable promoters.
 The Mann\hyp{}Whitney U test was used~\autocite{mannTestWhetherOne1947}.
 
-As documented in\href{https://github.com/Switham1/PromoterArchitecture/blob/master/src/plotting/TF_diversity_plots_wholeprom.ipynb}{\texttt{TF\_diversity\_plots\_wholeprom.ipynb}}, a table was created containing each promoter on a different row with each TF family in a different column.
+As documented in \href{https://github.com/Switham1/PromoterArchitecture/blob/master/src/plotting/TF_diversity_plots_wholeprom.ipynb}{\texttt{TF\_diversity\_plots\_wholeprom.ipynb}}, a table was created containing each promoter on a different row with each TF family in a different column.
 The numbers in each cell represent the number of times TFs belonging to a particular TF family are predicted to bind to a certain promoter.
 A principle component analysis was run where \SI{95}{\percent} of the variation was maintained with 22 components.
 Then hierarchical clustering was used (Python code from \url{http://www.nxn.se/valent/extract-cluster-elements-by-color-in-python}) to estimate the number of clusters, K, to be used in Kmeans clustering.
