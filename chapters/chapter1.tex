@@ -8,15 +8,8 @@ Methods since then:
 
 All data analysis and plotting was done using Python 3~\autocite{pythoncoreteamPythonDynamicOpen2020}.
 The Shapiro\hyp{}Wilk normality test~\autocite{shapiroAnalysisVarianceTest1965} and Levene's homogeneity of variance~\autocite{leveneRobustTestsEquality1960} were used to test assumptions for parametric tests.
-
-\subsection{Gene selection}\label{chapter1:methods:gene-selection}
-
-To investigate the stability of expression, \textcite*{czechowskiGenomeWideIdentificationTesting2005} analysed gene expression data from \textit{Arabidopsis thaliana} Col-0 across 79 different tissues, organs, developmental stages and genotypes.
-This data enables genes to be ranked according to stability of expression across tissues using coefficient of variation (CV) values.
-Recreating the methodology used by \textcite*{czechowskiGenomeWideIdentificationTesting2005}, CV was used to select the 100 most constitutively expressed genes from raw expression data generated in their study.
-Alongside this, the 100 most variable genes were chosen.
-100 promoters were selected from the central distribution of expression CV in the \textcite*{czechowskiGenomeWideIdentificationTesting2005} dataset.
-To ensure even coverage, 10 genes were selected randomly from 10 bins covering the range of CV between the constitutive and variable gene sets.
+For non-parametric analyses the Kruskal-Wallis \textit{H} test \autocite{kruskalUseRanksOneCriterion1952} was used to test for differences between constitutive, variable and control promoters.
+If necessary, Dunn's post-hoc tests \autocite{dunnMultipleComparisonsUsing1964} were used with Bonferroni adjustment for multiple comparisons.
 
 \subsection{Extraction of \textit{cis}-regulatory modules}\label{chapter1:methods:extraction-of-cis-regulatory-modules}
 
@@ -36,33 +29,53 @@ Promoters were scanned for DAP\hyp{}seq TFBS motifs~\autocite{omalleyCistromeEpi
 A \textit{p}-value threshold of \texttildelow0.0001 and max stored sequences \texttildelow5000000 was used, and the output was filtered using a \textit{q}\hyp{}value threshold of 0.05.
 Arabidopsis gene IDs for promoters and the TFs binding them were recovered for further analysis.
 
+\subsection{Gene selection}\label{chapter1:methods:gene-selection}
+
+To investigate the stability of expression, \textcite*{czechowskiGenomeWideIdentificationTesting2005} analysed gene expression data from \textit{Arabidopsis thaliana} Col-0 across 79 different tissues, organs, developmental stages and genotypes.
+This data enables genes to be ranked according to stability of expression across tissues using coefficient of variation (CV) values.
+Only genes which had at least one TFBS found in their promoters using FIMO (see \ref{chapter1:methods:transcription-factor-binding-site-identification}) were ranked according to CV.
+Recreating the methodology used by \textcite*{czechowskiGenomeWideIdentificationTesting2005}, CV was used to select the 100 most constitutively expressed genes from raw expression data generated in their study.
+Alongside this, the 100 most variable genes were chosen.
+100 promoters were selected from the central distribution of expression CV in the \textcite*{czechowskiGenomeWideIdentificationTesting2005} dataset.
+To ensure even coverage, 10 genes were selected randomly from 10 bins covering the range of CV between the constitutive and variable gene sets.
+
+
 \subsection{Sliding window creation}
 \label{chapter1:methods:sliding-window-creation}
 %describe how sliding windows were created%
 Promoters were split into 100 bp sliding windows with a 50 bp step size using a custom Python script (\href{https://github.com/Switham1/PromoterArchitecture/blob/master/src/rolling_window/rolling_window.py}{rolling\_window.py}).
 
-
 \subsection{GC content}
 {\label{chapter1:methods:gc-content}}
 
-Percentage GC content of promoters and each promoter window was determined using python to test the hypothesis that constitutive genes have a higher GC content than variable genes. The Mann\hyp{}Whitney U test~\autocite{mannTestWhetherOne1947}
-was used to test for differences in GC content between constitutive and variable promoters.
+Percentage GC content of promoters and each promoter window was determined using python to test the hypothesis that constitutive genes have a higher GC content than variable genes.
+%The Mann\hyp{}Whitney U test~\autocite{mannTestWhetherOne1947}
+
 
 \subsection{Transcription factor binding site coverage}
 {\label{chapter1:methods:transcription-factor-binding-site-coverage}}
 
-To test the hypothesis that the CRMs of variable genes will have a lower percentage of base pairs covered by at least one TFBS than CRMs of constitutive genes, BedTools coverage tool was utilised. The number of base pairs covered by at least one motif in a given sequence was calculated using the BEDTools coverage tool~\autocite{quinlanBEDToolsFlexibleSuite2010}.
-The proportion of base pairs covered by TFBSs in constitutive promoters
-was compared to variable promoters using a Mann Whitney U
-test~\autocite{mannTestWhetherOne1947}.
+To test the hypothesis that the CRMs of variable genes will have a lower percentage of base pairs covered by at least one TFBS than CRMs of constitutive genes, BedTools coverage tool was utilised.
+The number of base pairs covered by at least one motif in a given sequence was calculated using the BEDTools coverage tool~\autocite{quinlanBEDToolsFlexibleSuite2010}.
+The proportion of base pairs covered by TFBSs in constitutive promoters was compared to variable promoters using a Mann Whitney U test~\autocite{mannTestWhetherOne1947}.
+
+\subsection{Open chromatin coverage}
+{\label{chapter1:methods:open-chromatin-coverage}}
+
+Negative control (treated with NaOH) ATAC-seq data was downloaded from \textcite{potterCytokininModulatesContextdependent2018} for root and shoot tissues.
+Individual bed files for each replicated were concatenated and BedTools merge was used to combine overlapping peaks.
+An intersection for root and shoot open chromatin was created using BedTools intersect.
+To test the hypothesis that the CRMs of variable genes will have a lower proportion of open chromatin, BedTools coverage tool was used.
+The number of base pairs covered by root, shoot or the root-shoot intersect open chromatin was calculated using BedTools coverage.
+
 
 \subsection{TF diversity}
 {\label{chapter1:methods:tf-diversity}}
 
-The unique TF count for each promoter was calculated \ie{} if
-TFBSs for a TF were found several times in a promoter, that TF was only counted once.
+The unique TF count for each promoter and promoter window was calculated \ie{} if TFBSs for a TF were found several times in a promoter, that TF was only counted once.
+TFs were only classed as present in a promoter window if the centre of the TFBS was inside the window.
 To test the hypothesis that constitutive CRMs will have a more diverse TFBS profile than variable CRMs the Shannon diversity was calculated.
-The mapped motif annotations were analysed using the the skbio.diversity.alpha.shannon Python module (\url{https://github.com/biocore/scikit-bio}) to calculate the Shannon diversity of individual TFs and also TF families binding each promoter.
+The mapped motif annotations were analysed using the the skbio.diversity.alpha.shannon Python module (\url{https://github.com/biocore/scikit-bio}) to calculate the Shannon diversity of individual TFs and also TF families binding each promoter or promoter window.
 The Shannon diversity, unique TFBS counts and raw TFBS counts were analysed comparing constitutively expressed promoters to variable promoters.
 The Mann\hyp{}Whitney U test was used~\autocite{mannTestWhetherOne1947}.
 
@@ -72,4 +85,18 @@ A principle component analysis was run where \SI{95}{\percent} of the variation 
 Then hierarchical clustering was used (Python code from \url{http://www.nxn.se/valent/extract-cluster-elements-by-color-in-python}) to estimate the number of clusters, K, to be used in Kmeans clustering.
 The number of clusters was predicted using the silhouette method~\autocite{rousseeuwSilhouettesGraphicalAid1987} and then used as K in Kmeans clustering using the sklearn.cluster.KMeans Python module (\url{https://github.com/scikit-learn/scikit-learn/tree/master/sklearn/cluster}).
 
+\subsection{TATA box enrichment}
+\label{chapter1:methods:tata-box-enrichment}
 
+TATA box presence/absence for the genes of interest was downloaded from Eukaryotic promoter database (release: At\_EPDnew\_004)~\autocite{dreosEukaryoticPromoterDatabase2017}.
+Genomic Association Tester (GAT)~\autocite{hegerGATSimulationFramework2013} was used to
+compare enrichment of TATA boxes in constitutive and responsive genes to test the hypothesis that variable genes are enriched for TATA boxes over constitutive genes.
+The 15 bp TATA boxes were used as segments of interest. Both the 100 constitutive and 100 responsive promoter annotations were separately tested for enrichment of TATA boxes compared to the background workspace file containing all 200 promoters of interest.
+
+\section{Results}\label{chapter1:results}
+
+An analysis pipeline was created to analyse promoter architecture of constitutive and responsive genes.
+66 constitutive and 56 variable promoters were flagged as overlapping other genes.
+Additionally, genes were flagged as having potentially overlapping promoters when the upstream gene was positioned in the opposite direction and was less than 2000 bp away from the TSS.
+53 constitutive genes and 27 variable genes were flagged as having
+potentially overlapping promoters.
