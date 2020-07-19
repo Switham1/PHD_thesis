@@ -1,3 +1,4 @@
+# Core latex/lualatex auxiliary files and intermediate documents
 *.aux
 *.glo
 *.idx
@@ -26,6 +27,12 @@
 *blx.bib
 *.synctex.gz
 *.pdf
+
+# Include pdfs in the figures folder
+!figures/*.pdf
+
 *.bcf
 .olauth
+
+# Auto commit bash file
 .gitcommit.sh
