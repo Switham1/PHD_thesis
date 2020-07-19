@@ -29,7 +29,7 @@
 *.pdf
 
 # Include pdfs in the figures folder
-!figures/*.pdf
+!figures/**.pdf
 
 *.bcf
 .olauth
