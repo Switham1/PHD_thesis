@@ -132,7 +132,7 @@ Dunn's post\hyp{}hoc tests with Bonferroni adjustment revealed that constitutive
 
 A sliding window analysis of GC content revealed that the biggest differences in GC content with small confidence intervals between constitutive and variable promoters was \textasciitilde{}400 bp upstream of the ATG start codon (\autoref{fig:gc-content-sliding-window}).
 From \textasciitilde{}350 bp to \textasciitilde{}600 bp upstream of the start codon the median open chromatin in constitutive CRMs decreases to zero while variable CRMs had a median percentage open chromatin of 0.
-To confirm whether this was a genuine difference or due to different 5'UTR lengths between constutitive and variable genes, the percentage of root\hyp{}shoot intersect open chromatin of windows was plotted from the Araport11 TSS (figure).
+To confirm whether this was a genuine difference or due to different 5'UTR lengths between constutitive and variable genes, the percentage of root\hyp{}shoot intersect open chromatin of windows was plotted from the Araport11 TSS (\autoref{fig:gc-content-sliding-window-araporttss}).
 The median percentage open chromatin decreased upstream of the TSS for both constitutive and variable genes, and constutive genes ahd a higher percentage open chromatin -100 to + 500 bp around the TSS (ADD STATS).
 
 %TALK ABOUT 5UTR lengths - test if constutive have longer 5'UTR lengths (check for expected  hypothesis first and see if useful comparison or not)
@@ -148,13 +148,26 @@ The median percentage open chromatin decreased upstream of the TSS for both cons
 			A: Median percentage of open chromatin peaks overlapping 100 bp windows. Open chromatin peaks derived from the intersect of root and shoot peaks derived from negative control (treated with NaOH) ATAC\hyp{}seq data by \textcite{potterCytokininModulatesContextdependent2018}.
 			B: Position of Araport11 annotated transcription start site (TSS) upstream of the ATG start codon of the closest coding region.			
 			C: Median percentage GC content in 100 bp windows.			
-			ns, not significant; *, \textit{p} \textless{} 0.05. Confidence intervals, \SI{95}{\percent} with 10000 bootstraps.
 			\label{fig:gc-content-sliding-window}
 		}
 	\end{center}
 \end{figure}
 
-
+\begin{figure}[!h]
+	\begin{center}
+		\capstart
+		\includegraphics[width=1\columnwidth]{GC_content/wholeprom/Araport11_Czechowski_genetypenocontrol_openchromatin_sliding_window}
+		\caption{
+			Sliding window analysis of 100 constitutive (blue) and 100 variable (orange) Arabidopsis \textit{cis}\hyp{}regulatory modules (CRMs). Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
+			5UTRs were extended downstream of the TSS to the closest coding region.
+			Data points are positioned in the centre of each 100 bp window.
+			Windows are offset by 50 bp.
+			A: Median percentage of open chromatin peaks overlapping 100 bp windows. Open chromatin peaks derived from the intersect of root and shoot peaks derived from negative control (treated with NaOH) ATAC\hyp{}seq data by \textcite{potterCytokininModulatesContextdependent2018}.
+			B: Median percentage GC content in 100 bp windows.			
+			\label{fig:gc-content-sliding-window-araporttss}
+		}
+	\end{center}
+\end{figure}
 
 
 
