@@ -26,10 +26,11 @@
 *.run.xml
 *blx.bib
 *.synctex.gz
-*.pdf
+#*.pdf
+main.pdf
 
 # Include pdfs in the figures folder
-!figures/**.pdf
+#!figures/**.pdf
 
 *.bcf
 .olauth
