@@ -47,8 +47,8 @@
 
 
 \usepackage{graphicx}
-%set figure path
-\graphicspath{{figures/}}
+%add relative path of figures
+\graphicspath{{figures/}{../figures/}}
 \usepackage[space]{grffile}
 \usepackage{latexsym}
 \usepackage{textcomp}
@@ -93,6 +93,9 @@
 \usepackage{fontspec, expl3, ucharcat, lualatex-math}
 \usepackage{unicode-math}
 \setmathfont{texgyrepagella-math.otf}
+%use subfile package for chapters
+\usepackage{subfiles}
+
 % Edit this header.tex file to include frontmatter definitions and global macros
 
 % Add here any LaTeX packages you would like to load in all document blocks
@@ -179,8 +182,9 @@ transcription start site; transcription start region.
 \newpage
 \microtypesetup{protrusion=true}
 %add progress review chapter
-
-\include{chapters/chapter1}
+\section{Chapter 1}
+\subfile{chapters/chapter1}
+%\include{chapters/chapter1}
 
 
 
