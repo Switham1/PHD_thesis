@@ -113,9 +113,8 @@ Genes were flagged as having potentially overlapping promoters when the upstream
 \subsection{GC content}
 
 The hypothesis that constitutive genes have a higher GC content than variable genes was tested.
-GC content was significantly different between variable, constitutive and control promoters (Kruskal\hyp{}Wallis~\textit{H} = 8.7,~\textit{P} \textless{} 0.05).
-Dunn's post\hyp{}hoc tests with Bonferroni adjustment revealed that constitutive promoters had a significantly higher GC content (33.2 ± \SI{4.5}{\percent}) than variable promoters (31.8 ± \SI{3.6}{\percent}; \autoref{fig:gc-content-wholeprom}).
-% need to redo this figure/analysis to ensure no genes are included where they don't have a promoter (as all overalpping - 5'UTR only)
+GC content was not significantly different between variable, constitutive and control promoters (Kruskal\hyp{}Wallis~\textit{H} = 5.8,~\textit{P} \textgreater{} 0.05) \autoref{fig:gc-content-wholeprom}).
+
 \begin{figure}[!h]
 	\begin{center}
 		\capstart
@@ -124,7 +123,7 @@ Dunn's post\hyp{}hoc tests with Bonferroni adjustment revealed that constitutive
 			Percentage GC content of 100 constitutive (blue), 100 variable (orange) and 100 control (green) Arabidopsis \textit{cis}\hyp{}regulatory modules (CRMs).
 			Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
 			5UTRs were extended downstream of the TSS to the closest coding region.  Box plots have box boundaries that represent 25th, 50th (median) and 75th percentiles; whiskers are drawn up to the largest or smallest observed point that falls within 1.5 times the interquartile range.
-			ns, not significant; *, \textit{p} \textless{} 0.05.
+			ns, not significant5.
 			\label{fig:gc-content-wholeprom}
 		}
 	\end{center}
@@ -151,7 +150,7 @@ The median percentage open chromatin decreased upstream of the TSS for both cons
 			Shading represents 95 confidence intervals estimated using 10000 bootstraps.
 			A: Median percentage of open chromatin peaks overlapping 100 bp windows. Open chromatin peaks derived from the intersect of root and shoot peaks derived from negative control (treated with NaOH) ATAC\hyp{}seq data by \textcite{potterCytokininModulatesContextdependent2018}.
 			B: Position of Araport11 annotated transcription start site (TSS) upstream of the ATG start codon of the closest coding region.			
-			C: Median percentage GC content in 100 bp windows.
+			C: Median percentage GC content in 100 bp windows. N = 95
 			D: Median percentage bp covered by at least one transcription factor binding site.
 			E: Shannon diversity of individual transcription factors binding within each 100 bp window.
 			\label{fig:all-combined-sliding-window}
