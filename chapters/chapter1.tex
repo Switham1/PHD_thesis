@@ -58,7 +58,7 @@ This was because with overlapping promoters it is difficult to determine whether
 \subsection{Transcription factor binding site identification}
 \label{chapter1:methods:transcription-factor-binding-site-identification}
 
-The resulting promoter annotations were transformed to bed format using BEDOPS gff2bed~\autocite{nephBEDOPSHighperformanceGenomic2012},and BEDTools getfasta~\autocite{quinlanBEDToolsFlexibleSuite2010} was used to extract promoter sequences from the reference genome.
+The resulting promoter annotations were transformed to bed format using BEDOPS gff2bed~\autocite{nephBEDOPSHighperformanceGenomic2012}, and BEDTools getfasta~\autocite{quinlanBEDToolsFlexibleSuite2010} was used to extract promoter sequences from the reference genome.
 Promoters were scanned for DAP\hyp{}seq TFBS motifs~\autocite{omalleyCistromeEpicistromeFeatures2016} using FIMO~\autocite{grantFIMOScanningOccurrences2011} with a zero\hyp{}order background model created using fasta\hyp{}get\hyp{}markov~\autocite{baileyMEMESuiteTools2009}.
 A \textit{p}\hyp{}value threshold of \texttildelow0.0001 and max stored sequences \texttildelow5000000 was used, and the output was filtered using a \textit{q}\hyp{}value threshold of 0.05.
 Arabidopsis gene IDs for promoters and the TFs binding them were recovered for further analysis.
