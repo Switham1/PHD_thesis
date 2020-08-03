@@ -46,6 +46,16 @@
 \usepackage{authblk}
 %\usepackage{float} %allow strict figure positioning
 
+\usepackage{placeins}% prevent figures being placed in different section
+%then redefine subsections to include float barriers
+\let\Oldsection\section
+\renewcommand{\section}{\FloatBarrier\Oldsection}
+
+\let\Oldsubsection\subsection
+\renewcommand{\subsection}{\FloatBarrier\Oldsubsection}
+
+\let\Oldsubsubsection\subsubsection
+\renewcommand{\subsubsection}{\FloatBarrier\Oldsubsubsection}
 
 \usepackage{graphicx}
 %add relative path of figures
