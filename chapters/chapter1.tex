@@ -2,23 +2,37 @@
 
 \begin{document}
 	
-\chapter{Chapter 1}
+\chapter{CRM architectural differences between constitutive and variable genes}
 \label{chapter1}
 
 \section{Introduction}
 \label{chapter1:introduction}
+There are many known architectural differences between constitutive and variable genes.
+In mammals many differences have been observed. CDSs evolve more slowly in constitutive genes than variable genes \autocite{zhangMammalianHousekeepingGenes2004}.
+Constitutive promoters are enriched for CpG islands over variable promoters \autocite{carninciGenomewideAnalysisMammalian2006}.
+There is conflicting evidence for some differences.
+For example, it has been reported in pigs that constitutive promoters are more conserved than variable promoters \autocite{weiCharacterizationGenePromoters2019} whereas in human variable promoters were found to be more conserved than constitutive promoters \autocite{farreHousekeepingGenesTend2007}.
+In Arabidopsis, constitutive genes are known to have a broad transcription start region (TSR) while variable genes have a narrow TSR \autocite{mortonPairedEndAnalysisTranscription2014}.
+Constitutive genes are known to have a weaker expression in general than variable genes \autocite{czechowskiGenomeWideIdentificationTesting2005,mortonPairedEndAnalysisTranscription2014}.
+Constitutive genes are associated with gene body methylation \autocite{zhangGenomewideHighResolutionMapping2006, takunoBodyMethylatedGenesArabidopsis2012,aceitunoRulesGeneExpression2008} while variable gene sare associated with promoter methylation \autocite{zhangGenomewideHighResolutionMapping2006}.
+Constitutive promoters are enriched for GA regions while variable promoters are depleted in GA regions \autocite{yamamotoHeterogeneityArabidopsisCore2009}. 
+
 
 \subsection{GC content}
 \label{chapter1:introduction:gc-content}
 Mammalian constitutive promoters have a higher GC content than variable promoters \autocite{vinogradovDNAHelixImportance2017,weiCharacterizationGenePromoters2019}.
 Hypothesis: Arabidopsis constitutive promoters will have a higher GC content than variable promoters.
-
+Additionally, TATA-containing promoters contain a larger GC-skew peaking at the TSS than TATA-less promoters \autocite{zuoIdentificationTATATATAless2011}.
+In GC-rich regions DNA shows higher bendability \autocite{vinogradovBendableGenesWarmblooded2001,vinogradovDNAHelixImportance2003} and lower nucleosome formation potential \autocite{vinogradovNoncodingDNAIsochores2005} and increased ability to transition from B to Z-DNA conformation \autocite{vinogradovDNAHelixImportance2003} linked to higher expression.  GC-rich sequence has a higher DNase-I sensitivity with mmore open chromatin \autocite{difilippoMappingDNaseIHypersensitive2008}.
+AT-rich regions show the opposite.
+Additionally, GC-rich regions show an increased mutation rate than AT-rich regions \autocite{vinogradovDNAHelixImportance2017}.
 \subsection{TFBS coverage}
 \label{chapter1:introduction:tfbs-coverage}
-Conflicting evidence in humans:
-Constitutive promoters had more bps covered by TFBSs than variable \autocite{mattioliHighthroughputFunctionalAnalysis2019}.
-DNA entropy of variable genes lower than constitutive \autocite{thomasDNAEntropyReveals2015}.
-Hypothesis: TFBS percentage coverage of promoters in Arabidopsis will be higher in constitutive than variable genes.
+There is conflicting evidence in humans for this.
+Constitutive genes were found to have higher DNA entropy (less order) than variable genes, suggesting that variable genes are more complex and have a higher density of CREs than constitutive ones. \autocite{thomasDNAEntropyReveals2015}. 
+Constitutive promoters had more bps covered by TFBSs than variable promoters \autocite{mattioliHighthroughputFunctionalAnalysis2019}, suggesting that constitutive genes are more complex.
+
+In Arabidopsis the hypothesis is that TFBS percentage coverage of promoters will be higher in constitutive than variable genes.
 
 \subsection{TF diversity}
 \label{chapter1:introduction:tf-diversity}
@@ -31,12 +45,11 @@ Hypothesis: Constitutive promoters will have more diverse TFBS than variable.
 \label{chapter1:introduction:tata-boxes}
 In animals, TATA boxes are enriched in variable promoters \autocite{engstromGenomicRegulatoryBlocks2007,carninciGenomewideAnalysisMammalian2006}.
 Hypothesis: In Arabidopsis, TATA boxes will be enriched in variable genes compared to constitutive genes.
+Genes with TATA boxes tend to have shorter 5'UTRs \autocite{molinaGenomeWideAnalysis2005,lichtenbergWordLandscapeNoncoding2009}.
+TATA-less promoters are enriched for bidirectionality, suggesting that constitutive promoters are enriched for bidirectionality over variable promoters \autocite{dhadiGenomewideComparativeAnalysis2009}.
 
 \section{Methods}
 \label{chapter1:methods}
-
-See progressreview 2020
-Methods since then:
 
 
 All data analysis and plotting was done using Python 3~\autocite{pythoncoreteamPythonDynamicOpen2020}.
