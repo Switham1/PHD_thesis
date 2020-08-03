@@ -259,7 +259,41 @@ Further analysis in this 400 bp region revealed a significant difference between
 
 \subsection{TF diversity}
 The hypothesis that constitutive genes have a higher diversity of TFs binding them than variable genes was tested.
+There was no significant difference in TF (Kruskal\hyp{}Wallis~\textit{H} = 1.1,~\textit{P} \textgreater{} 0.05) or TF family diversity (Kruskal\hyp{}Wallis~\textit{H} = 0.3,~\textit{P} \textgreater{} 0.05) between promoter types \autoref{fig:tf-diversity-wholeprom}).
 
+\begin{figure}[hbt!]
+	\begin{center}
+		\capstart
+		\includegraphics[width=0.50\columnwidth]{TF_diversity/wholeprom/Czechowski_TF_diversity_box_subplots}
+		\caption{
+			Shannon diversity of TF families (A) and individual TFs (B) of 100 constitutive (blue), 100 variable (orange) and 100 control (green) Arabidopsis \textit{cis}\hyp{}regulatory modules (CRMs).
+			Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
+			5UTRs were extended downstream of the TSS to the closest coding region.  Box plots have box boundaries that represent 25th, 50th (median) and 75th percentiles; whiskers are drawn up to the largest or smallest observed point that falls within 1.5 times the interquartile range.			
+			\label{fig:tf-diversity-wholeprom}
+		}
+	\end{center}
+\end{figure}
+
+A sliding window analysis revealed that in the constitutive open chromatin region 50-150 bp upstream of the ATG start codon (\autoref{fig:tf-diversity-sliding-window}A), variable promoters looked to have slightly higher Shannon diversity than constitutive promoters (\autoref{fig:tf-diversity-sliding-window}B). Median TF family Shannon diversity did not differ from 0 at any point along the CRM.
+
+ \begin{figure}[hbt!]
+	\begin{center}
+		\capstart
+		\includegraphics[width=1\columnwidth]{TF_diversity/Czechowski_genetypenocontrol_TF_diversity_rw_median_sliding_window_combined}
+		\caption{
+			Sliding window analysis of 100 constitutive (blue) and 100 variable (orange) Arabidopsis \textit{cis}\hyp{}regulatory modules (CRMs).
+			Promoters were extracted 1000 base pairs (bp) upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
+			5UTRs were extended downstream of the TSS to the closest coding region.
+			Data points are positioned in the centre of each 100 bp window.
+			Windows are offset by 50 bp.
+			Shading represents 95 confidence intervals estimated using 10000 bootstraps.
+			A: Median percentage of open chromatin peaks overlapping 100 bp windows. Open chromatin peaks derived from the intersect of root and shoot peaks derived from negative control (treated with NaOH) ATAC\hyp{}seq data by \textcite{potterCytokininModulatesContextdependent2018}.	
+			B: Median Shannon diversity of individual TFs in 100 bp windows.
+			C: Median Shannon diversity of TF families in 100 bp windows.
+			\label{fig:tf-diversity-sliding-window}
+		}
+	\end{center}
+\end{figure}
 
 
 
