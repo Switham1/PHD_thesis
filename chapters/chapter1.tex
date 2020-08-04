@@ -266,7 +266,7 @@ There was no significant difference in TF (Kruskal\hyp{}Wallis~\textit{H} = 1.1,
 		\capstart
 		\includegraphics[width=0.50\columnwidth]{TF_diversity/wholeprom/Czechowski_TF_diversity_box_subplots}
 		\caption{
-			Shannon diversity of TF families (A) and individual TFs (B) of 100 constitutive (blue), 100 variable (orange) and 100 control (green) Arabidopsis \textit{cis}\hyp{}regulatory modules (CRMs).
+			Shannon diversity of individual TFs (A) and TF families (B) of 100 constitutive (blue), 100 variable (orange) and 100 control (green) Arabidopsis \textit{cis}\hyp{}regulatory modules (CRMs).
 			Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
 			5UTRs were extended downstream of the TSS to the closest coding region.  Box plots have box boundaries that represent 25th, 50th (median) and 75th percentiles; whiskers are drawn up to the largest or smallest observed point that falls within 1.5 times the interquartile range.			
 			\label{fig:tf-diversity-wholeprom}
@@ -274,7 +274,7 @@ There was no significant difference in TF (Kruskal\hyp{}Wallis~\textit{H} = 1.1,
 	\end{center}
 \end{figure}
 
-A sliding window analysis revealed that in the constitutive open chromatin region 50-150 bp upstream of the ATG start codon (\autoref{fig:tf-diversity-sliding-window}A), variable promoters looked to have slightly higher Shannon diversity than constitutive promoters (\autoref{fig:tf-diversity-sliding-window}B). Median TF family Shannon diversity did not differ from 0 at any point along the CRM.
+A sliding window analysis revealed that in the constitutive open chromatin region 50-150 bp upstream of the ATG start codon (\autoref{fig:tf-diversity-sliding-window}A), variable promoters looked to have slightly higher Shannon diversity than constitutive promoters (\autoref{fig:tf-diversity-sliding-window}B). Median TF family Shannon diversity did not differ from 0 at any point along the CRM (\autoref{fig:tf-diversity-sliding-window}C).
 
  \begin{figure}[hbt!]
 	\begin{center}
@@ -294,6 +294,24 @@ A sliding window analysis revealed that in the constitutive open chromatin regio
 		}
 	\end{center}
 \end{figure}
+
+Further analysis in the 400 bp region upstream of the start codon 
+
+
+\begin{figure}[hbt!]
+	\begin{center}
+		\capstart
+		\includegraphics[width=0.50\columnwidth]{TF_diversity/400bpprom/Czechowski_TF_diversity_box_subplots}
+		\caption{
+			Shannon diversity of individual TFs (A) and TF families (B) of 100 constitutive (blue), 100 variable (orange) and 100 control (green) Arabidopsis \textit{cis}\hyp{}regulatory modules (CRMs) in a 400 bp region upstream of the ATG start codon.
+			Box plots have box boundaries that represent 25th, 50th (median) and 75th percentiles; whiskers are drawn up to the largest or smallest observed point that falls within 1.5 times the interquartile range.
+			\label{fig:tfbs-coverage-400bpprom}
+			*, \textit{P} \textless{} 0.05. ns, not significant.
+		}
+	\end{center}
+\end{figure}
+
+
 
 
 
