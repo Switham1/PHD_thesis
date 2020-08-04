@@ -149,9 +149,21 @@ An additional 484 genes were filtered that contained no TFBSs in their CRMs when
 An analysis pipeline was created to analyse promoter architecture of constitutive and variable genes.
 1959 genes were flagged as having potentially overlapping promoters where the upstream gene was positioned in the opposite direction and was less than 2000 bp away from the TSS.
 37 constitutive, 13 variable and 23 control genes were flagged as having potentially overlapping promoters.
-%The top 100 constitutive and top 100 variable genes chosen are annotated on the \textcite{czechowskiGenomeWideIdentificationTesting2005} coefficient of expression variation distribution of all Arabidopsis promoters after the filtering specified above \autoref{fig:cv-dist-allgenes}.
+The top 100 constitutive and top 100 variable genes chosen are annotated on the \textcite{czechowskiGenomeWideIdentificationTesting2005} coefficient of expression variation distribution of all Arabidopsis promoters after the filtering specified above \autoref{fig:cv-dist-allgenes}.
 
-
+\begin{figure}[hbt!]
+	\begin{center}
+		\capstart
+		\includegraphics[width=0.50\columnwidth]{genes/czechowski_co-oefficient_of_variation_distribution}
+		\caption{
+			Distribution of coefficient of expression variation (CV) values for all Arabidopsis thaliana genes after filtering overlapping genes and genes with no TFBSs in their promoters.
+			CV values calculated as in \textcite{czechowskiGenomeWideIdentificationTesting2005}.
+			The CV range of the top 100 constitutive genes with the lowest CVs are annotated with an arrow (blue range marker).
+			The CV range of the top 100 variable genes with the highest CVs are annotated with an orange range marker).			
+			\label{fig:cv-dist-allgenes}
+		}
+	\end{center}
+\end{figure}
 
 \subsection{GC content}
 
