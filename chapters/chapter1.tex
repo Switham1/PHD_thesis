@@ -91,6 +91,7 @@ To ensure even coverage, 10 genes were selected randomly from 10 bins covering t
 \label{chapter1:methods:sliding-window-creation}
 %describe how sliding windows were created%
 Promoters were split into 100 bp sliding windows with a 50 bp step size using a custom Python script (\href{https://github.com/Switham1/PromoterArchitecture/blob/master/src/rolling_window/rolling_window.py}{rolling\_window.py}, available at \url{https://github.com/Switham1/PromoterArchitecture}).
+Windows with fewer than 100 promoters extending to that location were removed.
 
 \subsection{GC content}
 {\label{chapter1:methods:gc-content}}
@@ -144,9 +145,12 @@ The 15 bp TATA boxes were used as segments of interest. Both the 100 constitutiv
 \label{chapter1:results}
 
 3299 genes were flagged and removed from the analysis as they were overlapping other genes.
-An analysis pipeline was created to analyse promoter architecture of constitutive and responsive genes.
-Genes were flagged as having potentially overlapping promoters when the upstream gene was positioned in the opposite direction and was less than 2000 bp away from the TSS.
-66 constitutive, 87 variable and 70 control genes were flagged as having potentially overlapping promoters.
+An additional 484 genes were filtered that contained no TFBSs in their CRMs when scanned with FIMO. 
+An analysis pipeline was created to analyse promoter architecture of constitutive and variable genes.
+1959 genes were flagged as having potentially overlapping promoters where the upstream gene was positioned in the opposite direction and was less than 2000 bp away from the TSS.
+37 constitutive, 13 variable and 23 control genes were flagged as having potentially overlapping promoters.
+%The top 100 constitutive and top 100 variable genes chosen are annotated on the \textcite{czechowskiGenomeWideIdentificationTesting2005} coefficient of expression variation distribution of all Arabidopsis promoters after the filtering specified above \autoref{fig:cv-dist-allgenes}.
+
 
 
 \subsection{GC content}
@@ -297,7 +301,7 @@ A sliding window analysis revealed that in the constitutive open chromatin regio
 
 Further analysis in the 400 bp region upstream of the start codon revealed a significant difference in individual TF diversity between promoter types (Kruskal\hyp{}Wallis~\textit{H} = 6.1,~\textit{P} \textless{} 0.05).
 Dunn's posthocs with Bonferroni correction showed that variable promoters had a significantly higher Shannon diversity of individual TFs binding them (\SI{1.6}{\percent} ± 0.7) than constitutive promoters (\SI{1.3}{\percent} ± 0.8; \autoref{fig:tf-diversity-400bpprom}A).
-There was no significant difference in the TF family Shannon diversity binding promoters between promoter types (Kruskal\hyp{}Wallis~\textit{H} = 3.3,~\textit{P} \textgreater{} 0.05).
+There was no significant difference in the TF family Shannon diversity binding promoters between promoter types (Kruskal\hyp{}Wallis~\textit{H} = 3.3,~\textit{P} \textgreater{} 0.05; \autoref{fig:tf-diversity-400bpprom}B).
 
 
 \begin{figure}[hbt!]
@@ -315,10 +319,10 @@ There was no significant difference in the TF family Shannon diversity binding p
 
 From \textasciitilde{}350 bp to \textasciitilde{}650 bp upstream of the start codon the median open chromatin in constitutive CRMs decreases to zero while variable CRMs had a median percentage open chromatin of 0.
 To confirm whether this was a genuine difference or due to different 5'UTR lengths between constutitive and variable genes, the percentage of root\hyp{}shoot intersect open chromatin of windows was plotted centred around the Araport11 TSS (\autoref{fig:all-combined-sliding-window-araporttss}).
+The median percentage open chromatin decreased upstream of the TSS for both constitutive and variable genes, and constutive genes had a higher percentage open chromatin -100 to + 500 bp around the TSS.%Add stats
 
 
 
-The median percentage open chromatin decreased upstream of the TSS for both constitutive and variable genes, and constutive genes had a higher percentage open chromatin -100 to + 500 bp around the TSS (ADD STATS).%Add stats
 
 
 
@@ -366,20 +370,3 @@ The median percentage open chromatin decreased upstream of the TSS for both cons
 
 
 
-
-
-
-\begin{figure}[!h]
-	\begin{center}
-		\capstart
-		\includegraphics[width=0.50\columnwidth]{bp_covered/wholeprom/Czechowski_TFBS_coverage_box}
-		\caption{
-			The percentage of base pairs covered by at least one transcription
-			factor binding motif in 100 constitutive (blue), 100 variable (orange) and 100 control (green)
-			Arabidopsis \textit{cis}\hyp{}regulatory modules (CRMs). Promoters were extracted 1000 bp upstream of the
-			annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene. 5UTRs extended downstream of the TSS to the closest coding region.
-			\label{fig:bp-covered-wholeprom}
-		}
-	\end{center}
-\end{figure}
-\end{document}
