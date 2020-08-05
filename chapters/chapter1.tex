@@ -136,7 +136,7 @@ The number of clusters was predicted using the silhouette method~\autocite{rouss
 \subsection{TATA box enrichment}
 \label{chapter1:methods:tata-box-enrichment}
 
-TATA box presence/absence for the genes of interest was downloaded from Eukaryotic promoter database (release: At\_EPDnew\_004)~\autocite{dreosEukaryoticPromoterDatabase2017}.
+15 bp TATA box locations were downloaded from Eukaryotic Promoter Database (release: At\_EPDnew\_004)~\autocite{dreosEukaryoticPromoterDatabase2017} present between -50 to 0 relative to the EPD TSS.
 Genomic Association Tester (GAT)~\autocite{hegerGATSimulationFramework2013} was used to
 compare enrichment of TATA boxes in constitutive and responsive genes to test the hypothesis that variable genes are enriched for TATA boxes over constitutive genes.
 The 15 bp TATA boxes were used as segments of interest. Both the 100 constitutive and 100 responsive promoter annotations were separately tested for enrichment of TATA boxes compared to the background workspace file containing all 200 promoters of interest.
@@ -358,19 +358,19 @@ The median percentage open chromatin decreased upstream of the TSS for both cons
 \subsection{TATA box enrichment}
 
 Enrichment of 15 bp TATA boxes was compared between constitutive and
-variable genes to test the hypothesis that variable genes are enriched in TATA boxes. Variable gene promoters were enriched in TATA boxes (total TATA boxes = 30; observed bp=390; expected bp=195; log2fold=0.52;~\textit{P} \textless{} 0.01) compared to the background of all 200 constitutive and responsive promoters
-(\autoref{fig:tata-enrichment}). Conversely, constitutive gene
-promoters had significantly fewer TATA boxes compared to the background of all 200 constitutive and variable promoters (total TATA boxes = 10; observed bp=164; expected bp=1281; log2fold=-0.16;~\textit{P} \textless{} 0.01).
+variable genes to test the hypothesis that variable genes are enriched in TATA boxes. Variable gene promoters were enriched in TATA boxes (total TATA boxes = 53; observed bp=840; expected bp=633; log2fold=0.41;~\textit{P} \textless{} 0.01) compared to the background of all 200 constitutive and responsive promoters
+(\autoref{fig:tata-enrichment}). Conversely, constitutive gene promoters had significantly fewer TATA boxes compared to the background of all 200 constitutive and variable promoters (total TATA boxes = 28; observed bp=440; expected bp=646; log2fold=-0.55;~\textit{P} \textless{} 0.01).
 
 \begin{figure}[!h]
 	\begin{center}
 		\capstart
-		\includegraphics[width=0.70\columnwidth]{log2fold/Czechowski_promoters_5UTR_log2fold\textbf{}}
-		\caption{Log2\hyp{}fold enrichment of 15 bp TATA boxes in variable (blue) and constitutive (orange) gene promoters compared to a background of
-			constitutive and variable promoters combined.~\textit{N~}= 100. Promoters were 1000 bp upstream of the Araport 11 \autocite{chengAraport11CompleteReannotation2017} annotated
-			transcription start site and included 675 bp downstream too. TATA box
-			locations downloaded from Eukaryotic Promoter Database
-			\autocite{dreosInfluenceRotationalNucleosome2016}. Gat software~\autocite{hegerGATSimulationFramework2013} was used to calculate enrichment.
+		\includegraphics[width=0.70\columnwidth]{log2fold/Czechowski_promoters_5UTR_log2fold}
+		\caption{
+			Log2\hyp{}fold enrichment of 15 bp TATA boxes in 100 variable (blue) and 100 constitutive (orange) Arabidopsis \textit{cis}\hyp{}regulatory modules (CRMs) compared to a background of constitutive and variable promoters combined.
+			Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
+			5UTRs were extended downstream of the TSS to the closest coding region.
+			TATA box locations within 50 bp upstream of the Eukaryotic Promoter Database (EPD) TSS were downloaded from EPD \autocite{dreosInfluenceRotationalNucleosome2016}.
+			Gat software~\autocite{hegerGATSimulationFramework2013} was used to calculate enrichment.
 			\label{fig:tata-enrichment}
 		}
 	\end{center}
