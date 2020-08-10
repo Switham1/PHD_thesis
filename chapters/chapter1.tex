@@ -23,7 +23,7 @@ Constitutive promoters are enriched for GA regions while variable promoters are 
 Mammalian constitutive promoters have a higher GC content than variable promoters \autocite{vinogradovDNAHelixImportance2017,weiCharacterizationGenePromoters2019}.
 Hypothesis: Arabidopsis constitutive promoters will have a higher GC content than variable promoters.
 Additionally, TATA-containing promoters contain a larger GC-skew peaking at the TSS than TATA-less promoters \autocite{zuoIdentificationTATATATAless2011}.
-In GC-rich regions DNA shows higher bendability \autocite{vinogradovBendableGenesWarmblooded2001,vinogradovDNAHelixImportance2003} and lower nucleosome formation potential \autocite{vinogradovNoncodingDNAIsochores2005} and increased ability to transition from B to Z-DNA conformation \autocite{vinogradovDNAHelixImportance2003} linked to higher expression.  GC-rich sequence has a higher DNase-I sensitivity with mmore open chromatin \autocite{difilippoMappingDNaseIHypersensitive2008}.
+In GC-rich regions DNA shows higher bendability \autocite{vinogradovBendableGenesWarmblooded2001,vinogradovDNAHelixImportance2003} and lower nucleosome formation potential \autocite{vinogradovNoncodingDNAIsochores2005} and increased ability to transition from B to Z-DNA conformation \autocite{vinogradovDNAHelixImportance2003} linked to higher expression.  GC-rich sequence has a higher DNase-I sensitivity with more open chromatin \autocite{difilippoMappingDNaseIHypersensitive2008}.
 AT-rich regions show the opposite.
 Additionally, GC-rich regions show an increased mutation rate than AT-rich regions \autocite{vinogradovDNAHelixImportance2017}.
 \subsection{TFBS coverage}
@@ -149,14 +149,14 @@ An additional 484 genes were filtered that contained no TFBSs in their CRMs when
 An analysis pipeline was created to analyse promoter architecture of constitutive and variable genes.
 1959 genes were flagged as having potentially overlapping promoters where the upstream gene was positioned in the opposite direction and was less than 2000 bp away from the TSS.
 37 constitutive, 13 variable and 23 control genes were flagged as having potentially overlapping promoters.
-The top 100 constitutive and top 100 variable genes chosen as in \textcite{czechowskiGenomeWideIdentificationTesting2005} are annotated on the  coefficient of expression variation distribution of all Arabidopsis promoters after the filtering specified above \autoref{fig:cv-dist-allgenes}.
+The top 100 constitutive and top 100 variable genes chosen as in \textcite{czechowskiGenomeWideIdentificationTesting2005} are annotated on a plot showing the  coefficient of expression variation distribution of all Arabidopsis promoters after the filtering process specified above (\autoref{fig:cv-dist-allgenes}).
 
 \begin{figure}[hbt!]
 	\begin{center}
 		\capstart
 		\includegraphics[width=0.70\columnwidth]{genes/czechowski_co-oefficient_of_variation_distribution}
 		\caption{
-			Distribution of coefficient of expression variation (CV) values for all Arabidopsis thaliana genes after filtering overlapping genes and genes with no TFBSs in their promoters.
+			Distribution of coefficient of expression variation (CV) values for all \textit{Arabidopsis thaliana} genes after filtering overlapping genes and genes with no TFBSs in their promoters.
 			CV values calculated as in \textcite{czechowskiGenomeWideIdentificationTesting2005}.
 			The CV range of the top 100 constitutive genes with the lowest CVs is annotated with an arrow (blue range marker).
 			The CV range of the top 100 variable genes with the highest CVs is annotated with an orange range marker).			
@@ -168,7 +168,7 @@ The top 100 constitutive and top 100 variable genes chosen as in \textcite{czech
 \subsection{GC content}
 
 The hypothesis that constitutive genes have a higher GC content than variable genes was tested.
-GC content was not significantly different between variable, constitutive and control promoters (Kruskal\hyp{}Wallis~\textit{H} = 5.8,~\textit{P} \textgreater{} 0.05) \autoref{fig:gc-content-wholeprom}).
+GC content was not significantly different between variable, constitutive and control promoters (Kruskal\hyp{}Wallis~\textit{H} = 5.8,~\textit{P} \textgreater{} 0.05; \autoref{fig:gc-content-wholeprom}).
 
 \begin{figure}[hbt!]
 	\begin{center}
@@ -183,7 +183,7 @@ GC content was not significantly different between variable, constitutive and co
 	\end{center}
 \end{figure}
 
-A sliding window analysis revealed that within the first 400 bp upstream of the ATG start codon the median open chromatin for consitututive genes was \textasciitilde{}\SI{60}{\percent} (\autoref{fig:gc-content-sliding-window}A).
+A sliding window analysis revealed that for constitutive genes open chromatin was fairly open in the first 400 bp upstream of the ATG start codon, with a median percentage bp covered by open chromatin of \SI{100}{\percent} overall in the whole 400 bp region  (\autoref{fig:gc-content-sliding-window}A).
 \begin{figure}[hbt!]
 	\begin{center}
 		\capstart
@@ -203,8 +203,8 @@ A sliding window analysis revealed that within the first 400 bp upstream of the 
 \end{figure}
 %This 400 bp region contained the majority of TSSs (\autoref{fig:all-combined-sliding-window}B).
 Within this 400 bp region percentage GC content looked higher for constitutive genes than variable genes (\autoref{fig:gc-content-sliding-window}B).
-Further analysis showed that there was a significant difference between promoter types in theis 400 bp region (Kruskal\hyp{}Wallis~\textit{H} = 12.6,~\textit{P} \textless{} 0.01).
-Dunn's posthoc tests revealed that within the 400 bp region constitutive promoters had a significantly higher GC content (\SI{35.1}{\percent} ± 5.0) than variable promoters (\SI{33.1}{\percent} ± 4.7; ~\textit{P} \textless{} 0.01) (\autoref{fig:gc-content-400bpprom}.
+Further analysis showed that there was a significant difference between promoter types in this 400 bp region (Kruskal\hyp{}Wallis~\textit{H} = 12.6,~\textit{P} \textless{} 0.01).
+Dunn's posthoc tests with Bonferroni correction revealed that within the 400 bp region constitutive promoters had a significantly higher GC content (\SI{35.1}{\percent} ± 5.0) than variable promoters (\SI{33.1}{\percent} ± 4.7; ~\textit{P} \textless{} 0.01) (\autoref{fig:gc-content-400bpprom}.
 
 \begin{figure}[hbt!]
 	\begin{center}
@@ -223,7 +223,7 @@ Dunn's posthoc tests revealed that within the 400 bp region constitutive promote
 
 \subsection{Transcription factor binding site coverage}
 The hypothesis that constitutive genes have a higher TFBS coverage than variable genes was tested.
-TFBS coverage was not significantly different between promoter types (Kruskal\hyp{}Wallis~\textit{H} = 5.1,~\textit{P} \textgreater{} 0.05) \autoref{fig:tfbs-coverage-wholeprom}.
+TFBS coverage was not significantly different between promoter types (Kruskal\hyp{}Wallis~\textit{H} = 5.1,~\textit{P} \textgreater{} 0.05; \autoref{fig:tfbs-coverage-wholeprom}).
 
 \begin{figure}[hbt!]
 	\begin{center}
@@ -238,7 +238,7 @@ TFBS coverage was not significantly different between promoter types (Kruskal\hy
 	\end{center}
 \end{figure}
 
-A sliding window analysis revealed that in the constitutive open chromatin region 400 bp upstream of the ATG start codon (\autoref{fig:tfbs-coverage-sliding-window}A), TFBS coverage was higher in variable promoters than constitutive (\autoref{fig:tfbs-coverage-sliding-window}B).
+A sliding window analysis revealed that in the constitutive open chromatin region 400 bp upstream of the ATG start codon (\autoref{fig:tfbs-coverage-sliding-window}A) TFBS coverage was higher in variable promoters than constitutive (\autoref{fig:tfbs-coverage-sliding-window}B).
 
  \begin{figure}[hbt!]
 	\begin{center}
@@ -290,7 +290,7 @@ There was no significant difference in TF (Kruskal\hyp{}Wallis~\textit{H} = 1.1,
 	\end{center}
 \end{figure}
 
-A sliding window analysis revealed that in the constitutive open chromatin region 50-150 bp upstream of the ATG start codon (\autoref{fig:tf-diversity-sliding-window}A), variable promoters looked to have slightly higher Shannon diversity than constitutive promoters (\autoref{fig:tf-diversity-sliding-window}B). Median TF family Shannon diversity did not differ from 0 at any point along the CRM (\autoref{fig:tf-diversity-sliding-window}C).
+A sliding window analysis revealed that in the constitutive open chromatin region 50-150 bp upstream of the ATG start codon (\autoref{fig:tf-diversity-sliding-window}A) variable promoters looked to have slightly higher Shannon diversity than constitutive promoters (\autoref{fig:tf-diversity-sliding-window}B). Median TF family Shannon diversity did not differ from 0 at any point along the CRM (\autoref{fig:tf-diversity-sliding-window}C).
 
  \begin{figure}[hbt!]
 	\begin{center}
@@ -329,7 +329,7 @@ There was no significant difference in the TF family Shannon diversity binding p
 	\end{center}
 \end{figure}
 
-\subsection{open chromatin}
+\subsection{Open chromatin}
 
 From \textasciitilde{}350 bp to \textasciitilde{}650 bp upstream of the start codon the median open chromatin in constitutive CRMs decreases to zero while variable CRMs had a median percentage open chromatin of 0.
 To confirm whether this was a genuine difference or due to different 5'UTR lengths between constutitive and variable genes, the percentage of root\hyp{}shoot intersect open chromatin of windows was plotted centred around the Araport11 TSS (\autoref{fig:all-combined-sliding-window-araporttss}).
@@ -358,8 +358,10 @@ The median percentage open chromatin decreased upstream of the TSS for both cons
 \subsection{TATA box enrichment}
 
 Enrichment of 15 bp TATA boxes was compared between constitutive and
-variable genes to test the hypothesis that variable genes are enriched in TATA boxes. Variable gene promoters were enriched in TATA boxes (total TATA boxes = 53; observed bp=840; expected bp=633; log2fold=0.41;~\textit{P} \textless{} 0.01) compared to the background of all 200 constitutive and responsive promoters
-(\autoref{fig:tata-enrichment}). Conversely, constitutive gene promoters had significantly fewer TATA boxes compared to the background of all 200 constitutive and variable promoters (total TATA boxes = 28; observed bp=440; expected bp=646; log2fold=-0.55;~\textit{P} \textless{} 0.01).
+variable genes to test the hypothesis that variable genes are enriched in TATA boxes.
+Variable promoters were enriched in TATA boxes (total TATA boxes = 53; observed bp=840; expected bp=633; log2fold=0.41;~\textit{P} \textless{} 0.01) compared to the background of all 200 constitutive and variable promoters
+(\autoref{fig:tata-enrichment}).
+Conversely, constitutive promoters had significantly fewer TATA boxes compared to the background of all 200 constitutive and variable promoters (total TATA boxes = 28; observed bp=440; expected bp=646; log2fold=-0.55;~\textit{P} \textless{} 0.01).
 
 \begin{figure}[!h]
 	\begin{center}
