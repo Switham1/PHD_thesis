@@ -7,11 +7,18 @@
 
 \section{Introduction}
 \label{chapter1:introduction}
-There are many known architectural differences between constitutive and variable genes.
-In mammals many differences have been observed. CDSs evolve more slowly in constitutive genes than variable genes \autocite{zhangMammalianHousekeepingGenes2004}.
+There are many known architectural differences between constitutive and variable genes in mammals but less is known about the differences in plants.
+In mammals CDSs evolve more slowly in constitutive genes than variable genes \autocite{zhangMammalianHousekeepingGenes2004}.
+In plants constitutive genes are also more conserved than variable genes \autocite{armisenUniqueGenesPlants2008,wrightEffectsGeneExpression2004}.
+This is because genes expressed in more tissues have higher selective constraints \autocite{wrightEffectsGeneExpression2004}.
+
 Constitutive promoters are enriched for CpG islands over variable promoters \autocite{carninciGenomewideAnalysisMammalian2006}.
+
 There is conflicting evidence for some differences.
 For example, it has been reported in pigs that constitutive promoters are more conserved than variable promoters \autocite{weiCharacterizationGenePromoters2019} whereas in human variable promoters were found to be more conserved than constitutive promoters \autocite{farreHousekeepingGenesTend2007}.
+%is this between species conservation or within species???
+%if between species you woulndt expect promoter sequence conservation, only expression conservation (see armisenUniqueGenesPlants2008)
+
 In Arabidopsis, constitutive genes are known to have a broad transcription start region (TSR) while variable genes have a narrow TSR \autocite{mortonPairedEndAnalysisTranscription2014}.
 Constitutive genes are known to have a weaker expression in general than variable genes \autocite{czechowskiGenomeWideIdentificationTesting2005,mortonPairedEndAnalysisTranscription2014}.
 Constitutive genes are associated with gene body methylation \autocite{zhangGenomewideHighResolutionMapping2006, takunoBodyMethylatedGenesArabidopsis2012,aceitunoRulesGeneExpression2008} while variable gene sare associated with promoter methylation \autocite{zhangGenomewideHighResolutionMapping2006}.
@@ -29,8 +36,18 @@ Additionally, GC-rich regions show an increased mutation rate than AT-rich regio
 \subsection{TFBS coverage}
 \label{chapter1:introduction:tfbs-coverage}
 There is conflicting evidence in humans for this.
-Constitutive genes were found to have higher DNA entropy (less order) than variable genes, suggesting that variable genes are more complex and have a higher density of CREs than constitutive ones. \autocite{thomasDNAEntropyReveals2015}. 
+Constitutive genes were found to have higher DNA entropy (less order) than variable genes, suggesting that variable genes are more complex and have a higher density of CREs than constitutive ones \autocite{thomasDNAEntropyReveals2015}. 
 Constitutive promoters had more bps covered by TFBSs than variable promoters \autocite{mattioliHighthroughputFunctionalAnalysis2019}, suggesting that constitutive genes are more complex.
+In Arabidopsis genes responding to many stimuli have denser TFBS coverage than genes responding to a narrow breadth of stimuli, especially in the region directly upstream of the TSS.
+Variably expressed genes involved in stress response, cell growth and lipid transport are overrepresented in multistimuli-sensitive genes.
+The genes responding to many stimuli, i.e. variably expressed genes, are also flanked by larger intergenic regions so are less likely to be overlapping other genes or to have bidirectional promoters. 
+The longer intergenic regions possibly allow for increased regulation complexity. These variably expressed genes were found to have significantly shorter 5'UTR, gene length and cDNA length than constitutively expressed genes.
+Variably expressed genes also had fewer introns and were more likely to have paralogues in the Arabidopsis genome than than constitutively expressed genes.
+
+Constitutive genes tended to respond to fewer stimuli.
+Interestingly, when only up-regulation or down-regulation responses to stimuli were classed as differential gene expression events, only the up-regulation events showed a significant positive correlation between breadth of response to motif density.
+There was no significant correlation between motif density and breadth of response for down-regulation events \autocite{waltherRegulatoryCodeTranscriptional2007}.
+
 
 In Arabidopsis the hypothesis is that TFBS percentage coverage of promoters will be higher in constitutive than variable genes.
 
@@ -39,13 +56,18 @@ In Arabidopsis the hypothesis is that TFBS percentage coverage of promoters will
 Conflicting evidence in humans:
 Constitutive CRMs will recruit more TFs than responsive CRMs, as they will have more TFBSs each attracting multiple TFs \autocite{mattioliHighthroughputFunctionalAnalysis2019}.
 In pigs, more types of motifs were found in variable promoters than in constitutive \autocite{weiCharacterizationGenePromoters2019}.
+
 Hypothesis: Constitutive promoters will have more diverse TFBS than variable.
+In Arabidopsis 500 bp promoters no significant GO term enrichment or gene family associations were found in constitutive or variable genes categories \autocite{waltherRegulatoryCodeTranscriptional2007}.
+
 
 \subsection{TATA boxes}
 \label{chapter1:introduction:tata-boxes}
 In animals, TATA boxes are enriched in variable promoters \autocite{engstromGenomicRegulatoryBlocks2007,carninciGenomewideAnalysisMammalian2006}.
+In plants, TATA boxes are enriched in genes responding to more stimuli (i.e. variable genes) over genes responding to a narrow breadth of stimuli (i.e. constitutive genes). These variably expressed genes containing TATA boxes tend to have shorter 5'UTRs \autocite{waltherRegulatoryCodeTranscriptional2007,molinaGenomeWideAnalysis2005,lichtenbergWordLandscapeNoncoding2009}.
 Hypothesis: In Arabidopsis, TATA boxes will be enriched in variable genes compared to constitutive genes.
-Genes with TATA boxes tend to have shorter 5'UTRs \autocite{molinaGenomeWideAnalysis2005,lichtenbergWordLandscapeNoncoding2009}.
+
+In Arabidopsis \autocite{waltherRegulatoryCodeTranscriptional2007}% what organism? \autocite{waltherRegulatoryCodeTranscriptional2007} found that to be true in arabidopsis
 TATA-less promoters are enriched for bidirectionality, suggesting that constitutive promoters are enriched for bidirectionality over variable promoters \autocite{dhadiGenomewideComparativeAnalysis2009}.
 
 \section{Methods}
