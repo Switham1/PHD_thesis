@@ -79,8 +79,16 @@
 \selectlanguage{british}
 \usepackage[
     backend=biber,
-    style=nature,maxcitenames=2
+    style=nature,maxcitenames=2, 
+    backref=true %add backreferences in bibliography
   ]{biblatex}
+
+%add backreferences in bibliography inside page brackets
+\DefineBibliographyStrings{english}{%
+	backrefpage = {page},% originally "cited on page"
+	backrefpages = {pages},% originally "cited on pages"
+}  
+  
 \addbibresource{bibliography/biblio.bib}
 %make letter spacing better
 \usepackage[activate={true,nocompatibility},final,tracking=true,factor=1100,stretch=10,shrink=10]{microtype}%spacing=true, kerning=true
