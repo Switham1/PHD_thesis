@@ -5,6 +5,16 @@
 \chapter{CRM architectural differences between constitutive and variable genes}
 \label{chapter1}
 %read https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0212678 very relevant
+%add poitns from this to intro: https://academic.oup.com/gbe/article/7/4/1002/531003
+
+%point about GC content in plants: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0212678. They also found that 1. Broadly expressed genes are less compact in nature and 2. Promoters of broadly expressed genes are stable in plants.
+%expression level is highly influenced by no. of tissues a gene is expressd in (expression breadth) when expression data is pooled from EST libraries.
+
+%The tissue specificity index τ estimates both qualitative variations (i.e. presence/absence) and quantitative variations of expression level among tissues, which has been suggested to be more representative than expression breadth and expression level for the expression complexity of a gene (Yanai et al. 2005).https://link.springer.com/article/10.1007%2Fs10709-013-9730-9
+%evolution:  The resulting data show that PSGs have higher protein evolutionary rates, lower synonymous substitution rates, shorter gene length, fewer exons, higher functional specificity, lower expression level, higher tissue‐specific expression and stronger codon bias than NSGs. https://onlinelibrary.wiley.com/doi/full/10.1111/tpj.13541
+
+% Larger multiple-copy gene families exhibit both lower expression levels and breadth than genes in single-copy gene families17. In addition, tissue-specific expression was more often observed among genes in multiple-copy gene families than genes in single-copy gene families17.https://www.nature.com/articles/s41598-017-13981-1#Sec9
+%"wide range of abiotic and biotic treatments, the application of plant hormones and other chemical treatments performed, and were designed to enable comparative studies by using the same technology platform and reference condition."" We define the term “breadth of response” for every gene as the cumulative number of treatment-control experiments in which the gene was found to be differentially expressed."https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1796623/
 \section{Introduction}
 \label{chapter1:introduction}
 There are many known architectural differences between constitutive and variable genes in mammals but less is known about the differences in plants.
@@ -18,6 +28,7 @@ Highly expressed constitutive genes were more conserved than lowly expressed con
 Interestingly, highly expressed tissue-specific genes were less conserved than lowly expressed tissue-specific genes \autocite{mukhopadhyayDifferentialSelectiveConstraints2008}.
 
 In mammals constitutive promoters are enriched for CpG islands over tissue-specific promoters \autocite{carninciGenomewideAnalysisMammalian2006}.
+%although some CpG islands which have a lower GC content are associated with tissue-specific genes https://academic.oup.com/hmg/article/25/1/69/2384522
 Plants do not contain CpG islands \autocite{kapranovTranscriptionStartSite2009} and no single enrichment, including GA enrichment, is as enriched as CpG islands in mammals \autocite{megrawTranscriptionFactorAffinitybased2009}.
 
 In Arabidopsis, constitutive genes are known to have a weak TSS peak and wide transcription start region (TSR) (termed broad peak in mammals) while tissue-specific genes have a narrow TSR with a strong peak \autocite{mortonPairedEndAnalysisTranscription2014}. There is also a third peak class in plants called broad which covers a wide TSR with a strong TSS peak too.
@@ -193,7 +204,7 @@ The 15 bp TATA boxes were used as segments of interest. Both the 100 constitutiv
 
 \section{Results}
 \label{chapter1:results}
-
+%add open chromatin enrichment and TFBS enrichment. Also TFBS CV binding promoters
 3299 genes were flagged and removed from the analysis as they were overlapping other genes.
 An additional 484 genes were filtered that contained no TFBSs in their CRMs when scanned with FIMO. 
 An analysis pipeline was created to analyse promoter architecture of constitutive and variable genes.
