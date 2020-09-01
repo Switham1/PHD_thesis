@@ -17,6 +17,7 @@
 %"wide range of abiotic and biotic treatments, the application of plant hormones and other chemical treatments performed, and were designed to enable comparative studies by using the same technology platform and reference condition."" We define the term “breadth of response” for every gene as the cumulative number of treatment-control experiments in which the gene was found to be differentially expressed."https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1796623/
 \section{Introduction}
 \label{chapter1:introduction}
+Constitutive genes are genes which have consistent expression levels under normal conditions in all cells across different tissues and developmental stages /autocite{zhangMammalianHousekeepingGenes2004,butteFurtherDefiningHousekeeping2001}. In contrast, variable genes include tissue-specific genes where expression is mainly confined to one or a few tissues /autocite{butteFurtherDefiningHousekeeping2001,schugPromoterFeaturesRelated2005}, and responsive genes which respond to a restricted number of specific biotic or abiotic conditions.
 There are many known architectural differences between constitutive and variable genes in mammals but less is known about the differences in plants.
 In mammals CDSs evolve more slowly in constitutive genes than tissue\hyp{}specific genes \autocite{zhangMammalianHousekeepingGenes2004} while the promoters of constitutive genes are less conserved than in tissue-specific genes \autocite{farreHousekeepingGenesTend2007,carninciGenomewideAnalysisMammalian2006}.
 However, in pigs both promoters and CDSs of constitutive genes were more conserved across species than those of tissue-specific genes~\autocite{weiCharacterizationGenePromoters2019}.
@@ -226,6 +227,33 @@ The top 100 constitutive and top 100 variable genes chosen as in \textcite{czech
 	\end{center}
 \end{figure}
 
+\subsection{Open chromatin}
+
+From \textasciitilde{}350 bp to \textasciitilde{}650 bp upstream of the start codon the median open chromatin in constitutive CRMs decreases to zero while variable CRMs had a median percentage open chromatin of 0.
+To confirm whether this was a genuine difference or due to different 5'UTR lengths between constutitive and variable genes, the percentage of root\hyp{}shoot intersect open chromatin of windows was plotted centred around the Araport11 TSS (\autoref{fig:all-combined-sliding-window-araporttss}).
+The median percentage open chromatin decreased upstream of the TSS for both constitutive and variable genes, and constutive genes had a higher percentage open chromatin -100 to + 500 bp around the TSS.%Add stats
+
+\begin{figure}[!h]
+	\begin{center}
+		\capstart
+		\includegraphics[width=1\columnwidth]{slidingwindow_combined/Araport11_Czechowski_genetypenocontrol_median_openchromatin_sliding_window}
+		\caption{
+			Sliding window analysis of 100 constitutive (blue) and 100 variable (orange) Arabidopsis \textit{cis}\hyp{}regulatory modules (CRMs). Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
+			5UTRs were extended downstream of the TSS to the closest coding region.
+			TSS is represented by 0 on the x-axis.
+			Data points are positioned in the centre of each 100 bp window.
+			Windows are offset by 50 bp.
+			Shading represents 95 confidence intervals estimated using 10000 bootstraps.
+			A: Median percentage of open chromatin peaks overlapping 100 bp windows. Open chromatin peaks derived from the intersect of root and shoot peaks derived from negative control (treated with NaOH) ATAC\hyp{}seq data by \textcite{potterCytokininModulatesContextdependent2018}.		
+			B: Median percentage GC content in 100 bp windows.
+			C: Median percentage bp covered by at least one transcription factor binding site.
+			D: Shannon diversity of individual transcription factors binding within each 100 bp window.
+			\label{fig:all-combined-sliding-window-araporttss}
+		}
+	\end{center}
+\end{figure}
+
+
 \subsection{GC content}
 
 The hypothesis that constitutive genes have a higher GC content than variable genes was tested.
@@ -274,6 +302,7 @@ Dunn's posthoc tests with Bonferroni correction revealed that within the 400 bp 
 		\caption{
 			Percentage GC content of 100 constitutive (blue), 100 variable (orange) and 100 control (green) Arabidopsis \textit{cis}\hyp{}regulatory modules (CRMs) in a 400 bp region upstream of the ATG start codon.
 			Box plots have box boundaries that represent 25th, 50th (median) and 75th percentiles; whiskers are drawn up to the largest or smallest observed point that falls within 1.5 times the interquartile range.
+			**, \textit{P} \textless{} 0.01. ns, not significant.
 			\label{fig:gc-content-400bpprom}
 		}
 	\end{center}
@@ -329,6 +358,7 @@ Further analysis in this 400 bp region revealed a significant difference between
 		\caption{
 			Percentage GC content of 100 constitutive (blue), 100 variable (orange) and 100 control (green) Arabidopsis \textit{cis}\hyp{}regulatory modules (CRMs) in a 400 bp region upstream of the ATG start codon.
 			Box plots have box boundaries that represent 25th, 50th (median) and 75th percentiles; whiskers are drawn up to the largest or smallest observed point that falls within 1.5 times the interquartile range.
+			**, \textit{P} \textless{} 0.01. ns, not significant.
 			\label{fig:tfbs-coverage-400bpprom}
 		}
 	\end{center}
@@ -390,31 +420,7 @@ There was no significant difference in the TF family Shannon diversity binding p
 	\end{center}
 \end{figure}
 
-\subsection{Open chromatin}
 
-From \textasciitilde{}350 bp to \textasciitilde{}650 bp upstream of the start codon the median open chromatin in constitutive CRMs decreases to zero while variable CRMs had a median percentage open chromatin of 0.
-To confirm whether this was a genuine difference or due to different 5'UTR lengths between constutitive and variable genes, the percentage of root\hyp{}shoot intersect open chromatin of windows was plotted centred around the Araport11 TSS (\autoref{fig:all-combined-sliding-window-araporttss}).
-The median percentage open chromatin decreased upstream of the TSS for both constitutive and variable genes, and constutive genes had a higher percentage open chromatin -100 to + 500 bp around the TSS.%Add stats
-
-\begin{figure}[!h]
-	\begin{center}
-		\capstart
-		\includegraphics[width=1\columnwidth]{slidingwindow_combined/Araport11_Czechowski_genetypenocontrol_median_openchromatin_sliding_window}
-		\caption{
-			Sliding window analysis of 100 constitutive (blue) and 100 variable (orange) Arabidopsis \textit{cis}\hyp{}regulatory modules (CRMs). Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
-			5UTRs were extended downstream of the TSS to the closest coding region.
-			TSS is represented by 0 on the x-axis.
-			Data points are positioned in the centre of each 100 bp window.
-			Windows are offset by 50 bp.
-			Shading represents 95 confidence intervals estimated using 10000 bootstraps.
-			A: Median percentage of open chromatin peaks overlapping 100 bp windows. Open chromatin peaks derived from the intersect of root and shoot peaks derived from negative control (treated with NaOH) ATAC\hyp{}seq data by \textcite{potterCytokininModulatesContextdependent2018}.		
-			B: Median percentage GC content in 100 bp windows.
-			C: Median percentage bp covered by at least one transcription factor binding site.
-			D: Shannon diversity of individual transcription factors binding within each 100 bp window.
-			\label{fig:all-combined-sliding-window-araporttss}
-		}
-	\end{center}
-\end{figure}
 
 \subsection{TATA box enrichment}
 
