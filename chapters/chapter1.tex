@@ -204,8 +204,17 @@ Genomic Association Tester (GAT)~\autocite{hegerGATSimulationFramework2013} was 
 compare enrichment of TATA boxes in constitutive and responsive genes to test the hypothesis that variable genes are enriched for TATA boxes over constitutive genes.
 The 15 bp TATA boxes were used as segments of interest. Both the 100 constitutive and 100 responsive promoter annotations were separately tested for enrichment of TATA boxes compared to the background workspace file containing all 200 promoters of interest.
 
+\subsection{Functional analysis}
+\label{chapter1:methods:functional-analysis}
+
+A background gene set of all protein coding genes remaining after the filtering steps mentioned in \autoref{chapter1:methods:extraction-of-cis-regulatory-modules} and filtering so that all promoters contained at least one TFBS when scanned using FIMO \autocite{grantFIMOScanningOccurrences2011}.
+Gene ontology (GO) terms (go-basic.obo; 2020-08-11 release) were downloaded from the GO FTP site (\url{http://www.geneontology.org/GO.current.annotations.shtml}).
+GOATOOLS \autocite{klopfensteinGOATOOLSPythonLibrary2018} was used for gene ontology enrichment analysis using Fisher's exact test \autocite{fisherInterpretationContingencyTables1922} and Benjamini/Hochberg false discovery rate (FDR) correction \autocite{benjaminiControllingFalseDiscovery1995}.
+clusterProfiler \autocite{yuClusterProfilerPackageComparing2012} was used for  (KEGG) gene set enrichment analysis \autocite{kanehisaKEGGKyotoEncyclopedia2000} with Benjamini/Hochberg FDR correction \autocite{benjaminiControllingFalseDiscovery1995}.
+
 \section{Results}
 \label{chapter1:results}
+
 %add open chromatin enrichment and TFBS enrichment. Also TFBS CV binding promoters
 3299 genes were flagged and removed from the analysis as they were overlapping other genes.
 An additional 484 genes were filtered that contained no TFBSs in their CRMs when scanned with FIMO. 
@@ -229,18 +238,21 @@ The top 100 constitutive and top 100 variable genes chosen as in \textcite{czech
 \end{figure}
 
 
-A gene ontology (GO) enrichment analysis using Fisher's exact test \autocite{fisherInterpretationContingencyTables1922} and Benjamini/Hochberg false discovery rate correction \autocite{benjaminiControllingFalseDiscovery1995} found four significantly enriched GO terms for the top 300 constitutive genes (\autoref{fig:go-constitutive}), and four significantly enriched GO terms for the top 300 variable genes (\autoref{fig:go-variable}).
+A gene ontology (GO) enrichment analysis using Fisher's exact test \autocite{fisherInterpretationContingencyTables1922} and Benjamini/Hochberg FDR correction \autocite{benjaminiControllingFalseDiscovery1995} found four significantly enriched GO terms for the top 300 constitutive genes (\autoref{fig:go-constitutive}), and four significantly enriched GO terms for the top 300 variable genes (\autoref{fig:go-variable}).
+In the constitutive group 17 genes were associated with intracellular protein transport, 9 with endocytosis, 4 with receptor mediated endocytosis and 7 genes with the golgi membrane.
+Amongst variably expressed genes, 73 were associated with the nucleus, 55 with being extracellular, 32 with the cytosol and 3 with the plastid.
+A KEGG gene set enrichment analysis with Benjamini/Hochberg FDR correction found no enriched terms in constitutive or variable groups (\textit{p} \textgreater{} 0.05).
 
 \begin{figure}[hbt!]
 	\begin{center}
 		\capstart
-		\includegraphics[width=0.90\columnwidth]{genes/constitutive_300genes}
+		\includegraphics[width=1\columnwidth]{genes/constitutive_300genes}
 		\caption{
 			\textbf{Gene ontology lineage plot for the top 300 constitutive \textit{Arabidopsis thaliana} genes.}
 			The top 300 constitutive genes were chosen based on coefficient of variation (CV) values as in \textcite{czechowskiGenomeWideIdentificationTesting2005} after filtering overlapping genes and genes with no TFBSs in their promoters.
-			Boxes coloured as followed: light red, \textit{p} \textless{} 0.005; yellow\textit{p} \textless{} 0.05; grey, \textit{p} \textgreater{} 0.05 (non-significant study terms).
+			Boxes coloured as followed: light red, \textit{p} \textless{} 0.005; yellow, \textit{p} \textless{} 0.05; grey, \textit{p} \textgreater{} 0.05 (non-significant study terms).
 			%p < 0.01, light orange
-			The gene ontology enrichment analysis was calculated using Fisher's exact test \autocite{fisherInterpretationContingencyTables1922} and Benjamini/Hochberg false discovery rate correction \autocite{benjaminiControllingFalseDiscovery1995}.
+			The gene ontology enrichment analysis was calculated using Fisher's exact test \autocite{fisherInterpretationContingencyTables1922} and Benjamini/Hochberg FDR \autocite{benjaminiControllingFalseDiscovery1995}.
 			\label{fig:go-constitutive}
 		}
 		
@@ -250,13 +262,13 @@ A gene ontology (GO) enrichment analysis using Fisher's exact test \autocite{fis
 \begin{figure}[hbt!]
 	\begin{center}
 		\capstart
-		\includegraphics[width=0.90\columnwidth]{genes/variable_300genes}
+		\includegraphics[width=1\columnwidth]{genes/variable_300genes}
 		\caption{
 			\textbf{Gene ontology lineage plot for the top 300 variable \textit{Arabidopsis thaliana} genes.}
 			The top 300 variable genes were chosen based on coefficient of variation (CV) values as in \textcite{czechowskiGenomeWideIdentificationTesting2005} after filtering overlapping genes and genes with no TFBSs in their promoters.
 			Boxes coloured as followed: light red, \textit{p} \textless{} 0.005; grey, \textit{p} \textgreater{} 0.05 (non-significant study terms).
 			%p < 0.01, light orange
-			The gene ontology enrichment analysis was calculated using Fisher's exact test \autocite{fisherInterpretationContingencyTables1922} and Benjamini/Hochberg false discovery rate correction \autocite{benjaminiControllingFalseDiscovery1995}.
+			The gene ontology enrichment analysis was calculated using Fisher's exact test \autocite{fisherInterpretationContingencyTables1922} and Benjamini/Hochberg FDR correction \autocite{benjaminiControllingFalseDiscovery1995}.
 			\label{fig:go-variable}
 		}
 		
@@ -265,6 +277,8 @@ A gene ontology (GO) enrichment analysis using Fisher's exact test \autocite{fis
 
 
 \subsection{Open chromatin}
+
+Variable CRMs had a significantly lower percentage of nucleotides covered by open chromatin (\SI{35.0}{\percent}) than constitutive (\SI{54.9}{\percent}) or control (\SI{65.1}{\percent}) CRMs (\autoref{fig:chromatin-coverage}).
 
 From \textasciitilde{}350 bp to \textasciitilde{}650 bp upstream of the start codon the median open chromatin in constitutive CRMs decreases to zero while variable CRMs had a median percentage open chromatin of 0 (\autoref{fig:openchrom-sliding-window}).
 
@@ -285,9 +299,25 @@ From \textasciitilde{}350 bp to \textasciitilde{}650 bp upstream of the start co
 	\end{center}
 \end{figure}
 
+To confirm whether this was a genuine difference or due to different 5'UTR lengths between constitutive and variable genes, the percentage of root\hyp{}shoot intersect open chromatin of windows was plotted centred around the Araport11 TSS (\autoref{fig:openchrom-sliding-window-araporttss}).
+The median percentage open chromatin decreased upstream of the TSS for both constitutive and variable genes, and constitutive genes had a higher percentage open chromatin -100 to + 500 bp around the TSS.
 
-To confirm whether this was a genuine difference or due to different 5'UTR lengths between constutitive and variable genes, the percentage of root\hyp{}shoot intersect open chromatin of windows was plotted centred around the Araport11 TSS (\autoref{fig:openchrom-sliding-window-araporttss}).
-The median percentage open chromatin decreased upstream of the TSS for both constitutive and variable genes, and constutive genes had a higher percentage open chromatin -100 to + 500 bp around the TSS.%Add stats
+\begin{figure}[hbt!]
+	\begin{center}
+		\capstart
+		\includegraphics[width=0.60\columnwidth]{openchromatin/wholeprom/Czechowski_chromatin_coverage_box}
+		\caption{
+			\textbf{Percentage open chromatin coverage of 100 constitutive (blue), 100 variable (orange) and 100 control (green) Arabidopsis \textit{cis}\hyp{}regulatory modules (CRMs).}
+			Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
+			5UTRs were extended downstream of the TSS to the closest coding region.
+			Box plots have box boundaries that represent 25th, 50th (median) and 75th percentiles; whiskers are drawn up to the largest or smallest observed point that falls within 1.5 times the interquartile range.
+			Significance was calculated using Kruskal\hyp{}Wallis and Dunn's posthocs with Bonferroni correction.
+			***, \textit{P} \textless{} 0.001. ****,\textit{P} \textless{} 0.0001. ns, not significant.
+			\label{fig:chromatin-coverage}
+		}
+	\end{center}
+\end{figure}
+
 
 \begin{figure}[!h]
 	\begin{center}
@@ -356,7 +386,7 @@ Dunn's posthoc tests with Bonferroni correction revealed that within the 400 bp 
 		\caption{
 			\textbf{Percentage GC content of 100 constitutive (blue), 100 variable (orange) and 100 control (green) Arabidopsis \textit{cis}\hyp{}regulatory modules (CRMs) in a 400 bp region upstream of the ATG start codon.}
 			Box plots have box boundaries that represent 25th, 50th (median) and 75th percentiles; whiskers are drawn up to the largest or smallest observed point that falls within 1.5 times the interquartile range.
-			Significance calculated using Kruskal\hyp{}Wallis and Dunn's posthocs with Bonferroni correciton.
+			Significance was calculated using Kruskal\hyp{}Wallis and Dunn's posthocs with Bonferroni correction.
 			**, \textit{P} \textless{} 0.01. ns, not significant.
 			\label{fig:gc-content-400bpprom}
 		}
@@ -413,7 +443,7 @@ Further analysis in this 400 bp region revealed a significant difference between
 		\caption{
 			\textbf{Percentage TFBS coverage of 100 constitutive (blue), 100 variable (orange) and 100 control (green) Arabidopsis \textit{cis}\hyp{}regulatory modules (CRMs) in a 400 bp region upstream of the ATG start codon.}
 			Box plots have box boundaries that represent 25th, 50th (median) and 75th percentiles; whiskers are drawn up to the largest or smallest observed point that falls within 1.5 times the interquartile range.
-			Significance calculated using Kruskal\hyp{}Wallis and Dunn's posthocs with Bonferroni correciton.
+			Significance was calculated using Kruskal\hyp{}Wallis and Dunn's posthocs with Bonferroni correction.
 			**, \textit{P} \textless{} 0.01. ns, not significant.
 			\label{fig:tfbs-coverage-400bpprom}
 		}
@@ -471,7 +501,7 @@ There was no significant difference in the TF family Shannon diversity binding p
 			\textbf{Shannon diversity of individual TFs (A) and TF families (B) of 100 constitutive (blue), 100 variable (orange) and 100 control (green) Arabidopsis \textit{cis}\hyp{}regulatory modules (CRMs) in a 400 bp region upstream of the ATG start codon.}
 			Box plots have box boundaries that represent 25th, 50th (median) and 75th percentiles; whiskers are drawn up to the largest or smallest observed point that falls within 1.5 times the interquartile range.
 			\label{fig:tf-diversity-400bpprom}
-			Significance calculated using Kruskal\hyp{}Wallis and Dunn's posthocs with Bonferroni correciton.
+			Significance was calculated using Kruskal\hyp{}Wallis and Dunn's posthocs with Bonferroni correction.
 			*, \textit{P} \textless{} 0.05. ns, not significant.
 		}
 	\end{center}
