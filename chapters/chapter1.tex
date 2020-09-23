@@ -122,7 +122,7 @@ This was explained by the fact that tissue-specific MI genes are bound by more m
 \section{Methods}
 \label{chapter1:methods}
 %add short summary paragraph linking to the last paragraph of the intro
-All data analysis and plotting was done using Python 3~\autocite{pythoncoreteamPythonDynamicOpen2020}.
+All data analysis and plotting was done using Python 3.7.8~\autocite{pythoncoreteamPythonDynamicOpen2020}.
 %name Python version too eg. 3.7.3
 The Shapiro\hyp{}Wilk normality test~\autocite{shapiroAnalysisVarianceTest1965} and Levene's homogeneity of variance~\autocite{leveneRobustTestsEquality1960} were used to test assumptions for parametric tests.
 For non\hyp{}parametric analyses the Kruskal\hyp{}Wallis \textit{H} test \autocite{kruskalUseRanksOneCriterion1952} was used to test for differences between constitutive, variable and control promoters.
@@ -132,7 +132,7 @@ If necessary, Dunn's post\hyp{}hoc tests \autocite{dunnMultipleComparisonsUsing1
 
 Promoters were extracted from the Arabidopsis TAIR 10 \autocite{lameschArabidopsisInformationResource2012} genome assembly and Ensembl Plants \autocite{howeEnsemblGenomes20202020} annotation (\href{ftp://ftp.ensemblgenomes.org/pub/release-47/plants/gff3/arabidopsis_thaliana/}{.gff3 release 47 date 08/03/2020}) using a custom Python script (\href{https://github.com/Switham1/PromoterArchitecture/blob/master/src/data_sorting/extract_promoter.py}{\texttt{extract\_promoter.py}}, available at \url{https://github.com/Switham1/PromoterArchitecture}).
 Only promoters from genes on Arabidopsis chromosomes 1-5 were extracted.
-Using the same Python script Promoters were extracted from protein coding genes that did not overlap other protein coding genes using pybedtools \autocite{dalePybedtoolsFlexiblePython2011}.
+Using the same Python script Promoters were extracted from protein coding genes that did not overlap other protein coding genes using pybedtools (version 0.8.1) \autocite{dalePybedtoolsFlexiblePython2011}.
 %What pybedtools version?
 Promoters were extracted 1000 base pairs (bp) upstream of the longest annotated transcript transcription start site (TSS) or until the nearest annotated protein coding gene, and 5'UTRs were included downstream of the TSS up until the closest annotated coding sequence (CDS) ATG start codon.
 Genes where the whole promoter overlapped a protein coding gene, leaving only part of the 5'UTR non-overlapping, were flagged and filtered out.
@@ -143,8 +143,8 @@ Genes where the whole promoter overlapped a protein coding gene, leaving only pa
 \subsection{Transcription factor binding site identification}
 \label{chapter1:methods:transcription-factor-binding-site-identification}
 %Add all software versions
-The resulting promoter annotations were transformed to bed format using BEDOPS gff2bed~\autocite{nephBEDOPSHighperformanceGenomic2012}, and BEDTools getfasta~\autocite{quinlanBEDToolsFlexibleSuite2010} was used to extract promoter sequences from the reference genome.
-Promoters were scanned for DAP\hyp{}seq TFBS motifs~\autocite{omalleyCistromeEpicistromeFeatures2016} using FIMO~\autocite{grantFIMOScanningOccurrences2011} with a zero\hyp{}order background model created using fasta\hyp{}get\hyp{}markov~\autocite{baileyMEMESuiteTools2009}.
+The resulting promoter annotations were transformed to bed format using BEDOPS (version 2.4.39) gff2bed~\autocite{nephBEDOPSHighperformanceGenomic2012}, and BEDTools (version 2.29.2) getfasta~\autocite{quinlanBEDToolsFlexibleSuite2010} was used to extract promoter sequences from the reference genome.
+Promoters were scanned for DAP\hyp{}seq TFBS motifs~\autocite{omalleyCistromeEpicistromeFeatures2016} using FIMO~\autocite{grantFIMOScanningOccurrences2011} (version 5.1.1) with a zero\hyp{}order background model created using fasta\hyp{}get\hyp{}markov~\autocite{baileyMEMESuiteTools2009}.
 A \textit{p}\hyp{}value threshold of \texttildelow0.0001 and max stored sequences \texttildelow5000000 was used, and the output was filtered using a \textit{q}\hyp{}value threshold of 0.05.
 Arabidopsis gene IDs for promoters and the TFs binding them were recovered for further analysis.
 
@@ -175,7 +175,7 @@ Percentage GC content of promoters and each promoter window was determined using
 \subsection{Transcription factor binding site coverage}
 {\label{chapter1:methods:transcription-factor-binding-site-coverage}}
 
-To test the hypothesis that the CRMs of variable genes will have a lower percentage of base pairs covered by at least one TFBS than CRMs of constitutive genes, the BEDTools coverage tool was utilised \autocite{quinlanBEDToolsFlexibleSuite2010}.
+To test the hypothesis that the CRMs of variable genes will have a lower percentage of base pairs covered by at least one TFBS than CRMs of constitutive genes, the BEDTools (version 2.29.2) coverage tool was utilised \autocite{quinlanBEDToolsFlexibleSuite2010}.
 The number of base pairs covered by at least one motif in a given sequence was calculated using the BEDTools coverage tool.
 The proportion of base pairs covered by TFBSs in constitutive promoters was compared to variable promoters using a Mann Whitney U test~\autocite{mannTestWhetherOne1947}.
 
@@ -183,9 +183,9 @@ The proportion of base pairs covered by TFBSs in constitutive promoters was comp
 {\label{chapter1:methods:open-chromatin-coverage}}
 %talk about open chromatin in the intro
 Negative control (treated with NaOH) ATAC\hyp{}seq data was downloaded from \textcite{potterCytokininModulatesContextdependent2018} for root and shoot tissues.
-Individual bed files for each replicate were concatenated and BEDTools merge \autocite{quinlanBEDToolsFlexibleSuite2010} was used to combine overlapping peaks.
-An intersection for root and shoot open chromatin was created using BEDTools intersect \autocite{quinlanBEDToolsFlexibleSuite2010}.
-To test the hypothesis that the CRMs of variable genes will have a lower proportion of open chromatin, BedTools coverage tool \autocite{quinlanBEDToolsFlexibleSuite2010} was used.
+Individual bed files for each replicate were concatenated and BEDTools (version 2.29.2) merge \autocite{quinlanBEDToolsFlexibleSuite2010} was used to combine overlapping peaks.
+An intersection for root and shoot open chromatin was created using BEDTools (version 2.29.2) intersect \autocite{quinlanBEDToolsFlexibleSuite2010}.
+To test the hypothesis that the CRMs of variable genes will have a lower proportion of open chromatin, BedTools (version 2.29.2) coverage tool \autocite{quinlanBEDToolsFlexibleSuite2010} was used.
 The number of base pairs covered by root, shoot or the root\hyp{}shoot intersect open chromatin was calculated using BedTools coverage.
 %clearly explain the bootstrapping methodology
 
@@ -195,7 +195,7 @@ The number of base pairs covered by root, shoot or the root\hyp{}shoot intersect
 The unique TF count for each promoter and promoter window was calculated. This meant that if TFBSs for a TF were found several times in a promoter, that TF was only counted once.
 TFs were only classed as present in a promoter window if the centre of the TFBS was inside the window.
 To test the hypothesis that constitutive CRMs will have a more diverse TFBS profile than variable CRMs the Shannon diversity was calculated.
-The mapped motif annotations were analysed using the the skbio.diversity.alpha.shannon Python module (\url{https://github.com/biocore/scikit-bio}) to calculate the Shannon diversity of individual TFs and also TF families binding each promoter or promoter window.
+The mapped motif annotations were analysed using the the skbio.diversity.alpha.shannon Python module (\url{https://github.com/biocore/scikit-bio}; version 0.5.6) to calculate the Shannon diversity of individual TFs and also TF families binding each promoter or promoter window.
 %Python module version
 The Shannon diversity, unique TFBS counts and raw TFBS counts were analysed comparing constitutively expressed promoters to variable promoters.
 The Mann\hyp{}Whitney U test was used~\autocite{mannTestWhetherOne1947}.
@@ -211,7 +211,7 @@ The number of clusters was predicted using the silhouette method~\autocite{rouss
 \label{chapter1:methods:tata-box-enrichment}
 
 15 bp TATA box locations were downloaded from Eukaryotic Promoter Database (release: At\_EPDnew\_004)~\autocite{dreosEukaryoticPromoterDatabase2017} present between -50 to 0 relative to the EPD TSS.
-Genomic Association Tester (GAT)~\autocite{hegerGATSimulationFramework2013} was used to
+Genomic Association Tester (GAT)~\autocite{hegerGATSimulationFramework2013} (version 1.3.6) was used to
 compare enrichment of TATA boxes in constitutive and responsive genes to test the hypothesis that variable genes are enriched for TATA boxes over constitutive genes.
 The 15 bp TATA boxes were used as segments of interest. Both the 100 constitutive and 100 responsive promoter annotations were separately tested for enrichment of TATA boxes compared to the background workspace file containing all 200 promoters of interest.
 
@@ -220,8 +220,8 @@ The 15 bp TATA boxes were used as segments of interest. Both the 100 constitutiv
 
 A background gene set of all protein coding genes remaining after the filtering steps mentioned in \autoref{chapter1:methods:extraction-of-cis-regulatory-modules} and filtering so that all promoters contained at least one TFBS when scanned using FIMO \autocite{grantFIMOScanningOccurrences2011}.
 Gene ontology (GO) terms (go-basic.obo; 2020-08-11 release) were downloaded from the GO FTP site (\url{http://www.geneontology.org/GO.current.annotations.shtml}).
-GOATOOLS \autocite{klopfensteinGOATOOLSPythonLibrary2018} was used for gene ontology enrichment analysis using Fisher's exact test \autocite{fisherInterpretationContingencyTables1922} and Benjamini/Hochberg false discovery rate (FDR) correction \autocite{benjaminiControllingFalseDiscovery1995}.
-clusterProfiler \autocite{yuClusterProfilerPackageComparing2012} was used for (KEGG) gene set enrichment analysis \autocite{kanehisaKEGGKyotoEncyclopedia2000} with Benjamini/Hochberg FDR correction \autocite{benjaminiControllingFalseDiscovery1995}.
+GOATOOLS \autocite{klopfensteinGOATOOLSPythonLibrary2018} (version 1.0.6) was used for gene ontology enrichment analysis using Fisher's exact test \autocite{fisherInterpretationContingencyTables1922} and Benjamini/Hochberg false discovery rate (FDR) correction \autocite{benjaminiControllingFalseDiscovery1995}.
+clusterProfiler \autocite{yuClusterProfilerPackageComparing2012} (version 3.14.0) was used for (KEGG) gene set enrichment analysis \autocite{kanehisaKEGGKyotoEncyclopedia2000} with Benjamini/Hochberg FDR correction \autocite{benjaminiControllingFalseDiscovery1995}.
 
 \section{Results}
 \label{chapter1:results}
