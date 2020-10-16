@@ -29,8 +29,8 @@ This is because genes expressed in more tissues have higher selective constraint
 %link the above to the below
 
 Highly expressed plant constitutive genes were more conserved than highly expressed tissue specific genes, but there was no significant difference in synonymous nucleotide substitution rates between constitutive and tissue-specific genes with low expression.
-Highly expressed constitutive genes were more conserved than lowly expressed constitutive genes.
-Interestingly, highly expressed tissue-specific genes were less conserved than lowly expressed tissue-specific genes \autocite{mukhopadhyayDifferentialSelectiveConstraints2008}.
+Highly expressed constitutive genes were more conserved than constitutive genes with low expression.
+Interestingly, highly expressed tissue-specific genes were less conserved than tissue-specific genes with low expression \autocite{mukhopadhyayDifferentialSelectiveConstraints2008}.
 CpG sites in CpG islands are unmethylated when genes are expressed, and methylation in CpG sites can silence genes \autocite{birdDNAMethylationPatterns2002}.
 In mammals constitutive promoters are enriched for CpG islands over tissue-specific promoters \autocite{carninciGenomewideAnalysisMammalian2006}.
 %although some CpG islands which have a lower GC content are associated with tissue-specific genes https://academic.oup.com/hmg/article/25/1/69/2384522
@@ -40,10 +40,26 @@ In Arabidopsis, constitutive genes are known to have a weak TSS peak and wide tr
 There is also a third peak class in plants called broad which covers a wide TSR with a strong TSS peak too.
 Constitutive genes are known to have a weaker expression in general than variable genes \autocite{czechowskiGenomeWideIdentificationTesting2005,mortonPairedEndAnalysisTranscription2014}.
 Constitutive genes are associated with gene body methylation \autocite{zhangGenomewideHighResolutionMapping2006, takunoBodyMethylatedGenesArabidopsis2012,aceitunoRulesGeneExpression2008} while tissue-specific genes are associated with promoter methylation \autocite{zhangGenomewideHighResolutionMapping2006}.
-Constitutive promoters are enriched for GA regions while variable promoters are depleted in GA regions \autocite{yamamotoHeterogeneityArabidopsisCore2009}. 
+Constitutive promoters are enriched for GA regions while variable promoters are depleted in GA regions \autocite{yamamotoHeterogeneityArabidopsisCore2009}.
+
 Multistimuli\hyp{}sensitive variably expressed genes were found to have significantly shorter 5'UTR, gene length and cDNA length than constitutively expressed genes.
 This could be because early response genes have a selection pressure to respond faster to stimuli and smaller proteins may diffuse faster through cells and tissues to reach their target.
 Multistimuli\hyp{}sensitive variably expressed genes also had fewer introns and were more likely to have paralogues in the Arabidopsis genome than constitutively expressed genes \autocite{waltherRegulatoryCodeTranscriptional2007}.
+
+\subsection{Variable and tissue-specific genes}
+\label{chapter1:introduction:variable-tissue-specific-genes}
+
+Network edges (TF-target gene connections) have increased tissue-specificity compared to network nodes (genes). Additionally, regulating nodes (TFs) are less likely to be tissue-specific than their target genes. In humans nearly all TFs are associated with at least one tissue-specific edge in all tissues, suggesting that even constitutively expressed TFs play a role in regulating tissue-specific expression. Network hub genes which interact with lots of other genes were more likely to be non-tissue specific. Tissue-specific genes were less likely to be regulated by canonical TF-DNA interactions in their promoter and were more likely to be regulated by non-canonical means through TF complexes, alternative TFBSs or interactions outside of the promoter \autocite{sonawaneUnderstandingTissueSpecificGene2017}.
+
+\textcite{czechowskiGenomeWideIdentificationTesting2005} ranked the stability of genes based on their coefficient of variation. Only genes present in \SI{80}{\percent} or more of developmental stages and tissues were included in the analysis. This means that the variably expressed genes excluded tissue-specific genes and were classed based on how variable their expression was across the different tissues and developmental stages. This was by design to try to select stably expressed housekeeping genes for use as reference genes. It would be useful to calculate the coefficient of variation without excluding tissue-specific genes.
+
+Therefore, genes from the same microarray experiment were also ranked using Tau tissue-specificity to compare differences between them. It is reasonable to expect that tissue-specific genes will have different promoter architectures to constitutive and the variably expressed non-tissue-specific genes.
+
+
+
+
+
+ 
 
 \subsection{GC content}
 \label{chapter1:introduction:gc-content}
@@ -112,12 +128,13 @@ In Arabidopsis I hypothesise that TATA boxes will be enriched in variable genes 
 
 \subsection{TF differences}
 
-When comparing constitutive and variable TFs it would also be useful to split them into categories based on how many targets they have. 
+When comparing constitutive and variable TFs it would also be useful to split them into categories based on how many protein and DNA interactions they have. 
 Genes coding for master-regulator TFs are classed as multi\hyp{}interface (MI) hub genes, while those coding for lesser connected TFs are classed as single interface (SI) hub genes.
 Within MI genes, constitutive and tissue-specific CDSs showed similar evolution rates, while within SI genes constitutive gene CDSs evolve more slowly than tissue-specific gene CDSs~\autocite{podderMultifunctionalityDominantlyDetermines2009}.
 MI tissue-specific genes evolved more slowly than SI tissue-specific genes, while both MI and SI constitutively expressed genes evolved at similar rates~\autocite{biswasEvolutionaryRateHeterogeneity2018}.
 This was explained by the fact that tissue-specific MI genes are bound by more miRNAs than tissue-specific SI genes~\autocite{biswasEvolutionaryRateHeterogeneity2018}, and genes with more miRNA targets evolve more slowly ~\autocite{chengRelationshipEvolutionMicroRNA2009}.
 %summarise the intro and introduce the hypotheses Im testing and the experiments. Can briefly give an overview of the methods.
+
 
 \section{Methods}
 \label{chapter1:methods}
