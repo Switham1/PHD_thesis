@@ -250,7 +250,8 @@ An analysis pipeline was created to analyse promoter architecture of constitutiv
 1959 genes were flagged as having potentially overlapping promoters where the upstream gene was positioned in the opposite direction and was less than 2000 bp away from the TSS.
 37 constitutive, 13 variable and 23 control genes were flagged as having potentially overlapping promoters.
 Following this filtering process the methodology described by \textcite{czechowskiGenomeWideIdentificationTesting2005} was used to select the top 100 constitutive and variable genes (\autoref{fig:cv-dist-allgenes}).
-
+%add table showing each gene set and number of genes in each one, overlap too
+%add CV and tau distribution combined plot showing each category including control
 \begin{figure}[hbt!]
 	\begin{center}
 		\capstart
@@ -261,6 +262,20 @@ Following this filtering process the methodology described by \textcite{czechows
 			The CV range of the top 100 constitutive genes with the lowest CVs is annotated with an arrow (blue range marker).
 			The CV range of the top 100 variable genes with the highest CVs is annotated with an orange range marker).			
 			\label{fig:cv-dist-allgenes}
+		}
+	\end{center}
+\end{figure}
+
+
+\begin{figure}[hbt!]
+	\begin{center}
+		\capstart
+		\includegraphics[width=0.70\columnwidth]{genes/gene_group_expression}
+		\caption{
+			\textbf{Mean log2 expression of constitutive, variable, non\hyp{}specific and tissue\hyp{}specific gene categories in \textit{Arabidopsis thaliana} across 79 different tissues and developmental stages.}
+			Constitutive and variable categories chosen using coefficient of variation ranking as in \textcite{czechowskiGenomeWideIdentificationTesting2005}.
+			Tissue\hyp{}specific and non\hyp{}specific categories chosen using Tau tissue specificity ranking. \textit{N} = 100.				
+			\label{fig:gene_group_expression}
 		}
 	\end{center}
 \end{figure}
