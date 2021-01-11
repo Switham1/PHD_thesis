@@ -270,7 +270,7 @@ Following this filtering process the methodology described by \textcite{czechows
 \begin{figure}[hbt!]
 	\begin{center}
 		\capstart
-		\includegraphics[width=0.70\columnwidth]{genes/gene_group_expression}
+		\includegraphics[width=0.80\columnwidth]{genes/gene_group_expression}
 		\caption{
 			\textbf{Mean log2 expression of constitutive, variable, non\hyp{}specific and tissue\hyp{}specific gene categories in \textit{Arabidopsis thaliana} across 79 different tissues and developmental stages.}
 			Constitutive and variable categories chosen using coefficient of variation ranking as in \textcite{czechowskiGenomeWideIdentificationTesting2005}.
@@ -289,7 +289,7 @@ A KEGG gene set enrichment analysis with Benjamini/Hochberg FDR correction found
 \begin{figure}[hbt!]
 	\begin{center}
 		\capstart
-		\includegraphics[width=1\columnwidth]{genes/constitutive_300genes}
+		\includegraphics[width=1\columnwidth]{genes/constitutive_Czechowski_sig_enrichment_BP}
 		\caption{
 			\textbf{Gene ontology lineage plot for the top 300 constitutive \textit{Arabidopsis thaliana} genes.}
 			The top 300 constitutive genes were chosen based on coefficient of variation (CV) values as in \textcite{czechowskiGenomeWideIdentificationTesting2005} after filtering overlapping genes and genes with no TFBSs in their promoters.
@@ -305,7 +305,7 @@ A KEGG gene set enrichment analysis with Benjamini/Hochberg FDR correction found
 \begin{figure}[hbt!]
 	\begin{center}
 		\capstart
-		\includegraphics[width=1\columnwidth]{genes/variable_300genes}
+		\includegraphics[width=1\columnwidth]{genes/variable_Czechowski_sig_enrichment_CC}
 		\caption{
 			\textbf{Gene ontology lineage plot for the top 300 variable \textit{Arabidopsis thaliana} genes.}
 			The top 300 variable genes were chosen based on coefficient of variation (CV) values as in \textcite{czechowskiGenomeWideIdentificationTesting2005} after filtering overlapping genes and genes with no TFBSs in their promoters.
@@ -318,9 +318,42 @@ A KEGG gene set enrichment analysis with Benjamini/Hochberg FDR correction found
 	\end{center}
 \end{figure}
 
+\begin{figure}[hbt!]
+	\begin{center}
+		\capstart
+		\includegraphics[width=1\columnwidth]{genes/non-specific_Schmid_sig_enrichment_CC}
+		\caption{
+			\textbf{Gene ontology lineage plot for the top 300 non\hyp{}specific \textit{Arabidopsis thaliana} genes.}
+			The top 300 non\hyp{}specific were chosen based on tau tissue\hyp{}specificty values after filtering overlapping genes and genes with no TFBSs in their promoters.
+			Boxes coloured as followed: light red, \textit{p} \textless{} 0.005; grey, \textit{p} \textgreater{} 0.05 (non-significant study terms).
+			%p < 0.01, light orange
+			The gene ontology enrichment analysis was calculated using Fisher's exact test \autocite{fisherInterpretationContingencyTables1922} and Benjamini/Hochberg FDR correction \autocite{benjaminiControllingFalseDiscovery1995}.
+			\label{fig:go-variable}
+		}
+		
+	\end{center}
+\end{figure}
+
+\begin{figure}[hbt!]
+	\begin{center}
+		\capstart
+		\includegraphics[width=1\columnwidth]{genes/tissue_specific_Schmid_sig_enrichment_BP}
+		\caption{
+			\textbf{Gene ontology lineage plot for the top 300 tissue\hyp{}specific \textit{Arabidopsis thaliana} genes.}
+			The top 300 tissue\hyp{}specific were chosen based on tau tissue\hyp{}specificity values after filtering overlapping genes and genes with no TFBSs in their promoters.
+			Boxes coloured as followed: light red, \textit{p} \textless{} 0.005; grey, \textit{p} \textgreater{} 0.05 (non-significant study terms).
+			%p < 0.01, light orange
+			The gene ontology enrichment analysis was calculated using Fisher's exact test \autocite{fisherInterpretationContingencyTables1922} and Benjamini/Hochberg FDR correction \autocite{benjaminiControllingFalseDiscovery1995}.
+			\label{fig:go-variable}
+		}
+		
+	\end{center}
+\end{figure}
+
+
 
 \subsection{Open chromatin}
-CRMs from the constitutive and variable gene sets were overlapped with ATAC-seq data \autocite{potterCytokininModulatesContextdependent2018}. This allowed the chromatin accessibility to be described.
+CRMs from the four gene sets were overlapped with ATAC-seq data \autocite{potterCytokininModulatesContextdependent2018}. This allowed the chromatin accessibility to be described.
 
 Variable CRMs had a significantly lower percentage of nucleotides covered by open chromatin (\SI{35.0}{\percent}) than constitutive (\SI{54.9}{\percent}) or control (\SI{65.1}{\percent}) CRMs (\autoref{fig:chromatin-coverage}).
 
