@@ -283,7 +283,7 @@ Following this filtering process the methodology described by \textcite{czechows
 \end{figure}
 
 
-A gene ontology (GO) enrichment analysis using Fisher's exact test \autocite{fisherInterpretationContingencyTables1922} and Benjamini/Hochberg FDR correction \autocite{benjaminiControllingFalseDiscovery1995} found 2 significantly enriched biological process (GO:0008150) GO terms for the top 300 constitutive genes (\autoref{fig:go-constitutive}), and 4 significantly enriched cellular component (GO:0005575) GO terms for the top 300 variable genes (\autoref{fig:go-variable}). For the top 300 non\hyp{}specific genes there were 3 significantly enriched cellular component GO terms. For the top 300 tissue\hyp{}specific genes there were 4 biological process, 7 cellular component and 6 molecular function (GO:0003674) significantly enriched GO terms.
+A gene ontology (GO) enrichment analysis using Fisher's exact test \autocite{fisherInterpretationContingencyTables1922} and Benjamini/Hochberg FDR correction \autocite{benjaminiControllingFalseDiscovery1995} found 2 significantly enriched biological process (GO:0008150) GO terms for the top 300 constitutive genes, and 4 significantly enriched cellular component (GO:0005575) GO terms for the top 300 variable genes. For the top 300 non\hyp{}specific genes there were 3 significantly enriched cellular component GO terms. For the top 300 tissue\hyp{}specific genes there were 4 biological process, 7 cellular component and 6 molecular function (GO:0003674) significantly enriched GO terms.
 In the constitutive group 17 genes were associated with intracellular protein transport and 9 genes with endocytosis.
 Amongst variably expressed genes, 73 were associated with the nucleus, 55 with being extracellular, 32 with the cytosol and 3 with the plastid.
 In the non\hyp{}specific group 67 genes were associated with the mitochondrion, 60 genes with the cytosol and 28 genes with the Golgi apparatus.
@@ -291,71 +291,70 @@ Amongst tissue\hyp{}specific genes 151 were associated with the pollen tube (GO:
 
 A KEGG gene set enrichment analysis with Benjamini/Hochberg FDR correction found no enriched terms in constitutive or variable groups (\textit{p} \textgreater{} 0.05).
 
-\begin{figure}[hbt!]
-	\begin{center}
-		\capstart
-		\includegraphics[width=1\columnwidth]{genes/constitutive_Czechowski_sig_enrichment_BP}
-		\caption{
-			\textbf{Gene ontology lineage plot for the top 300 constitutive \textit{Arabidopsis thaliana} genes.}
-			The top 300 constitutive genes were chosen based on coefficient of variation (CV) values as in \textcite{czechowskiGenomeWideIdentificationTesting2005} after filtering overlapping genes and genes with no TFBSs in their promoters.
-			Boxes coloured as followed: light red, \textit{p} \textless{} 0.005; yellow, \textit{p} \textless{} 0.05; grey, \textit{p} \textgreater{} 0.05 (non-significant study terms).
-			%p < 0.01, light orange
-			The gene ontology enrichment analysis was calculated using Fisher's exact test \autocite{fisherInterpretationContingencyTables1922} and Benjamini/Hochberg FDR \autocite{benjaminiControllingFalseDiscovery1995}.
-			\label{fig:go-constitutive}
-		}
-		
-	\end{center}
-\end{figure}
-
-\begin{figure}[hbt!]
-	\begin{center}
-		\capstart
-		\includegraphics[width=1\columnwidth]{genes/variable_Czechowski_sig_enrichment_CC}
-		\caption{
-			\textbf{Gene ontology lineage plot for the top 300 variable \textit{Arabidopsis thaliana} genes.}
-			The top 300 variable genes were chosen based on coefficient of variation (CV) values as in \textcite{czechowskiGenomeWideIdentificationTesting2005} after filtering overlapping genes and genes with no TFBSs in their promoters.
-			Boxes coloured as followed: light red, \textit{p} \textless{} 0.005; grey, \textit{p} \textgreater{} 0.05 (non-significant study terms).
-			%p < 0.01, light orange
-			The gene ontology enrichment analysis was calculated using Fisher's exact test \autocite{fisherInterpretationContingencyTables1922} and Benjamini/Hochberg FDR correction \autocite{benjaminiControllingFalseDiscovery1995}.
-			\label{fig:go-variable}
-		}
-		
-	\end{center}
-\end{figure}
-
-\begin{figure}[hbt!]
-	\begin{center}
-		\capstart
-		\includegraphics[width=1\columnwidth]{genes/non-specific_Schmid_sig_enrichment_CC}
-		\caption{
-			\textbf{Gene ontology lineage plot for the top 300 non\hyp{}specific \textit{Arabidopsis thaliana} genes.}
-			The top 300 non\hyp{}specific were chosen based on tau tissue\hyp{}specificty values after filtering overlapping genes and genes with no TFBSs in their promoters.
-			Boxes coloured as followed: light red, \textit{p} \textless{} 0.005; grey, \textit{p} \textgreater{} 0.05 (non-significant study terms).
-			%p < 0.01, light orange
-			The gene ontology enrichment analysis was calculated using Fisher's exact test \autocite{fisherInterpretationContingencyTables1922} and Benjamini/Hochberg FDR correction \autocite{benjaminiControllingFalseDiscovery1995}.
-			\label{fig:go-variable}
-		}
-		
-	\end{center}
-\end{figure}
-
-\begin{figure}[hbt!]
-	\begin{center}
-		\capstart
-		
-		\rotatebox[origin=c]{90}{\includegraphics[width=1.5\columnwidth]{genes/tissue_specific_Schmid_sig_enrichment_BP}}
-		\caption{
-			\textbf{Gene ontology lineage plot for the top 300 tissue\hyp{}specific \textit{Arabidopsis thaliana} genes.}
-			The top 300 tissue\hyp{}specific were chosen based on tau tissue\hyp{}specificity values after filtering overlapping genes and genes with no TFBSs in their promoters.
-			Boxes coloured as followed: light red, \textit{p} \textless{} 0.005; grey, \textit{p} \textgreater{} 0.05 (non-significant study terms).
-			%p < 0.01, light orange
-			The gene ontology enrichment analysis was calculated using Fisher's exact test \autocite{fisherInterpretationContingencyTables1922} and Benjamini/Hochberg FDR correction \autocite{benjaminiControllingFalseDiscovery1995}.
-			\label{fig:go-variable}
-		}
-		
-	\end{center}
-\end{figure}
-
+%\begin{figure}[hbt!]
+%	\begin{center}
+%		\capstart
+%		\includegraphics[width=1\columnwidth]{genes/constitutive_Czechowski_sig_enrichment_BP}
+%		\caption{
+%			\textbf{Gene ontology lineage plot for the top 300 constitutive \textit{Arabidopsis thaliana} genes.}
+%			The top 300 constitutive genes were chosen based on coefficient of variation (CV) values as in \textcite{czechowskiGenomeWideIdentificationTesting2005} after filtering overlapping genes and genes with no TFBSs in their promoters.
+%			Boxes coloured as followed: light red, \textit{p} \textless{} 0.005; yellow, \textit{p} \textless{} 0.05; grey, \textit{p} \textgreater{} 0.05 (non-significant study terms).
+%			p < 0.01, light orange
+%			The gene ontology enrichment analysis was calculated using Fisher's exact test \autocite{fisherInterpretationContingencyTables1922} and Benjamini/Hochberg FDR \autocite{benjaminiControllingFalseDiscovery1995}.
+%			\label{fig:go-constitutive}
+%		}
+%		
+%	\end{center}
+%\end{figure}
+%
+%\begin{figure}[hbt!]
+%	\begin{center}
+%		\capstart
+%		\includegraphics[width=1\columnwidth]{genes/variable_Czechowski_sig_enrichment_CC}
+%		\caption{
+%			\textbf{Gene ontology lineage plot for the top 300 variable \textit{Arabidopsis thaliana} genes.}
+%			The top 300 variable genes were chosen based on coefficient of variation (CV) values as in \textcite{czechowskiGenomeWideIdentificationTesting2005} after filtering overlapping genes and genes with no TFBSs in their promoters.
+%			Boxes coloured as followed: light red, \textit{p} \textless{} 0.005; grey, \textit{p} \textgreater{} 0.05 (non-significant study terms).
+%			p < 0.01, light orange
+%			The gene ontology enrichment analysis was calculated using Fisher's exact test \autocite{fisherInterpretationContingencyTables1922} and Benjamini/Hochberg FDR correction \autocite{benjaminiControllingFalseDiscovery1995}.
+%			\label{fig:go-variable}
+%		}
+%		
+%	\end{center}
+%\end{figure}
+%
+%\begin{figure}[hbt!]
+%	\begin{center}
+%		\capstart
+%		\includegraphics[width=1\columnwidth]{genes/non-specific_Schmid_sig_enrichment_CC}
+%		\caption{
+%			\textbf{Gene ontology lineage plot for the top 300 non\hyp{}specific \textit{Arabidopsis thaliana} genes.}
+%			The top 300 non\hyp{}specific were chosen based on tau tissue\hyp{}specificty values after filtering overlapping genes and genes with no TFBSs in their promoters.
+%			Boxes coloured as followed: light red, \textit{p} \textless{} 0.005; grey, \textit{p} \textgreater{} 0.05 (non-significant study terms).
+%			p < 0.01, light orange
+%			The gene ontology enrichment analysis was calculated using Fisher's exact test \autocite{fisherInterpretationContingencyTables1922} and Benjamini/Hochberg FDR correction \autocite{benjaminiControllingFalseDiscovery1995}.
+%			\label{fig:go-variable}
+%		}
+%		
+%	\end{center}
+%\end{figure}
+%
+%\begin{figure}[hbt!]
+%	\begin{center}
+%		\capstart
+%		
+%		\rotatebox[origin=c]{90}{\includegraphics[width=1.5\columnwidth]{genes/tissue_specific_Schmid_sig_enrichment_BP}}
+%		\caption{
+%			\textbf{Gene ontology lineage plot for the top 300 tissue\hyp{}specific \textit{Arabidopsis thaliana} genes.}
+%			The top 300 tissue\hyp{}specific were chosen based on tau tissue\hyp{}specificity values after filtering overlapping genes and genes with no TFBSs in their promoters.
+%			Boxes coloured as followed: light red, \textit{p} \textless{} 0.005; grey, \textit{p} \textgreater{} 0.05 (non-significant study terms).
+%			p < 0.01, light orange
+%			The gene ontology enrichment analysis was calculated using Fisher's exact test \autocite{fisherInterpretationContingencyTables1922} and Benjamini/Hochberg FDR correction \autocite{benjaminiControllingFalseDiscovery1995}.
+%			\label{fig:go-variable}
+%		}
+%		
+%	\end{center}
+%\end{figure}
 
 
 \subsection{Open chromatin}
