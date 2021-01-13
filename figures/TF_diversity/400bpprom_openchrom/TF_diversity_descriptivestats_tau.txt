@@ -1,0 +1,5 @@
+                 count  mean       std  min   25%  50%   75%   max
+gene_type                                                         
+control           20.0  4.05  2.064104  0.0  2.75  3.5  5.25   7.0
+non-specific      20.0  4.05  2.350252  1.0  2.00  3.5  6.00  10.0
+tissue_specific   20.0  4.45  2.892367  0.0  2.75  3.5  6.00  12.0
