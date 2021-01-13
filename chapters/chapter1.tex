@@ -413,14 +413,15 @@ The median percentage of open chromatin decreased upstream of the TSS for non\hy
 		\capstart
 		\includegraphics[width=1\columnwidth]{openchromatin/Araport11_genetypenocontrol_percentage_bases_covered_rootshootintersect_chrom_median_sliding_window}
 		\caption{
-			\textbf{Sliding window analysis of 100 constitutive (blue) and 100 variable (orange) Arabidopsis \textit{cis}\hyp{}regulatory modules (CRMs) centred around the transcription start site (TSS).}
+			\textbf{Sliding window analysis of 100 constitutive (blue) and 100 variable (orange) (A) and 100 non\hyp{}specific and 100 tissue\hyp{}specific (B) Arabidopsis \textit{cis}\hyp{}regulatory modules (CRMs) centred around the transcription start site (TSS).}
 			Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
 			5UTRs were extended downstream of the TSS to the closest coding region.
 			TSS is represented by 0 on the x-axis.
 			Data points are positioned in the centre of each 100 bp window.
 			Windows are offset by 50 bp.
 			Shading represents 95 confidence intervals estimated using 10000 bootstraps.
-			Median percentage of open chromatin peaks overlapping 100 bp windows. Open chromatin peaks derived from the intersect of root and shoot peaks derived from negative control (treated with NaOH) ATAC\hyp{}seq data by \textcite{potterCytokininModulatesContextdependent2018}.		
+			Median percentage of open chromatin peaks overlapping 100 bp windows.
+			Open chromatin peaks derived from the intersect of root and shoot peaks derived from negative control (treated with NaOH) ATAC\hyp{}seq data by \textcite{potterCytokininModulatesContextdependent2018}.		
 			\label{fig:openchrom-sliding-window-araporttss}
 		}
 	\end{center}
@@ -430,7 +431,8 @@ The median percentage of open chromatin decreased upstream of the TSS for non\hy
 \subsection{GC content}
 %change style to match the start of the previous sections
 The hypothesis that constitutive genes have a higher GC content than variable genes was tested.
-GC content was not significantly different between variable, constitutive and control promoters (Kruskal\hyp{}Wallis~\textit{H} = 5.8,~\textit{P} \textgreater{} 0.05; \autoref{fig:gc-content-wholeprom}).
+GC content was significantly different between gene types (Kruskal\hyp{}Wallis~\textit{H} = 14.8,~\textit{P} \textgreater{} 0.001; \autoref{fig:gc-content-wholeprom}) Dunn's posthocs revealed that GC content was significantly higher in constitutive CRMs than variable CRMs.
+The hypothesis that non\hyp{}specific genes have a higher GC content than tissue\hyp{}specific genes was tested.
 
 \begin{figure}[hbt!]
 	\begin{center}
