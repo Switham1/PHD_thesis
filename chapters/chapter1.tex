@@ -368,12 +368,14 @@ Dunn's posthocs with Bonferroni correction revealed that tissue\hyp{}specific CR
 		\capstart
 		\includegraphics[width=1\columnwidth]{openchromatin/chromatin_coverage_violin}
 		\caption{
-			\textbf{Percentage open chromatin coverage of 100 constitutive (blue), 100 variable (orange), 100 non\hyp{}specific (light green), 100 tissue\hyp{}specific (grey) and 100 control (green/brown) Arabidopsis \textit{cis}\hyp{}regulatory modules (CRMs).}		
+			\textbf{Percentage open chromatin coverage in different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories.}		
 			Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
 			5UTRs were extended downstream of the TSS to the closest coding region.
 			Control genes identical in plots A and B.	
 			A: Percentage base pairs (bp) covered by open chromatin in 100 constitutive, variable and control genes.
+			\textit{N}=100.
 			B: Percentage base pairs (bp) covered by open chromatin in 100 non\hyp{}specific, tissue\hyp{}specific and control genes.
+			\textit{N}=100.
 			Significance was calculated using Kruskal\hyp{}Wallis and Dunn's posthocs with Bonferroni correction.
 			**, \textit{P} \textless{} 0.01. ***, \textit{P} \textless{} 0.001. ****,\textit{P} \textless{} 0.0001. ns, not significant.
 			\label{fig:chromatin-coverage}
@@ -388,14 +390,16 @@ From \textasciitilde{}250 bp to \textasciitilde{}450bp upstream of the start cod
 		\capstart
 		\includegraphics[width=1\columnwidth]{openchromatin/genetypenocontrol_percentage_bases_covered_rootshootintersect_chrom_median_sliding_window}
 		\caption{
-			\textbf{Sliding window analysis of 100 constitutive (blue) and 100 variable (orange) (A) and 100 non\hyp{}specific and 100 tissue\hyp{}specific (B) Arabidopsis \textit{cis}\hyp{}regulatory modules (CRMs) upstream of the start codon.}
+			\textbf{Sliding window analysis of percentage open chromatin across different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories upstream of the start codon.}
 			Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
 			5'UTRs were extended downstream of the TSS to the closest coding region.
 			The median proportion of nucleotides falling within open chromatin peaks described by \textcite{potterCytokininModulatesContextdependent2018} was scored for 100 bp windows across selected CRMs.
 			The open chromatin peaks used were the intersect of root and shoot peaks derived from the negative control (treated with NaOH) ATAC\hyp{}seq data.
 			The windows were overlapping with a 50 bp offset.
 			The median value for each bin is displayed here at the central bp of the bin.
-			Shading represents 95 confidence intervals estimated using 10000 bootstraps.		
+			Shading represents 95 confidence intervals estimated using 10000 bootstraps.
+			A: constitutive and variable GC content sliding windows. \textit{N}=100.
+			B: non\hyp{}specific and tissue\hyp{}specific sliding windows. \textit{N}=100.		
 			\label{fig:openchrom-sliding-window}
 		}
 	\end{center}
@@ -413,7 +417,7 @@ The median percentage of open chromatin decreased upstream of the TSS for non\hy
 		\capstart
 		\includegraphics[width=1\columnwidth]{openchromatin/Araport11_genetypenocontrol_percentage_bases_covered_rootshootintersect_chrom_median_sliding_window}
 		\caption{
-			\textbf{Sliding window analysis of percentage open chromatin across different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) categories centred around the transcription start site (TSS).}
+			\textbf{Sliding window analysis of percentage open chromatin across different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories centred around the transcription start site (TSS).}
 			Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
 			5UTRs were extended downstream of the TSS to the closest coding region.
 			TSS is represented by 0 on the x-axis.
@@ -442,7 +446,7 @@ The hypothesis that non\hyp{}specific genes have a higher GC content than tissue
 		\capstart
 		\includegraphics[width=1\columnwidth]{GC_content/wholeprom/GC_content_box}
 		\caption{
-			\textbf{Percentage GC content in different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) categories.}
+			\textbf{Percentage GC content in different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories.}
 			Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
 			5UTRs were extended downstream of the TSS to the closest coding region.  Box plots have box boundaries that represent 25th, 50th (median) and 75th percentiles; whiskers are drawn up to the largest or smallest observed point that falls within 1.5 times the interquartile range.
 			Control genes are identical in plots A and B.
@@ -460,7 +464,7 @@ A sliding window analysis revealed that percentage GC content looked higher for 
 		\capstart
 		\includegraphics[width=1\columnwidth]{GC_content/genetypenocontrol_percentage_GC_content_median_sliding_window}
 		\caption{
-			\textbf{Sliding window analysis of GC content in different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) categories.}
+			\textbf{Sliding window analysis of percentage GC content in different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories.}
 			Promoters were extracted 1000 base pairs (bp) upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
 			5'UTRs were extended downstream of the TSS to the closest coding region.
 			The median percentage GC content was scored for 100 bp windows across selected CRMs.
@@ -483,7 +487,7 @@ In the same 400 bp CRM region there was a significant difference between non\hyp
 		\capstart
 		\includegraphics[width=1\columnwidth]{GC_content/400bpprom/GC_content_box}
 		\caption{
-			\textbf{Percentage GC content of different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) categories in a 400 bp region upstream of the ATG start codon.}
+			\textbf{Percentage GC content of different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories in a 400 bp region upstream of the ATG start codon.}
 			Box plots have box boundaries that represent 25th, 50th (median) and 75th percentiles; whiskers are drawn up to the largest or smallest observed point that falls within 1.5 times the interquartile range.
 			Control genes are identical in plots A and B.
 			Significance was calculated using Kruskal\hyp{}Wallis and Dunn's posthocs with Bonferroni correction.
