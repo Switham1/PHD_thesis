@@ -616,8 +616,10 @@ Dunn's posthocs with Bonferroni correction revealed that tissue\hyp{}specific CR
 
 \subsection{TF diversity}
 The hypothesis that variable genes have a higher diversity of TFs binding them than constitutive genes was tested.
-There was no significant difference in TF (Kruskal\hyp{}Wallis~\textit{H} = 0.9,~\textit{P} \textgreater{} 0.05) or TF family diversity (Kruskal\hyp{}Wallis~\textit{H} = 0.5,~\textit{P} \textgreater{} 0.05) between constitutive, variable or control types \autoref{fig:tf-diversity-wholeprom}).
+There was no significant difference in TF (Kruskal\hyp{}Wallis~\textit{H} = 0.9,~\textit{P} \textgreater{} 0.05) or TF family Shannon diversity (Kruskal\hyp{}Wallis~\textit{H} = 0.5,~\textit{P} \textgreater{} 0.05) between constitutive, variable or control types \autoref{fig:tf-diversity-wholeprom}).
+There was also no significant difference in TF or TF family Shannon diversity using TFBS falling within open chromatin.
 There was also no significant difference in TF (Kruskal\hyp{}Wallis~\textit{H} = 2.3,~\textit{P} \textgreater{} 0.05) or TF family diversity (Kruskal\hyp{}Wallis~\textit{H} =2.3,~\textit{P} \textgreater{} 0.05) between non\hyp{}specific, tissue\hyp{}specific or control CRMs.
+There was also no significant difference in TF or TF family Shannon diversity using TFBS falling within open chromatin. 
 
 \begin{figure}[hbt!]
 	\begin{center}
@@ -634,6 +636,10 @@ There was also no significant difference in TF (Kruskal\hyp{}Wallis~\textit{H} =
 \end{figure}
 
 A sliding window analysis revealed that in the constitutive open chromatin region 50-150 bp upstream of the ATG start codon (\autoref{fig:tf-diversity-sliding-window}A) variable promoters looked to have slightly higher Shannon diversity than constitutive promoters (\autoref{fig:tf-diversity-sliding-window}B). Median TF family Shannon diversity did not differ from 0 at any point along the CRM (\autoref{fig:tf-diversity-sliding-window}C).
+
+In a 400 bp region upstream of the TSS the same TF Shannon diversity analyses were run.
+Again no significant difference in TF or TF family diversity was found between any CRM types whether using all TFBSs or only including those falling within open chromatin (All Kruskal-Wallis tests, ~\textit{P} \textgreater{} 0.05).
+
 
  \begin{figure}[hbt!]
 	\begin{center}
