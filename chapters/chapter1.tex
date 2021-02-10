@@ -5,10 +5,10 @@
 \chapter{Architectural differences in \textit{Cis}\hyp{}regulatory modules between constitutive and variable genes}
 \label{chapter1}
 %read https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0212678 very relevant
-%add poitns from this to intro: https://academic.oup.com/gbe/article/7/4/1002/531003
+%add points from this to intro: https://academic.oup.com/gbe/article/7/4/1002/531003
 
 %point about GC content in plants: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0212678. They also found that 1. Broadly expressed genes are less compact in nature and 2. Promoters of broadly expressed genes are stable in plants.
-%expression level is highly influenced by no. of tissues a gene is expressd in (expression breadth) when expression data is pooled from EST libraries.
+%expression level is highly influenced by no. of tissues a gene is expressed in (expression breadth) when expression data is pooled from EST libraries.
 
 %The tissue specificity index τ estimates both qualitative variations (i.e. presence/absence) and quantitative variations of expression level among tissues, which has been suggested to be more representative than expression breadth and expression level for the expression complexity of a gene (Yanai et al. 2005).https://link.springer.com/article/10.1007%2Fs10709-013-9730-9
 %evolution:  The resulting data show that PSGs have higher protein evolutionary rates, lower synonymous substitution rates, shorter gene length, fewer exons, higher functional specificity, lower expression level, higher tissue‐specific expression and stronger codon bias than NSGs. https://onlinelibrary.wiley.com/doi/full/10.1111/tpj.13541
@@ -42,7 +42,8 @@ Constitutive genes are known to have a weaker expression in general than variabl
 Constitutive genes are associated with gene body methylation \autocite{zhangGenomewideHighResolutionMapping2006, takunoBodyMethylatedGenesArabidopsis2012,aceitunoRulesGeneExpression2008} while tissue-specific genes are associated with promoter methylation \autocite{zhangGenomewideHighResolutionMapping2006}.
 Constitutive promoters are enriched for GA regions while variable promoters are depleted in GA regions \autocite{yamamotoHeterogeneityArabidopsisCore2009}.
 
-Multistimuli\hyp{}sensitive variably expressed genes were found to have significantly shorter 5'UTR, gene length and cDNA lengths than constitutively expressed genes.
+
+\hyp{}sensitive variably expressed genes were found to have significantly shorter 5'UTR, gene length and cDNA lengths than constitutively expressed genes.
 This could be because early response genes have a selection pressure to respond faster to stimuli and smaller proteins may diffuse more quickly through cells and tissues to reach their target.
 Multistimuli\hyp{}sensitive variably expressed genes also had fewer introns and were more likely to have paralogues in the Arabidopsis genome than constitutively expressed genes \autocite{waltherRegulatoryCodeTranscriptional2007}.
 
@@ -53,7 +54,7 @@ Variably expressed genes include tissue-specific genes expressed in one or a few
 
 Network edges (TF-target gene connections) have increased tissue-specificity compared to network nodes (genes). Additionally, regulating nodes (TFs) are less likely to be tissue-specific than their target genes. In humans nearly all TFs are associated with at least one tissue-specific edge in all tissues, suggesting that even constitutively expressed TFs play a role in regulating tissue-specific expression. Network hub genes which interact with lots of other genes were more likely to be non-tissue specific. Tissue-specific genes were less likely to be regulated by canonical TF-DNA interactions in their promoter and were more likely to be regulated by non-canonical means through TF complexes, alternative TFBSs or interactions outside of the promoter \autocite{sonawaneUnderstandingTissueSpecificGene2017}.
 
-\textcite{czechowskiGenomeWideIdentificationTesting2005} ranked the stability of genes based on their coefficient of variation. Only genes present in \SI{80}{\percent} or more of developmental stages and tissues were included in the analysis. This means that the variably expressed genes excluded tissue/condition\hyp{}specific genes and were classed based on how variable their expression was across the different tissues and developmental stages. This was by design in the study to try to select stably expressed housekeeping genes for use as reference genes. A constitutive geneset with low coefficient of variation was selected along with a variable geneset with high coefficient of variation. Tissue/condition\hyp{}specific genes ranked using Tau tissue-specificity were included as another gene set as their promoter architecture is expected to differ from constitutive and variably expressed non-tissue-specific genes. The genes with the lowest Tau ranking were categorised as non-specific genes.
+\textcite{czechowskiGenomeWideIdentificationTesting2005} ranked the stability of genes based on their coefficient of variation. Only genes present in \SI{80}{\percent} or more of developmental stages and tissues were included in the analysis. This means that the variably expressed genes excluded tissue/condition\hyp{}specific genes and were classed based on how variable their expression was across the different tissues and developmental stages. This was by design in the study to try to select stably expressed housekeeping genes for use as reference genes. A constitutive gene set with low coefficient of variation was selected along with a variable gene set with high coefficient of variation. Tissue/condition\hyp{}specific genes ranked using Tau tissue-specificity were included as another gene set as their promoter architecture is expected to differ from constitutive and variably expressed non-tissue-specific genes. The genes with the lowest Tau ranking were categorised as non-specific genes.
 
 \subsection{GC content}
 \label{chapter1:introduction:gc-content}
@@ -79,7 +80,7 @@ Variably expressed genes involved in stress response, cell growth and lipid tran
 Constitutive and tissue specific genes tended to respond to fewer stimuli.
 Interestingly, when only up-regulation or down-regulation responses to stimuli were classed as differential gene expression events, only the up-regulation events showed a significant positive correlation between breadth of response to motif density.
 There was no significant correlation between motif density and breadth of response for down-regulation events \autocite{waltherRegulatoryCodeTranscriptional2007}.
-The first 500 bp upstream of the TSS were found to contain a stronger correlation between breadth of stimuli response and motif density than 500-1000 bp upstream and 1000-3000 bp upsteam of the TSS \autocite{waltherRegulatoryCodeTranscriptional2007}.
+The first 500 bp upstream of the TSS were found to contain a stronger correlation between breadth of stimuli response and motif density than 500-1000 bp upstream and 1000-3000 bp upstream of the TSS \autocite{waltherRegulatoryCodeTranscriptional2007}.
 In Arabidopsis I hypothesise that TFBS percentage coverage of promoters will be higher in variable genes responding to many stimuli than in constitutive genes and tissue-specific genes that respond to a narrow range of stimuli.
 
 \subsection{TF diversity}
@@ -250,8 +251,7 @@ An analysis pipeline was created to analyse promoter architecture of constitutiv
 
 Following this filtering process the methodology described by \textcite{czechowskiGenomeWideIdentificationTesting2005} was used to select the top 100 constitutive and variable genes.
 Tau tissue\hyp{}specificity ranking was used to select the top 100  non\hyp{}specific and tissue\hyp{}specific genes.
-The mean $log_{2}$ expression o
-f the genes in each category are shown in \autoref{fig:gene-group-expression}.
+The mean $log_{2}$ expression of the genes in each category are shown in \autoref{fig:gene-group-expression}.
 1959 genes were flagged as having potentially overlapping promoters where the upstream gene was positioned in the opposite direction and was less than 2000 bp away from the TSS.
 17 constitutive, 6 variable, 15 non\hyp{}specific, 14 tissue\hyp{}specific and 11 control genes were flagged as having potentially overlapping promoters.
 %add table showing each gene set and number of genes in each one, overlap too
@@ -289,7 +289,7 @@ The expression CV distribution of the top 100 constitutive genes was narrower th
 \begin{figure}[hbt!]
 	\begin{center}
 		\capstart
-		\includegraphics[width=0.40\columnwidth]{genes/labelled_distribution_cv_distribution}
+		\includegraphics[width=0.60\columnwidth]{genes/labelled_distribution_cv_distribution}
 		\caption{
 			\textbf{Expression CV distribution of constitutive and variable gene categories compared to all CV ranked genes.}			
 			Constitutive and variable categories chosen using coefficient of variation ranking as in \textcite{czechowskiGenomeWideIdentificationTesting2005}.			
@@ -298,13 +298,13 @@ The expression CV distribution of the top 100 constitutive genes was narrower th
 	\end{center}
 \end{figure}
 
-The Tau tisse\hyp{}specificity distribution of the top 100 tissue\hyp{}specific genes was narrower than the top 100 non\hyp{}specific genes (\autoref{fig:tau-distribution}).
+The Tau tissue\hyp{}specificity distribution of the top 100 tissue\hyp{}specific genes was narrower than the top 100 non\hyp{}specific genes (\autoref{fig:tau-distribution}).
 
 
 \begin{figure}[hbt!]
 	\begin{center}
 		\capstart
-		\includegraphics[width=0.40\columnwidth]{genes/labelled_distribution_tau_distribution}
+		\includegraphics[width=0.60\columnwidth]{genes/labelled_distribution_tau_distribution}
 		\caption{
 			\textbf{Tau tissue\hyp{}specificity distribution of non\hyp{}specific and tissue\hyp{}specific gene categories compared to all Tau ranked genes.}			
 			Tissue\hyp{}specific and non\hyp{}specific categories chosen using Tau tissue specificity ranking.				
@@ -312,7 +312,6 @@ The Tau tisse\hyp{}specificity distribution of the top 100 tissue\hyp{}specific 
 		}
 	\end{center}
 \end{figure}
->>>>>>> fb057a607c41b30fbc0f71afe0a86a882cd5ed3f
 
 A gene ontology (GO) enrichment analysis using Fisher's exact test \autocite{fisherInterpretationContingencyTables1922} and Benjamini/Hochberg FDR correction \autocite{benjaminiControllingFalseDiscovery1995} found 2 significantly enriched biological process (GO:0008150) GO terms for the top 300 constitutive genes, and 4 significantly enriched cellular component (GO:0005575) GO terms for the top 300 variable genes. For the top 300 non\hyp{}specific genes there were 3 significantly enriched cellular component GO terms. For the top 300 tissue\hyp{}specific genes there were 4 biological process, 7 cellular component and 6 molecular function (GO:0003674) significantly enriched GO terms.
 In the constitutive group 17 genes were associated with intracellular protein transport and 9 genes with endocytosis.
@@ -320,7 +319,7 @@ Amongst variably expressed genes, 73 were associated with the nucleus, 55 with b
 In the non\hyp{}specific group 67 genes were associated with the mitochondrion, 60 genes with the cytosol and 28 genes with the Golgi apparatus.
 Amongst tissue\hyp{}specific genes 151 were associated with the pollen tube (GO:0009860, GO:0080092, GO:0010183, GO:0010584, GO:0090406, GO:0090404), 67 with the extracellular region,  31 with the chloroplast, 26 with protein binding, 15 with antiporter activity, 14 with the cytosol, 8 with the endomembrane system, 6 with apical plasma membrane,  8 with pectinesterase inhibitor activity and 8 with pectinesterase activity.
 
-A KEGG gene set enrichment analysis with Benjamini/Hochberg FDR correction found no enriched terms in constitutive or variable groups (\textit{p} \textgreater{} 0.05).
+A KEGG gene set enrichment analysis with Benjamini/Hochberg FDR correction found no enriched terms in constitutive or variable groups (\textit{P} \textgreater{} 0.05).
 
 %\begin{figure}[hbt!]
 %	\begin{center}
@@ -360,7 +359,7 @@ A KEGG gene set enrichment analysis with Benjamini/Hochberg FDR correction found
 %		\includegraphics[width=1\columnwidth]{genes/non-specific_Schmid_sig_enrichment_CC}
 %		\caption{
 %			\textbf{Gene ontology lineage plot for the top 300 non\hyp{}specific \textit{Arabidopsis thaliana} genes.}
-%			The top 300 non\hyp{}specific were chosen based on tau tissue\hyp{}specificty values after filtering overlapping genes and genes with no TFBSs in their promoters.
+%			The top 300 non\hyp{}specific were chosen based on tau tissue\hyp{}specificity values after filtering overlapping genes and genes with no TFBSs in their promoters.
 %			Boxes coloured as followed: light red, \textit{p} \textless{} 0.005; grey, \textit{p} \textgreater{} 0.05 (non-significant study terms).
 %			p < 0.01, light orange
 %			The gene ontology enrichment analysis was calculated using Fisher's exact test \autocite{fisherInterpretationContingencyTables1922} and Benjamini/Hochberg FDR correction \autocite{benjaminiControllingFalseDiscovery1995}.
@@ -390,9 +389,9 @@ A KEGG gene set enrichment analysis with Benjamini/Hochberg FDR correction found
 
 \subsection{Open chromatin}
 CRMs from the four gene sets were overlapped with ATAC-seq data \autocite{potterCytokininModulatesContextdependent2018}. This allowed the chromatin accessibility to be described.
-Constitutive, variable and control CRMs had a significantly different percentage of nucleotides covered by open chromatin (Kruskal\hyp{}Wallis~\textit{H} = 37.5,~\textit{P} \textless{} 0.0001). Dunn's posthocs with Bonferroni correction showed that variable CRMs had a significantly lower percentage of nucleotides covered by open chromatin (\SI{35.0}{\percent} ± 35.1) than constitutive (\SI{54.1}{\percent} ± 33.3; ~\textit{P} \textless{} 0.001) or control (\SI{65.3}{\percent} ± 30.4; ~\textit{P} \textless{} 0.0001) CRMs (\autoref{fig:chromatin-coverage}A).
+Constitutive, variable and control CRMs had a significantly different percentage of nucleotides covered by open chromatin (Kruskal\hyp{}Wallis~\textit{H} = 37.5,~\textit{P} \textless{} 0.0001). Dunn's post hocs with Bonferroni correction showed that variable CRMs had a significantly lower percentage of nucleotides covered by open chromatin (\SI{35.0}{\percent} ± 35.1) than constitutive (\SI{54.1}{\percent} ± 33.3; ~\textit{P} \textless{} 0.001) or control (\SI{65.3}{\percent} ± 30.4; ~\textit{P} \textless{} 0.0001) CRMs (\autoref{fig:chromatin-coverage}A).
 Open chromatin coverage was significantly different between non\hyp{}specific, tissue\hyp{}specific and control gene types (Kruskal\hyp{}Wallis~\textit{H} = 75.3,~\textit{P} \textless{} 0.0001).
-Dunn's posthocs with Bonferroni correction revealed that tissue\hyp{}specific CRMs had a significantly lower percentage of nucleotides covered by open chromatin (\SI{20.4}{\percent} ± 30.2) than non\hyp{}specific (\SI{46.9}{\percent} ± 36.1; ~\textit{P} \textless{} 0.0001) or control (\SI{65.3}{\percent} ± 30.4; ~\textit{P} \textless{} 0.01) CRMs (\autoref{fig:chromatin-coverage}B)
+Dunn's post hocs with Bonferroni correction revealed that tissue\hyp{}specific CRMs had a significantly lower percentage of nucleotides covered by open chromatin (\SI{20.4}{\percent} ± 30.2) than non\hyp{}specific (\SI{46.9}{\percent} ± 36.1; ~\textit{P} \textless{} 0.0001) or control (\SI{65.3}{\percent} ± 30.4; ~\textit{P} \textless{} 0.01) CRMs (\autoref{fig:chromatin-coverage}B)
 
 \begin{figure}[hbt!]
 	\begin{center}
@@ -407,7 +406,7 @@ Dunn's posthocs with Bonferroni correction revealed that tissue\hyp{}specific CR
 			\textit{N}=100.
 			B: Percentage base pairs (bp) covered by open chromatin in 100 non\hyp{}specific, tissue\hyp{}specific and control genes.
 			\textit{N}=100.
-			Significance was calculated using Kruskal\hyp{}Wallis and Dunn's posthocs with Bonferroni correction.
+			Significance was calculated using Kruskal\hyp{}Wallis and Dunn's post hocs with Bonferroni correction.
 			**, \textit{P} \textless{} 0.01. ***, \textit{P} \textless{} 0.001. ****,\textit{P} \textless{} 0.0001. ns, not significant.
 			\label{fig:chromatin-coverage}
 		}
@@ -470,7 +469,7 @@ When analyses were repeated with the top 300 CRMs in each category the results s
 %change style to match the start of the previous sections
 The hypothesis that constitutive genes have a higher GC content than variable genes was tested.
 GC content was significantly different between gene types (Kruskal\hyp{}Wallis~\textit{H} = 6.5,~\textit{P} \textless{} 0.05).
-Dunn's posthocs with Bonferroni correction revealed that mean percentage GC content was significantly higher in constitutive CRMs (\SI{32.8}\percent{} ± 4.3) than variable CRMs  (\SI{31.7}\percent{} ± 3.6; ) (\autoref{fig:gc-content-wholeprom}A).
+Dunn's post hocs with Bonferroni correction revealed that mean percentage GC content was significantly higher in constitutive CRMs (\SI{32.8}\percent{} ± 4.3) than variable CRMs  (\SI{31.7}\percent{} ± 3.6; ) (\autoref{fig:gc-content-wholeprom}A).
 The hypothesis that non\hyp{}specific genes have a higher GC content than tissue\hyp{}specific genes was tested. There was no significant difference between non\hyp{}specific, tissue\hyp{}specific and control categories (Kruskal\hyp{}Wallis~\textit{H} = 4.2,~\textit{P} \textgreater{} 0.05; (\autoref{fig:gc-content-wholeprom}B).
 
 \begin{figure}[hbt!]
@@ -511,8 +510,8 @@ A sliding window analysis revealed that percentage GC content looked higher for 
 \end{figure}
 
 Further analysis in the first 400 bp upstream of the ATG start codon showed that there was a significant difference between constitutive, variable and control CRM types (Kruskal\hyp{}Wallis~\textit{H} = 14.8,~\textit{P} \textless{} 0.001).
-Dunn's posthoc tests with Bonferroni correction revealed that within the 400 bp region constitutive promoters had a significantly higher GC content (\SI{35.0}{\percent} ± 5.0) than variable CRMs (\SI{33.1}{\percent} ± 4.7; ~\textit{P} \textless{} 0.001) and control CRMs (\SI{33.8}{\percent} ± 4.2; ~\textit{P} \textless{} 0.05) (\autoref{fig:gc-content-400bpprom}).
-In the same 400 bp CRM region there was a significant difference between non\hyp{}specific, tissue\hyp{}specific and control CRMs (Kruskal\hyp{}Wallis~\textit{H} = 22.8,~\textit{P} \textless{} 0.0001). Dunn's posthocs with Bonferroni correction revealed that non\hyp{}specific (\SI{33.6}{\percent} ± 5.6; ~\textit{P} \textless{} 0.001) and control CRMs (\SI{33.8}{\percent} ± 4.2; ~\textit{P} \textless{} 0.0001) had a significantly higher GC content  than tissue\hyp{}specific CRMs (\SI{31.2}{\percent} ± 3.9). 
+Dunn's post hoc tests with Bonferroni correction revealed that within the 400 bp region constitutive promoters had a significantly higher GC content (\SI{35.0}{\percent} ± 5.0) than variable CRMs (\SI{33.1}{\percent} ± 4.7; ~\textit{P} \textless{} 0.001) and control CRMs (\SI{33.8}{\percent} ± 4.2; ~\textit{P} \textless{} 0.05) (\autoref{fig:gc-content-400bpprom}).
+In the same 400 bp CRM region there was a significant difference between non\hyp{}specific, tissue\hyp{}specific and control CRMs (Kruskal\hyp{}Wallis~\textit{H} = 22.8,~\textit{P} \textless{} 0.0001). Dunn's post hocs with Bonferroni correction revealed that non\hyp{}specific (\SI{33.6}{\percent} ± 5.6; ~\textit{P} \textless{} 0.001) and control CRMs (\SI{33.8}{\percent} ± 4.2; ~\textit{P} \textless{} 0.0001) had a significantly higher GC content  than tissue\hyp{}specific CRMs (\SI{31.2}{\percent} ± 3.9). 
 
 \begin{figure}[hbt!]
 	\begin{center}
@@ -522,7 +521,7 @@ In the same 400 bp CRM region there was a significant difference between non\hyp
 			\textbf{Mean percentage GC content of different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories in a 400 bp region upstream of the ATG start codon.}
 			Box plots have box boundaries that represent 25th, 50th (median) and 75th percentiles; whiskers are drawn up to the largest or smallest observed point that falls within 1.5 times the interquartile range.
 			Control genes are identical in plots A and B.
-			Significance was calculated using Kruskal\hyp{}Wallis followed by Dunn's posthocs with Bonferroni correction.
+			Significance was calculated using Kruskal\hyp{}Wallis followed by Dunn's post hocs with Bonferroni correction.
 			A: Percentage GC content in 100 constitutive, variable and control CRMs. \textit{N}=100.
 			B: Percentage GC content in 100 non\hyp{}specific, tissue\hyp{}specific and control genes. \textit{N}=100.
 			****, \textit{P} \textless{} 0.0001. ***, \textit{P} \textless{} 0.001. **, \textit{P} \textless{} 0.01. *, \textit{P} \textless{} 0.05. ns, not significant.
@@ -556,9 +555,9 @@ The hypothesis that tissue\hyp{}specific genes have a higher TFBS coverage than 
 	\end{center}
 \end{figure}
 The same analysis was run again using only TFBSs that fall within open chromatin. TFBS coverage differed significantly between constitutive, variable and control categories (Kruskal\hyp{}Wallis~\textit{H} = 27.1,~\textit{P} \textless{} 0.0001;\autoref{fig:tfbs-coverage-wholeprom-openchrom}A).
-Dunn's posthocs with Bonferroni correction revealed that TFBS coverage in open chromatin of variable CRMs (\SI{7.3}{\percent} ± 8.8) was significantly lower than constitutive CRMs (\SI{11.3}{\percent} ± 8.5; ~\textit{P} \textless{} 0.001) and control CRMs (\SI{12.9}{\percent} ± 9.1; ~\textit{P} \textless{} 0.0001).
+Dunn's post hocs with Bonferroni correction revealed that TFBS coverage in open chromatin of variable CRMs (\SI{7.3}{\percent} ± 8.8) was significantly lower than constitutive CRMs (\SI{11.3}{\percent} ± 8.5; ~\textit{P} \textless{} 0.001) and control CRMs (\SI{12.9}{\percent} ± 9.1; ~\textit{P} \textless{} 0.0001).
 TFBS coverage also differed significantly between non\hyp{}specific, tissue\hyp{}specific and control categories (Kruskal\hyp{}Wallis~\textit{H} = 72.9,~\textit{P} \textless{} 0.0001;\autoref{fig:tfbs-coverage-wholeprom-openchrom}B).
-Dunn's posthocs with Bonferroni correction revealed that TFBS coverage in open chromatin of tissue\hyp{}specific CRMs (\SI{3.5}{\percent} ± 6.0) was significantly lower than non\hyp{}specific CRMs (\SI{10.0}{\percent} ± 10.1; ~\textit{P} \textless{} 0.0001) and control CRMs (\SI{12.9}{\percent} ± 9.1; ~\textit{P} \textless{} 0.0001).
+Dunn's post hocs with Bonferroni correction revealed that TFBS coverage in open chromatin of tissue\hyp{}specific CRMs (\SI{3.5}{\percent} ± 6.0) was significantly lower than non\hyp{}specific CRMs (\SI{10.0}{\percent} ± 10.1; ~\textit{P} \textless{} 0.0001) and control CRMs (\SI{12.9}{\percent} ± 9.1; ~\textit{P} \textless{} 0.0001).
 Non\hyp{}specific genes had a significantly lower TFBS coverage in open chromatin than control genes (~\textit{P} \textless{} 0.05).
 
 \begin{figure}[hbt!]
@@ -571,7 +570,7 @@ Non\hyp{}specific genes had a significantly lower TFBS coverage in open chromati
 			5UTRs were extended downstream of the TSS to the closest coding region.
 			Open chromatin peaks derived from the intersect of root and shoot peaks derived from negative control (treated with NaOH) ATAC\hyp{}seq data by \textcite{potterCytokininModulatesContextdependent2018}.
 			Control genes are identical in violin plots A and B.
-			Significance was calculated using Kruskal\hyp{}Wallis followed by Dunn's posthocs with Bonferroni correction.
+			Significance was calculated using Kruskal\hyp{}Wallis followed by Dunn's post hocs with Bonferroni correction.
 			A: Mean percentage coverage of TFBS falling within open chromatin in constitutive, variable and control CRMs. \textit{N}=100.
 			B: Mean percentage coverage of TFBS falling within open chromatin in non\hyp{}specific, tissue\hyp{}specific and control CRMs. \textit{N}=100.
 			****, \textit{P} \textless{} 0.0001. ***, \textit{P} \textless{} 0.001. *, \textit{P} \textless{} 0.05. ns, not significant.
@@ -604,10 +603,10 @@ A sliding window analysis revealed that TFBS coverage was higher in variable CRM
 
 
 Further analysis in this 400 bp region revealed a significant difference between constitutive, variable and control CRM types (Kruskal\hyp{}Wallis~\textit{H} = 10.5,~\textit{P} \textless{} 0.01;\autoref{fig:tfbs-coverage-400bpprom}A).
-Dunn's posthocs with Bonferroni correction showed that variable promoters had a significantly higher percentage bp covered (\SI{26.1}{\percent} ± 14.6) than constitutive CRMs (\SI{20.0}{\percent} ± 13.7; \textit{P} \textless 0.01) and control CRMs (\SI{21.1}{\percent} ± 13.8; \textit{P} \textless 0.05).
+Dunn's post hocs with Bonferroni correction showed that variable promoters had a significantly higher percentage bp covered (\SI{26.1}{\percent} ± 14.6) than constitutive CRMs (\SI{20.0}{\percent} ± 13.7; \textit{P} \textless 0.01) and control CRMs (\SI{21.1}{\percent} ± 13.8; \textit{P} \textless 0.05).
 
 In the same 400 bp region there was a significant difference between non\hyp{}specific, tissue\hyp{}specific and control CRM types (Kruskal\hyp{}Wallis~\textit{H} = 8.5,~\textit{P} \textless{} 0.05; \autoref{fig:tfbs-coverage-400bpprom}B).
-Dunn's posthocs showed that tissue\hyp{}specific CRMs had significantly higher TFBS percentage coverage (\SI{25.1}{\percent} ± 14.6) than non\hyp{}specific CRMs (\SI{19.4}{\percent} ± 13.3; \textit{P} \textless 0.05).
+Dunn's post hocs showed that tissue\hyp{}specific CRMs had significantly higher TFBS percentage coverage (\SI{25.1}{\percent} ± 14.6) than non\hyp{}specific CRMs (\SI{19.4}{\percent} ± 13.3; \textit{P} \textless 0.05).
 
 
 \begin{figure}[hbt!]
@@ -619,7 +618,7 @@ Dunn's posthocs showed that tissue\hyp{}specific CRMs had significantly higher T
 			Box plots have box boundaries that represent 25th, 50th (median) and 75th percentiles; whiskers are drawn up to the largest or smallest observed point that falls within 1.5 times the interquartile range.
 			A: Mean percentage TFBS coverage in constitutive, variable and control CRMs. \textit{N}=100.
 			B: Mean percentage TFBS coverage in non\hyp{}specific, tissue\hyp{}specific and control CRMs. \textit{N}=100.
-			Significance was calculated using Kruskal\hyp{}Wallis and Dunn's posthocs with Bonferroni correction.
+			Significance was calculated using Kruskal\hyp{}Wallis and Dunn's post hocs with Bonferroni correction.
 			**, \textit{P} \textless{} 0.01. *, \textit{P} \textless{} 0.05. ns, not significant.
 			\label{fig:tfbs-coverage-400bpprom}
 		}
@@ -627,10 +626,10 @@ Dunn's posthocs showed that tissue\hyp{}specific CRMs had significantly higher T
 \end{figure}
 
 Percentage coverage of TFBSs falling within open chromatin in the 400 bp region was significantly different between constitutive, variable and control CRMs (Kruskal\hyp{}Wallis~\textit{H} = 13.2,~\textit{P} \textless{} 0.01; \autoref{fig:tfbs-coverage-400bpprom-openchrom}A).
-Dunn's posthocs with Bonferroni correction showed that variable CRMs had a significantly lower TFBS coverage (\SI{10.5}{\percent} ± 14.2) in open chromatin than constitutive (\SI{15.2}{\percent} ± 13.4; \textit{P} \textless 0.05) and control CRMs (\SI{16.1}{\percent} ± 14.0; \textit{P} \textless 0.01).
+Dunn's post hocs with Bonferroni correction showed that variable CRMs had a significantly lower TFBS coverage (\SI{10.5}{\percent} ± 14.2) in open chromatin than constitutive (\SI{15.2}{\percent} ± 13.4; \textit{P} \textless 0.05) and control CRMs (\SI{16.1}{\percent} ± 14.0; \textit{P} \textless 0.01).
 
 Within the same 400 bp region non\hyp{}specific, tissue\hyp{}specific and control CRMs also had significantly different TFBS coverage in open chromatin (Kruskal\hyp{}Wallis~\textit{H} = 74.7,~\textit{P} \textless{} 0.0001; \autoref{fig:tfbs-coverage-400bpprom-openchrom}B).
-Dunn's posthocs with Bonferroni correction revealed that tissue\hyp{}specific CRMs had significantly lower TFBS coverage (\SI{2.5}{\percent} ± 7.0) in open chromatin than non\hyp{}specific (\SI{13.4}{\percent} ± 14.0; \textit{P} \textless 0.0001) and control CRMs (\SI{16.1}{\percent} ± 14.0; \textit{P} \textless 0.0001).
+Dunn's post hocs with Bonferroni correction revealed that tissue\hyp{}specific CRMs had significantly lower TFBS coverage (\SI{2.5}{\percent} ± 7.0) in open chromatin than non\hyp{}specific (\SI{13.4}{\percent} ± 14.0; \textit{P} \textless 0.0001) and control CRMs (\SI{16.1}{\percent} ± 14.0; \textit{P} \textless 0.0001).
 
 \begin{figure}[hbt!]
 	\begin{center}
@@ -640,7 +639,7 @@ Dunn's posthocs with Bonferroni correction revealed that tissue\hyp{}specific CR
 			\textbf{Mean percentage coverage of TFBS falling within open chromatin in different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories in a 400 bp region upstream of the ATG start codon.}		
 			A: Mean percentage coverage of TFBS falling within open chromatin in 400 bp constitutive, variable and control CRMs. \textit{N}=100.
 			B: Mean percentage coverage of TFBS falling within open chromatin in 400 bp non\hyp{}specific, tissue\hyp{}specific and control CRMs. \textit{N}=100.
-			Significance was calculated using Kruskal\hyp{}Wallis and Dunn's posthocs with Bonferroni correction.
+			Significance was calculated using Kruskal\hyp{}Wallis and Dunn's post hocs with Bonferroni correction.
 			**, \textit{P} \textless{} 0.01. *, \textit{P} \textless{} 0.05. ns, not significant.
 			\label{fig:tfbs-coverage-400bpprom-openchrom}
 		}
@@ -650,7 +649,7 @@ Dunn's posthocs with Bonferroni correction revealed that tissue\hyp{}specific CR
 
 When analyses were repeated using the top 300 CRMs in each category, most findings supported those found with the top 100 CRMs.
 However, at the whole CRM level, there was a significant difference in TFBS coverage between non\hyp{}specific, tissue\hyp{}specific and control CRMs (\textit{N} = 300; Kruskal\hyp{}Wallis~\textit{H} = 7.7;~\textit{P} \textless{} 0.05).
-Dunn's posthocs with Bonferroni correction revealed that tissue\hyp{}specific CRMs had a significantly higher TFBS coverage (\SI{19.0}{\percent} ± 8.8) than non\hyp{}specific CRMs (\SI{17.6}{\percent} ± 9.5; \textit{P} \textless 0.05).
+Dunn's post hocs with Bonferroni correction revealed that tissue\hyp{}specific CRMs had a significantly higher TFBS coverage (\SI{19.0}{\percent} ± 8.8) than non\hyp{}specific CRMs (\SI{17.6}{\percent} ± 9.5; \textit{P} \textless 0.05).
 
 \subsection{TF diversity}
 The hypothesis that variable genes have a higher diversity of TFs binding them than constitutive genes was tested.
@@ -707,23 +706,23 @@ The findings supported the results found with the top 100 CRMs in each category.
 %At the whole CRM level there was no significant difference in TF (\textit{N} = 300; Kruskal\hyp{}Wallis~\textit{H} = 0.8, ~\textit{P} \textgreater{} 0.05) or TF family diversity (\textit{N} = 300; Kruskal\hyp{}Wallis~\textit{H} = 0.6, ~\textit{P} \textgreater{} 0.05) between constitutive, variable and control CRMs.
 %There was also no significant difference in TF (\textit{N} = 208; Kruskal\hyp{}Wallis~\textit{H} = 0.8;~\textit{P} \textgreater{} 0.05) or TF family diversity (\textit{N} = 208; Kruskal\hyp{}Wallis~\textit{H} = 1.0; ~\textit{P} \textgreater{} 0.05) when only using TFBSs falling within open chromatin.
 %There was a significant difference in TF Shannon diversity between non\hyp{}specific, tissue\hyp{}specific or control CRMs (\textit{N} = 300, Kruskal\hyp{}Wallis~\textit{H} = 13.2, ~\textit{P} \textless{} 0.01).
-%Dunn's posthocs with Bonferroni correction revealed that control genes had a significantly higher Shannon diversity (2.8 ± 0.8) than non\hyp{}specific (2.6 ± 1.0; ~\textit{P} \textless{} 0.05) and tissue\hyp{}specific genes (2.6 ± 0.9; ~\textit{P} \textless{} 0.01).
+%Dunn's post hocs with Bonferroni correction revealed that control genes had a significantly higher Shannon diversity (2.8 ± 0.8) than non\hyp{}specific (2.6 ± 1.0; ~\textit{P} \textless{} 0.05) and tissue\hyp{}specific genes (2.6 ± 0.9; ~\textit{P} \textless{} 0.01).
 %There was a significant difference TF family diversity non\hyp{}specific, tissue\hyp{}specific and control CRMs (\textit{N} = 300, Kruskal\hyp{}Wallis~\textit{H} = 8.0;~\textit{P} \textless{} 0.05).
-%Dunn's posthocs with Bonferroni correction revealed that control CRMs had a significantly higher TF family diversity (1.9 ± 0.5) than tissue\hyp{}specific CRMs (1.8 ± 0.6;~\textit{P} \textless{} 0.05).
+%Dunn's post hocs with Bonferroni correction revealed that control CRMs had a significantly higher TF family diversity (1.9 ± 0.5) than tissue\hyp{}specific CRMs (1.8 ± 0.6;~\textit{P} \textless{} 0.05).
 Using only TFBSs falling within open chromatin there was a significant difference in TF diversity between non\hyp{}specific, tissue\hyp{}specific and control CRMs (\textit{N} = 112, Kruskal\hyp{}Wallis~\textit{H} = 10.2;~\textit{P} \textless{} 0.01).
-Dunn's posthocs with Bonferroni correction revealed that tissue\hyp{}specific CRMs (2.1 ± 1.2) had a significantly lower TF diversity than non\hyp{}specific (2.5 ± 1.0;~\textit{P} \textless{} 0.05) and control CRMs (2.6 ± 0.9;~\textit{P} \textless{} 0.01).
+Dunn's post hocs with Bonferroni correction revealed that tissue\hyp{}specific CRMs (2.1 ± 1.2) had a significantly lower TF diversity than non\hyp{}specific (2.5 ± 1.0;~\textit{P} \textless{} 0.05) and control CRMs (2.6 ± 0.9;~\textit{P} \textless{} 0.01).
 %Using only TFBSs falling within open chromatin there was also a significant difference in TF family diversity between non\hyp{}specific, tissue\hyp{}specific and control CRMs (\textit{N} = 112, Kruskal\hyp{}Wallis~\textit{H} = 11.5;~\textit{P} \textless{} 0.01).
-%Dunn's posthocs with Bonferroni correction revealed that tissue\hyp{}specific CRMs (1.4 ± 0.8) had a significantly lower TF family diversity than control CRMs (1.8 ± 0.6;~\textit{P} \textless{} 0.01).
+%Dunn's post hocs with Bonferroni correction revealed that tissue\hyp{}specific CRMs (1.4 ± 0.8) had a significantly lower TF family diversity than control CRMs (1.8 ± 0.6;~\textit{P} \textless{} 0.01).
 
 %At the 400 bp promoter level there was a significant difference in TF diversity between constitutive, variable and control CRMs (\textit{N} = 300; Kruskal\hyp{}Wallis~\textit{H} = 6.0, ~\textit{P} \textless{} 0.05).
-%However, Dunn's posthocs with Bonferroni correction revealed no significant difference between groups (\textit{P} \textgreater{} 0.05).
+%However, Dunn's post hocs with Bonferroni correction revealed no significant difference between groups (\textit{P} \textgreater{} 0.05).
 
 %In the same 400 bp CRM there was no significant difference in TF family diversity between constitutive, variable and control CRMs (\textit{N} = 300; Kruskal\hyp{}Wallis~\textit{H} = 5.0, ~\textit{P} \textgreater{} 0.05).
 
 %At the 400 bp promoter level there was a significant difference in TF diversity between non\hyp{}specific, tissue\hyp{}specific and control CRMs (\textit{N} = 300; Kruskal\hyp{}Wallis~\textit{H} = 7.7, ~\textit{P} \textless{} 0.05).
-%Dunn's posthocs with Bonferroni correction revealed that non\hyp{}specific CRMs (2.1 ± 1.2) had a significantly lower TF diversity than control CRMs (2.3 ± 1.0;~\textit{P} \textless{} 0.05).
+%Dunn's post hocs with Bonferroni correction revealed that non\hyp{}specific CRMs (2.1 ± 1.2) had a significantly lower TF diversity than control CRMs (2.3 ± 1.0;~\textit{P} \textless{} 0.05).
 There was also a significant difference in TF family diversity in the 400 bp CRM between non\hyp{}specific, tissue\hyp{}specific and control CRMs (\textit{N} = 300; Kruskal\hyp{}Wallis~\textit{H} = 8.1, ~\textit{P} \textless{} 0.05).
-Dunn's posthocs with Bonferroni correction revealed that non\hyp{}specific CRMs (1.3 ± 0.8) had a significantly lower TF diversity than control CRMs (1.5 ± 0.7;~\textit{P} \textless{} 0.05) and tissue\hyp{}specific CRMs (1.5 ± 0.7;~\textit{P} \textless{} 0.05).
+Dunn's post hocs with Bonferroni correction revealed that non\hyp{}specific CRMs (1.3 ± 0.8) had a significantly lower TF diversity than control CRMs (1.5 ± 0.7;~\textit{P} \textless{} 0.05) and tissue\hyp{}specific CRMs (1.5 ± 0.7;~\textit{P} \textless{} 0.05).
 
 %There was no significant difference in TF or TF family diversity in the 400 bp promoter within open chromatin between constitutive, variable and control CRMs or between non\hyp{}specific, tissue\hyp{}specific and control CRMs (All Kruskal-Wallis tests; \textit{P} \textgreater{} 0.05).
 
@@ -736,7 +735,7 @@ Dunn's posthocs with Bonferroni correction revealed that non\hyp{}specific CRMs 
 %			\textbf{Shannon diversity of individual TFs (A) and TF families (B) of 100 constitutive (blue), 100 variable (orange) and 100 control (green) Arabidopsis \textit{cis}\hyp{}regulatory modules (CRMs) in a 400 bp region upstream of the ATG start codon.}
 %			Box plots have box boundaries that represent 25th, 50th (median) and 75th percentiles; whiskers are drawn up to the largest or smallest observed point that falls within 1.5 times the interquartile range.
 %			\label{fig:tf-diversity-400bpprom}
-%			Significance was calculated using Kruskal\hyp{}Wallis and Dunn's posthocs with Bonferroni correction.
+%			Significance was calculated using Kruskal\hyp{}Wallis and Dunn's post hocs with Bonferroni correction.
 %			*, \textit{P} \textless{} 0.05. ns, not significant.
 %		}
 %	\end{center}
@@ -787,13 +786,13 @@ The TF Tau tissue\hyp{}specificity of TFs predicted to bind CRMs did not differ 
 The TF Tau tissue\hyp{}specificity of TFs predicted to bind CRMs in open chromatin also did not differ significantly between tissue\hyp{}specific, non\hyp{}specific and control CRMs (\textit{N} = 37; Kruskal\hyp{}Wallis~\textit{H} = 3.3;~\textit{P} \textgreater{} 0.05).
 
 In 400 bp CRMs there was a significant difference in TF expression CV of TFs predicted to bind CRMs between constitutive, variable and control CRMs (\textit{N} = 92; Kruskal\hyp{}Wallis~\textit{H} = 6.9;~\textit{P} \textless{} 0.05).
-However, Dunn's posthocs with Bonferroni correction did not reveal an significant difference between any two categories (~\textit{P} \textgreater{} 0.05).
+However, Dunn's post hocs with Bonferroni correction did not reveal an significant difference between any two categories (~\textit{P} \textgreater{} 0.05).
 The TF expression CV of TFs predicted to bind 400 bp CRMs in open chromatin did not differ significantly between constitutive, variable and control CRMs (\textit{N} = 51; Kruskal\hyp{}Wallis~\textit{H} = 4.3;~\textit{P} \textgreater{} 0.05).
 
 In 400 bp CRMs there was a significant difference in TF Tau tissue\hyp{}specificity of TFs predicted to bind CRMs between tissue\hyp{}specific, non\hyp{}specific and control CRMs (\textit{N} = 92; Kruskal\hyp{}Wallis~\textit{H} = 6.2;~\textit{P} \textless{} 0.05).
-Dunn's posthocs with Bonferroni correction revealed no significant difference between any two categories ( ~\textit{P} \textgreater{} 0.05).
+Dunn's post hocs with Bonferroni correction revealed no significant difference between any two categories ( ~\textit{P} \textgreater{} 0.05).
 The TF Tau tissue\hyp{}specificity of TFs predicted to bind 400 bp CRMs in open chromatin differed significantly between tissue\hyp{}specific, non\hyp{}specific and control CRMs (\textit{N} = 23; Kruskal\hyp{}Wallis~\textit{H} = 9.4;~\textit{P} \textless{} 0.01).
-Dunn's posthocs with Bonferroni correction revealed that the mean Tau tissue\hyp{}specificity was significantly higher for TFs binding non\hyp{}specific CRMs (0.70 ± 0.16) than TFs binding tissue\hyp{}specific CRMs (0.66 ± 0.16;~\textit{P} \textless{} 0.01; \autoref{fig:TFBS-TF-class-400bpprom-openchrom}).
+Dunn's post hocs with Bonferroni correction revealed that the mean Tau tissue\hyp{}specificity was significantly higher for TFs binding non\hyp{}specific CRMs (0.70 ± 0.16) than TFs binding tissue\hyp{}specific CRMs (0.66 ± 0.16;~\textit{P} \textless{} 0.01; \autoref{fig:TFBS-TF-class-400bpprom-openchrom}).
 %add figure%
 \begin{figure}[hbt!]
 	\begin{center}
@@ -803,7 +802,7 @@ Dunn's posthocs with Bonferroni correction revealed that the mean Tau tissue\hyp
 			\textbf{Tau tissue\hyp{}specificity of Arabidopsis TFs binding \textit{cis}\hyp{}regulatory modules (CRMs) falling within open chromatin in different gene expression categories in a 400 bp region upstream of the ATG start codon.}		
 			A: Tau tissue\hyp{}specificity of TFs binding within open chromatin in 400 bp constitutive, variable and control CRMs. \textit{N}=100.
 			B: Tau tissue\hyp{}specificity of TFs binding within open chromatin in 400 bp non\hyp{}specific, tissue\hyp{}specific and control CRMs. \textit{N}=100.
-			Significance was calculated using Kruskal\hyp{}Wallis and Dunn's posthocs with Bonferroni correction.
+			Significance was calculated using Kruskal\hyp{}Wallis and Dunn's post hocs with Bonferroni correction.
 			**, \textit{P} \textless{} 0.01. ns, not significant.
 			\label{fig:TFBS-TF-class-400bpprom-openchrom}
 		}
@@ -815,9 +814,9 @@ The TF expression CV of TFs predicted to bind CRMs did not differ significantly 
 The TF expression CV of TFs predicted to bind CRMs in open chromatin also did not differ significantly between constitutive, variable and control CRMs (\textit{N} = 206; Kruskal\hyp{}Wallis~\textit{H} = 0.6; ~\textit{P} \textgreater{} 0.05).
 
 The TF Tau tissue\hyp{}specificity of TFs predicted to bind CRMs differed significantly between tissue\hyp{}specific, non\hyp{}specific and control CRMs (\textit{N} = 299; Kruskal\hyp{}Wallis~\textit{H} = 3.8;~\textit{P} \textless{} 0.05).
-Dunn's posthocs with Bonferroni correction revealed that TFs binding non\hyp{}specific CRMs had a significantly higher Tau tissue\hyp{}specificity (0.68 ± 0.16) than tissue\hyp{}specific CRMs (0.67 ± 0.16;~\textit{P} \textless{} 0.01).
+Dunn's post hocs with Bonferroni correction revealed that TFs binding non\hyp{}specific CRMs had a significantly higher Tau tissue\hyp{}specificity (0.68 ± 0.16) than tissue\hyp{}specific CRMs (0.67 ± 0.16;~\textit{P} \textless{} 0.01).
 The TF Tau tissue\hyp{}specificity of TFs predicted to bind CRMs in open chromatin also differed significantly between tissue\hyp{}specific, non\hyp{}specific and control CRMs (\textit{N} = 112; Kruskal\hyp{}Wallis~\textit{H} = 9.0;~\textit{P} \textless{} 0.05).
-Dunn's posthocs with Bonferroni correction revealed that TFs binding non\hyp{}specific CRMs in open chromatin had a significantly higher Tau tissue\hyp{}specificity (0.68 ± 0.16) than control CRMs (0.66 ± 0.16; ~\textit{P} \textless{} 0.05).
+Dunn's post hocs with Bonferroni correction revealed that TFs binding non\hyp{}specific CRMs in open chromatin had a significantly higher Tau tissue\hyp{}specificity (0.68 ± 0.16) than control CRMs (0.66 ± 0.16; ~\textit{P} \textless{} 0.05).
 
 In 400 bp CRMs there was no significant difference in TF expression CV of TFs predicted to bind CRMs between constitutive, variable and control CRMs (\textit{N} = 275; Kruskal\hyp{}Wallis~\textit{H} = 2.0;~\textit{P} \textgreater{} 0.05).
 In the same 400bp region there was no significant difference in TF expression CV of TFs predicted to bind CRMs within open chromatin between constitutive, variable and control CRMs (\textit{N} = 177; Kruskal\hyp{}Wallis~\textit{H} = 1.1; ~\textit{P} \textgreater{} 0.05).
@@ -825,21 +824,21 @@ In the same 400bp region there was no significant difference in TF expression CV
 
 
 In 400 bp CRMs there was a significant difference in TF Tau tissue\hyp{}specificity of TFs predicted to bind CRMs between tissue\hyp{}specific, non\hyp{}specific and control CRMs (\textit{N} = 279; Kruskal\hyp{}Wallis~\textit{H} = 7.6; ~\textit{P} \textless{} 0.05).
-Dunn's posthocs with Bonferroni correction revealed that TFs binding CRMs of non\hyp{}specific genes had a significantly higher Tau tissue\hyp{}specificity (0.67 ± 0.16) than TFs binding CRMs of tissue\hyp{}specific genes (0.66 ± 0.15;~\textit{P} \textless{} 0.05).
+Dunn's post hocs with Bonferroni correction revealed that TFs binding CRMs of non\hyp{}specific genes had a significantly higher Tau tissue\hyp{}specificity (0.67 ± 0.16) than TFs binding CRMs of tissue\hyp{}specific genes (0.66 ± 0.15;~\textit{P} \textless{} 0.05).
 These results support the results from using the top 100 CRMs in each category.
 There was a significant difference in TF Tau tissue\hyp{}specificity of TFs binding 400bp CRMs in open chromatin (\textit{N} = 85; Kruskal\hyp{}Wallis~\textit{H} = 21.7; ~\textit{P} \textless{} 0.0001).
-Dunn's posthocs with Bonferroni correction revealed that TFs binding non\hyp{}specific CRMs in open chromatin had significantly higher Tau tissue\hyp{}specificity (0.69 ± 0.16) than TFs binding tissue\hyp{}specific (0.65 ± 0.15;~\textit{P} \textless{} 0.0001) or control CRMs (0.66 ± 0.15;~\textit{P} \textless{} 0.01).
+Dunn's post hocs with Bonferroni correction revealed that TFs binding non\hyp{}specific CRMs in open chromatin had significantly higher Tau tissue\hyp{}specificity (0.69 ± 0.16) than TFs binding tissue\hyp{}specific (0.65 ± 0.15;~\textit{P} \textless{} 0.0001) or control CRMs (0.66 ± 0.15;~\textit{P} \textless{} 0.01).
 
 
 
 
 
 %\subsection{Transcription factor target}
-%170 TFs in each category chosen - as only 571 TFs present in all genes set and needs to be divisible by 10 for the control set. Not many of the TFs predicted to bind promoters in the whole geneset (18 cv, 23 tau with top 150 TFs in each category). Control set still need standardising between the two sets. Leave this analysis out of chapter as samples sizes too small!
+%170 TFs in each category chosen - as only 571 TFs present in all genes set and needs to be divisible by 10 for the control set. Not many of the TFs predicted to bind promoters in the whole gene set (18 cv, 23 tau with top 150 TFs in each category). Control set still need standardising between the two sets. Leave this analysis out of chapter as samples sizes too small!
 
 %Mention top 300 in each category - non-specific significantly lower TF family diversity than tissue_specific p<0.05
 
-%TALK ABOUT 5UTR lengths - test if constutive have longer 5'UTR lengths (check for expected  hypothesis first and see if useful comparison or not)
+%TALK ABOUT 5UTR lengths - test if constitutive have longer 5'UTR lengths (check for expected  hypothesis first and see if useful comparison or not)
 %\begin{figure}[!h]
 %	\begin{center}
 %		\capstart

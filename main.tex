@@ -30,9 +30,9 @@
 \usepackage{etoolbox}
 %import package to import chapters without nested errors as explained on overleaf
 \usepackage{import}
-\makeatletter
+\makeatletter{}
 
-\makeatother
+\makeatother{}
 
 \renewenvironment{abstract}
   {{\bfseries\noindent{\abstractname}\par\nobreak}\footnotesize}
@@ -48,13 +48,13 @@
 
 \usepackage{placeins}% prevent figures being placed in different section
 %then redefine subsections to include float barriers
-\let\Oldsection\section
+\let\Oldsection\section{}
 \renewcommand{\section}{\FloatBarrier\Oldsection}
 
-\let\Oldsubsection\subsection
+\let\Oldsubsection\subsection{}
 \renewcommand{\subsection}{\FloatBarrier\Oldsubsection}
 
-\let\Oldsubsubsection\subsubsection
+\let\Oldsubsubsection\subsubsection{}
 \renewcommand{\subsubsection}{\FloatBarrier\Oldsubsubsection}
 
 \usepackage{graphicx}
@@ -89,8 +89,8 @@
 	backrefpages = {pages},% originally "cited on pages"
 }  
   
-\addbibresource{bibliography/biblio.bib}
-%\addbibresource{bibliography/main_biber.bib}
+%\addbibresource{bibliography/biblio.bib}
+\addbibresource{bibliography/main_biber.bib}
 %make letter spacing better
 \usepackage[activate={true,nocompatibility},final,tracking=true,factor=1100,stretch=10,shrink=10]{microtype}%spacing=true, kerning=true
 
@@ -107,7 +107,7 @@
 
 %prevent underfull hbox in biblatex bibliography
 \usepackage{etoolbox}
-\apptocmd{\sloppy}{\hbadness 10000\relax}{}{}
+\apptocmd{\sloppy}{\hbadness=10000\relax}{}{}
 
 %use maths package
 \usepackage{fontspec, expl3, ucharcat, lualatex-math}
@@ -165,11 +165,11 @@
   \date{\today}
 
 
-\begingroup
-\let\center\flushleft
-\let\endcenter\endflushleft
-\maketitle
-\endgroup
+\begingroup{}
+\let\center\flushleft{}
+\let\endcenter\endflushleft{}
+\maketitle{}
+\endgroup{}
 \begin{abstract}
 	Manipulation of plant growth will help to increase crop yields to feed the growing human population.
 	Plant growth in response to environmental changes is coordinated by suites of genes working combinatorially within complex gene regulatory networks (GRNs) composed of multitudes of connections, including those between transcription factors (TFs) and recognition sequences associated with the genes they regulate.
@@ -187,19 +187,19 @@
 \overfullrule=2cm
 
 
-\doublespacing
+\doublespacing{}
 
-\par\null
+\par\null{}
 
 \textbf{\textit{Keywords}} transcription;~\textit{cis}-regulatory element;
 \textit{cis}-regulatory module; transcription factor binding site;
 transcription start site; transcription start region.
-\newpage
+\newpage{}
 \microtypesetup{protrusion=false}
-\tableofcontents
+\tableofcontents{}
 %\listoffigures
 %\listoftables
-\newpage
+\newpage{}
 \microtypesetup{protrusion=true}
 %add progress review chapter
 
@@ -208,11 +208,11 @@ transcription start site; transcription start region.
 
 
 
-\FloatBarrier
+\FloatBarrier{}
 %\section*{References}
 %\emergencystretch=3em.
-\sloppy
-\printbibliography
+\sloppy{}
+\printbibliography{}
 
 
 \end{document}
