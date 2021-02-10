@@ -43,7 +43,7 @@ Constitutive genes are associated with gene body methylation \autocite{zhangGeno
 Constitutive promoters are enriched for GA regions while variable promoters are depleted in GA regions \autocite{yamamotoHeterogeneityArabidopsisCore2009}.
 
 
-\hyp{}sensitive variably expressed genes were found to have significantly shorter 5'UTR, gene length and cDNA lengths than constitutively expressed genes.
+\hyp{}sensitive variably expressed genes were found to have significantly shorter 5$\prime$ UTR, gene length and cDNA lengths than constitutively expressed genes.
 This could be because early response genes have a selection pressure to respond faster to stimuli and smaller proteins may diffuse more quickly through cells and tissues to reach their target.
 Multistimuli\hyp{}sensitive variably expressed genes also had fewer introns and were more likely to have paralogues in the Arabidopsis genome than constitutively expressed genes \autocite{waltherRegulatoryCodeTranscriptional2007}.
 
@@ -113,7 +113,7 @@ The longer intergenic regions possibly allow for increased regulation complexity
 
 In animals, TATA boxes are enriched in variable promoters \autocite{engstromGenomicRegulatoryBlocks2007,carninciGenomewideAnalysisMammalian2006}.
 In plants, TATA boxes are enriched in genes responding to more stimuli (i.e. variably expressed genes) over genes responding to a narrow breadth of stimuli (i.e. constitutive genes, tissue-specific genes).
-These variably expressed genes containing TATA boxes tend to have shorter 5'UTRs \autocite{waltherRegulatoryCodeTranscriptional2007,molinaGenomeWideAnalysis2005,lichtenbergWordLandscapeNoncoding2009}
+These variably expressed genes containing TATA boxes tend to have shorter 5$\prime$ UTRs \autocite{waltherRegulatoryCodeTranscriptional2007,molinaGenomeWideAnalysis2005,lichtenbergWordLandscapeNoncoding2009}
 Genes responding to stresses early on were more likely to contain a TATA box than genes that responded later \autocite{waltherRegulatoryCodeTranscriptional2007}.
 TATA boxes increase interspecies gene expression variation of the downstream gene \autocite{tiroshGeneticSignatureInterspecies2006}.
 Stress response motifs such as DRE, ABF and ABRE-like TFBSs \autocite{yamaguchi-shinozakiNovelCisactingElement1994} are associated with variably expressed genes with a large breadth of response \autocite{waltherRegulatoryCodeTranscriptional2007}.
@@ -146,8 +146,8 @@ Promoters were extracted from the Arabidopsis TAIR 10 \autocite{lameschArabidops
 Only promoters from genes on Arabidopsis chromosomes 1-5 were extracted.
 Using the same Python script Promoters were extracted from protein coding genes that did not overlap other protein coding genes using pybedtools (version 0.8.1) \autocite{dalePybedtoolsFlexiblePython2011}.
 %What pybedtools version?
-Promoters were extracted 1000 base pairs (bp) upstream of the longest annotated transcript transcription start site (TSS) or until the nearest annotated protein coding gene, and 5'UTRs were included downstream of the TSS up until the closest annotated coding sequence (CDS) ATG start codon.
-Genes where the whole promoter overlapped a protein coding gene, leaving only part of the 5'UTR non-overlapping, were flagged and filtered out.
+Promoters were extracted 1000 base pairs (bp) upstream of the longest annotated transcript transcription start site (TSS) or until the nearest annotated protein coding gene, and 5$\prime$ UTRs were included downstream of the TSS up until the closest annotated coding sequence (CDS) ATG start codon.
+Genes where the whole promoter overlapped a protein coding gene, leaving only part of the 5$\prime$ UTR non-overlapping, were flagged and filtered out.
 %This is because coding sequences have different conservation patterns to non-coding regions.%see intro XXX%
 %Promoters with an upstream gene oriented in the reverse direction less than 2000 bp away were flagged to mitigate for potentially overlapping promoters.
 %This was because with overlapping promoters it is difficult to determine whether CREs belong to one promoter over the other or are used by both promoters.
@@ -400,7 +400,7 @@ Dunn's post hocs with Bonferroni correction revealed that tissue\hyp{}specific C
 		\caption{
 			\textbf{Mean percentage open chromatin coverage in different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories.}		
 			Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
-			5UTRs were extended downstream of the TSS to the closest coding region.
+			5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.
 			Control genes identical in plots A and B.	
 			A: Percentage base pairs (bp) covered by open chromatin in 100 constitutive, variable and control genes.
 			\textit{N}=100.
@@ -413,7 +413,7 @@ Dunn's post hocs with Bonferroni correction revealed that tissue\hyp{}specific C
 	\end{center}
 \end{figure}
 A sliding window analysis revealed that from \textasciitilde{}350 bp to \textasciitilde{}650 bp upstream of the start codon the median open chromatin in constitutive CRMs decreased to zero while variable CRMs had a median percentage open chromatin of 0 (\autoref{fig:openchrom-sliding-window}A).
-From \textasciitilde{}250 bp to \textasciitilde{}450bp upstream of the start codon the median open chromatin in non\hyp{}specific CRMs decreased to zero while tissue\hyp{}specific CRMs had a median percentage open chromatin of 0 (\autoref{fig:openchrom-sliding-window}B).
+From \textasciitilde{}250 bp to \textasciitilde{}450 bp upstream of the start codon the median open chromatin in non\hyp{}specific CRMs decreased to zero while tissue\hyp{}specific CRMs had a median percentage open chromatin of 0 (\autoref{fig:openchrom-sliding-window}B).
 
 \begin{figure}[!hbt]
 	\begin{center}
@@ -422,12 +422,12 @@ From \textasciitilde{}250 bp to \textasciitilde{}450bp upstream of the start cod
 		\caption{
 			\textbf{Sliding window analysis of percentage open chromatin across different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories upstream of the start codon.}
 			Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
-			5'UTRs were extended downstream of the TSS to the closest coding region.
+			5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.
 			The median proportion of nucleotides falling within open chromatin peaks described by \textcite{potterCytokininModulatesContextdependent2018} was scored for 100 bp windows across selected CRMs.
 			The open chromatin peaks used were the intersect of root and shoot peaks derived from the negative control (treated with NaOH) ATAC\hyp{}seq data.
 			The windows were overlapping with a 50 bp offset.
 			The median value for each bin is displayed here at the central bp of the bin.
-			Shading represents 95 confidence intervals estimated using 10000 bootstraps.
+			Shading represents \SI{95}{\percent} confidence intervals estimated using 10000 bootstraps.
 			A: constitutive and variable GC content sliding windows. \textit{N}=100.
 			B: non\hyp{}specific and tissue\hyp{}specific sliding windows. \textit{N}=100.		
 			\label{fig:openchrom-sliding-window}
@@ -435,8 +435,8 @@ From \textasciitilde{}250 bp to \textasciitilde{}450bp upstream of the start cod
 	\end{center}
 \end{figure}
 
-To confirm whether this was a true difference or due to different 5'UTR lengths between constitutive and variable genes, the percentage of root\hyp{}shoot intersect open chromatin of windows was plotted centred around the Araport11 TSS.
-This separated windows located in promoter regions from those in 5'UTRs regions.
+To confirm whether this was a true difference or due to different 5$\prime$ UTR lengths between constitutive and variable genes, the percentage of root\hyp{}shoot intersect open chromatin of windows was plotted centred around the Araport11 TSS.
+This separated windows located in promoter regions from those in 5$\prime$ UTRs regions.
 The median percentage of open chromatin decreased upstream of the TSS for both constitutive and variable genes, and constitutive genes had a higher percentage open chromatin -100 to + 500 bp around the TSS (\autoref{fig:openchrom-sliding-window-araporttss}A).
 The median percentage of open chromatin decreased upstream of the TSS for non\hyp{}specific genes while tissue\hyp{}specific CRMs had a median percentage open chromatin of 0 across the whole CRM (\autoref{fig:openchrom-sliding-window-araporttss}B).
 
@@ -449,7 +449,7 @@ The median percentage of open chromatin decreased upstream of the TSS for non\hy
 		\caption{
 			\textbf{Sliding window analysis of percentage open chromatin across different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories centred around the transcription start site (TSS).}
 			Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
-			5UTRs were extended downstream of the TSS to the closest coding region.
+			5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.
 			TSS is represented by 0 on the x-axis.
 			Data points are positioned in the centre of each 100 bp window.
 			Windows are offset by 50 bp.
@@ -479,7 +479,7 @@ The hypothesis that non\hyp{}specific genes have a higher GC content than tissue
 		\caption{
 			\textbf{Mean percentage GC content in different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories.}
 			Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
-			5UTRs were extended downstream of the TSS to the closest coding region.  Box plots have box boundaries that represent 25th, 50th (median) and 75th percentiles; whiskers are drawn up to the largest or smallest observed point that falls within 1.5 times the interquartile range.
+			5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.  Box plots have box boundaries that represent 25th, 50th (median) and 75th percentiles; whiskers are drawn up to the largest or smallest observed point that falls within 1.5 times the interquartile range.
 			Control genes are identical in plots A and B.
 			A: Percentage GC content in 100 constitutive, variable and control genes. *, \textit{P} \textless{} 0.05. ns, not significant. \textit{N}=100.
 			B: Percentage GC content in 100 non\hyp{}specific, tissue\hyp{}specific and control genes. There was no significant difference in GC content between categories. \textit{N}=100.
@@ -497,7 +497,7 @@ A sliding window analysis revealed that percentage GC content looked higher for 
 		\caption{
 			\textbf{Sliding window analysis of percentage GC content in different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories.}
 			Promoters were extracted 1000 base pairs (bp) upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
-			5'UTRs were extended downstream of the TSS to the closest coding region.
+			5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.
 			The median percentage GC content was scored for 100 bp windows across selected CRMs.
 			The windows were overlapping with a 50 bp offset.
 			The median value for each bin is displayed here at the central bp of the bin.
@@ -545,7 +545,7 @@ The hypothesis that tissue\hyp{}specific genes have a higher TFBS coverage than 
 		\caption{
 			\textbf{Mean percentage TFBS coverage of different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories.}
 			Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
-			5UTRs were extended downstream of the TSS to the closest coding region.  Box plots have box boundaries that represent 25th, 50th (median) and 75th percentiles; whiskers are drawn up to the largest or smallest observed point that falls within 1.5 times the interquartile range.
+			5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.  Box plots have box boundaries that represent 25th, 50th (median) and 75th percentiles; whiskers are drawn up to the largest or smallest observed point that falls within 1.5 times the interquartile range.
 			Control genes are identical in plots A and B.
 			Significance was calculated using Kruskal\hyp{}Wallis.
 			A: There was no significant difference in TFBS coverage between constitutive, variable or control CRMs. \textit{N}=100.
@@ -567,7 +567,7 @@ Non\hyp{}specific genes had a significantly lower TFBS coverage in open chromati
 		\caption{
 			\textbf{Mean percentage coverage of TFBS falling within open chromatin across different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories.}
 			Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
-			5UTRs were extended downstream of the TSS to the closest coding region.
+			5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.
 			Open chromatin peaks derived from the intersect of root and shoot peaks derived from negative control (treated with NaOH) ATAC\hyp{}seq data by \textcite{potterCytokininModulatesContextdependent2018}.
 			Control genes are identical in violin plots A and B.
 			Significance was calculated using Kruskal\hyp{}Wallis followed by Dunn's post hocs with Bonferroni correction.
@@ -589,7 +589,7 @@ A sliding window analysis revealed that TFBS coverage was higher in variable CRM
 		\caption{
 			\textbf{Sliding window analysis of percentage TFBS coverage in different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories.}
 			Promoters were extracted 1000 base pairs (bp) upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
-			5'UTRs were extended downstream of the TSS to the closest coding region.
+			5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.
 			The median percentage TFBS coverage was scored for 100 bp windows across selected CRMs.
 			The windows were overlapping with a 50 bp offset.
 			The median value for each bin is displayed here at the central bp of the bin.
@@ -666,7 +666,7 @@ There was also no significant difference in TF or TF family Shannon diversity us
 		\caption{
 			\textbf{Shannon diversity of individual TFs (A) and TF families (B) of 100 constitutive (blue), 100 variable (orange) and 100 control (green) Arabidopsis \textit{cis}\hyp{}regulatory modules (CRMs).}
 			Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
-			5UTRs were extended downstream of the TSS to the closest coding region.  Box plots have box boundaries that represent 25th, 50th (median) and 75th percentiles; whiskers are drawn up to the largest or smallest observed point that falls within 1.5 times the interquartile range.
+			5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.  Box plots have box boundaries that represent 25th, 50th (median) and 75th percentiles; whiskers are drawn up to the largest or smallest observed point that falls within 1.5 times the interquartile range.
 			There was no significant difference between categories for either TF Shannon diversity or TF family Shannon diversity.
 			\label{fig:tf-diversity-wholeprom}
 		}
@@ -686,7 +686,7 @@ Again no significant difference in TF or TF family diversity was found between a
 		\caption{
 			\textbf{Sliding window analysis of TF Shannon diversity in 100 constitutive (blue) and 100 variable (orange) Arabidopsis \textit{cis}\hyp{}regulatory modules (CRMs).}
 			Promoters were extracted 1000 base pairs (bp) upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
-			5UTRs were extended downstream of the TSS to the closest coding region.
+			5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.
 			Data points are positioned in the centre of each 100 bp window.
 			Windows are offset by 50 bp.
 			Shading represents 95 confidence intervals estimated using 10000 bootstraps.
@@ -768,7 +768,7 @@ Non\hyp{}specific promoters had significantly fewer TATA boxes compared to the b
 		\caption{
 			\textbf{Log2\hyp{}fold enrichment of 15 bp TATA boxes in 100 variable (blue) and 100 constitutive (orange) Arabidopsis \textit{cis}\hyp{}regulatory modules (CRMs) compared to a background of constitutive and variable promoters combined.}
 			Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
-			5UTRs were extended downstream of the TSS to the closest coding region.
+			5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.
 			TATA box locations within 50 bp upstream of the Eukaryotic Promoter Database (EPD) TSS were downloaded from EPD \autocite{dreosInfluenceRotationalNucleosome2016}.
 			 Gat software~\autocite{hegerGATSimulationFramework2013} was used to calculate enrichment.
 			\label{fig:tata-enrichment}
@@ -838,7 +838,7 @@ Dunn's post hocs with Bonferroni correction revealed that TFs binding non\hyp{}s
 
 %Mention top 300 in each category - non-specific significantly lower TF family diversity than tissue_specific p<0.05
 
-%TALK ABOUT 5UTR lengths - test if constitutive have longer 5'UTR lengths (check for expected  hypothesis first and see if useful comparison or not)
+%TALK ABOUT 5$\prime$ UTR lengths - test if constitutive have longer 5$\prime$ UTR lengths (check for expected  hypothesis first and see if useful comparison or not)
 %\begin{figure}[!h]
 %	\begin{center}
 %		\capstart
