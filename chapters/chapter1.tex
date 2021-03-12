@@ -63,12 +63,13 @@ Tissue\hyp{}specific genes were less likely to be regulated by canonical TF\hyp{
 
 Four different gene categories plus a control category were selected to study promoter architecture.
 These were constitutive, variable, non\hyp{}specific and tissue\hyp{}specific genes.
-\textcite{czechowskiGenomeWideIdentificationTesting2005} ranked the stability of genes based on their coefficient of variation (CV).
+
+\textcite{czechowskiGenomeWideIdentificationTesting2005} ranked the stability of genes based on their coefficient of variation (CV). 
 Only genes present in \SI{80}{\percent} or more of developmental stages and tissues were included in the analysis.
 This means that the variably expressed genes excluded tissue/condition\hyp{}specific genes and were classed based on how variable their expression was across the different tissues and developmental stages.
 This was by design in the study to try to select stably expressed housekeeping genes for use as reference genes.
-A constitutive gene set with low coefficient of variation was selected along with a variable gene set with high coefficient of variation.
 
+A constitutive gene set with low coefficient of variation was selected along with a variable gene set with high coefficient of variation.
 Tissue/condition\hyp{}specific genes ranked using Tau tissue\hyp{}specificity were included as another gene set as their promoter architecture is expected to differ from constitutive and variably expressed non-tissue\hyp{}specific genes.
 The genes with the lowest Tau ranking were categorised as non\hyp{}specific genes.
 
@@ -82,7 +83,7 @@ In Humans GC-rich sequence has a higher DNase-I sensitivity with more open chrom
 AT-rich regions show the opposite.
 Additionally, GC-rich regions show an increased mutation rate than AT-rich regions \autocite{vinogradovDNAHelixImportance2017}.
 This supports the fact that constitutive promoters evolve faster than variable promoters \autocite{farreHousekeepingGenesTend2007,carninciGenomewideAnalysisMammalian2006}.
-In Arabidopsis, I hypothesise that constitutive promoters will have a higher GC content than variable promoters.
+In Arabidopsis, I hypothesise that constitutive promoters will have a higher GC content than variable promoters and I hypothesise that non\hyp{}specific promoters will have a higher GC content than tissue\hyp{}specific promoters.
 
 \subsection{TFBS coverage}
 \label{chapter1:introduction:tfbs-coverage}
@@ -250,7 +251,7 @@ The number of clusters was predicted using the silhouette method~\autocite{rouss
 15 bp TATA box locations were downloaded from Eukaryotic Promoter Database (release: At\_EPDnew\_004)~\autocite{dreosEukaryoticPromoterDatabase2017} present between -50 to 0 relative to the EPD TSS.
 Genomic Association Tester (GAT)~\autocite{hegerGATSimulationFramework2013} (version 1.3.6) was used to
 compare enrichment of TATA boxes in constitutive and variable genes to test the hypothesis that variable genes are enriched for TATA boxes over constitutive genes, and to test the hypothesis that tissue\hyp{}specific genes are enriched for TATA boxes over non\hyp{}specific genes.
-The 15 bp TATA boxes were used as segments of interest.
+The 15 bp TATA boxes were used as segments of interest. 
 Constitutive and variable promoter annotations were separately tested for enrichment of TATA boxes compared to the background workspace file containing all 200 promoters of interest from both categories.
 Non\hyp{}specific and tissue\hyp{}specific promoter categories were tested in the same way.
 
@@ -300,45 +301,45 @@ The mean $log_{2}$ expression of the genes in each category are shown in \autore
 
 
 \begin{figure}[hbt!]
-    \begin{center}
-        \capstart
-        \includegraphics[width=0.80\columnwidth]{genes/gene_group_expression}
-        \caption{
-            \textbf{Mean log2 expression of constitutive, variable, non\hyp{}specific and tissue\hyp{}specific gene categories in \textit{Arabidopsis thaliana} across 79 different tissues and developmental stages.}
-            Constitutive and variable categories chosen using coefficient of variation ranking as in \textcite{czechowskiGenomeWideIdentificationTesting2005}.
-            Tissue\hyp{}specific and non\hyp{}specific categories chosen using Tau tissue specificity ranking. \textit{N} = 100.
-            \label{fig:gene-group-expression}
-        }
-    \end{center}
+	\begin{center}
+		\capstart
+		\includegraphics[width=0.80\columnwidth]{genes/gene_group_expression}
+		\caption{
+			\textbf{Mean log2 expression of constitutive, variable, non\hyp{}specific and tissue\hyp{}specific gene categories in \textit{Arabidopsis thaliana} across 79 different tissues and developmental stages.}
+			Constitutive and variable categories chosen using coefficient of variation ranking as in \textcite{czechowskiGenomeWideIdentificationTesting2005}.
+			Tissue\hyp{}specific and non\hyp{}specific categories chosen using Tau tissue specificity ranking. \textit{N} = 100.
+			\label{fig:gene-group-expression}
+		}
+	\end{center}
 \end{figure}
 
 The expression CV distribution of the top 100 constitutive genes was narrower than the top 100 variable genes (\autoref{fig:cv-distribution}).
 
 \begin{figure}[hbt!]
-    \begin{center}
-        \capstart
-        \includegraphics[width=0.60\columnwidth]{genes/labelled_distribution_cv_distribution}
-        \caption{
-            \textbf{Expression CV distribution of constitutive and variable gene categories compared to all CV ranked genes.}
-            Constitutive and variable categories chosen using coefficient of variation ranking as in \textcite{czechowskiGenomeWideIdentificationTesting2005}.
-            \label{fig:cv-distribution}
-        }
-    \end{center}
+	\begin{center}
+		\capstart
+		\includegraphics[width=0.60\columnwidth]{genes/labelled_distribution_cv_distribution}
+		\caption{
+			\textbf{Expression CV distribution of constitutive and variable gene categories compared to all CV ranked genes.}
+			Constitutive and variable categories chosen using coefficient of variation ranking as in \textcite{czechowskiGenomeWideIdentificationTesting2005}.
+			\label{fig:cv-distribution}
+		}
+	\end{center}
 \end{figure}
 
 The Tau tissue\hyp{}specificity distribution of the top 100 tissue\hyp{}specific genes was narrower than the top 100 non\hyp{}specific genes (\autoref{fig:tau-distribution}).
 
 
 \begin{figure}[hbt!]
-    \begin{center}
-        \capstart
-        \includegraphics[width=0.60\columnwidth]{genes/labelled_distribution_tau_distribution}
-        \caption{
-            \textbf{Tau tissue\hyp{}specificity distribution of non\hyp{}specific and tissue\hyp{}specific gene categories compared to all Tau ranked genes.}
-            Tissue\hyp{}specific and non\hyp{}specific categories chosen using Tau tissue specificity ranking.
-            \label{fig:tau-distribution}
-        }
-    \end{center}
+	\begin{center}
+		\capstart
+		\includegraphics[width=0.60\columnwidth]{genes/labelled_distribution_tau_distribution}
+		\caption{
+			\textbf{Tau tissue\hyp{}specificity distribution of non\hyp{}specific and tissue\hyp{}specific gene categories compared to all Tau ranked genes.}
+			Tissue\hyp{}specific and non\hyp{}specific categories chosen using Tau tissue specificity ranking.
+			\label{fig:tau-distribution}
+		}
+	\end{center}
 \end{figure}
 
 A gene ontology (GO) enrichment analysis using Fisher's exact test \autocite{fisherInterpretationContingencyTables1922} and Benjamini/Hochberg FDR correction \autocite{benjaminiControllingFalseDiscovery1995} found 2 significantly enriched biological process (GO:0008150) GO terms for the top 300 constitutive genes, and 4 significantly enriched cellular component (GO:0005575) GO terms for the top 300 variable genes. For the top 300 non\hyp{}specific genes there were 3 significantly enriched cellular component GO terms. For the top 300 tissue\hyp{}specific genes there were 4 biological process, 7 cellular component and 6 molecular function (GO:0003674) significantly enriched GO terms.
@@ -422,45 +423,45 @@ Open chromatin coverage was significantly different between non\hyp{}specific, t
 Dunn's post hocs with Bonferroni correction revealed that tissue\hyp{}specific CRMs had a significantly lower percentage of nucleotides covered by open chromatin (\SI{20.4}{\percent} ± 30.2) than non\hyp{}specific (\SI{46.9}{\percent} ± 36.1; ~\textit{P} \textless{} 0.0001) or control (\SI{65.3}{\percent} ± 30.4; ~\textit{P} \textless{} 0.01) CRMs (\autoref{fig:chromatin-coverage}B)
 
 \begin{figure}[hbt!]
-    \begin{center}
-        \capstart
-        \includegraphics[width=1\columnwidth]{openchromatin/chromatin_coverage_violin}
-        \caption{
-            \textbf{Mean percentage open chromatin coverage in different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories.}
-            Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
-            5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.
-            Control genes identical in plots A and B.
-            A: Percentage base pairs (bp) covered by open chromatin in 100 constitutive, variable and control genes.
-            \textit{N}=100.
-            B: Percentage base pairs (bp) covered by open chromatin in 100 non\hyp{}specific, tissue\hyp{}specific and control genes.
-            \textit{N}=100.
-            Significance was calculated using Kruskal\hyp{}Wallis and Dunn's post hocs with Bonferroni correction.
-            **, \textit{P} \textless{} 0.01. ***, \textit{P} \textless{} 0.001. ****,\textit{P} \textless{} 0.0001. ns, not significant.
-            \label{fig:chromatin-coverage}
-        }
-    \end{center}
+	\begin{center}
+		\capstart
+		\includegraphics[width=1\columnwidth]{openchromatin/chromatin_coverage_violin}
+		\caption{
+			\textbf{Mean percentage open chromatin coverage in different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories.}
+			Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
+			5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.
+			Control genes identical in plots A and B.
+			A: Percentage base pairs (bp) covered by open chromatin in 100 constitutive, variable and control genes.
+			\textit{N}=100.
+			B: Percentage base pairs (bp) covered by open chromatin in 100 non\hyp{}specific, tissue\hyp{}specific and control genes.
+			\textit{N}=100.
+			Significance was calculated using Kruskal\hyp{}Wallis and Dunn's post hocs with Bonferroni correction.
+			**, \textit{P} \textless{} 0.01. ***, \textit{P} \textless{} 0.001. ****,\textit{P} \textless{} 0.0001. ns, not significant.
+			\label{fig:chromatin-coverage}
+		}
+	\end{center}
 \end{figure}
 A sliding window analysis revealed that from \textasciitilde{}350 bp to \textasciitilde{}650 bp upstream of the start codon the median open chromatin in constitutive CRMs decreased to zero while variable CRMs had a median percentage open chromatin of 0 (\autoref{fig:openchrom-sliding-window}A).
 From \textasciitilde{}250 bp to \textasciitilde{}450 bp upstream of the start codon the median open chromatin in non\hyp{}specific CRMs decreased to zero while tissue\hyp{}specific CRMs had a median percentage open chromatin of 0 (\autoref{fig:openchrom-sliding-window}B).
 
 \begin{figure}[!hbt]
-    \begin{center}
-        \capstart
-        \includegraphics[width=1\columnwidth]{openchromatin/genetypenocontrol_percentage_bases_covered_rootshootintersect_chrom_median_sliding_window}
-        \caption{
-            \textbf{Sliding window analysis of percentage open chromatin across different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories upstream of the start codon.}
-            Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
-            5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.
-            The median proportion of nucleotides falling within open chromatin peaks described by \textcite{potterCytokininModulatesContextdependent2018} was scored for 100 bp windows across selected CRMs.
-            The open chromatin peaks used were the intersect of root and shoot peaks derived from the negative control (treated with NaOH) ATAC\hyp{}seq data.
-            The windows were overlapping with a 50 bp offset.
-            The median value for each bin is displayed here at the central bp of the bin.
-            Shading represents \SI{95}{\percent} confidence intervals estimated using 10000 bootstraps.
-            A: constitutive and variable GC content sliding windows. \textit{N}=100.
-            B: non\hyp{}specific and tissue\hyp{}specific sliding windows. \textit{N}=100.
-            \label{fig:openchrom-sliding-window}
-        }
-    \end{center}
+	\begin{center}
+		\capstart
+		\includegraphics[width=1\columnwidth]{openchromatin/genetypenocontrol_percentage_bases_covered_rootshootintersect_chrom_median_sliding_window}
+		\caption{
+			\textbf{Sliding window analysis of percentage open chromatin across different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories upstream of the start codon.}
+			Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
+			5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.
+			The median proportion of nucleotides falling within open chromatin peaks described by \textcite{potterCytokininModulatesContextdependent2018} was scored for 100 bp windows across selected CRMs.
+			The open chromatin peaks used were the intersect of root and shoot peaks derived from the negative control (treated with NaOH) ATAC\hyp{}seq data.
+			The windows were overlapping with a 50 bp offset.
+			The median value for each bin is displayed here at the central bp of the bin.
+			Shading represents \SI{95}{\percent} confidence intervals estimated using 10000 bootstraps.
+			A: constitutive and variable GC content sliding windows. \textit{N}=100.
+			B: non\hyp{}specific and tissue\hyp{}specific sliding windows. \textit{N}=100.
+			\label{fig:openchrom-sliding-window}
+		}
+	\end{center}
 \end{figure}
 
 To confirm whether this was a true difference or due to different 5$\prime$ UTR lengths between constitutive and variable genes, the percentage of root\hyp{}shoot intersect open chromatin of windows was plotted centred around the Araport11 TSS.
@@ -471,24 +472,24 @@ The median percentage of open chromatin decreased upstream of the TSS for non\hy
 
 
 \begin{figure}[!hbt]
-    \begin{center}
-        \capstart
-        \includegraphics[width=1\columnwidth]{openchromatin/Araport11_genetypenocontrol_percentage_bases_covered_rootshootintersect_chrom_median_sliding_window}
-        \caption{
-            \textbf{Sliding window analysis of percentage open chromatin across different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories centred around the transcription start site (TSS).}
-            Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
-            5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.
-            TSS is represented by 0 on the x-axis.
-            Data points are positioned in the centre of each 100 bp window.
-            Windows are offset by 50 bp.
-            Shading represents 95 confidence intervals estimated using 10000 bootstraps.
-            Median percentage of open chromatin peaks overlapping 100 bp windows.
-            Open chromatin peaks derived from the intersect of root and shoot peaks derived from negative control (treated with NaOH) ATAC\hyp{}seq data by \textcite{potterCytokininModulatesContextdependent2018}.
-            A: constitutive and variable GC content sliding windows. \textit{N}=100.
-            B: non\hyp{}specific and tissue\hyp{}specific sliding windows. \textit{N}=100.
-            \label{fig:openchrom-sliding-window-araporttss}
-        }
-    \end{center}
+	\begin{center}
+		\capstart
+		\includegraphics[width=1\columnwidth]{openchromatin/Araport11_genetypenocontrol_percentage_bases_covered_rootshootintersect_chrom_median_sliding_window}
+		\caption{
+			\textbf{Sliding window analysis of percentage open chromatin across different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories centred around the transcription start site (TSS).}
+			Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
+			5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.
+			TSS is represented by 0 on the x-axis.
+			Data points are positioned in the centre of each 100 bp window.
+			Windows are offset by 50 bp.
+			Shading represents 95 confidence intervals estimated using 10000 bootstraps.
+			Median percentage of open chromatin peaks overlapping 100 bp windows.
+			Open chromatin peaks derived from the intersect of root and shoot peaks derived from negative control (treated with NaOH) ATAC\hyp{}seq data by \textcite{potterCytokininModulatesContextdependent2018}.
+			A: constitutive and variable GC content sliding windows. \textit{N}=100.
+			B: non\hyp{}specific and tissue\hyp{}specific sliding windows. \textit{N}=100.
+			\label{fig:openchrom-sliding-window-araporttss}
+		}
+	\end{center}
 \end{figure}
 
 When analyses were repeated with the top 300 CRMs in each category the results supported the findings of the top 100 CRMs.
@@ -501,40 +502,40 @@ Dunn's post hocs with Bonferroni correction revealed that mean percentage GC con
 The hypothesis that non\hyp{}specific genes have a higher GC content than tissue\hyp{}specific genes was tested. There was no significant difference between non\hyp{}specific, tissue\hyp{}specific and control categories (Kruskal\hyp{}Wallis~\textit{H} = 4.2,~\textit{P} \textgreater{} 0.05; (\autoref{fig:gc-content-wholeprom}B).
 
 \begin{figure}[hbt!]
-    \begin{center}
-        \capstart
-        \includegraphics[width=1\columnwidth]{GC_content/wholeprom/GC_content_box}
-        \caption{
-            \textbf{Mean percentage GC content in different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories.}
-            Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
-            5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.  Box plots have box boundaries that represent 25th, 50th (median) and 75th percentiles; whiskers are drawn up to the largest or smallest observed point that falls within 1.5 times the interquartile range.
-            Control genes are identical in plots A and B.
-            A: Percentage GC content in 100 constitutive, variable and control genes. *, \textit{P} \textless{} 0.05. ns, not significant. \textit{N}=100.
-            B: Percentage GC content in 100 non\hyp{}specific, tissue\hyp{}specific and control genes. There was no significant difference in GC content between categories. \textit{N}=100.
-            \label{fig:gc-content-wholeprom}
-        }
-    \end{center}
+	\begin{center}
+		\capstart
+		\includegraphics[width=1\columnwidth]{GC_content/wholeprom/GC_content_box}
+		\caption{
+			\textbf{Mean percentage GC content in different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories.}
+			Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
+			5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.  Box plots have box boundaries that represent 25th, 50th (median) and 75th percentiles; whiskers are drawn up to the largest or smallest observed point that falls within 1.5 times the interquartile range.
+			Control genes are identical in plots A and B.
+			A: Percentage GC content in 100 constitutive, variable and control genes. *, \textit{P} \textless{} 0.05. ns, not significant. \textit{N}=100.
+			B: Percentage GC content in 100 non\hyp{}specific, tissue\hyp{}specific and control genes. There was no significant difference in GC content between categories. \textit{N}=100.
+			\label{fig:gc-content-wholeprom}
+		}
+	\end{center}
 \end{figure}
 
 A sliding window analysis revealed that percentage GC content looked higher for constitutive genes than variable genes and higher for non\hyp{}specific genes than tissue\hyp{}specific genes (\autoref{fig:gc-content-sliding-window}).
 
 \begin{figure}[hbt!]
-    \begin{center}
-        \capstart
-        \includegraphics[width=1\columnwidth]{GC_content/genetypenocontrol_percentage_GC_content_median_sliding_window}
-        \caption{
-            \textbf{Sliding window analysis of percentage GC content in different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories.}
-            Promoters were extracted 1000 base pairs (bp) upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
-            5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.
-            The median percentage GC content was scored for 100 bp windows across selected CRMs.
-            The windows were overlapping with a 50 bp offset.
-            The median value for each bin is displayed here at the central bp of the bin.
-            Shading represents 95 confidence intervals estimated using 10000 bootstraps.
-            A: constitutive and variable GC content sliding windows. \textit{N}=100.
-            B: non\hyp{}specific and tissue\hyp{}specific sliding windows. \textit{N}=100.
-            \label{fig:gc-content-sliding-window}
-        }
-    \end{center}
+	\begin{center}
+		\capstart
+		\includegraphics[width=1\columnwidth]{GC_content/genetypenocontrol_percentage_GC_content_median_sliding_window}
+		\caption{
+			\textbf{Sliding window analysis of percentage GC content in different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories.}
+			Promoters were extracted 1000 base pairs (bp) upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
+			5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.
+			The median percentage GC content was scored for 100 bp windows across selected CRMs.
+			The windows were overlapping with a 50 bp offset.
+			The median value for each bin is displayed here at the central bp of the bin.
+			Shading represents 95 confidence intervals estimated using 10000 bootstraps.
+			A: constitutive and variable GC content sliding windows. \textit{N}=100.
+			B: non\hyp{}specific and tissue\hyp{}specific sliding windows. \textit{N}=100.
+			\label{fig:gc-content-sliding-window}
+		}
+	\end{center}
 \end{figure}
 
 Further analysis in the first 400 bp upstream of the ATG start codon showed that there was a significant difference between constitutive, variable and control CRM types (Kruskal\hyp{}Wallis~\textit{H} = 14.8,~\textit{P} \textless{} 0.001).
@@ -543,20 +544,20 @@ Dunn's post hoc tests with Bonferroni correction revealed that within the 400 bp
 In the same 400 bp CRM region there was a significant difference between non\hyp{}specific, tissue\hyp{}specific and control CRMs (Kruskal\hyp{}Wallis~\textit{H} = 22.8,~\textit{P} \textless{} 0.0001). Dunn's post hocs with Bonferroni correction revealed that non\hyp{}specific (\SI{33.6}{\percent} ± 5.6; ~\textit{P} \textless{} 0.001) and control CRMs (\SI{33.8}{\percent} ± 4.2; ~\textit{P} \textless{} 0.0001) had a significantly higher GC content  than tissue\hyp{}specific CRMs (\SI{31.2}{\percent} ± 3.9).
 
 \begin{figure}[hbt!]
-    \begin{center}
-        \capstart
-        \includegraphics[width=1\columnwidth]{GC_content/400bpprom/GC_content_box}
-        \caption{
-            \textbf{Mean percentage GC content of different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories in a 400 bp region upstream of the ATG start codon.}
-            Box plots have box boundaries that represent 25th, 50th (median) and 75th percentiles; whiskers are drawn up to the largest or smallest observed point that falls within 1.5 times the interquartile range.
-            Control genes are identical in plots A and B.
-            Significance was calculated using Kruskal\hyp{}Wallis followed by Dunn's post hocs with Bonferroni correction.
-            A: Percentage GC content in 100 constitutive, variable and control CRMs. \textit{N}=100.
-            B: Percentage GC content in 100 non\hyp{}specific, tissue\hyp{}specific and control genes. \textit{N}=100.
-            ****, \textit{P} \textless{} 0.0001. ***, \textit{P} \textless{} 0.001. **, \textit{P} \textless{} 0.01. *, \textit{P} \textless{} 0.05. ns, not significant.
-            \label{fig:gc-content-400bpprom}
-        }
-    \end{center}
+	\begin{center}
+		\capstart
+		\includegraphics[width=1\columnwidth]{GC_content/400bpprom/GC_content_box}
+		\caption{
+			\textbf{Mean percentage GC content of different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories in a 400 bp region upstream of the ATG start codon.}
+			Box plots have box boundaries that represent 25th, 50th (median) and 75th percentiles; whiskers are drawn up to the largest or smallest observed point that falls within 1.5 times the interquartile range.
+			Control genes are identical in plots A and B.
+			Significance was calculated using Kruskal\hyp{}Wallis followed by Dunn's post hocs with Bonferroni correction.
+			A: Percentage GC content in 100 constitutive, variable and control CRMs. \textit{N}=100.
+			B: Percentage GC content in 100 non\hyp{}specific, tissue\hyp{}specific and control genes. \textit{N}=100.
+			****, \textit{P} \textless{} 0.0001. ***, \textit{P} \textless{} 0.001. **, \textit{P} \textless{} 0.01. *, \textit{P} \textless{} 0.05. ns, not significant.
+			\label{fig:gc-content-400bpprom}
+		}
+	\end{center}
 \end{figure}
 
 When analyses were repeated using the top 300 CRMs in each category, all GC content findings supported those found when using the top 100 CRMs.
@@ -568,20 +569,20 @@ TFBS coverage was not significantly different between CRM types. (Kruskal\hyp{}W
 The hypothesis that tissue\hyp{}specific genes have a higher TFBS coverage than non\hyp{}specific genes was also  tested. TFBS coverage did not differ significantly between non\hyp{}specific, tissue\hyp{}specific or control CRM types at the whole promoter level (Kruskal\hyp{}Wallis~\textit{H} = 5.6,~\textit{P} \textgreater{} 0.05; \autoref{fig:tfbs-coverage-wholeprom}B).
 
 \begin{figure}[hbt!]
-    \begin{center}
-        \capstart
-        \includegraphics[width=1\columnwidth]{TFBS_coverage/wholeprom/TFBS_coverage_box}
-        \caption{
-            \textbf{Mean percentage TFBS coverage of different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories.}
-            Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
-            5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.  Box plots have box boundaries that represent 25th, 50th (median) and 75th percentiles; whiskers are drawn up to the largest or smallest observed point that falls within 1.5 times the interquartile range.
-            Control genes are identical in plots A and B.
-            Significance was calculated using Kruskal\hyp{}Wallis.
-            A: There was no significant difference in TFBS coverage between constitutive, variable or control CRMs. \textit{N}=100.
-            B: There was no significant difference in TFBS coverage between non\hyp{}specific, tissue\hyp{}specific or control CRMs. \textit{N}=100.
-            \label{fig:tfbs-coverage-wholeprom}
-        }
-    \end{center}
+	\begin{center}
+		\capstart
+		\includegraphics[width=1\columnwidth]{TFBS_coverage/wholeprom/TFBS_coverage_box}
+		\caption{
+			\textbf{Mean percentage TFBS coverage of different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories.}
+			Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
+			5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.  Box plots have box boundaries that represent 25th, 50th (median) and 75th percentiles; whiskers are drawn up to the largest or smallest observed point that falls within 1.5 times the interquartile range.
+			Control genes are identical in plots A and B.
+			Significance was calculated using Kruskal\hyp{}Wallis.
+			A: There was no significant difference in TFBS coverage between constitutive, variable or control CRMs. \textit{N}=100.
+			B: There was no significant difference in TFBS coverage between non\hyp{}specific, tissue\hyp{}specific or control CRMs. \textit{N}=100.
+			\label{fig:tfbs-coverage-wholeprom}
+		}
+	\end{center}
 \end{figure}
 The same analysis was run again using only TFBSs that fall within open chromatin. TFBS coverage differed significantly between constitutive, variable and control categories (Kruskal\hyp{}Wallis~\textit{H} = 27.1,~\textit{P} \textless{} 0.0001;\autoref{fig:tfbs-coverage-wholeprom-openchrom}A).
 Dunn's post hocs with Bonferroni correction revealed that TFBS coverage in open chromatin of variable CRMs (\SI{7.3}{\percent} ± 8.8) was significantly lower than constitutive CRMs (\SI{11.3}{\percent} ± 8.5; ~\textit{P} \textless{} 0.001) and control CRMs (\SI{12.9}{\percent} ± 9.1; ~\textit{P} \textless{} 0.0001).
@@ -590,44 +591,44 @@ Dunn's post hocs with Bonferroni correction revealed that TFBS coverage in open 
 Non\hyp{}specific genes had a significantly lower TFBS coverage in open chromatin than control genes (\textit{P} \textless{} 0.05).
 
 \begin{figure}[hbt!]
-    \begin{center}
-        \capstart
-        \includegraphics[width=1\columnwidth]{TFBS_coverage/wholeprom_openchrom/TFBS_coverage_violin}
-        \caption{
-            \textbf{Mean percentage coverage of TFBS falling within open chromatin across different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories.}
-            Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
-            5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.
-            Open chromatin peaks derived from the intersect of root and shoot peaks derived from negative control (treated with NaOH) ATAC\hyp{}seq data by \textcite{potterCytokininModulatesContextdependent2018}.
-            Control genes are identical in violin plots A and B.
-            Significance was calculated using Kruskal\hyp{}Wallis followed by Dunn's post hocs with Bonferroni correction.
-            A: Mean percentage coverage of TFBS falling within open chromatin in constitutive, variable and control CRMs. \textit{N}=100.
-            B: Mean percentage coverage of TFBS falling within open chromatin in non\hyp{}specific, tissue\hyp{}specific and control CRMs. \textit{N}=100.
-            ****, \textit{P} \textless{} 0.0001. ***, \textit{P} \textless{} 0.001. *, \textit{P} \textless{} 0.05. ns, not significant.
-            \label{fig:tfbs-coverage-wholeprom-openchrom}
-        }
-    \end{center}
+	\begin{center}
+		\capstart
+		\includegraphics[width=1\columnwidth]{TFBS_coverage/wholeprom_openchrom/TFBS_coverage_violin}
+		\caption{
+			\textbf{Mean percentage coverage of TFBS falling within open chromatin across different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories.}
+			Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
+			5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.
+			Open chromatin peaks derived from the intersect of root and shoot peaks derived from negative control (treated with NaOH) ATAC\hyp{}seq data by \textcite{potterCytokininModulatesContextdependent2018}.
+			Control genes are identical in violin plots A and B.
+			Significance was calculated using Kruskal\hyp{}Wallis followed by Dunn's post hocs with Bonferroni correction.
+			A: Mean percentage coverage of TFBS falling within open chromatin in constitutive, variable and control CRMs. \textit{N}=100.
+			B: Mean percentage coverage of TFBS falling within open chromatin in non\hyp{}specific, tissue\hyp{}specific and control CRMs. \textit{N}=100.
+			****, \textit{P} \textless{} 0.0001. ***, \textit{P} \textless{} 0.001. *, \textit{P} \textless{} 0.05. ns, not significant.
+			\label{fig:tfbs-coverage-wholeprom-openchrom}
+		}
+	\end{center}
 \end{figure}
 
 
 A sliding window analysis revealed that TFBS coverage was higher in variable CRMs than constitutive CRMs (\autoref{fig:tfbs-coverage-sliding-window}A) and higher in tissue\hyp{}specific CRMs than in non\hyp{}specific CRMs (\autoref{fig:tfbs-coverage-sliding-window}B) in the first 400 bp region upstream of the ATG.
 
 \begin{figure}[hbt!]
-    \begin{center}
-        \capstart
-        \includegraphics[width=1\columnwidth]{TFBS_coverage/genetypenocontrol_percentage_bases_covered_median_sliding_window}
-        \caption{
-            \textbf{Sliding window analysis of percentage TFBS coverage in different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories.}
-            Promoters were extracted 1000 base pairs (bp) upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
-            5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.
-            The median percentage TFBS coverage was scored for 100 bp windows across selected CRMs.
-            The windows were overlapping with a 50 bp offset.
-            The median value for each bin is displayed here at the central bp of the bin.
-            Shading represents 95 confidence intervals estimated using 10000 bootstraps.
-            A: constitutive and variable GC content sliding windows. \textit{N}=100.
-            B: non\hyp{}specific and tissue\hyp{}specific sliding windows. \textit{N}=100.
-            \label{fig:tfbs-coverage-sliding-window}
-        }
-    \end{center}
+	\begin{center}
+		\capstart
+		\includegraphics[width=1\columnwidth]{TFBS_coverage/genetypenocontrol_percentage_bases_covered_median_sliding_window}
+		\caption{
+			\textbf{Sliding window analysis of percentage TFBS coverage in different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories.}
+			Promoters were extracted 1000 base pairs (bp) upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
+			5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.
+			The median percentage TFBS coverage was scored for 100 bp windows across selected CRMs.
+			The windows were overlapping with a 50 bp offset.
+			The median value for each bin is displayed here at the central bp of the bin.
+			Shading represents 95 confidence intervals estimated using 10000 bootstraps.
+			A: constitutive and variable GC content sliding windows. \textit{N}=100.
+			B: non\hyp{}specific and tissue\hyp{}specific sliding windows. \textit{N}=100.
+			\label{fig:tfbs-coverage-sliding-window}
+		}
+	\end{center}
 \end{figure}
 
 
@@ -639,19 +640,19 @@ Dunn's post hocs showed that tissue\hyp{}specific CRMs had significantly higher 
 
 
 \begin{figure}[hbt!]
-    \begin{center}
-        \capstart
-        \includegraphics[width=1\columnwidth]{TFBS_coverage/400bpprom/TFBS_coverage_box}
-        \caption{
-            \textbf{Mean percentage TFBS coverage of different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories in a 400 bp region upstream of the ATG start codon.}
-            Box plots have box boundaries that represent 25th, 50th (median) and 75th percentiles; whiskers are drawn up to the largest or smallest observed point that falls within 1.5 times the interquartile range.
-            A: Mean percentage TFBS coverage in constitutive, variable and control CRMs. \textit{N}=100.
-            B: Mean percentage TFBS coverage in non\hyp{}specific, tissue\hyp{}specific and control CRMs. \textit{N}=100.
-            Significance was calculated using Kruskal\hyp{}Wallis and Dunn's post hocs with Bonferroni correction.
-            **, \textit{P} \textless{} 0.01. *, \textit{P} \textless{} 0.05. ns, not significant.
-            \label{fig:tfbs-coverage-400bpprom}
-        }
-    \end{center}
+	\begin{center}
+		\capstart
+		\includegraphics[width=1\columnwidth]{TFBS_coverage/400bpprom/TFBS_coverage_box}
+		\caption{
+			\textbf{Mean percentage TFBS coverage of different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories in a 400 bp region upstream of the ATG start codon.}
+			Box plots have box boundaries that represent 25th, 50th (median) and 75th percentiles; whiskers are drawn up to the largest or smallest observed point that falls within 1.5 times the interquartile range.
+			A: Mean percentage TFBS coverage in constitutive, variable and control CRMs. \textit{N}=100.
+			B: Mean percentage TFBS coverage in non\hyp{}specific, tissue\hyp{}specific and control CRMs. \textit{N}=100.
+			Significance was calculated using Kruskal\hyp{}Wallis and Dunn's post hocs with Bonferroni correction.
+			**, \textit{P} \textless{} 0.01. *, \textit{P} \textless{} 0.05. ns, not significant.
+			\label{fig:tfbs-coverage-400bpprom}
+		}
+	\end{center}
 \end{figure}
 
 Percentage coverage of TFBSs falling within open chromatin in the 400 bp region was significantly different between constitutive, variable and control CRMs (Kruskal\hyp{}Wallis~\textit{H} = 13.2,~\textit{P} \textless{} 0.01; \autoref{fig:tfbs-coverage-400bpprom-openchrom}A).
@@ -661,18 +662,18 @@ Within the same 400 bp region non\hyp{}specific, tissue\hyp{}specific and contro
 Dunn's post hocs with Bonferroni correction revealed that tissue\hyp{}specific CRMs had significantly lower TFBS coverage (\SI{2.5}{\percent} ± 7.0) in open chromatin than non\hyp{}specific (\SI{13.4}{\percent} ± 14.0; \textit{P} \textless 0.0001) and control CRMs (\SI{16.1}{\percent} ± 14.0; \textit{P} \textless 0.0001).
 
 \begin{figure}[hbt!]
-    \begin{center}
-        \capstart
-        \includegraphics[width=1\columnwidth]{TFBS_coverage/400bpprom_openchrom/TFBS_coverage_violin}
-        \caption{
-            \textbf{Mean percentage coverage of TFBS falling within open chromatin in different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories in a 400 bp region upstream of the ATG start codon.}
-            A: Mean percentage coverage of TFBS falling within open chromatin in 400 bp constitutive, variable and control CRMs. \textit{N}=100.
-            B: Mean percentage coverage of TFBS falling within open chromatin in 400 bp non\hyp{}specific, tissue\hyp{}specific and control CRMs. \textit{N}=100.
-            Significance was calculated using Kruskal\hyp{}Wallis and Dunn's post hocs with Bonferroni correction.
-            **, \textit{P} \textless{} 0.01. *, \textit{P} \textless{} 0.05. ns, not significant.
-            \label{fig:tfbs-coverage-400bpprom-openchrom}
-        }
-    \end{center}
+	\begin{center}
+		\capstart
+		\includegraphics[width=1\columnwidth]{TFBS_coverage/400bpprom_openchrom/TFBS_coverage_violin}
+		\caption{
+			\textbf{Mean percentage coverage of TFBS falling within open chromatin in different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories in a 400 bp region upstream of the ATG start codon.}
+			A: Mean percentage coverage of TFBS falling within open chromatin in 400 bp constitutive, variable and control CRMs. \textit{N}=100.
+			B: Mean percentage coverage of TFBS falling within open chromatin in 400 bp non\hyp{}specific, tissue\hyp{}specific and control CRMs. \textit{N}=100.
+			Significance was calculated using Kruskal\hyp{}Wallis and Dunn's post hocs with Bonferroni correction.
+			**, \textit{P} \textless{} 0.01. *, \textit{P} \textless{} 0.05. ns, not significant.
+			\label{fig:tfbs-coverage-400bpprom-openchrom}
+		}
+	\end{center}
 \end{figure}
 
 
@@ -689,17 +690,17 @@ There was also no significant difference in TF (Kruskal\hyp{}Wallis~\textit{H} =
 There was also no significant difference in TF or TF family Shannon diversity using TFBS falling within open chromatin between constitutive, variable and control CRMs (TF diversity: \textit{N} = 54, Kruskal\hyp{}Wallis~\textit{H} = 3.0, ~\textit{P} \textgreater{} 0.05; TF family diversity: \textit{N} = 54, Kruskal\hyp{}Wallis~\textit{H} = 0.9, ~\textit{P} \textgreater{} 0.05) or non\hyp{}specific, tissue\hyp{}specific or control CRMs (TF diversity: \textit{N} = 37, Kruskal\hyp{}Wallis~\textit{H} = 4.0, ~\textit{P} \textgreater{} 0.05; TF family diversity: \textit{N} = 37, Kruskal\hyp{}Wallis~\textit{H} = 4.8, ~\textit{P} \textgreater{} 0.05).
 
 \begin{figure}[hbt!]
-    \begin{center}
-        \capstart
-        \includegraphics[width=1\columnwidth]{TF_diversity/wholeprom/TF_diversity_box}
-        \caption{
-            \textbf{Shannon diversity of individual TFs (A) and TF families (B) of 100 constitutive (blue), 100 variable (orange) and 100 control (green) Arabidopsis \textit{cis}\hyp{}regulatory modules (CRMs).}
-            Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
-            5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.  Box plots have box boundaries that represent 25th, 50th (median) and 75th percentiles; whiskers are drawn up to the largest or smallest observed point that falls within 1.5 times the interquartile range.
-            There was no significant difference between categories for either TF Shannon diversity or TF family Shannon diversity.
-            \label{fig:tf-diversity-wholeprom}
-        }
-    \end{center}
+	\begin{center}
+		\capstart
+		\includegraphics[width=1\columnwidth]{TF_diversity/wholeprom/TF_diversity_box}
+		\caption{
+			\textbf{Shannon diversity of individual TFs (A) and TF families (B) of 100 constitutive (blue), 100 variable (orange) and 100 control (green) Arabidopsis \textit{cis}\hyp{}regulatory modules (CRMs).}
+			Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
+			5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.  Box plots have box boundaries that represent 25th, 50th (median) and 75th percentiles; whiskers are drawn up to the largest or smallest observed point that falls within 1.5 times the interquartile range.
+			There was no significant difference between categories for either TF Shannon diversity or TF family Shannon diversity.
+			\label{fig:tf-diversity-wholeprom}
+		}
+	\end{center}
 \end{figure}
 
 A sliding window analysis revealed that in the constitutive open chromatin region 50-150 bp upstream of the ATG start codon variable promoters looked to have slightly higher Shannon diversity than constitutive promoters (\autoref{fig:tf-diversity-sliding-window}A) and tissue\hyp{}specific promoters looked to have a higher Shannon diversity than non\hyp{}specific promoters (\autoref{fig:tf-diversity-sliding-window}B).
@@ -710,54 +711,58 @@ Again no significant difference in TF or TF family diversity was found between a
 
 
 \begin{figure}[hbt!]
-    \begin{center}
-        \capstart
-        \includegraphics[width=1\columnwidth]{TF_diversity/genetypenocontrol_TF_diversity_median_sliding_window}
-        \caption{
-            \textbf{Sliding window analysis of TF Shannon diversity in 100 constitutive (blue) and 100 variable (orange) Arabidopsis \textit{cis}\hyp{}regulatory modules (CRMs).}
-            Promoters were extracted 1000 base pairs (bp) upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
-            5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.
-            Data points are positioned in the centre of each 100 bp window.
-            Windows are offset by 50 bp.
-            Shading represents 95 confidence intervals estimated using 10000 bootstraps.
-            A: Median Shannon diversity of individual TFs sliding windows in constitutive and variable CRMs. \textit{N}=100.
-            B: Median Shannon diversity of individual TFs sliding windows in non\hyp{}specific and tissue\hyp{}specific CRMs. \textit{N}=100.
-            \label{fig:tf-diversity-sliding-window}
-        }
-    \end{center}
+	\begin{center}
+		\capstart
+		\includegraphics[width=1\columnwidth]{TF_diversity/genetypenocontrol_TF_diversity_median_sliding_window}
+		\caption{
+			\textbf{Sliding window analysis of TF Shannon diversity in 100 constitutive (blue) and 100 variable (orange) Arabidopsis \textit{cis}\hyp{}regulatory modules (CRMs).}
+			Promoters were extracted 1000 base pairs (bp) upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
+			5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.
+			Data points are positioned in the centre of each 100 bp window.
+			Windows are offset by 50 bp.
+			Shading represents 95 confidence intervals estimated using 10000 bootstraps.
+			A: Median Shannon diversity of individual TFs sliding windows in constitutive and variable CRMs. \textit{N}=100.
+			B: Median Shannon diversity of individual TFs sliding windows in non\hyp{}specific and tissue\hyp{}specific CRMs. \textit{N}=100.
+			\label{fig:tf-diversity-sliding-window}
+		}
+	\end{center}
 \end{figure}
 
-
+A principal component analysis was run using the Shannon diversity of TF families binding promoters in each category to elucidate whether some TF families were more important for defining a promoter category.
 To test the hypothesis that constitutive genes are bound by a different set of TF families than variable genes, Kmeans clustering was conducted.
-Kmeans clustering of the diversity of TF families binding to 400 bp CRMs did not correspond to gene type (\autoref{fig:pca-cv}).
+Kmeans clustering of the diversity of TF families binding to 400 bp CRMs did not correspond to gene type \autoref{fig:pca-cv).
 
-\begin{figure}[!ht]
-    \begin{center}
-        \capstart
-        \includegraphics[width=1\columnwidth]{TF_diversity/400bpprom/PCA_Kmeans_TF_family_counts_cv}
-        \caption{Two PCA components accounting for the highest \si{\percent} of variation for Shannon diversity of TF families binding promoters.
-            A, points coloured with two Kmeans clusters.
-            B, points coloured by gene type. Variable genes, orange. Constitutive genes, blue. Random genes (across a range of coefficient of variation values), green.
-            \label{fig:pca-cv}
-        }
-    \end{center}
+\begin{figure}[hbt!]
+	\begin{center}
+		\capstart
+		\includegraphics[width=1\columnwidth]{TF_diversity/400bpprom/PCA_Kmeans_TF_family_counts_cv}
+		\caption{
+			\textbf{Two PCA components accounting for the highest percent of variation for Shannon diversity of TF families binding promoters}
+			A principal component analysis was run where \SI{95}{\percent} of the variation was maintained with 22 components.
+			Hierarchical clustering was used to estimate the number of clusters, K, using the silhouette method \autocite{rousseeuwSilhouettesGraphicalAid1987} which was then used in as K in Kmeans clustering.
+			A, points coloured with two Kmeans clusters.
+			B, points coloured by gene type. Constitutive genes, blue. Variable genes, orange. Control genes, green.			
+			\label{fig:pca-cv}
+		}
+	\end{center}
 \end{figure}
 
 To test the hypothesis that non\hyp{}specific genes are bound by a different set of TF families than tissue\hyp{}specific genes, Kmeans clustering was conducted.
 Kmeans clustering of the diversity of TF families binding 400 bp CRMs did not correspond to gene type (\autoref{fig:pca-tau}).
-
-\begin{figure}[!ht]
-    \begin{center}
-        \capstart
-        \includegraphics[width=1\columnwidth]{TF_diversity/400bpprom/PCA_Kmeans_TF_family_counts_cv}
-        \caption{Two PCA components accounting for the highest \si{\percent} of variation for Shannon diversity of TF families binding promoters.
-            A, points coloured with two Kmeans clusters.
-            B, points coloured by gene type. Variable genes, blue. Constitutive genes, orange. Random genes (across a range of coefficient of variation values), green.
-            \label{fig:pca-tau}
-        }
-    \end{center}
+\begin{figure}[hbt!]
+	\begin{center}
+		\capstart
+		\includegraphics[width=1\columnwidth]{TF_diversity/400bpprom/PCA_Kmeans_TF_family_counts_tau}
+		\caption{
+			\textbf{Two PCA components accounting for the highest \si{\percent} of variation for Shannon diversity of TF families binding promoters}
+			A principal component analysis was run where \SI{95}{\percent} of the variation was maintained with 22 components.
+			Hierarchical clustering was used to estimate the number of clusters, K, using the silhouette method \autocite{rousseeuwSilhouettesGraphicalAid1987} which was then used in as K in Kmeans clustering.
+			A, points coloured with two Kmeans clusters.
+			B, points coloured by gene type. Non\hyp{specific} genes, green. Tissue\hyp{}specific genes, grey. Control genes, brown.			
+			\label{fig:pca-cv}
+		}
+	\end{center}
 \end{figure}
-
 The number of genes included in the analyses of TF and TF family diversity using only TFBSs falling within open chromatin was low (ranging from \textit{N} = 20 to \textit{N} = 54) because genes with no TFBSs in open chromatin were filtered out.
 
 To increase sample size, all analyses were repeated using the top 300 CRMs in each category.
@@ -824,18 +829,18 @@ Interestingly, tissue\hyp{}specific promoters were significantly enriched in TAT
 Non\hyp{}specific promoters had significantly fewer TATA boxes compared to the background of all 600 promoters (total TATA boxes = 81; observed bp=1303; expected bp=1885; log2fold=-0.53;~\textit{P} \textless{} 0.01).
 
 \begin{figure}[!h]
-    \begin{center}
-        \capstart
-        \includegraphics[width=1\columnwidth]{TATA/TATA_enrichment_log2fold}
-        \caption{
-            \textbf{Log2\hyp{}fold enrichment of 15 bp TATA boxes in 100 variable (blue) and 100 constitutive (orange) Arabidopsis \textit{cis}\hyp{}regulatory modules (CRMs) compared to a background of constitutive and variable promoters combined.}
-            Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
-            5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.
-            TATA box locations within 50 bp upstream of the Eukaryotic Promoter Database (EPD) TSS were downloaded from EPD \autocite{dreosInfluenceRotationalNucleosome2016}.
-            Gat software~\autocite{hegerGATSimulationFramework2013} was used to calculate enrichment.
-            \label{fig:tata-enrichment}
-        }
-    \end{center}
+	\begin{center}
+		\capstart
+		\includegraphics[width=1\columnwidth]{TATA/TATA_enrichment_log2fold}
+		\caption{
+			\textbf{Log2\hyp{}fold enrichment of 15 bp TATA boxes in 100 variable (blue) and 100 constitutive (orange) Arabidopsis \textit{cis}\hyp{}regulatory modules (CRMs) compared to a background of constitutive and variable promoters combined.}
+			Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
+			5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.
+			TATA box locations within 50 bp upstream of the Eukaryotic Promoter Database (EPD) TSS were downloaded from EPD \autocite{dreosInfluenceRotationalNucleosome2016}.
+			Gat software~\autocite{hegerGATSimulationFramework2013} was used to calculate enrichment.
+			\label{fig:tata-enrichment}
+		}
+	\end{center}
 \end{figure}
 
 \subsection{Transcription factors binding \textit{cis}\hyp{}regulatory modules}
@@ -857,18 +862,18 @@ The TF Tau tissue\hyp{}specificity of TFs predicted to bind 400 bp CRMs in open 
 Dunn's post hocs with Bonferroni correction revealed that the mean Tau tissue\hyp{}specificity was significantly higher for TFs binding non\hyp{}specific CRMs (0.70 ± 0.16) than TFs binding tissue\hyp{}specific CRMs (0.66 ± 0.16;~\textit{P} \textless{} 0.01; \autoref{fig:TFBS-TF-class-400bpprom-openchrom}).
 %add figure%
 \begin{figure}[hbt!]
-    \begin{center}
-        \capstart
-        \includegraphics[width=1\columnwidth]{TFBS_TF_class/400bpprom_openchrom/TF_expression_categories_box}
-        \caption{
-            \textbf{Tau tissue\hyp{}specificity of Arabidopsis TFs binding \textit{cis}\hyp{}regulatory modules (CRMs) falling within open chromatin in different gene expression categories in a 400 bp region upstream of the ATG start codon.}
-            A: Tau tissue\hyp{}specificity of TFs binding within open chromatin in 400 bp constitutive, variable and control CRMs. \textit{N}=100.
-            B: Tau tissue\hyp{}specificity of TFs binding within open chromatin in 400 bp non\hyp{}specific, tissue\hyp{}specific and control CRMs. \textit{N}=100.
-            Significance was calculated using Kruskal\hyp{}Wallis and Dunn's post hocs with Bonferroni correction.
-            **, \textit{P} \textless{} 0.01. ns, not significant.
-            \label{fig:TFBS-TF-class-400bpprom-openchrom}
-        }
-    \end{center}
+	\begin{center}
+		\capstart
+		\includegraphics[width=1\columnwidth]{TFBS_TF_class/400bpprom_openchrom/TF_expression_categories_box}
+		\caption{
+			\textbf{Tau tissue\hyp{}specificity of Arabidopsis TFs binding \textit{cis}\hyp{}regulatory modules (CRMs) falling within open chromatin in different gene expression categories in a 400 bp region upstream of the ATG start codon.}
+			A: Tau tissue\hyp{}specificity of TFs binding within open chromatin in 400 bp constitutive, variable and control CRMs. \textit{N}=100.
+			B: Tau tissue\hyp{}specificity of TFs binding within open chromatin in 400 bp non\hyp{}specific, tissue\hyp{}specific and control CRMs. \textit{N}=100.
+			Significance was calculated using Kruskal\hyp{}Wallis and Dunn's post hocs with Bonferroni correction.
+			**, \textit{P} \textless{} 0.01. ns, not significant.
+			\label{fig:TFBS-TF-class-400bpprom-openchrom}
+		}
+	\end{center}
 \end{figure}
 The analyses were repeated using the top 300 CRMs in each category.
 
