@@ -91,7 +91,7 @@ Variably expressed genes involved in stress response, cell growth and lipid tran
 Constitutive and tissue specific genes tended to respond to fewer stimuli.
 Interestingly, when only up-regulation or down-regulation responses to stimuli were classed as differential gene expression events, only the up-regulation events showed a significant positive correlation between breadth of response to motif density.
 There was no significant correlation between motif density and breadth of response for down\hyp{}regulation events~\autocite{waltherRegulatoryCodeTranscriptional2007}.
-The first 500 bp upstream of the TSS were found to contain a stronger correlation between breadth of stimuli response and motif density than 500\textendash1000 bp upstream and 1000\textendash3000 bp upstream of the TSS~\autocite{waltherRegulatoryCodeTranscriptional2007}.
+The first 500 bp upstream of the TSS were found to contain a stronger correlation between breadth of stimuli response and motif density than 500\textendash{}1000 bp upstream and 1000\textendash{}3000 bp upstream of the TSS~\autocite{waltherRegulatoryCodeTranscriptional2007}.
 In Arabidopsis I hypothesise that TFBS percentage coverage of promoters will be higher in variable genes responding to many stimuli than in constitutive genes and tissue-specific genes that respond to a narrow range of stimuli.
 
 \subsection{TF diversity}\label{chapter2:introduction:tf-diversity}
@@ -123,14 +123,14 @@ The longer intergenic regions possibly allow for increased regulation complexity
 \subsection{TFBS enrichment}
 
 In animals, TATA boxes are enriched in variable promoters \autocite{engstromGenomicRegulatoryBlocks2007,carninciGenomewideAnalysisMammalian2006}.
-In plants, TATA boxes are enriched in genes responding to more stimuli (i.e. variably expressed genes) over genes responding to a narrow breadth of stimuli (i.e. constitutive genes, tissue\hyp{}specific genes).
+In plants, TATA boxes are enriched in genes responding to more stimuli (i.e., variably expressed genes) over genes responding to a narrow breadth of stimuli (i.e., constitutive genes, tissue\hyp{}specific genes).
 These variably expressed genes containing TATA boxes tend to have shorter 5$\prime$ UTRs \autocite{waltherRegulatoryCodeTranscriptional2007,molinaGenomeWideAnalysis2005,lichtenbergWordLandscapeNoncoding2009}
 Genes responding to stresses early on were more likely to contain a TATA box than genes that responded later \autocite{waltherRegulatoryCodeTranscriptional2007}.
 TATA boxes increase interspecies gene expression variation of the downstream gene \autocite{tiroshGeneticSignatureInterspecies2006}.
 Stress response motifs such as DRE, ABF and ABRE-like TFBSs \autocite{yamaguchi-shinozakiNovelCisactingElement1994} are associated with variably expressed genes with a large breadth of response \autocite{waltherRegulatoryCodeTranscriptional2007}.
 Genes responding to a narrow breadth of stimuli tend to be constitutive or tissue\hyp{}specific.
 Motifs associated with constitutive genes (TELO-box motif \autocite{tremousayguePlantInterstitialTelomere1999}; hexamer motif \autocite{chaubetIdentificationCiselementsRegulating1996}) and also those conferring tissue\hyp{}specific expression (e.g. LEAFYATAG \autocite{kamiyaIsolationCharacterizationRice2003}) were associated with narrow\hyp{}breadth response genes \autocite{waltherRegulatoryCodeTranscriptional2007}.
-Therefore, it would be useful to split variably expressed genes into narrow\hyp[{}breadth response and multistimuli response categories when making comparisons with constitutive genes.
+Therefore, it would be useful to split variably expressed genes into narrow\hyp{}breadth response and multistimuli response categories when making comparisons with constitutive genes.
 In Arabidopsis I hypothesise that TATA boxes will be enriched in variable genes compared to constitutive genes, and will be enriched in tissue\hyp{}specific genes over non\hyp{}specific genes.
 
 \subsection{TF differences}
@@ -139,7 +139,7 @@ When comparing constitutive and variable TFs it would also be useful to split th
 Genes coding for master\hyp{}regulator TFs are classed as multi\hyp{}interface (MI) hub genes, while those coding for lesser connected TFs are classed as single interface (SI) hub genes.
 Within MI genes, constitutive and tissue\hyp{}specific CDSs showed similar evolution rates, while within SI genes constitutive gene CDSs evolve more slowly than tissue-specific gene CDSs~\autocite{podderMultifunctionalityDominantlyDetermines2009}.
 MI tissue\hyp{}specific genes evolved more slowly than SI tissue\hyp{}specific genes, while both MI and SI constitutively expressed genes evolved at similar rates~\autocite{biswasEvolutionaryRateHeterogeneity2018}.
-This was explained by the fact that tissue\hyp{}specific MI genes are bound by more miRNAs than tissue\hyp{}specific SI genes~\autocite{biswasEvolutionaryRateHeterogeneity2018}, and genes with more miRNA targets evolve more slowly ~\autocite{chengRelationshipEvolutionMicroRNA2009}.
+This was explained by the fact that tissue\hyp{}specific MI genes are bound by more miRNAs than tissue\hyp{}specific SI genes~\autocite{biswasEvolutionaryRateHeterogeneity2018}, and genes with more miRNA targets evolve more slowly~\autocite{chengRelationshipEvolutionMicroRNA2009}.
 %summarise the intro and introduce the hypotheses Im testing and the experiments. Can briefly give an overview of the methods.
 
 
@@ -156,7 +156,7 @@ Significance annotations were added to plots using Statannot (v0.2.3; \url{https
 \subsection{Extraction of \textit{cis}-regulatory modules}\label{chapter2:methods:extraction-of-cis-regulatory-modules}
 
 Promoters were extracted from the Arabidopsis TAIR 10 \autocite{lameschArabidopsisInformationResource2012} genome assembly and Ensembl Plants \autocite{howeEnsemblGenomes20202020} annotation (\href{ftp://ftp.ensemblgenomes.org/pub/release-47/plants/gff3/arabidopsis_thaliana/}{.gff3 release 47 date 08/03/2020}) using a custom Python script (\href{https://github.com/Switham1/PromoterArchitecture/blob/master/src/data_sorting/extract_promoter.py}{extract\_promoter.py}, available at \url{https://github.com/Switham1/PromoterArchitecture}).
-Only promoters from genes on Arabidopsis chromosomes 1-5 were extracted.
+Only promoters from genes on Arabidopsis chromosomes 1\textendash{}5 were extracted.
 Using the same Python script promoters were extracted from protein coding genes that did not overlap other protein coding genes using pybedtools (version 0.8.1) \autocite{dalePybedtoolsFlexiblePython2011}.
 %What pybedtools version?
 Promoters were extracted 1000 base pairs (bp) upstream of the longest annotated transcript transcription start site (TSS) or until the nearest annotated protein coding gene, and 5$\prime$ UTRs were included downstream of the TSS up until the closest annotated coding sequence (CDS) ATG start codon.
@@ -166,6 +166,7 @@ Genes where the whole promoter overlapped a protein coding gene, leaving only pa
 %This was because with overlapping promoters it is difficult to determine whether CREs belong to one promoter over the other or are used by both promoters.
 
 \subsection{Transcription factor binding site identification}\label{chapter2:methods:transcription-factor-binding-site-identification}
+
 %Add all software versions
 The resulting promoter annotations were transformed to bed format using BEDOPS (version 2.4.39) gff2bed~\autocite{nephBEDOPSHighperformanceGenomic2012}, and BEDTools (version 2.29.2) getfasta~\autocite{quinlanBEDToolsFlexibleSuite2010} was used to extract promoter sequences from the reference genome.
 Promoters were scanned for DAP\hyp{}seq TFBS motifs~\autocite{omalleyCistromeEpicistromeFeatures2016} using FIMO~\autocite{grantFIMOScanningOccurrences2011} (version 5.1.1) with a zero\hyp{}order background model created using fasta\hyp{}get\hyp{}markov~\autocite{baileyMEMESuiteTools2009}.
@@ -188,14 +189,15 @@ This ensured that the selected genes were present in both CV and Tau datasets.
 To ensure even coverage, 10 genes were selected randomly from each of 10 bins covering the range of Tau values between the non\hyp{}specific and tissue\hyp{}specific gene sets.
 
 
-\subsection{Sliding window creation}
-\label{chapter2:methods:sliding-window-creation}
+\subsection{Sliding window creation}\label{chapter2:methods:sliding-window-creation}
+
 %describe how sliding windows were created%
 Promoters were split into 100 bp sliding windows with a 50 bp step size using a custom Python script (\href{https://github.com/Switham1/PromoterArchitecture/blob/master/src/rolling_window/rolling_window.py}{rolling\_window.py}, available at \url{https://github.com/Switham1/PromoterArchitecture}).
 Windows with fewer than 100 promoters extending to that location were removed.
 For each sliding window plot, the median percentage GC content, TFBS coverage, open chromatin coverage or TF diversity was calculated. \SI{95}{\percent} confidence intervals were estimated using 10000 bootstraps.
 
-\subsection{GC content}{\label{chapter2:methods:gc-content}}
+\subsection{GC content}\label{chapter2:methods:gc-content}
+
 %name the script and say how
 Percentage GC content of promoters and each promoter window was determined using Python to test the hypothesis that constitutive genes have a higher GC content than variable genes and the hypothesis that non\hyp{}specific genes have a higher GC content than tissue\hyp{}specific genes.
 %The Mann\hyp{}Whitney U test~\autocite{mannTestWhetherOne1947}
@@ -208,7 +210,7 @@ The number of base pairs covered by at least one motif in a given sequence was c
 %The proportion of base pairs covered by TFBSs in promoters from different expression types were compared using the Kruskal\hyp{}Wallis \textit{H} test and Bonferroni
 %The proportion of base pairs covered by TFBSs in constitutive promoters was compared to variable promoters using a Mann Whitney U test~\autocite{mannTestWhetherOne1947}.
 
-\subsection{Open chromatin coverage}{\label{chapter2:methods:open-chromatin-coverage}}
+\subsection{Open chromatin coverage}\label{chapter2:methods:open-chromatin-coverage}
 %talk about open chromatin in the intro
 Negative control (treated with NaOH) ATAC\hyp{}seq data was downloaded from \textcite{potterCytokininModulatesContextdependent2018} for root and shoot tissues.
 Individual bed files for each replicate were concatenated and BEDTools (v2.29.2) merge \autocite{quinlanBEDToolsFlexibleSuite2010} was used to combine overlapping peaks.
@@ -217,7 +219,7 @@ To test the hypothesis that the CRMs of variable genes will have a lower proport
 The number of base pairs covered by root, shoot or the root\hyp{}shoot intersect open chromatin was calculated using BedTools coverage.
 %clearly explain the bootstrapping methodology
 
-\subsection{TF diversity}{\label{chapter2:methods:tf-diversity}}
+\subsection{TF diversity}\label{chapter2:methods:tf-diversity}
 
 The unique TF count for each promoter and promoter window was calculated. This meant that if TFBSs for a TF were found several times within a promoter, that TF was only counted once.
 TFs were only classed as present in a promoter window if the centre of the TFBS was inside the window.
@@ -243,8 +245,7 @@ The 15 bp TATA boxes were used as segments of interest.
 Constitutive and variable promoter annotations were separately tested for enrichment of TATA boxes compared to the background workspace file containing all 200 promoters of interest from both categories.
 Non\hyp{}specific and tissue\hyp{}specific promoter categories were tested in the same way.
 
-\subsection{Transcription factors binding \textit{cis}\hyp{}regulatory modules}
-\label{chapter2:methods:tfs-binding-crms}
+\subsection{Transcription factors binding \textit{cis}\hyp{}regulatory modules}\label{chapter2:methods:tfs-binding-crms}
 
 The coefficient of variation (CV) and Tau tissue\hyp{}specificity of TFs binding CRMs were mapped to each CRM.
 The hypothesis that there is no significant difference in CV of TFs binding CRMs in constitutive or variable categories and no significant difference in Tau of TFs binding CRMs in non\hyp{}specific or tissue\hyp{}specific categories was tested (\href{https://github.com/Switham1/PromoterArchitecture/blob/master/src/plotting/map_TF2CV_TF2Tau_combined.py}{map\_TF2C\_TF2Tau\_combined.py}, available at \url{https://github.com/Switham1/PromoterArchitecture}).
@@ -252,11 +253,12 @@ The hypothesis that there is no significant difference in CV of TFs binding CRMs
 \subsection{Functional analysis}\label{chapter2:methods:functional-analysis}
 
 A background gene set of all protein coding genes remaining after the filtering steps mentioned in \autoref{chapter2:methods:extraction-of-cis-regulatory-modules} (Extraction of \textit{cis}\hyp{}regulatory modules) was used so that all promoters contained at least one TFBS when scanned using FIMO \autocite{grantFIMOScanningOccurrences2011}.
-Gene ontology (GO) terms (go-basic.obo; 2020-08-11 release) were downloaded from the GO FTP site (\url{http://www.geneontology.org/GO.current.annotations.shtml}).
+Gene ontology (GO) terms (go-basic.obo; 2020\textendash{}08\textendash{}11 release) were downloaded from the GO FTP site (\url{http://www.geneontology.org/GO.current.annotations.shtml}).
 GOATOOLS \autocite{klopfensteinGOATOOLSPythonLibrary2018} (version 1.0.6) was used for gene ontology enrichment analysis using Fisher's exact test \autocite{fisherInterpretationContingencyTables1922} and Benjamini/Hochberg false discovery rate (FDR) correction \autocite{benjaminiControllingFalseDiscovery1995}.
 clusterProfiler \autocite{yuClusterProfilerPackageComparing2012} (version 3.14.0) was used for (KEGG) gene set enrichment analysis \autocite{kanehisaKEGGKyotoEncyclopedia2000} with Benjamini/Hochberg FDR correction \autocite{benjaminiControllingFalseDiscovery1995}.
 
 \section{Results}\label{chapter2:results}
+
 %Add summary paragraph contextualising the results and adding a narrative link to the methodology
 %add open chromatin enrichment and TFBS enrichment. Also TFBS CV binding promoters
 3299 genes were flagged and removed from the analysis as their coding sequences were overlapping other coding sequences.
@@ -265,7 +267,7 @@ clusterProfiler \autocite{yuClusterProfilerPackageComparing2012} (version 3.14.0
 An analysis pipeline was created to analyse promoter architecture of constitutive and variable genes.
 
 Following this filtering process the methodology described by \textcite{czechowskiGenomeWideIdentificationTesting2005} was used to select the top 100 constitutive and variable genes.
-Tau tissue\hyp{}specificity ranking was used to select the top 100  non\hyp{}specific and tissue\hyp{}specific genes.
+Tau tissue\hyp{}specificity ranking was used to select the top 100 non\hyp{}specific and tissue\hyp{}specific genes.
 The mean $log_{2}$ expression of the genes in each category are shown in \autoref{fig:gene-group-expression}.
 1959 genes were flagged as having potentially overlapping promoters where the upstream gene was positioned in the opposite direction and was less than 2000 bp away from the TSS.
 17 constitutive, 6 variable, 15 non\hyp{}specific, 14 tissue\hyp{}specific and 11 control genes were flagged as having potentially overlapping promoters.
@@ -406,7 +408,7 @@ A KEGG gene set enrichment analysis with Benjamini/Hochberg FDR correction found
 CRMs from the four gene sets were overlapped with ATAC-seq data \autocite{potterCytokininModulatesContextdependent2018}.
 This allowed the chromatin accessibility to be described.
 Constitutive, variable and control CRMs had a significantly different percentage of nucleotides covered by open chromatin (Kruskal\hyp{}Wallis~\textit{H} = 37.5,~\textit{P} \textless{} 0.0001).
-Dunn's post hocs with Bonferroni correction showed that variable CRMs had a significantly lower percentage of nucleotides covered by open chromatin (\SI{35.0}{\percent} ± 35.1) than constitutive (\SI{54.1}{\percent} ± 33.3;~\textit{P} \textless{} 0.001) or control (\SI{65.3}{\percent} ± 30.4; ~\textit{P} \textless{} 0.0001) CRMs (\autoref{fig:chromatin-coverage}A).
+Dunn's post hocs with Bonferroni correction showed that variable CRMs had a significantly lower percentage of nucleotides covered by open chromatin (\SI{35.0}{\percent} ± 35.1) than constitutive (\SI{54.1}{\percent} ± 33.3;~\textit{P} \textless{} 0.001) or control (\SI{65.3}{\percent} ± 30.4;~\textit{P} \textless{} 0.0001) CRMs (\autoref{fig:chromatin-coverage}A).
 Open chromatin coverage was significantly different between non\hyp{}specific, tissue\hyp{}specific and control gene types (Kruskal\hyp{}Wallis~\textit{H} = 75.3,~\textit{P} \textless{} 0.0001).
 Dunn's post hocs with Bonferroni correction revealed that tissue\hyp{}specific CRMs had a significantly lower percentage of nucleotides covered by open chromatin (\SI{20.4}{\percent} ± 30.2) than non\hyp{}specific (\SI{46.9}{\percent} ± 36.1;~\textit{P} \textless{} 0.0001) or control (\SI{65.3}{\percent} ± 30.4;~\textit{P} \textless{} 0.01) CRMs (\autoref{fig:chromatin-coverage}B)
 
@@ -528,8 +530,8 @@ A sliding window analysis revealed that percentage GC content looked higher for 
 
 Further analysis in the first 400 bp upstream of the ATG start codon showed that there was a significant difference between constitutive, variable and control CRM types (Kruskal\hyp{}Wallis~\textit{H} = 14.8,~\textit{P} \textless{} 0.001).
 
-Dunn's post hoc tests with Bonferroni correction revealed that within the 400 bp region constitutive promoters had a significantly higher GC content (\SI{35.0}{\percent} ± 5.0) than variable CRMs (\SI{33.1}{\percent} ± 4.7; ~\textit{P} \textless{} 0.001) and control CRMs (\SI{33.8}{\percent} ± 4.2; ~\textit{P} \textless{} 0.05) (\autoref{fig:gc-content-400bpprom}).
-In the same 400 bp CRM region there was a significant difference between non\hyp{}specific, tissue\hyp{}specific and control CRMs (Kruskal\hyp{}Wallis~\textit{H} = 22.8,~\textit{P} \textless{} 0.0001). Dunn's post hocs with Bonferroni correction revealed that non\hyp{}specific (\SI{33.6}{\percent} ± 5.6; ~\textit{P} \textless{} 0.001) and control CRMs (\SI{33.8}{\percent} ± 4.2; ~\textit{P} \textless{} 0.0001) had a significantly higher GC content  than tissue\hyp{}specific CRMs (\SI{31.2}{\percent} ± 3.9).
+Dunn's post hoc tests with Bonferroni correction revealed that within the 400 bp region constitutive promoters had a significantly higher GC content (\SI{35.0}{\percent} ± 5.0) than variable CRMs (\SI{33.1}{\percent} ± 4.7;~\textit{P} \textless{} 0.001) and control CRMs (\SI{33.8}{\percent} ± 4.2;~\textit{P} \textless{} 0.05) (\autoref{fig:gc-content-400bpprom}).
+In the same 400 bp CRM region there was a significant difference between non\hyp{}specific, tissue\hyp{}specific and control CRMs (Kruskal\hyp{}Wallis~\textit{H} = 22.8,~\textit{P} \textless{} 0.0001). Dunn's post hocs with Bonferroni correction revealed that non\hyp{}specific (\SI{33.6}{\percent} ± 5.6;~\textit{P} \textless{} 0.001) and control CRMs (\SI{33.8}{\percent} ± 4.2;~\textit{P} \textless{} 0.0001) had a significantly higher GC content than tissue\hyp{}specific CRMs (\SI{31.2}{\percent} ± 3.9).
 
 \begin{figure}[hbt!]
 	\begin{center}
@@ -575,9 +577,9 @@ TFBS coverage did not differ significantly between non\hyp{}specific, tissue\hyp
 	\end{center}
 \end{figure}
 The same analysis was run again using only TFBSs that fall within open chromatin. TFBS coverage differed significantly between constitutive, variable and control categories (Kruskal\hyp{}Wallis~\textit{H} = 27.1,~\textit{P} \textless{} 0.0001; \autoref{fig:tfbs-coverage-wholeprom-openchrom}A).
-Dunn's post hocs with Bonferroni correction revealed that TFBS coverage in open chromatin of variable CRMs (\SI{7.3}{\percent} ± 8.8) was significantly lower than constitutive CRMs (\SI{11.3}{\percent} ± 8.5; ~\textit{P} \textless{} 0.001) and control CRMs (\SI{12.9}{\percent} ± 9.1; ~\textit{P} \textless{} 0.0001).
+Dunn's post hocs with Bonferroni correction revealed that TFBS coverage in open chromatin of variable CRMs (\SI{7.3}{\percent} ± 8.8) was significantly lower than constitutive CRMs (\SI{11.3}{\percent} ± 8.5;~\textit{P} \textless{} 0.001) and control CRMs (\SI{12.9}{\percent} ± 9.1;~\textit{P} \textless{} 0.0001).
 TFBS coverage also differed significantly between non\hyp{}specific, tissue\hyp{}specific and control categories (Kruskal\hyp{}Wallis~\textit{H} = 72.9,~\textit{P} \textless{} 0.0001; \autoref{fig:tfbs-coverage-wholeprom-openchrom}B).
-Dunn's post hocs with Bonferroni correction revealed that TFBS coverage in open chromatin of tissue\hyp{}specific CRMs (\SI{3.5}{\percent} ± 6.0) was significantly lower than non\hyp{}specific CRMs (\SI{10.0}{\percent} ± 10.1; ~\textit{P} \textless{} 0.0001) and control CRMs (\SI{12.9}{\percent} ± 9.1; ~\textit{P} \textless{} 0.0001).
+Dunn's post hocs with Bonferroni correction revealed that TFBS coverage in open chromatin of tissue\hyp{}specific CRMs (\SI{3.5}{\percent} ± 6.0) was significantly lower than non\hyp{}specific CRMs (\SI{10.0}{\percent} ± 10.1;~\textit{P} \textless{} 0.0001) and control CRMs (\SI{12.9}{\percent} ± 9.1; ~\textit{P} \textless{} 0.0001).
 Non\hyp{}specific genes had a significantly lower TFBS coverage in open chromatin than control genes (\textit{P} \textless{} 0.05).
 
 \begin{figure}[hbt!]
@@ -697,7 +699,7 @@ A sliding window analysis revealed that in the constitutive open chromatin regio
 Median TF family Shannon diversity did not differ from 0 at any point along the CRM for any gene category.
 
 In a 400 bp region upstream of the TSS the same TF Shannon diversity analyses were run.
-Again no significant difference in TF or TF family diversity was found between any CRM types whether using all TFBSs or only including those falling within open chromatin (All Kruskal-Wallis tests, ~\textit{P} \textgreater{} 0.05).
+Again no significant difference in TF or TF family diversity was found between any CRM types whether using all TFBSs or only including those falling within open chromatin (All Kruskal-Wallis tests,~\textit{P} \textgreater{} 0.05).
 
 
 \begin{figure}[hbt!]
@@ -836,10 +838,10 @@ Non\hyp{}specific promoters had significantly fewer TATA boxes compared to the b
 \subsection{Transcription factors binding \textit{cis}\hyp{}regulatory modules}
 The TFs predicted to bind promoters in each category were analysed.
 The hypothesis that constitutive CRMs are not necessarily bound by only constitutive TFs but rather both constitutive and variable TFs was tested.
-The TF expression CV of TFs predicted to bind CRMs did not differ significantly between constitutive, variable and control CRMs (\textit{N} = 100; Kruskal\hyp{}Wallis~\textit{H} = 1.9; ~\textit{P} \textgreater{} 0.05).
+The TF expression CV of TFs predicted to bind CRMs did not differ significantly between constitutive, variable and control CRMs (\textit{N} = 100; Kruskal\hyp{}Wallis~\textit{H} = 1.9;~\textit{P} \textgreater{} 0.05).
 The TF expression CV of TFs predicted to bind CRMs in open chromatin also did not differ significantly between constitutive, variable and control CRMs (\textit{N} = 53; Kruskal\hyp{}Wallis~\textit{H} = 0.2;~\textit{P} \textgreater{} 0.05).
 
-The Tau tissue\hyp{}specificity of TFs predicted to bind CRMs did not differ significantly between tissue\hyp{}specific, non\hyp{}specific and control CRMs (\textit{N} = 100; Kruskal\hyp{}Wallis~\textit{H} = 3.8; ~\textit{P} \textgreater{} 0.05).
+The Tau tissue\hyp{}specificity of TFs predicted to bind CRMs did not differ significantly between tissue\hyp{}specific, non\hyp{}specific and control CRMs (\textit{N} = 100; Kruskal\hyp{}Wallis~\textit{H} = 3.8;~\textit{P} \textgreater{} 0.05).
 The TF Tau tissue\hyp{}specificity of TFs predicted to bind CRMs in open chromatin also did not differ significantly between tissue\hyp{}specific, non\hyp{}specific and control CRMs (\textit{N} = 37; Kruskal\hyp{}Wallis~\textit{H} = 3.3;~\textit{P} \textgreater{} 0.05).
 
 In 400 bp CRMs there was a significant difference in TF expression CV of TFs predicted to bind CRMs between constitutive, variable and control CRMs (\textit{N} = 92; Kruskal\hyp{}Wallis~\textit{H} = 6.9;~\textit{P} \textless{} 0.05).
@@ -847,7 +849,7 @@ However, Dunn's post hocs with Bonferroni correction did not reveal an significa
 The TF expression CV of TFs predicted to bind 400 bp CRMs in open chromatin did not differ significantly between constitutive, variable and control CRMs (\textit{N} = 51; Kruskal\hyp{}Wallis~\textit{H} = 4.3;~\textit{P} \textgreater{} 0.05).
 
 In 400 bp CRMs there was a significant difference in TF Tau tissue\hyp{}specificity of TFs predicted to bind CRMs between tissue\hyp{}specific, non\hyp{}specific and control CRMs (\textit{N} = 92; Kruskal\hyp{}Wallis~\textit{H} = 6.2;~\textit{P} \textless{} 0.05).
-Dunn's post hocs with Bonferroni correction revealed no significant difference between any two categories ( ~\textit{P} \textgreater{} 0.05).
+Dunn's post hocs with Bonferroni correction revealed no significant difference between any two categories (\textit{P} \textgreater{} 0.05).
 The TF Tau tissue\hyp{}specificity of TFs predicted to bind 400 bp CRMs in open chromatin differed significantly between tissue\hyp{}specific, non\hyp{}specific and control CRMs (\textit{N} = 23; Kruskal\hyp{}Wallis~\textit{H} = 9.4;~\textit{P} \textless{} 0.01).
 Dunn's post hocs with Bonferroni correction revealed that the mean Tau tissue\hyp{}specificity was significantly higher for TFs binding non\hyp{}specific CRMs (0.70 ± 0.16) than TFs binding tissue\hyp{}specific CRMs (0.66 ± 0.16;~\textit{P} \textless{} 0.01; \autoref{fig:TFBS-TF-class-400bpprom-openchrom}).
 %add figure%
@@ -868,21 +870,21 @@ Dunn's post hocs with Bonferroni correction revealed that the mean Tau tissue\hy
 The analyses were repeated using the top 300 CRMs in each category.
 
 The TF expression CV of TFs predicted to bind CRMs did not differ significantly between constitutive, variable and control CRMs (\textit{N} = 299; Kruskal\hyp{}Wallis~\textit{H} = 0.5;~\textit{P} \textgreater{} 0.05).
-The TF expression CV of TFs predicted to bind CRMs in open chromatin also did not differ significantly between constitutive, variable and control CRMs (\textit{N} = 206; Kruskal\hyp{}Wallis~\textit{H} = 0.6; ~\textit{P} \textgreater{} 0.05).
+The TF expression CV of TFs predicted to bind CRMs in open chromatin also did not differ significantly between constitutive, variable and control CRMs (\textit{N} = 206; Kruskal\hyp{}Wallis~\textit{H} = 0.6;~\textit{P} \textgreater{} 0.05).
 
 The TF Tau tissue\hyp{}specificity of TFs predicted to bind CRMs differed significantly between tissue\hyp{}specific, non\hyp{}specific and control CRMs (\textit{N} = 299; Kruskal\hyp{}Wallis~\textit{H} = 3.8;~\textit{P} \textless{} 0.05).
 Dunn's post hocs with Bonferroni correction revealed that TFs binding non\hyp{}specific CRMs had a significantly higher Tau tissue\hyp{}specificity (0.68 ± 0.16) than tissue\hyp{}specific CRMs (0.67 ± 0.16;~\textit{P} \textless{} 0.01).
 The TF Tau tissue\hyp{}specificity of TFs predicted to bind CRMs in open chromatin also differed significantly between tissue\hyp{}specific, non\hyp{}specific and control CRMs (\textit{N} = 112; Kruskal\hyp{}Wallis~\textit{H} = 9.0;~\textit{P} \textless{} 0.05).
-Dunn's post hocs with Bonferroni correction revealed that TFs binding non\hyp{}specific CRMs in open chromatin had a significantly higher Tau tissue\hyp{}specificity (0.68 ± 0.16) than control CRMs (0.66 ± 0.16; ~\textit{P} \textless{} 0.05).
+Dunn's post hocs with Bonferroni correction revealed that TFs binding non\hyp{}specific CRMs in open chromatin had a significantly higher Tau tissue\hyp{}specificity (0.68 ± 0.16) than control CRMs (0.66 ± 0.16;~\textit{P} \textless{} 0.05).
 
 In 400 bp CRMs there was no significant difference in TF expression CV of TFs predicted to bind CRMs between constitutive, variable and control CRMs (\textit{N} = 275; Kruskal\hyp{}Wallis~\textit{H} = 2.0;~\textit{P} \textgreater{} 0.05).
-In the same 400bp region there was no significant difference in TF expression CV of TFs predicted to bind CRMs within open chromatin between constitutive, variable and control CRMs (\textit{N} = 177; Kruskal\hyp{}Wallis~\textit{H} = 1.1; ~\textit{P} \textgreater{} 0.05).
+In the same 400bp region there was no significant difference in TF expression CV of TFs predicted to bind CRMs within open chromatin between constitutive, variable and control CRMs (\textit{N} = 177; Kruskal\hyp{}Wallis~\textit{H} = 1.1;~\textit{P} \textgreater{} 0.05).
 
 
 
-In 400 bp CRMs there was a significant difference in TF Tau tissue\hyp{}specificity of TFs predicted to bind CRMs between tissue\hyp{}specific, non\hyp{}specific and control CRMs (\textit{N} = 279; Kruskal\hyp{}Wallis~\textit{H} = 7.6; ~\textit{P} \textless{} 0.05).
+In 400 bp CRMs there was a significant difference in TF Tau tissue\hyp{}specificity of TFs predicted to bind CRMs between tissue\hyp{}specific, non\hyp{}specific and control CRMs (\textit{N} = 279; Kruskal\hyp{}Wallis~\textit{H} = 7.6;~\textit{P} \textless{} 0.05).
 Dunn's post hocs with Bonferroni correction revealed that TFs binding CRMs of non\hyp{}specific genes had a significantly higher Tau tissue\hyp{}specificity (0.67 ± 0.16) than TFs binding CRMs of tissue\hyp{}specific genes (0.66 ± 0.15;~\textit{P} \textless{} 0.05).
-There was a significant difference in TF Tau tissue\hyp{}specificity of TFs binding 400bp CRMs in open chromatin (\textit{N} = 85; Kruskal\hyp{}Wallis~\textit{H} = 21.7; ~\textit{P} \textless{} 0.0001).
+There was a significant difference in TF Tau tissue\hyp{}specificity of TFs binding 400bp CRMs in open chromatin (\textit{N} = 85; Kruskal\hyp{}Wallis~\textit{H} = 21.7;~\textit{P} \textless{} 0.0001).
 Dunn's post hocs with Bonferroni correction revealed that TFs binding non\hyp{}specific CRMs in open chromatin had significantly higher Tau tissue\hyp{}specificity (0.69 ± 0.16) than TFs binding tissue\hyp{}specific (0.65 ± 0.15;~\textit{P} \textless{} 0.0001) or control CRMs (0.66 ± 0.15;~\textit{P} \textless{} 0.01).
 
 
