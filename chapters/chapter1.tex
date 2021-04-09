@@ -2,35 +2,41 @@
 
 \begin{document}
 
-\chapter{Introduction}
-\label{chapter1}
-\subsection{Regulation of gene expression}\label{chapter1:regulation-of-gene-expression}
-The expression of genes is regulated at several points including transcription, mRNA stability and processing, gene silencing and translation. Transcription is the first level of control and, for many protein\hyp{}coding genes, the rate of transcription will strongly influence
-the abundance of the encoded protein~\autocite{liuDependencyCellularProtein2016}. Transcription is controlled by the interactions of certain proteins with DNA regulatory sequences resulting in increases or decreases in gene expression. In eukaryotes, there are two types of DNA regulatory sequences called \textit{cis}\hyp{}regulatory and \textit{trans}\hyp{}regulatory sequences.
+\chapter{Introduction}\label{chapter1}
+\section{Regulation of gene expression}\label{chapter1:regulation-of-gene-expression}
+The expression of genes is regulated at several points including transcription, mRNA stability and processing, gene silencing and translation.
+Transcription is the first level of control and, for many protein\hyp{}coding genes, the rate of transcription will strongly influence the abundance of the encoded protein~\autocite{liuDependencyCellularProtein2016}.
+Transcription is controlled by the interactions of certain proteins with DNA regulatory sequences resulting in increases or decreases in gene expression.
+In eukaryotes, there are two types of DNA regulatory sequences called \textit{cis}\hyp{}regulatory and \textit{trans}\hyp{}regulatory sequences.
 
 
-\subsubsection{\texorpdfstring{\textit{Cis}-regulatory DNA sequences}{Cis\hyp{}regulatory DNA sequences}}\label{chapter1:cis-regulatory-dna-sequences}
-\textit{Cis}\hyp{}regulatory sequences are those on the same molecule of DNA as the gene they regulate. The literature varies when defining \textit{cis}\hyp{}regulatory sequences. For example, \textcite*{wittkoppCisregulatoryElementsMolecular2012} broadly define both promoters and enhancers as \textit{cis}\hyp{}regulatory elements (CREs). This report, in line with \textcite*{swinnenLessonsDomesticationTargeting2016}, defines CREs as small individual motifs within regulatory sequences which can bind to the DNA binding domain of one or more \textit{trans}\hyp{}acting molecules such as transcription factors and non\hyp{}coding RNAs (ncRNAs). Therefore, both transcription factor binding sites (TFBS) and ncRNA binding sites (such as triplex targeting sites) are types of CREs.
-A \textit{cis}\hyp{}regulatory module (CRM) is defined as a genomic region encompassing multiple CREs that together regulate an aspect of gene expression pattern~\autocite{guoNewAlgorithmIdentifying2017}. CRMs may include promoters, enhancers, silencers, insulators and locus control regions~\autocite{jeziorskaSystemsBiologyApproach2009}. CRMs can be located within exons~\autocite{tumpelRegulatoryModuleEmbedded2008}, introns~\autocite{ostrovskyIdentificationStrongIntron2018}, 5’\hyp{}untranslated regions (5’UTRs)~\autocite{bolleSegmentsEncodingUntranslated1994,henrySharedCisregulatoryModule2018}, or 3’UTRs~\autocite{palmerEnhancerControlsSnail2007,yochumGenomewideScreenBetacatenin2008} (\autoref{fig:crm}). CRMs can be found tens of kilobases from the core promoter~\autocite{bien-willnerSOX9cre1CisactingRegulatory2007,okaGenomewideMappingTranscriptional2017}, and are still classed as \textit{cis}\hyp{}acting because they are found on the same DNA molecule as the gene they are regulating. In this report, the term CRM will be used to refer to the sequence of DNA upstream of the start codon encompassing both the promoter region and any 5’UTR.
+\subsection{\texorpdfstring{\textit{Cis}-regulatory DNA sequences}{Cis\hyp{}regulatory DNA sequences}}\label{chapter1:cis-regulatory-dna-sequences}
+\textit{Cis}\hyp{}regulatory sequences are those on the same molecule of DNA as the gene they regulate.
+The literature varies when defining \textit{cis}\hyp{}regulatory sequences.
+For example, \textcite*{wittkoppCisregulatoryElementsMolecular2012} broadly define both promoters and enhancers as \textit{cis}\hyp{}regulatory elements (CREs).
+This report, in line with \textcite*{swinnenLessonsDomesticationTargeting2016}, defines CREs as small individual motifs within regulatory sequences which can bind to the DNA binding domain of one or more \textit{trans}\hyp{}acting molecules such as transcription factors and non\hyp{}coding RNAs (ncRNAs).
+Therefore, both transcription factor binding sites (TFBS) and ncRNA binding sites (such as triplex targeting sites) are types of CREs.
+A \textit{cis}\hyp{}regulatory module (CRM) is defined as a genomic region encompassing multiple CREs that together regulate an aspect of gene expression pattern~\autocite{guoNewAlgorithmIdentifying2017}.
+CRMs may include promoters, enhancers, silencers, insulators and locus control regions \autocite{jeziorskaSystemsBiologyApproach2009}.
+CRMs can be located within exons \autocite{tumpelRegulatoryModuleEmbedded2008}, introns \autocite{ostrovskyIdentificationStrongIntron2018}, 5’\hyp{}untranslated regions (5’UTRs) \autocite{bolleSegmentsEncodingUntranslated1994,henrySharedCisregulatoryModule2018}, or 3’UTRs \autocite{palmerEnhancerControlsSnail2007,yochumGenomewideScreenBetacatenin2008} (\autoref{fig:crm}).
+CRMs can be found tens of kilobases from the core promoter \autocite{bien-willnerSOX9cre1CisactingRegulatory2007,okaGenomewideMappingTranscriptional2017}, and are still classed as \textit{cis}\hyp{}acting because they are found on the same DNA molecule as the gene they are regulating.
+In this report, the term CRM will be used to refer to the sequence of DNA upstream of the start codon encompassing both the promoter region and any 5’UTR.
 
-\begin{figure}[!ht]
-  \begin{center}
-    \capstart
-    \includegraphics[width=0.70\columnwidth]{crm/crm}
-    \caption{\textit{Cis}\hyp{}regulatory module (CRM) classification. CRMs are genomic DNA
-      regions containing multiple \textit{cis}\hyp{}regulatory elements such as
-      transcription factor binding sites, which together regulate gene
-      transcription. UTR, untranslated region. CRMs include promoters,
-      silencers and insulators, and can be found within exons, introns, 3'UTRs
-      and 5'UTRs. CRM regulation is combinatorial, and can be unique to a
-      specific gene or shared between many. Insulators prevent CRMs from
-      regulating past that region. Transcription start sites (TSSs) are found
-      within the core promoter.
-      \label{fig:crm}
-    }
-  \end{center}
+\begin{figure}[!hbt]
+	\begin{center}
+		\capstart{}
+		\includegraphics[width=0.70\columnwidth]{crm/crm}
+		\caption{
+			\textit{Cis}\hyp{}regulatory module (CRM) classification.
+			CRMs are genomic DNAregions containing multiple \textit{cis}\hyp{}regulatory elements such as transcription factor binding sites, which together regulate gene transcription.
+			UTR, untranslated region.
+			CRMs include promoters, silencers and insulators, and can be found within exons, introns, 3'UTRs and 5'UTRs.
+			CRM regulation is combinatorial, and can be unique to a specific gene or shared between many.
+			Insulators prevent CRMs from regulating past that region.
+			Transcription start sites (TSSs) are found within the core promoter.\label{fig:crm}
+		}
+	\end{center}
 \end{figure}
-
 
 \paragraph{The promoter}\label{chapter1:the-promoter}
 Promoters are essential in establishing baseline transcriptional capacity through the recruitment of proteins such as transcription factors (TFs), which control the recruitment of RNA polymerase II \autocite{portoPlantPromotersApproach2014}.
@@ -44,135 +50,72 @@ Motif discovery\hyp{}based analyses hypothesised that general sequence enrichmen
 CpG sites in CpG islands are unmethylated when genes are expressed, and methylation in CpG sites can silence genes \autocite{birdDNAMethylationPatterns2002}.
 In animals, TATA boxes are enriched in variable promoters~\autocite{engstromGenomicRegulatoryBlocks2007,carninciGenomewideAnalysisMammalian2006}, while CpG islands are enriched in constitutive promoters.
 Additionally, mammalian constitutive promoters have a higher GC content than responsive promoters~\autocite{vinogradovDNAHelixImportance2017, weiCharacterizationGenePromoters2019}.
-The proximal promoter region typically extends ~200\hyp{}300 bp upstream of the TSS and includes the part of the core promoter upstream of the TSS. The proximal promoter region also includes CREs for proteins including transcription factors.
-The distal promoter can extend several 1000 bp upstream of the proximal promoter, and contains more CREs. However, these often have weaker influence on transcription than those in the proximal \autocite{pandiarajanVivoPromoterEngineering2018}.
+The proximal promoter region typically extends \textasciitilde200\hyp{}300 bp upstream of the TSS and includes the part of the core promoter upstream of the TSS.
+The proximal promoter region also includes CREs for proteins including transcription factors.
+The distal promoter can extend several 1000 bp upstream of the proximal promoter, and contains more CREs.
+However, these often have weaker influence on transcription than those in the proximal \autocite{pandiarajanVivoPromoterEngineering2018}.
 
-\textcite*{mortonPairedEndAnalysisTranscription2014} used paired\hyp{}end analysis of TSSs (PEAT) to create a
-dataset of TSSs from \textit{Arabidopsis thaliana} root samples. This
-dataset was used to create a machine learning model called the Plant
-PEAT Peaks (3PEAT) model, which predicts the TSS probability at any
-given nucleotide. The majority of core plant promoters were found to be
-TATA\hyp{}less, and instead contained many other CREs. \textcite*{thieffryCharacterizationArabidopsisThaliana2020} conducted cap\hyp{}analysis gene expression (CAGE) in Arabidopsis which agreed with \SI{95}{\percent} of the PEAT TSSs and was also more sensitive at
-detecting more lowly expressed TSSs. Many core promoters contain a
-cluster of multiple TSSs called the transcription start region (TSR)~\autocite{carninciGenomewideAnalysisMammalian2006,rachMotifCompositionConservation2009,niPairedendSequencingStrategy2010}. TSRs can be split into classes based on how wide a
-region they cover in the core promoter. Narrow regions are associated
-with strong, spatio\hyp{}temporal expression, and broader regions with the
-weaker expression often associated with constitutively expressed
-maintenance genes~\autocite{mortonPairedEndAnalysisTranscription2014}.
+\textcite*{mortonPairedEndAnalysisTranscription2014} used paired\hyp{}end analysis of TSSs (PEAT) to create a dataset of TSSs from \textit{Arabidopsis thaliana} root samples.
+This dataset was used to create a machine learning model called the Plant PEAT Peaks (3PEAT) model, which predicts the TSS probability at any given nucleotide. The majority of core plant promoters were found to be TATA\hyp{}less, and instead contained many other CREs.
+\textcite*{thieffryCharacterizationArabidopsisThaliana2020} conducted cap\hyp{}analysis gene expression (CAGE) in Arabidopsis which agreed with \SI{95}{\percent} of the PEAT TSSs and was also more sensitive at detecting more lowly expressed TSSs. Many core promoters contain a cluster of multiple TSSs called the transcription start region (TSR)~\autocite{carninciGenomewideAnalysisMammalian2006,rachMotifCompositionConservation2009,niPairedendSequencingStrategy2010}.
+TSRs can be split into classes based on how wide a region they cover in the core promoter. Narrow regions are associated with strong, spatio\hyp{}temporal expression, and broader regions with the weaker expression often associated with constitutively expressed maintenance genes~\autocite{mortonPairedEndAnalysisTranscription2014}.
 
 \paragraph{The enhancer}\label{chapter1:the-enhancer}
-
-Enhancers increase promoter activity, improving the spatio\hyp{}temporal
-specificity of transcription in their target genes. Like promoters,
-enhancers are DNA sequences that can contain many CREs recruiting a
-variety of TFs and ncRNAs. Enhancers help activate transcription
-regardless of their location, orientation or distance from promoters of
-genes~\autocite{banerjiExpressionBetaglobinGene1981} (\autoref{fig:crm}). There
-are several models explaining how enhancers work: (i) The proteins bound
-to enhancers and promoters interact with each other by looping out the
-DNA in between them~\autocite{carterLongrangeChromatinRegulatory2002,tolhuisLoopingInteractionHypersensitive2002,vilarDNALoopingGene2005,delaatChapterThreeDimensional2008,amanoChromosomalDynamicsShh2009}.
-These interactions form the
-transcription initiation protein complexes. This model is the most
-highly accepted model. (ii) Enhancers can act by nucleosome remodelling,
-supercoiling of DNA, and altering chromatin structure, facilitating the
-entry of regulatory proteins to activate transcription~\autocite{corlessEffectsDNASupercoiling2016}. (iii) It has been suggested that both enhancers and
-promoters share a common regulatory code, with transcription being
-initiated at both~\autocite{coreNascentRNASequencing2008,engreitzLocalRegulationGene2016}. RNA polymerase II binds the core
-promoter where it transcribes DNA in both the sense and antisense
-directions. This is called bidirectional transcription. At promoters
-this typically yields long, stable polyadenylated transcripts in the
+Enhancers increase promoter activity, improving the spatio\hyp{}temporal specificity of transcription in their target genes. Like promoters, enhancers are DNA sequences that can contain many CREs recruiting a variety of TFs and ncRNAs. Enhancers help activate transcription regardless of their location, orientation or distance from promoters of genes~\autocite{banerjiExpressionBetaglobinGene1981} (\autoref{fig:crm}).
+There are several models explaining how enhancers work: (i) The proteins bound to enhancers and promoters interact with each other by looping out the DNA in between them~\autocite{carterLongrangeChromatinRegulatory2002,tolhuisLoopingInteractionHypersensitive2002,vilarDNALoopingGene2005,delaatChapterThreeDimensional2008,amanoChromosomalDynamicsShh2009}.
+These interactions form the transcription initiation protein complexes. This model is the most highly accepted model.
+(ii) Enhancers can act by nucleosome remodelling, supercoiling of DNA, and altering chromatin structure, facilitating the entry of regulatory proteins to activate transcription~\autocite{corlessEffectsDNASupercoiling2016}.
+(iii) It has been suggested that both enhancers and promoters share a common regulatory code, with transcription being initiated at both~\autocite{coreNascentRNASequencing2008,engreitzLocalRegulationGene2016}.
+RNA polymerase II binds the core promoter where it transcribes DNA in both the sense and antisense directions.
+This is called bidirectional transcription.
+At promoters this typically yields long, stable polyadenylated transcripts in the
 sense direction, and short, unstable non\hyp{}polyadenylated transcripts in
-the antisense direction~\autocite{anderssonPromoterEnhancerWhat2015}. At enhancers, unstable RNAs
-called enhancer RNAs are produced in both directions~\autocite{dingEnhancerRNAsERNAs2018}.
-These ncRNAs, along with cohesin, can stabilise long range
-enhancer\hyp{}promoter interactions~\autocite{oromLongNoncodingRNAs2010}. In addition, introns
-containing enhancers can sometimes be more important than the promoter
-for initiating transcription~\autocite{gallegosIntronDNASequences2017}. In \textit{Drosophila}, two
-classes of enhancers were identified that were specific to either
-constitutively expressed promoters and variable promoters respectively~\autocite{zabidiEnhancerCorepromoterSpecificity2015}.
+the antisense direction~\autocite{anderssonPromoterEnhancerWhat2015}.
+At enhancers, unstable RNAs called enhancer RNAs are produced in both directions~\autocite{dingEnhancerRNAsERNAs2018}.
+These ncRNAs, along with cohesin, can stabilise long range enhancer\hyp{}promoter interactions~\autocite{oromLongNoncodingRNAs2010}.
+In addition, introns containing enhancers can sometimes be more important than the promoter for initiating transcription~\autocite{gallegosIntronDNASequences2017}. In \textit{Drosophila}, two classes of enhancers were identified that were specific to either constitutively expressed promoters and variable promoters respectively~\autocite{zabidiEnhancerCorepromoterSpecificity2015}.
 More than one enhancer can loop to the same promoter, and promoters with more enhancer loop interactions were more conserved than promoters forming fewer enhancer interactions~\autocite{dankoDynamicEvolutionRegulatory2018a}.
 
 \paragraph{The 5'-untranslated region}\label{chapter1:the-5-untranslated-region}
-
-In protein coding genes, the 5'UTR is the stretch of DNA found between a
-TSS and the translation start codon. This region is transcribed into
-mRNA but is not translated into protein. Plant 5'UTRs can contain a
-pyrimidine\hyp{}rich region (5'UTR Py\hyp{}rich stretch) which greatly improves
-the transcription rate~\autocite{choudhuryComparativeStudyCultivar2009,duIsolationFunctionalCharacterization2010,bianCloningExpressionCharacterization2011}.
-The 5' ends of the mRNAs are
-processed by the replacement of the free triphosphate group with a
-guanosine triphosphate. Once in place, this 5' cap plays a role in the
-recognition of the mRNA by the ribosome~\autocite{byszewskaRNAMethyltransferasesInvolved2014,ramanathanMRNACappingBiological2016}. The mRNAs of
-mitochondria~\autocite{temperleyHumanMitochondrialMRNAs2010} and chloroplasts~\autocite{mondeProcessingDegradationChloroplast2000} are
-not capped. Once transcribed, the 5'UTR sequence can contain an upstream
-open reading frame (uORF) (\SI{50}{\percent} of human 5'UTRs do)~\autocite{calvoUpstreamOpenReading2009},
-a guanine\hyp{}rich region~\autocite{beaudoinUTRGquadruplexStructures2010} and an internal ribosome entry
-site (IRES)~\autocite{jimenez-gonzalezFunctionalStructuralAnalysis2014}.
-Alternative 5'UTRs can be produced via alternative splicing or through
-transcription initiation from a different TSS~\autocite{smithPosttranscriptionalRegulationGene2008}.
+In protein coding genes, the 5'UTR is the stretch of DNA found between a TSS and the translation start codon.
+This region is transcribed into mRNA but is not translated into protein. Plant 5'UTRs can contain a pyrimidine\hyp{}rich region (5'UTR Py\hyp{}rich stretch) which greatly improves the transcription rate~\autocite{choudhuryComparativeStudyCultivar2009,duIsolationFunctionalCharacterization2010,bianCloningExpressionCharacterization2011}.
+The 5' ends of the mRNAs are processed by the replacement of the free triphosphate group with a guanosine triphosphate.
+Once in place, this 5' cap plays a role in the recognition of the mRNA by the ribosome~\autocite{byszewskaRNAMethyltransferasesInvolved2014,ramanathanMRNACappingBiological2016}.
+The mRNAs of mitochondria~\autocite{temperleyHumanMitochondrialMRNAs2010} and chloroplasts~\autocite{mondeProcessingDegradationChloroplast2000} are not capped.
+Once transcribed, the 5'UTR sequence can contain an upstream open reading frame (uORF) (\SI{50}{\percent} of human 5'UTRs do)~\autocite{calvoUpstreamOpenReading2009}, a guanine\hyp{}rich region~\autocite{beaudoinUTRGquadruplexStructures2010} and an internal ribosome entry site (IRES)~\autocite{jimenez-gonzalezFunctionalStructuralAnalysis2014}.
+Alternative 5'UTRs can be produced via alternative splicing or through transcription initiation from a different TSS~\autocite{smithPosttranscriptionalRegulationGene2008}.
 Because current TSS annotations in the Arabidopsis genome~\autocite{lameschArabidopsisInformationResource2012} are not accurate~\autocite{mortonPairedEndAnalysisTranscription2014,thieffryCharacterizationArabidopsisThaliana2020} and the 5'UTR may contain CREs, it is important to include the 5'UTR in regulatory sequence studies to encompass the whole TSR.
 
 \subsubsection{\textit{Trans}-acting DNA regulation}\label{chapter1:trans-acting-dna-regulation}
-
-A \textit{trans}\hyp{}regulatory sequence is a DNA sequence that contains a
-gene encoding for a protein or ncRNA that is used in the regulation of
-another target gene~\autocite{watsonRecombinantDNAGenes2007}. \textit{Trans}\hyp{}acting regulation
-can involve the specific binding of a \textit{trans}\hyp{}acting molecule such
-as a TF or ncRNA to a DNA CRE. Another form of \textit{trans}\hyp{}acting
-regulation involves non\hyp{}specific DNA binding by molecules such as
-eukaryotic histone proteins in nucleosomes~\autocite{zhangIntrinsicHistoneDNAInteractions2009}.
+A \textit{trans}\hyp{}regulatory sequence is a DNA sequence that contains a gene encoding for a protein or ncRNA that is used in the regulation of another target gene \autocite{watsonRecombinantDNAGenes2007}.
+\textit{Trans}\hyp{}acting regulation can involve the specific binding of a \textit{trans}\hyp{}acting molecule such as a TF or ncRNA to a DNA CRE.
+Another form of \textit{trans}\hyp{}acting regulation involves non\hyp{}specific DNA binding by molecules such as eukaryotic histone proteins in nucleosomes~\autocite{zhangIntrinsicHistoneDNAInteractions2009}.
 
 \paragraph{Sequence specific \textit{trans}-regulation}\label{chapter1:sequence-specific-trans-regulation}
+TFs are \textit{trans}\hyp{}acting proteins with domains which bind to TFBSs in DNA.
+ncRNAs can contain DNA binding domains which form triple helices with certain \textit{cis}\hyp{}regulatory elements called triplex target sites (TTS)~\autocite{kuoDetectionRNADNA2019}.
+TFs and ncRNAs can contain domains which interact with other proteins to form complexes which can enhance or repress gene transcription. Some TFs are able to bind DNA as both homodimers and heterodimers, increasing regulatory combinations.
+DNA regulatory modules such as enhancers can be found on different chromosomes to the gene they are regulating, where they function in \textit{trans}~\autocite{geyerTissuespecificTranscriptionalEnhancers1990,xuTransientHomologousChromosome2006,lomvardasInterchromosomalInteractionsOlfactory2006}.
 
-TFs are \textit{trans}\hyp{}acting proteins with domains which bind to TFBSs in
-DNA. ncRNAs can contain DNA binding domains which form triple helices
-with certain \textit{cis}\hyp{}regulatory elements called triplex target sites
-(TTS)~\autocite{kuoDetectionRNADNA2019}. TFs and ncRNAs can contain domains which
-interact with other proteins to form complexes which can enhance or
-repress gene transcription. Some TFs are able to bind DNA as both
-homodimers and heterodimers, increasing regulatory combinations. DNA
-regulatory modules such as enhancers can be found on different
-chromosomes to the gene they are regulating, where they function in
-\textit{trans}~\autocite{geyerTissuespecificTranscriptionalEnhancers1990,xuTransientHomologousChromosome2006,lomvardasInterchromosomalInteractionsOlfactory2006}.
+TFs are often part of large families, and many TFs within the same family can bind to highly overlapping sets of binding sites.
+TFs from different families such as bZIPs and bHLHs can compete to bind the same TFBS~\autocite{toledo-ortizHY5PIFRegulatoryModule2014}.
+Change in the expression of one TF can result in cross talk, where the expression of gene targets of other TFs from the same family are also altered~\autocite{nuruzzamanRolesNACTranscription2013}.
+Plant TF families have higher expansion rates than other eukaryotes, not only due to genome duplications, but also due to increased retention of duplications within TF families compared to other plant genes~\autocite{shiuTranscriptionFactorFamilies2005}.
 
-TFs are often part of large families, and many TFs within the same
-family can bind to highly overlapping sets of binding sites. TFs from
-different families such as bZIPs and bHLHs can compete to bind the same
-TFBS~\autocite{toledo-ortizHY5PIFRegulatoryModule2014}. Change in the expression of one TF can
-result in cross talk, where the expression of gene targets of other TFs
-from the same family are also altered~\autocite{nuruzzamanRolesNACTranscription2013}. Plant TF
-families have higher expansion rates than other eukaryotes, not only due
-to genome duplications, but also due to increased retention of duplications
-within TF families compared to other plant genes~\autocite{shiuTranscriptionFactorFamilies2005}.
-
-An important aspect of TF\hyp{}DNA interactions is the DNA shape. Most
-DNA\hyp{}protein interactions occur in the major groove, where bases are most
-accessible~\autocite{paboProteinDNARecognition1984}, although some occur in the minor groove~\autocite{bewleyMinorGroovebindingArchitectural1998}. TFs undergo rapid rebinding to ensure the correct orientation is achieved during docking to DNA~\autocite{ganjiDNABindingProteins2016}. The
-DNA base cytosine can be methylated, becoming 5\hyp{}methylcytosine (5mC). By
-comparing TF binding affinity to TFBSs with and without 5mC, it has been
-suggested that TFs might belong to three main groups: (i)
-methylation\hyp{}inhibited, (ii) methylation\hyp{}insensitive and (iii)
-methylation\hyp{}preferred \autocite{huangPiecingTogetherCisregulatory2018}. Out of \SI{30}{\percent} of
-Arabidopsis TFs studied, \SI{76}{\percent} were sensitive to methylation in
-their corresponding TFBSs~\autocite{omalleyCistromeEpicistromeFeatures2016}. In a GRN it is important
-to incorporate the sequence specific interactions between
-\textit{trans}\hyp{}acting molecules, and also between themselves and
-regulatory regions in DNA to better understand how to manipulate
-networks.
+An important aspect of TF\hyp{}DNA interactions is the DNA shape.
+Most DNA\hyp{}protein interactions occur in the major groove, where bases are most accessible~\autocite{paboProteinDNARecognition1984}, although some occur in the minor groove~\autocite{bewleyMinorGroovebindingArchitectural1998}.
+TFs undergo rapid rebinding to ensure the correct orientation is achieved during docking to DNA~\autocite{ganjiDNABindingProteins2016}.
+The DNA base cytosine can be methylated, becoming 5\hyp{}methylcytosine (5mC).
+By comparing TF binding affinity to TFBSs with and without 5mC, it has been suggested that TFs might belong to three main groups: (i) methylation\hyp{}inhibited, (ii) methylation\hyp{}insensitive and (iii) methylation\hyp{}preferred \autocite{huangPiecingTogetherCisregulatory2018}.
+Out of \SI{30}{\percent} of Arabidopsis TFs studied, \SI{76}{\percent} were sensitive to methylation in their corresponding TFBSs~\autocite{omalleyCistromeEpicistromeFeatures2016}.
+In a GRN it is important to incorporate the sequence specific interactions between \textit{trans}\hyp{}acting molecules, and also between themselves and regulatory regions in DNA to better understand how to manipulate networks.
 
 \paragraph{Chromatin}\label{chapter1:chromatin}
-
-Eukaryotic genomes are packed into chromatin, a complex of protein, RNA
-and DNA~\autocite{mondalCharacterizationRNAContent2010}, made up of repeating units called
-nucleosomes consisting of a histone octamer wrapped around by \num{146} or \num{147}
-bp of DNA~\autocite{richmondStructureDNANucleosome2003}. Many DNA CRMs such as promoters and
-enhancers are depleted of nucleosomes and some are nucleosome
-free~\autocite{struhlDeterminantsNucleosomePositioning2013}. In gene regulatory studies it is important to
-incorporate data on non\hyp{}sequence specific interactions between
-\textit{trans}\hyp{}acting molecules (\eg{} nucleosome histone proteins) and DNA,
-as they reduce how accessible DNA is to other \textit{trans}\hyp{}acting
-molecules. Nucleosomes can inhibit the access of TFs to TFBSs. Chromatin
-regions highly accessible to DNA\hyp{}binding proteins are called
+Eukaryotic genomes are packed into chromatin, a complex of protein, RNA and DNA~\autocite{mondalCharacterizationRNAContent2010}, made up of repeating units called nucleosomes consisting of a histone octamer wrapped around by \num{146} or \num{147} bp of DNA~\autocite{richmondStructureDNANucleosome2003}.
+Many DNA CRMs such as promoters and enhancers are depleted of nucleosomes and some are nucleosome free~\autocite{struhlDeterminantsNucleosomePositioning2013}.
+In gene regulatory studies it is important to incorporate data on non\hyp{}sequence specific interactions between \textit{trans}\hyp{}acting molecules (\eg{} nucleosome histone proteins) and DNA, as they reduce how accessible DNA is to other \textit{trans}\hyp{}acting molecules.
+Nucleosomes can inhibit the access of TFs to TFBSs.
+Chromatin regions highly accessible to DNA\hyp{}binding proteins are called
 deoxyribonuclease (DNase) I hypersensitive sites (DHSs) and these can be
 mapped following DNase I digestion.
 
@@ -186,18 +129,17 @@ The two motifs have been shown to recruit and/or activate the chromatin structur
 To induce nucleosome fragility, Rap1 binding sites were needed upstream of the GC\hyp{}rich and poly(A) motifs~\autocite{kubikNucleosomeStabilityDistinguishes2015}.
 Fragile nucleosomes have been detected in maize~\autocite{veraDifferentialNucleaseSensitivity2014} and Arabidopsis~\autocite{passGenomewideChromatinMapping2017}.
 
-\subsubsection{Identification of CREs}\label{chapter1:identification-of-cres}
+\subsection{Identification of CREs}\label{chapter1:identification-of-cres}
 
 In order to understand how DNA\hyp{}protein interactions affect gene function it is necessary to understand which proteins bind to specific binding sites in DNA.
 Earlier methods involved \textit{in vitro} techniques, however more recent studies identify sites bound by proteins \textit{in vivo}, preserving both context and DNA sequences involved.
 A recent \textit{in vitro} method~\autocite{omalleyCistromeEpicistromeFeatures2016} maps protein\hyp{}DNA interactions using DNA retaining \textit{in vivo} features.
 Mapping chromatin accessibility and TFBSs helps inform our understanding of gene regulation, and therefore is the basis of understanding and reconstructing gene regulatory networks.
 
-\subsubsection{Identification of chromatin accessible
+\section{Identification of chromatin accessible
   regions}\label{chapter1:identification-of-chromatin-accessible-regions}
-
 In the past, it was difficult to annotate non\hyp{}coding DNA regions, and at the genomic scale it was only possible to detect the presence or absence or `regulatory regions'.
-As detailed in section \ref{chromatin} (chromatin), CRMs tend to be nucleosome free regions, are very sensitive to digestion by DNase I, and are called DHSs. Many DHS assays have been used to characterise CRMs.
+As detailed in section~\ref{chapter1:chromatin} (chromatin), CRMs tend to be nucleosome free regions, are very sensitive to digestion by DNase I, and are called  DHSs. Many DHS assays have been used to characterise CRMs.
 Chromatin accessibility of DNA to DNase I was probed by Southern blotting where, following DNase I digestion, DNA was purified, digested using restriction enzymes, transferred to a membrane then hybridised with radioactively labelled DNA~\autocite{wuChromatinStructureSpecific1979,matherMethylationStatusDNase1983,benderVglobinGeneSwitching2000,wangChromatinStructureMapping2001}.
 This was challenging, limited to short stretches of DNA and not very sensitive~\autocite{cockerillIdentificationDNaseIHypersensitive2000}.
 DHS methods using PCR (polymerase chain reaction)~\autocite{pfeiferChromatinDifferencesActive1991,fengHighresolutionAnalysisCfos1992} and later quantitative PCR (qPCR)~\autocite{mcarthurQuantificationDNaseIsensitivityRealtime2001,dorschnerHighthroughputLocalizationFunctional2004,martinsTrackingChromatinStates2007} were developed to improve upon the Southern blotting technique for identification of chromatin accessible regions.
@@ -228,11 +170,10 @@ An alternative to MNase\hyp{}seq called NOMe\hyp{}seq (nucleosome occupancy and 
 Native methylation uses CpG dinucleotide cytosine methylation, whereas the added GpC methyltransferase methylates GpC dinucleotide cytosines.
 Using this information, both nucleosome occupancy and endogenous DNA methylation can be obtained simultaneously.
 
-\subsection{Identification of specific DNA-protein
-  interactions}\label{chapter1:identification-of-specific-dna-protein-interactions}
+\section{Identification of specific DNA-protein interactions}\label{chapter1:identification-of-specific-dna-protein-interactions}
 
 DNase I is used to footprint DNA\hyp{}protein interactions.
-\textit{In vitro} DNase I footprinting is where radioactively labelled DNA fragments are incubated with and without the protein of interest, then digested with DNase I and analysed by electrophoresis and autoradiography~\autocite{galasDNAseFootprintingSimple1978}.
+\textit{In vitro} DNase I footprinting is where radioactively labelled DNA fragments are incubated with and without the protein of interest, then digested with DNase I and analysed by electrophoresis and autoradiography \autocite{galasDNAseFootprintingSimple1978}.
 Bound proteins protect the DNA backbone from digestion by DNase I, allowing identification of specific binding sites of proteins on DNA.
 Another method for characterising DNA\hyp{}protein interactions is the electrophoretic mobility shift assay (EMSA)~\autocite{garnerGelElectrophoresisMethod1981}, which quantifies the binding of proteins to DNA.
 A fragment of DNA containing a putative TFBS is fluorescently or radioactively labelled and is run on a polyacrylamide gel with and without the protein of interest.
@@ -334,131 +275,76 @@ Algorithms such as RPMCMC~\autocite{ikebataRepulsiveParallelMCMC2015} and DREME~
 In 2015, convolutional neural network (CNN) models were able to learn filters similar to PWM motif matching, and these algorithms outperformed PWM algorithms~\autocite{alipanahiPredictingSequenceSpecificities2015}.
 An unpublished CNN model incorporates TF\hyp{}TF interactions during its TFBS prediction~\autocite{lanchantinPrototypeMatchingNetworks2017}.
 
-\subsection{Evolution of gene regulation}
-{\label{chapter1:evolution-of-gene-regulation}}
+\section{Evolution of gene regulation}
+ {\label{chapter1:evolution-of-gene-regulation}}
+Investigations into the DNA conservation landscape have identified conserved DNA regions within populations and across species, and this is because of selection pressure.
+Evolutionary selection pressure is higher for coding exon sequences than it is for non\hyp{}coding regulatory sequences such as the promoter, 5' and 3'UTRs in mammals~\autocite{lindblad-tohHighresolutionMapHuman2011} and
+plants~\autocite{haudryAtlas900002013}.
+However, functional motifs such as TFBSs within non\hyp{}coding regions exhibit high levels of evolutionary conservation~\autocite{zhaoConservedMotifsPrediction2012}.
+When these functional motifs change, for example due to random mutations called single nucleotide polymorphisms (SNPs), they can cause changes in expression level~\autocite{rockmanAbundantRawMaterial2002} and potentially even network rewiring~\autocite{liEvolutionTranscriptionNetworks2010}.
+This can be through a change in the affinity of TFs to the TFBS, addition or deletion of sites, change in the spacing of TFBSs, or change in nucleosome conformation in the area~\autocite{fyonEnhancerRunawayEvolution2015}.
 
-Investigations into the DNA conservation landscape have identified
-conserved DNA regions within populations and across species, and this is
-because of selection pressure. Evolutionary selection pressure is higher
-for coding exon sequences than it is for non\hyp{}coding regulatory sequences
-such as the promoter, 5' and 3'UTRs in mammals~\autocite{lindblad-tohHighresolutionMapHuman2011} and
-plants~\autocite{haudryAtlas900002013}. However, functional motifs such as TFBSs
-within non\hyp{}coding regions exhibit high levels of evolutionary
-conservation~\autocite{zhaoConservedMotifsPrediction2012}. When these functional motifs change,
-for example due to random mutations called single nucleotide
-polymorphisms (SNPs), they can cause changes in expression
-level~\autocite{rockmanAbundantRawMaterial2002} and potentially even network
-rewiring~\autocite{liEvolutionTranscriptionNetworks2010}. This can be through a change in the
-affinity of TFs to the TFBS, addition or deletion of sites, change in
-the spacing of TFBSs, or change in nucleosome conformation in the area~\autocite{fyonEnhancerRunawayEvolution2015}.
+Some genes may have multiple copies in the genome, which express products with similar functions~\autocite{guRapidDivergenceExpression2002}.
+In redundant copies, the selection pressure on motifs in their non\hyp{}coding regions may be reduced, resulting in random mutations accumulating in the motifs.
+These gene copies therefore may have different spatio\hyp{}temporal expression
+patterns~\autocite{forcePreservationDuplicateGenes1999}.
+These different expression patterns could have evolved following genome expansion.
+New genes can be formed through evolutionary whole genome duplications, creating ohnologues.
+Additionally, small\hyp{}scale duplications (SSDs) can occur.
+One such example is tandem duplication, which creates consecutive gene copies in the genome due to unequal crossing over~\autocite{freelingBiasPlantGene2009}.
+Other SSDs include retroposed duplicates, created through RNA\hyp{}mediated retroposition; proximal duplicates, where duplicate genes are separated by a few genes; and dispersed duplicates, where duplicates are found throughout the genome, not in syntenic homologous chromosome regions~\autocite{arsovskiEvolutionCisRegulatoryElements2015}.
 
-Some genes may have multiple copies in the genome, which express
-products with similar functions~\autocite{guRapidDivergenceExpression2002}. In redundant copies,
-the selection pressure on motifs in their non\hyp{}coding regions may be
-reduced, resulting in random mutations accumulating in the motifs. These
-gene copies therefore may have different spatio\hyp{}temporal expression
-patterns~\autocite{forcePreservationDuplicateGenes1999}. These different expression patterns could
-have evolved following genome expansion. New genes can be formed through
-evolutionary whole genome duplications, creating ohnologues.
-Additionally, small\hyp{}scale duplications (SSDs) can occur. One such
-example is tandem duplication, which creates consecutive gene copies in
-the genome due to unequal crossing over~\autocite{freelingBiasPlantGene2009}. Other SSDs
-include retroposed duplicates, created through RNA\hyp{}mediated
-retroposition; proximal duplicates, where duplicate genes are separated
-by a few genes; and dispersed duplicates, where duplicates are found
-throughout the genome, not in syntenic homologous chromosome
-regions~\autocite{arsovskiEvolutionCisRegulatoryElements2015}.
-
-There are two types of genetic events affecting gene regulation: (i)
-those caused by point mutations of existing sequences, and (ii) those
-caused by genome expansion driven by transposable elements, genome
-duplications and small scale duplications (SSDs)~\autocite{marnettoEvolutionaryRewiringHuman2018}. Once duplicated, mutations can arise in one paralogue turning it into a
-non\hyp{}functional pseudogene~\autocite{zhangEvolutionGeneDuplication2003}. If the original gene had
-several functions, these can be shared between both paralogues, in a
-process called subfunctionalisation. Regulatory subfunctionalisation can
-occur where paralogues retain the same function but tissue specific
-expression patterns become shared between them. Another possibility
-following gene duplication is that one paralogue can acquire a new
-function whilst the other maintains its original function, which is
-called neofunctionalisation. In regulatory neofunctionalisation, one
-paralogue acquires a novel expression pattern, while the other keeps its
-original expression pattern. Duplicated genes can undergo both neo- and
-subfunctionalisation~\autocite{heRapidSubfunctionalizationAccompanied2005}. Duplicated genes can also both
-maintain ancestral function and expression pattern, adding to robustness
-of their regulatory network~\autocite{guRoleDuplicateGenes2003}. However, gene
-duplication can cause fragility in GRNs, instead of improving their
-robustness. This may be he case if the function of the protein of one
-paralogue becomes dependent on the presence of the other~\autocite{dissGeneDuplicationCan2017}. Hypofunctionalisation has also been proposed, where
-the expression level of the paralogues decreases, meaning both copies
-are required for normal function~\autocite{qianMaintenanceDuplicateGenes2010,veitiaGeneDuplicatesAgents2017}.
+There are two types of genetic events affecting gene regulation: (i) those caused by point mutations of existing sequences, and (ii) those caused by genome expansion driven by transposable elements, genome duplications and small scale duplications (SSDs)~\autocite{marnettoEvolutionaryRewiringHuman2018}.
+Once duplicated, mutations can arise in one paralogue turning it into a non\hyp{}functional pseudogene~\autocite{zhangEvolutionGeneDuplication2003}.
+If the original gene had several functions, these can be shared between both paralogues, in a process called subfunctionalisation.
+Regulatory subfunctionalisation can occur where paralogues retain the same function but tissue specific expression patterns become shared between them.
+Another possibility following gene duplication is that one paralogue can acquire a new function whilst the other maintains its original function, which is called neofunctionalisation.
+In regulatory neofunctionalisation, one paralogue acquires a novel expression pattern, while the other keeps its original expression pattern. Duplicated genes can undergo both neo- and subfunctionalisation~\autocite{heRapidSubfunctionalizationAccompanied2005}.
+Duplicated genes can also both maintain ancestral function and expression pattern, adding to robustness of their regulatory network~\autocite{guRoleDuplicateGenes2003}.
+However, gene duplication can cause fragility in GRNs, instead of improving their
+robustness.
+This may be he case if the function of the protein of one paralogue becomes dependent on the presence of the other~\autocite{dissGeneDuplicationCan2017}.
+Hypofunctionalisation has also been proposed, where the expression level of the paralogues decreases, meaning both copies are required for normal function~\autocite{qianMaintenanceDuplicateGenes2010,veitiaGeneDuplicatesAgents2017}.
 
 Mutations within CREs of duplicated genes are the likely cause of
-regulatory neo- and subfunctionalisation~\autocite{arsovskiEvolutionCisRegulatoryElements2015}. Recently,
-duplicated genes in yeast were shown to quickly gain TFBSs after
-duplication~\autocite{tsaiEvolutionCisregulatoryElements2012}. Additionally, it has been suggested that
-in all eukaryotic diploid organisms, enhancer strength may increase in a
-runaway fashion due to the competition for expression between homologous
-enhancer alleles~\autocite{fyonEnhancerRunawayEvolution2015}. In plants, the distribution of
-known core promoter elements with respect to the TSS is conserved within
-monocots and dicots~\autocite{kumariGenomeWideComputationalPrediction2013}.
+regulatory neo- and subfunctionalisation~\autocite{arsovskiEvolutionCisRegulatoryElements2015}.
+Recently, duplicated genes in yeast were shown to quickly gain TFBSs after
+duplication~\autocite{tsaiEvolutionCisregulatoryElements2012}.
+Additionally, it has been suggested that in all eukaryotic diploid organisms, enhancer strength may increase in a runaway fashion due to the competition for expression between homologous enhancer alleles~\autocite{fyonEnhancerRunawayEvolution2015}.
+In plants, the distribution of known core promoter elements with respect to the TSS is conserved within monocots and dicots~\autocite{kumariGenomeWideComputationalPrediction2013}.
 
-\subsection{Engineering regulation}\label{engineering-regulation}
+\section{Engineering regulation}\label{engineering-regulation}
+\subsection{Development of synthetic regulatory elements for
+	microbes}\label{chapter1:development-of-synthetic-regulatory-elements-for-microbes}
+Many studies have described the assembly and characterisation of promoter libraries for microbes.
+For example, in \textit{E. coli}, directed evolution was used to engineer a broad range of precise promoter strengths~\autocite{alperTuningGeneticControl2005}.
+Promoters made in this way tend to have a broad host range~\autocite{jensenSequenceSpacersConsensus1998}.
+Combinatorial libraries of random promoter architectures has also been achieved in \textit{E. coli~}~\autocite{coxProgrammingGeneExpression2007}.
+They show that gene expression can be regulated by over five orders of magnitude.
+The location of regulatory elements within a promoter was key to determining the expression level, with those located closer to the TSS more effective than those further away.
+Some regulatory elements were dominant over others when located in the same promoter.
+More directed semi\hyp{}rational promoter engineering focussed on retaining the consensus sequence of TFBSs, and mutating spacers~\autocite{jensenSequenceSpacersConsensus1998}.
+Rational promoter design increased \textit{E. coli} promoter activity through the addition of a TFBS~\autocite{zhangDesignDynamicSensorregulator2012}.
+A synthetic promoter utilising an AND gate, where it is only activated in the presence of two TFs, was also created in \textit{E. coli}~\autocite{wangEngineeringModularOrthogonal2011}.
+A ratiometric expression assay was used in \textit{E. coli} to characterise gene expression level, by measuring activity of promoters compared to a reference, and variation between experiments was reduced by \texttildelow\SI{50}{\percent} \autocite{kellyMeasuringActivityBioBrick2009}.
 
-\subsubsection{Development of synthetic regulatory elements for
-  microbes}\label{chapter1:development-of-synthetic-regulatory-elements-for-microbes}
+Synthetic promoter libraries in the yeasts \textit{Komagataella pastoris}~\autocite{hartnerPromoterLibraryDesigned2008} and \textit{S. cerevisiae}~\autocite{nevoigtEngineeringPromoterReplacement2006} showed that promoter strength could be changed by introducing mutations in TFBSs.
+Synthetic promoters were used to study nucleosome occupancy effects on transcription, and allowed the rational design of synthetic promoters with increased transcription~\autocite{curranDesignSyntheticYeast2014}.
+A massively parallel reporter assay (MPRA) was used to test semi\hyp{}random 312 bp constitutive and 246 bp responsive promoters in \textit{S. cerevisiae},
+where conserved regions containing TFBSs remained the same~\autocite{kotopkaModeldrivenGenerationArtificial2020}.
+Machine learning facilitated the \textit{in silico} design of new promoters of specific expression levels, including expression higher than in any of the test data set used to train the model.
+When tested \textit{in vivo} these designed promoters had similar expression levels to the predicted values.
+Synthetic minimal yeast promoter libraries were generated to identify minimal upstream activating elements, and this led to the development of a promoter reduced by \SI{80}{\percent} in size which still achieved high expression levels~\autocite{reddenDevelopmentCharacterizationSynthetic2015}.
 
-Many studies have described the assembly and characterisation of
-promoter libraries for microbes. For example, in \textit{E. coli} ,
-directed evolution was used to engineer a broad range of precise
-promoter strengths~\autocite{alperTuningGeneticControl2005}. Promoters made in this way tend
-to have a broad host range~\autocite{jensenSequenceSpacersConsensus1998}. Combinatorial libraries
-of random promoter architectures has also been achieved in \textit{E.
-  coli~}~\autocite{coxProgrammingGeneExpression2007}. They show that gene expression can be
-regulated by over five orders of magnitude. The location of regulatory
-elements within a promoter was key to determining the expression level,
-with those located closer to the TSS more effective than those further
-away. Some regulatory elements were dominant over others when located in
-the same promoter. More directed semi\hyp{}rational promoter engineering
-focussed on retaining the consensus sequence of TFBSs, and mutating
-spacers~\autocite{jensenSequenceSpacersConsensus1998}. Rational promoter design increased \textit{E.
-  coli} promoter activity through the addition of a TFBS~\autocite{zhangDesignDynamicSensorregulator2012}. A synthetic promoter utilising an AND gate, where it
-is only activated in the presence of two TFs, was also created
-in \textit{E. coli}~\autocite{wangEngineeringModularOrthogonal2011}. A ratiometric expression assay was
-used in \textit{E. coli} to characterise gene expression level, by
-measuring activity of promoters compared to a reference, and variation
-between experiments was reduced by \texttildelow\SI{50}{\percent} \autocite{kellyMeasuringActivityBioBrick2009}.
+The use of synthetic TFs allows control of gene expression heterologously in many systems, and allows the design of tissue specific and
+or constitutive promoters, as synthetic TFs can themselves be controlled by tissue specific or constitutive promoters.
+Synthetic TFs have been created in yeast using zinc fingers~\autocite{khalilSyntheticBiologyFramework2012}, with a methodology allowing construction of an unlimited number of different synthetic TFs.
+Transcriptional output was tuned through modification of zinc finger binding sites in promoters, as well as through modifications to the zinc finger protein itself.
+Later, inducible synthetic transcription activator\hyp{}like effectors (TALEs) and dCas9\hyp{}based synthetic TFs together with small synthetic promoters were trialled, also in yeast~\autocite{machensSyntheticPromotersTranscription2017}.
+Synthetic TFs have been designed using zinc fingers in \textit{E. coli} too~\autocite{husseyProgrammableT7basedSynthetic2018}.
+This enabled activation of promoters, rather than de\hyp{}repression of promoters which had been used in the past, as bacterial promoters are generally on by default~\autocite{browningLocalGlobalRegulation2016}.
 
-Synthetic promoter libraries in the yeasts \textit{Komagataella
-  pastoris}~\autocite{hartnerPromoterLibraryDesigned2008} and \textit{S. cerevisiae}~\autocite{nevoigtEngineeringPromoterReplacement2006} showed that promoter strength could be changed by introducing mutations in TFBSs. Synthetic promoters were used to study nucleosome occupancy
-effects on transcription, and allowed the rational design of synthetic
-promoters with increased transcription~\autocite{curranDesignSyntheticYeast2014}. A massively
-parallel reporter assay (MPRA) was used to test semi\hyp{}random 312 bp
-constitutive and 246 bp responsive promoters in \textit{S. cerevisiae},
-where conserved regions containing TFBSs remained the same~\autocite{kotopkaModeldrivenGenerationArtificial2020}. Machine
-learning facilitated the \textit{in silico} design of new promoters of
-specific expression levels, including expression higher than in any of
-the test data set used to train the model. When tested \textit{in
-  vivo} these designed promoters had similar expression levels to the
-predicted values. Synthetic minimal yeast promoter
-libraries were generated to identify minimal upstream activating
-elements, and this led to the development of a promoter reduced by \SI{80}{\percent}
-in size which still achieved high expression levels~\autocite{reddenDevelopmentCharacterizationSynthetic2015}.
-
-The use of synthetic TFs allows control of gene expression
-heterologously in many systems, and allows the design of tissue specific and
-or constitutive promoters, as synthetic TFs can themselves be controlled
-by tissue specific or constitutive promoters. Synthetic TFs have been
-created in yeast using zinc fingers~\autocite{khalilSyntheticBiologyFramework2012}, with a
-methodology allowing construction of an unlimited number of different
-synthetic TFs. Transcriptional output was tuned through modification of
-zinc finger binding sites in promoters, as well as through modifications
-to the zinc finger protein itself. Later, inducible synthetic
-transcription activator\hyp{}like effectors (TALEs) and dCas9\hyp{}based synthetic
-TFs together with small synthetic promoters were trialled, also in yeast~\autocite{machensSyntheticPromotersTranscription2017}. Synthetic TFs have been designed using zinc fingers in \textit{E. coli} too~\autocite{husseyProgrammableT7basedSynthetic2018}. This enabled activation of promoters, rather than de\hyp{}repression of promoters which had been used in
-the past, as bacterial promoters are generally on by default~\autocite{browningLocalGlobalRegulation2016}.
-
-\subsubsection{Synthetic regulatory elements for plants}\label{chapter1:synthetic-regulatory-elements-for-plants}
-
+\subsection{Synthetic regulatory elements for plants}\label{chapter1:synthetic-regulatory-elements-for-plants}
 Promoter studies in yeast~\autocite{reddenDevelopmentCharacterizationSynthetic2015,boerDecipheringEukaryoticGeneregulatory2019,kotopkaModeldrivenGenerationArtificial2020} and human cell lines~\autocite{mattioliHighthroughputFunctionalAnalysis2019} often rely on high\hyp{}throughput testing of randomised promoters to identify synthetic promoters with the desired characteristics.
 High\hyp{}throughput reporter assays such as massively parallel reporter assays (MPRAs) are not currently achievable in plants, even in plant protoplasts, as it is not guaranteed that a cell will not receive more than one promoter.
 Therefore, the rational design of synthetic promoters is required in plants.
@@ -476,10 +362,12 @@ As well as microbes~\autocite{khalilSyntheticBiologyFramework2012}, synthetic zi
 More recently, a library of synthetic transcription activator\hyp{}like effector (TALE)\hyp{}activated promoters has been developed in plants~\autocite{brucknerLibrarySyntheticTranscription2015}, demonstrating a range of promoter strengths.
 Synthetic dCas9-based TFs have also been used in plants~\autocite{piatekRNAguidedTranscriptionalRegulation2015}.
 
-\subsubsection{Towards engineering regulation in plants}\label{chapter1:towards-engineering-regulation-in-plants}
+\subsection{Towards engineering regulation in plants}\label{chapter1:towards-engineering-regulation-in-plants}
 %read https://www.sciencedirect.com/science/article/pii/B9780444640857000101 to update this section
-Promoter engineering can be divided into two approaches to generate novel promoters: i) library generation for random promoter mutagenesis, and ii) generation of \textit{de novo} promoters.
-Recent studies have shown that genetic variation can be created in plants via pooled transformation of CRISPR-Cas9 libraries~\autocite{jacobsGenerationCollectionMutant2017,luGenomewideTargetedMutagenesis2017,mengConstructionGenomeWideMutant2017,jacobsGenerationCollectionMutant2017,baiGenerationMultiplexMutagenesis2020}. The development of a near PAM (protospacer\hyp{}adjacent motif)\hyp{}less Cas9 will allow even more variation to be introduced~\autocite{waltonUnconstrainedGenomeTargeting2020}. Tissue\hyp{}specific mutations in certain cell types can also be generated by using CRISPR tissue-specific knockout (CRISPR-TSKO), allowing lethal knockout genes to be studied, and allowing tissue-specific hypotheses to be tested in the future~\autocite{decaesteckerCRISPRTSKOTechniqueEfficient2019}.
+Promoter engineering can be divided into two approaches to generate novel promoters: (i) library generation for random promoter mutagenesis, and (ii) generation of \textit{de novo} promoters.
+Recent studies have shown that genetic variation can be created in plants via pooled transformation of CRISPR-Cas9 libraries~\autocite{jacobsGenerationCollectionMutant2017,luGenomewideTargetedMutagenesis2017,mengConstructionGenomeWideMutant2017,jacobsGenerationCollectionMutant2017,baiGenerationMultiplexMutagenesis2020}.
+The development of a near PAM (protospacer\hyp{}adjacent motif)\hyp{}less Cas9 will allow even more variation to be introduced~\autocite{waltonUnconstrainedGenomeTargeting2020}.
+Tissue\hyp{}specific mutations in certain cell types can also be generated by using CRISPR tissue-specific knockout (CRISPR-TSKO), allowing lethal knockout genes to be studied, and allowing tissue-specific hypotheses to be tested in the future~\autocite{decaesteckerCRISPRTSKOTechniqueEfficient2019}.
 
 Using the various synthetic biology approaches detailed above, catalogues of standardised parts, such as synthetic promoters and TFs, can be produced~\autocite{patronStandardsPlantSynthetic2015}, and then these can easily be used to rewire gene regulatory networks.
 Since the recent development of DAP\hyp{}seq and DNase I\hyp{}seq datasets in Arabidopsis, more accurate mapping of TFBSs is achievable, which will help in the design of synthetic regulatory sequences for fine tuning of gene regulation.
@@ -489,13 +377,9 @@ These genome editing techniques can also be deployed as synthetic transcription 
 Spatio\hyp{}temporal design of promoters will allow specific expression patterns, and the range of expression levels of synthetic promoters will allow for specific regulation in synthetic circuits.
 Synthetic regulation of transcription will allow network rewiring by altering native TF\hyp{}DNA networks, and will also allow incorporation of synthetic circuits which do not interfere with endogenous networks.
 
-\subsection{Aims and experimental approach}\label{chapter1:aims-and-experimental-approach}
-
-The main aim of this project is to determine how CREs evolve and to
-explore if and how changes in plant gene regulatory sequences can
-generate novel expression patterns and rewire gene\hyp{}regulatory networks.
+\section{Aims and experimental approach}\label{chapter1:aims-and-experimental-approach}
+The main aim of this project is to determine how CREs evolve and to explore if and how changes in plant gene regulatory sequences can generate novel expression patterns and rewire gene\hyp{}regulatory networks.
 To investigate these questions, three approaches are being taken:
-
 In the first approach, I am comparing CRM architecture (specifically in
 promoter and 5'UTR) of constitutively expressed genes to variable genes.
 Specifically, I will find changes in the identity, context and frequency
@@ -504,82 +388,44 @@ of TFBSs within the CRMs.
 \textbf{Hypotheses:}
 
 \begin{itemize}
-  \tightlist
-  \item
-        \textit{Cis}\hyp{}regulatory modules of variable genes will have a lower
-        percentage of bp covered by at least one TFBS than CRMs of
-        constitutive genes.
-  \item
-        Constitutive CRMs will have a more diverse TFBS profile than variable
-        CRMs both for TF family and individual TFs as they will require a
-        wider range of TF binding to be actively expressed across many
-        different tissues and conditions
-  \item
-        Variable genes will be enriched for TATA boxes compared to
-        constitutive genes
-  \item
-        Constitutive promoters will have a higher GC content than variable promoters
-  \item
-        Constitutive promoters will be more conserved than variable promoters
+	\tightlist
+	\item \textit{Cis}\hyp{}regulatory modules of variable genes will have a lower percentage of bp covered by at least one TFBS than CRMs of constitutive genes.
+	\item Constitutive CRMs will have a more diverse TFBS profile than variable CRMs both for TF family and individual TFs as they will require a wider range of TF binding to be actively expressed across many different tissues and conditions.
+	\item Variable genes will be enriched for TATA boxes compared to constitutive genes.
+	\item Constitutive promoters will have a higher GC content than variable promoters.
+	\item Constitutive promoters will be more conserved than variable promoters.
 \end{itemize}
 
-In the second approach, I am designing and testing variants of plant
-regulatory sequences to determine how changes in primary sequences
-affect the affinity of TFs to their target motifs and how this affects
-expression of the target gene. To do this, a CRISPR library will be
-constructed and delivered to add variation to the promoter of a nitrogen
-response master regulator. Mutations causing changes to expression and
-phenotype will be investigated to see if they fall within TFBSs. If they
-do, co\hyp{}expression analyses of transient promoters with and without the
-mutations along with their cognate TF will be tested using a rapid,
-transient ratiometric protocol in Arabidopsis leaf and root
-protoplasts that has previously been established in the laboratory. This
-will test whether the promoter still responds to the TF after being
-mutated. Changes in the affinity of TFs for their target sequences will
-be investigated using electrophoresis mobility shift assays (EMSA) and,
-in the future, using a novel plate\hyp{}based protein\hyp{}DNA affinity assay
-currently being developed by colleagues.
+In the second approach, I am designing and testing variants of plant regulatory sequences to determine how changes in primary sequences affect the affinity of TFs to their target motifs and how this affects expression of the target gene.
+To do this, a CRISPR library will be constructed and delivered to add variation to the promoter of a nitrogen response master regulator.
+Mutations causing changes to expression and phenotype will be investigated to see if they fall within TFBSs.
+If they do, co\hyp{}expression analyses of transient promoters with and without the mutations along with their cognate TF will be tested using a rapid, transient ratiometric protocol in Arabidopsis leaf and root protoplasts that has previously been established in the laboratory.
+This will test whether the promoter still responds to the TF after being mutated.
+Changes in the affinity of TFs for their target sequences will be investigated using electrophoresis mobility shift assays (EMSA) and, in the future, using a novel plate\hyp{}based protein\hyp{}DNA affinity assay currently being developed by colleagues.
 
 \textbf{Hypotheses:}
 
-\begin{itemize}
-  \tightlist
-  \item
-        Mutations to the core elements of TFBSs will reduce or eliminate TF
-        binding.
-  \item
-        Changes to the position or sequence context of TFBS may increase or
-        reduce the affinity of TFs for their target sequences resulting in
-        changes (amplitude or tissue specificity) to gene expression.
-  \item
-        {Disrupted TFBSs closest to the transcription start site (TSS) will
-        have the greatest influence on the rate of transcription.}
-  \item
-        Information about the identity, context and frequency of TFBSs will
-        enable the engineering of endogenous regulatory sequences to alter the
-        expression levels and tissue\hyp{}specificity of genes, including TFs which
-        may result in large\hyp{}scale transcriptional remodelling.
+\begin{itemize}\tightlist
+	\item Mutations to the core elements of TFBSs will reduce or eliminate TF binding.
+	\item Changes to the position or sequence context of TFBS may increase or reduce the affinity of TFs for their target sequences resulting in changes (amplitude or tissue specificity) to gene expression.
+	\item Disrupted TFBSs closest to the transcription start site (TSS) will have the greatest influence on the rate of transcription.
+	\item Information about the identity, context and frequency of TFBSs will enable the engineering of endogenous regulatory sequences to alter the expression levels and tissue\hyp{}specificity of genes, including TFs which may result in large\hyp{}scale transcriptional remodelling.
 \end{itemize}
 
 In the third approach, genetic feedback will be engineered into the
-N\hyp{}response network. A synthetic promoter containing binding sites for a
-nitrate\hyp{}responsive TF will be generated. To validate the functionality
-of the synthetic promoter, its expression will be tested tested with and
-without the co\hyp{}expression of its cognate TF for expression changes using a transient ratiometric protocol in Arabidopsis protoplasts.
+N\hyp{}response network.
+A synthetic promoter containing binding sites for a nitrate\hyp{}responsive TF will be generated.
+To validate the functionality of the synthetic promoter, its expression will be tested tested with and without the co\hyp{}expression of its cognate TF for expression changes using a transient ratiometric protocol in Arabidopsis protoplasts.
 The affinity of the TF to the target sequence will also be tested.
 dCas9\hyp{}activators and repressors binding to the promoter of a nitrate\hyp{}response master regulator will be introduced as transgenes under the control of the synthetic N\hyp{}responsive promoter, introducing positive or negative feedback.
 The gene expression and plant phenotype will be analysed.
 
 \textbf{Hypotheses:}
 
-\begin{itemize}
-  \tightlist
-  \item
-        The synthetic promoter will respond more strongly to nitrogen when it contains more TFBSs for the same N\hyp{}responsive TF.
-  \item
-        Positive and negative feedback can be engineered into the nitrogen pathway leading to a faster or slower response to nitrate.
-  \item
-        The engineered feedback will cause expression changes and a change in plant phenotype
+\begin{itemize}\tightlist
+	\item The synthetic promoter will respond more strongly to nitrogen when it contains more TFBSs for the same N\hyp{}responsive TF.
+	\item Positive and negative feedback can be engineered into the nitrogen pathway leading to a faster or slower response to nitrate.
+	\item The engineered feedback will cause expression changes and a change in plant phenotype.
 \end{itemize}
 
 \end{document}

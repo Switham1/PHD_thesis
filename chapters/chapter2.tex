@@ -2,8 +2,7 @@
 
 \begin{document}
 
-\chapter{Architectural differences in \textit{Cis}\hyp{}regulatory modules between constitutive, variable, non\hyp{}specific and tissue\hyp{}specific genes}
-\label{chapter2}
+\chapter{Architectural differences in \textit{Cis}\hyp{}regulatory modules between constitutive, variable, non\hyp{}specific and tissue\hyp{}specific genes}\label{chapter2}
 %read https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0212678 very relevant
 %add points from this to intro: https://academic.oup.com/gbe/article/7/4/1002/531003
 
@@ -16,8 +15,7 @@
 % Larger multiple-copy gene families exhibit both lower expression levels and breadth than genes in single-copy gene families17. In addition, tissue-specific expression was more often observed among genes in multiple-copy gene families than genes in single-copy gene families17.https://www.nature.com/articles/s41598-017-13981-1#Sec9
 %"wide range of abiotic and biotic treatments, the application of plant hormones and other chemical treatments performed, and were designed to enable comparative studies by using the same technology platform and reference condition."" We define the term “breadth of response” for every gene as the cumulative number of treatment-control experiments in which the gene was found to be differentially expressed."https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1796623/
 %I should include a software version file showing what version of each software I used.
-\section{Introduction}
-\label{chapter2:introduction}
+\section{Introduction}\label{chapter2:introduction}
 Constitutive genes are genes which have consistent expression levels under normal conditions in all cells across different tissues and developmental stages \autocite{zhangMammalianHousekeepingGenes2004,butteFurtherDefiningHousekeeping2001}.
 In contrast, variable genes are those which include tissue-specific genes where expression is mainly confined to one or a few tissues \autocite{butteFurtherDefiningHousekeeping2001,schugPromoterFeaturesRelated2005}, and responsive genes which respond to specific biotic or abiotic conditions.
 There are many known architectural differences between constitutive and variable genes in mammals but less is known about the differences in plants.
@@ -47,8 +45,7 @@ Multistimuli\hyp{}sensitive variably expressed genes were found to have signific
 This could be because early response genes have a selection pressure to respond faster to stimuli and smaller proteins may diffuse more quickly through cells and tissues to reach their target.
 Multistimuli\hyp{}sensitive variably expressed genes also had fewer introns and were more likely to have paralogues in the Arabidopsis genome than constitutively expressed genes \autocite{waltherRegulatoryCodeTranscriptional2007}.
 
-\subsection{Variably expressed and tissue-specific genes}
-\label{chapter2:introduction:variable-tissue-specific-genes}
+\subsection{Variably expressed and tissue-specific genes}\label{chapter2:introduction:variable-tissue-specific-genes}
 
 Variably expressed genes include tissue-specific genes expressed in one or a few tissues, and responsive genes which are expressed in many tissues but are very variable in their expression.
 These two categories are distinct from constitutive genes which are broadly and stably expressed across the majority of tissues and development stages.
@@ -72,8 +69,7 @@ A constitutive gene set with low coefficient of variation was selected along wit
 Tissue/condition\hyp{}specific genes ranked using Tau tissue\hyp{}specificity were included as another gene set as their promoter architecture is expected to differ from constitutive and variably expressed non-tissue\hyp{}specific genes.
 The genes with the lowest Tau ranking were categorised as non\hyp{}specific genes.
 
-\subsection{GC content}
-\label{chapter2:introduction:gc-content}
+\subsection{GC content}\label{chapter2:introduction:gc-content}
 
 Mammalian constitutive promoters have a higher GC content than tissue\hyp{}specific promoters \autocite{vinogradovDNAHelixImportance2017,weiCharacterizationGenePromoters2019}.
 In plants TATA-containing promoters contain a larger GC-skew peaking at the TSS than TATA-less promoters \autocite{zuoIdentificationTATATATAless2011}.
@@ -84,8 +80,7 @@ Additionally, GC-rich regions show an increased mutation rate than AT-rich regio
 This supports the fact that constitutive promoters evolve faster than variable promoters \autocite{farreHousekeepingGenesTend2007,carninciGenomewideAnalysisMammalian2006}.
 In Arabidopsis, I hypothesise that constitutive promoters will have a higher GC content than variable promoters and I hypothesise that non\hyp{}specific promoters will have a higher GC content than tissue\hyp{}specific promoters.
 
-\subsection{TFBS coverage}
-\label{chapter2:introduction:tfbs-coverage}
+\subsection{TFBS coverage}\label{chapter2:introduction:tfbs-coverage}
 
 There is conflicting evidence in humans for TFBS coverage differences between promoter types, potentially because variably expressed genes can be split into more than one class; multistimuli-sensitive genes and narrow-breadth specific stimuli response genes \autocite{waltherRegulatoryCodeTranscriptional2007}.
 Constitutive genes were found to have higher DNA entropy (less order) than tissue-specific genes, suggesting that tissue-specific genes are more complex and have a higher density of CREs than constitutive ones \autocite{thomasDNAEntropyReveals2015}.
@@ -99,8 +94,7 @@ There was no significant correlation between motif density and breadth of respon
 The first 500 bp upstream of the TSS were found to contain a stronger correlation between breadth of stimuli response and motif density than 500-1000 bp upstream and 1000-3000 bp upstream of the TSS \autocite{waltherRegulatoryCodeTranscriptional2007}.
 In Arabidopsis I hypothesise that TFBS percentage coverage of promoters will be higher in variable genes responding to many stimuli than in constitutive genes and tissue-specific genes that respond to a narrow range of stimuli.
 
-\subsection{TF diversity}
-\label{chapter2:introduction:tf-diversity}
+\subsection{TF diversity}\label{chapter2:introduction:tf-diversity}
 
 There is conflicting evidence for the diversity of TFs binding promoter classes in mammals.
 Constitutive \textit{cis}\hyp{}regulatory modules (CRMs) in human cell lines recruit more TFs than tissue-specific CRMs, as they have more TFBSs each attracting multiple TFs \autocite{mattioliHighthroughputFunctionalAnalysis2019}.
@@ -149,8 +143,7 @@ This was explained by the fact that tissue\hyp{}specific MI genes are bound by m
 %summarise the intro and introduce the hypotheses Im testing and the experiments. Can briefly give an overview of the methods.
 
 
-\section{Methods}
-\label{chapter2:methods}
+\section{Methods}\label{chapter2:methods}
 %add short summary paragraph linking to the last paragraph of the intro
 All data analysis and plotting was done using Python 3.7.8 \autocite{pythoncoreteamPythonDynamicOpen2020}.
 %name Python version too eg. 3.7.3
@@ -172,8 +165,7 @@ Genes where the whole promoter overlapped a protein coding gene, leaving only pa
 %Promoters with an upstream gene oriented in the reverse direction less than 2000 bp away were flagged to mitigate for potentially overlapping promoters.
 %This was because with overlapping promoters it is difficult to determine whether CREs belong to one promoter over the other or are used by both promoters.
 
-\subsection{Transcription factor binding site identification}
-\label{chapter2:methods:transcription-factor-binding-site-identification}
+\subsection{Transcription factor binding site identification}\label{chapter2:methods:transcription-factor-binding-site-identification}
 %Add all software versions
 The resulting promoter annotations were transformed to bed format using BEDOPS (version 2.4.39) gff2bed~\autocite{nephBEDOPSHighperformanceGenomic2012}, and BEDTools (version 2.29.2) getfasta~\autocite{quinlanBEDToolsFlexibleSuite2010} was used to extract promoter sequences from the reference genome.
 Promoters were scanned for DAP\hyp{}seq TFBS motifs~\autocite{omalleyCistromeEpicistromeFeatures2016} using FIMO~\autocite{grantFIMOScanningOccurrences2011} (version 5.1.1) with a zero\hyp{}order background model created using fasta\hyp{}get\hyp{}markov~\autocite{baileyMEMESuiteTools2009}.
@@ -203,23 +195,20 @@ Promoters were split into 100 bp sliding windows with a 50 bp step size using a 
 Windows with fewer than 100 promoters extending to that location were removed.
 For each sliding window plot, the median percentage GC content, TFBS coverage, open chromatin coverage or TF diversity was calculated. \SI{95}{\percent} confidence intervals were estimated using 10000 bootstraps.
 
-\subsection{GC content}
-{\label{chapter2:methods:gc-content}}
+\subsection{GC content}{\label{chapter2:methods:gc-content}}
 %name the script and say how
 Percentage GC content of promoters and each promoter window was determined using Python to test the hypothesis that constitutive genes have a higher GC content than variable genes and the hypothesis that non\hyp{}specific genes have a higher GC content than tissue\hyp{}specific genes.
 %The Mann\hyp{}Whitney U test~\autocite{mannTestWhetherOne1947}
 
 
-\subsection{Transcription factor binding site coverage}
-{\label{chapter2:methods:transcription-factor-binding-site-coverage}}
+\subsection{Transcription factor binding site coverage}{\label{chapter2:methods:transcription-factor-binding-site-coverage}}
 
 To test the hypotheses that the CRMs of variable genes will have a lower percentage of base pairs covered by at least one TFBS than CRMs of constitutive genes, and that tissue\hyp{}specific CRMs will have a lower percentage of base pairs covered than non\hyp{}specific CRMs, the BEDTools (v2.29.2) coverage tool was utilised \autocite{quinlanBEDToolsFlexibleSuite2010}.
 The number of base pairs covered by at least one motif in a given sequence was calculated using the BEDTools coverage tool.
 %The proportion of base pairs covered by TFBSs in promoters from different expression types were compared using the Kruskal\hyp{}Wallis \textit{H} test and Bonferroni
 %The proportion of base pairs covered by TFBSs in constitutive promoters was compared to variable promoters using a Mann Whitney U test~\autocite{mannTestWhetherOne1947}.
 
-\subsection{Open chromatin coverage}
-{\label{chapter2:methods:open-chromatin-coverage}}
+\subsection{Open chromatin coverage}{\label{chapter2:methods:open-chromatin-coverage}}
 %talk about open chromatin in the intro
 Negative control (treated with NaOH) ATAC\hyp{}seq data was downloaded from \textcite{potterCytokininModulatesContextdependent2018} for root and shoot tissues.
 Individual bed files for each replicate were concatenated and BEDTools (v2.29.2) merge \autocite{quinlanBEDToolsFlexibleSuite2010} was used to combine overlapping peaks.
@@ -228,8 +217,7 @@ To test the hypothesis that the CRMs of variable genes will have a lower proport
 The number of base pairs covered by root, shoot or the root\hyp{}shoot intersect open chromatin was calculated using BedTools coverage.
 %clearly explain the bootstrapping methodology
 
-\subsection{TF diversity}
-{\label{chapter2:methods:tf-diversity}}
+\subsection{TF diversity}{\label{chapter2:methods:tf-diversity}}
 
 The unique TF count for each promoter and promoter window was calculated. This meant that if TFBSs for a TF were found several times within a promoter, that TF was only counted once.
 TFs were only classed as present in a promoter window if the centre of the TFBS was inside the window.
@@ -246,8 +234,7 @@ Then hierarchical clustering was used (Python code from \url{http://www.nxn.se/v
 The number of clusters was predicted using the silhouette method \autocite{rousseeuwSilhouettesGraphicalAid1987} and then used as K in Kmeans clustering using the sklearn.cluster.KMeans Python module (\url{https://github.com/scikit-learn/scikit-learn/tree/master/sklearn/cluster}).
 %version?
 
-\subsection{TATA box enrichment}
-\label{chapter2:methods:tata-box-enrichment}
+\subsection{TATA box enrichment}\label{chapter2:methods:tata-box-enrichment}
 
 15 bp TATA box locations were downloaded from Eukaryotic Promoter Database (release: At\_EPDnew\_004) \autocite{dreosEukaryoticPromoterDatabase2017} present between -50 to 0 relative to the EPD TSS.
 Genomic Association Tester (GAT) \autocite{hegerGATSimulationFramework2013} (version 1.3.6) was used to
@@ -262,16 +249,14 @@ Non\hyp{}specific and tissue\hyp{}specific promoter categories were tested in th
 The coefficient of variation (CV) and Tau tissue\hyp{}specificity of TFs binding CRMs were mapped to each CRM.
 The hypothesis that there is no significant difference in CV of TFs binding CRMs in constitutive or variable categories and no significant difference in Tau of TFs binding CRMs in non\hyp{}specific or tissue\hyp{}specific categories was tested (\href{https://github.com/Switham1/PromoterArchitecture/blob/master/src/plotting/map_TF2CV_TF2Tau_combined.py}{map\_TF2C\_TF2Tau\_combined.py}, available at \url{https://github.com/Switham1/PromoterArchitecture}).
 
-\subsection{Functional analysis}
-\label{chapter2:methods:functional-analysis}
+\subsection{Functional analysis}\label{chapter2:methods:functional-analysis}
 
 A background gene set of all protein coding genes remaining after the filtering steps mentioned in \autoref{chapter2:methods:extraction-of-cis-regulatory-modules} (Extraction of \textit{cis}\hyp{}regulatory modules) was used so that all promoters contained at least one TFBS when scanned using FIMO \autocite{grantFIMOScanningOccurrences2011}.
 Gene ontology (GO) terms (go-basic.obo; 2020-08-11 release) were downloaded from the GO FTP site (\url{http://www.geneontology.org/GO.current.annotations.shtml}).
 GOATOOLS \autocite{klopfensteinGOATOOLSPythonLibrary2018} (version 1.0.6) was used for gene ontology enrichment analysis using Fisher's exact test \autocite{fisherInterpretationContingencyTables1922} and Benjamini/Hochberg false discovery rate (FDR) correction \autocite{benjaminiControllingFalseDiscovery1995}.
 clusterProfiler \autocite{yuClusterProfilerPackageComparing2012} (version 3.14.0) was used for (KEGG) gene set enrichment analysis \autocite{kanehisaKEGGKyotoEncyclopedia2000} with Benjamini/Hochberg FDR correction \autocite{benjaminiControllingFalseDiscovery1995}.
 
-\section{Results}
-\label{chapter2:results}
+\section{Results}\label{chapter2:results}
 %Add summary paragraph contextualising the results and adding a narrative link to the methodology
 %add open chromatin enrichment and TFBS enrichment. Also TFBS CV binding promoters
 3299 genes were flagged and removed from the analysis as their coding sequences were overlapping other coding sequences.
