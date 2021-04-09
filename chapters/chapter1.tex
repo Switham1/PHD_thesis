@@ -2,935 +2,582 @@
 
 \begin{document}
 
-\chapter{Architectural differences in \textit{Cis}\hyp{}regulatory modules between constitutive, variable, non\hyp{}specific and tissue\hyp{}specific genes}
+\chapter{Introduction}
 \label{chapter1}
-%read https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0212678 very relevant
-%add points from this to intro: https://academic.oup.com/gbe/article/7/4/1002/531003
+\subsection{Regulation of gene expression}\label{chapter1:regulation-of-gene-expression}
+The expression of genes is regulated at several points including transcription, mRNA stability and processing, gene silencing and translation. Transcription is the first level of control and, for many protein\hyp{}coding genes, the rate of transcription will strongly influence
+the abundance of the encoded protein~\autocite{liuDependencyCellularProtein2016}. Transcription is controlled by the interactions of certain proteins with DNA regulatory sequences resulting in increases or decreases in gene expression. In eukaryotes, there are two types of DNA regulatory sequences called \textit{cis}\hyp{}regulatory and \textit{trans}\hyp{}regulatory sequences.
 
-%point about GC content in plants: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0212678. They also found that 1. Broadly expressed genes are less compact in nature and 2. Promoters of broadly expressed genes are stable in plants.
-%expression level is highly influenced by no. of tissues a gene is expressed in (expression breadth) when expression data is pooled from EST libraries.
 
-%The tissue specificity index τ estimates both qualitative variations (i.e. presence/absence) and quantitative variations of expression level among tissues, which has been suggested to be more representative than expression breadth and expression level for the expression complexity of a gene (Yanai et al. 2005).https://link.springer.com/article/10.1007%2Fs10709-013-9730-9
-%evolution:  The resulting data show that PSGs have higher protein evolutionary rates, lower synonymous substitution rates, shorter gene length, fewer exons, higher functional specificity, lower expression level, higher tissue‐specific expression and stronger codon bias than NSGs. https://onlinelibrary.wiley.com/doi/full/10.1111/tpj.13541
+\subsubsection{\texorpdfstring{\textit{Cis}-regulatory DNA sequences}{Cis\hyp{}regulatory DNA sequences}}\label{chapter1:cis-regulatory-dna-sequences}
+\textit{Cis}\hyp{}regulatory sequences are those on the same molecule of DNA as the gene they regulate. The literature varies when defining \textit{cis}\hyp{}regulatory sequences. For example, \textcite*{wittkoppCisregulatoryElementsMolecular2012} broadly define both promoters and enhancers as \textit{cis}\hyp{}regulatory elements (CREs). This report, in line with \textcite*{swinnenLessonsDomesticationTargeting2016}, defines CREs as small individual motifs within regulatory sequences which can bind to the DNA binding domain of one or more \textit{trans}\hyp{}acting molecules such as transcription factors and non\hyp{}coding RNAs (ncRNAs). Therefore, both transcription factor binding sites (TFBS) and ncRNA binding sites (such as triplex targeting sites) are types of CREs.
+A \textit{cis}\hyp{}regulatory module (CRM) is defined as a genomic region encompassing multiple CREs that together regulate an aspect of gene expression pattern~\autocite{guoNewAlgorithmIdentifying2017}. CRMs may include promoters, enhancers, silencers, insulators and locus control regions~\autocite{jeziorskaSystemsBiologyApproach2009}. CRMs can be located within exons~\autocite{tumpelRegulatoryModuleEmbedded2008}, introns~\autocite{ostrovskyIdentificationStrongIntron2018}, 5’\hyp{}untranslated regions (5’UTRs)~\autocite{bolleSegmentsEncodingUntranslated1994,henrySharedCisregulatoryModule2018}, or 3’UTRs~\autocite{palmerEnhancerControlsSnail2007,yochumGenomewideScreenBetacatenin2008} (\autoref{fig:crm}). CRMs can be found tens of kilobases from the core promoter~\autocite{bien-willnerSOX9cre1CisactingRegulatory2007,okaGenomewideMappingTranscriptional2017}, and are still classed as \textit{cis}\hyp{}acting because they are found on the same DNA molecule as the gene they are regulating. In this report, the term CRM will be used to refer to the sequence of DNA upstream of the start codon encompassing both the promoter region and any 5’UTR.
 
-% Larger multiple-copy gene families exhibit both lower expression levels and breadth than genes in single-copy gene families17. In addition, tissue-specific expression was more often observed among genes in multiple-copy gene families than genes in single-copy gene families17.https://www.nature.com/articles/s41598-017-13981-1#Sec9
-%"wide range of abiotic and biotic treatments, the application of plant hormones and other chemical treatments performed, and were designed to enable comparative studies by using the same technology platform and reference condition."" We define the term “breadth of response” for every gene as the cumulative number of treatment-control experiments in which the gene was found to be differentially expressed."https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1796623/
-%I should include a software version file showing what version of each software I used.
-\section{Introduction}
-\label{chapter1:introduction}
-Constitutive genes are genes which have consistent expression levels under normal conditions in all cells across different tissues and developmental stages \autocite{zhangMammalianHousekeepingGenes2004,butteFurtherDefiningHousekeeping2001}.
-In contrast, variable genes are those which include tissue-specific genes where expression is mainly confined to one or a few tissues \autocite{butteFurtherDefiningHousekeeping2001,schugPromoterFeaturesRelated2005}, and responsive genes which respond to specific biotic or abiotic conditions.
-There are many known architectural differences between constitutive and variable genes in mammals but less is known about the differences in plants.
-In mammals coding sequences (CDSs) evolve more slowly in constitutive genes than tissue\hyp{}specific genes \autocite{zhangMammalianHousekeepingGenes2004}, while the promoters of constitutive genes are less conserved than in tissue-specific genes \autocite{farreHousekeepingGenesTend2007,carninciGenomewideAnalysisMammalian2006}.
-However, in pigs (\textit{Sus scrofa}) both promoters and CDSs of constitutive genes were more conserved than those of tissue-specific genes~\autocite{weiCharacterizationGenePromoters2019}.
-In plants promoter sequences are not conserved between Arabidopsis and \textit{Oryza sativa}, only the strength of expression is conserved \autocite{armisenUniqueGenesPlants2008}.
-Constitutive gene CDSs in plants are also more conserved than tissue-specific genes \autocite{armisenUniqueGenesPlants2008,wrightEffectsGeneExpression2004,mukhopadhyayDifferentialSelectiveConstraints2008}.
-This is because genes expressed in more tissues have higher selective constraints \autocite{wrightEffectsGeneExpression2004} as they might be subjected to more complex and diverse biochemical environments \autocite{kumaFunctionalConstraintsVariations1995}.
-%link the above to the below
+\begin{figure}[!ht]
+\begin{center}
+\capstart
+\includegraphics[width=0.70\columnwidth]{crm/crm}
+\caption{\textit{Cis}\hyp{}regulatory module (CRM) classification. CRMs are genomic DNA
+regions containing multiple \textit{cis}\hyp{}regulatory elements such as
+transcription factor binding sites, which together regulate gene
+transcription. UTR, untranslated region. CRMs include promoters,
+silencers and insulators, and can be found within exons, introns, 3'UTRs
+and 5'UTRs. CRM regulation is combinatorial, and can be unique to a
+specific gene or shared between many. Insulators prevent CRMs from
+regulating past that region. Transcription start sites (TSSs) are found
+within the core promoter.
+\label{fig:crm}
+}
+\end{center}
+\end{figure}
 
-Highly expressed plant constitutive genes were more conserved than highly expressed tissue specific genes, but there was no significant difference in synonymous nucleotide substitution rates between constitutive and tissue-specific genes with low expression.
-Highly expressed constitutive genes were more conserved than constitutive genes with low expression.
-Interestingly, highly expressed tissue-specific genes were less conserved than tissue-specific genes with low expression \autocite{mukhopadhyayDifferentialSelectiveConstraints2008}.
+
+\paragraph{The promoter}\label{chapter1:the-promoter}
+Promoters are essential in establishing baseline transcriptional capacity through the recruitment of proteins such as transcription factors (TFs), which control the recruitment of RNA polymerase II \autocite{portoPlantPromotersApproach2014}.
+Promoters can be divided into two classes depending on when and where they are expressed.
+Promoters active throughout the majority of developmental stages and environments are classed as constitutive promoters, and those only active in particular tissues (tissue\hyp{}specific) or in response to specific stimuli (inducible) can be termed variable promoters \autocite{bilasCisregulatoryElementsUsed2016}.
+TFs bind CREs in a promoter to regulate the spatio\hyp{}temporal pattern of transcription of the downstream gene.
+The promoter region can be split into three parts: core, proximal and distal.
+The minimal DNA sequence required for transcription initiation is called the core promoter and this is usually spans from -60 to +40 bp relative to the transcription start site (TSS) \autocite{solovyevIdentificationPromoterRegions2010,royCorePromotersTranscription2015}.
+\textit{Cis}\hyp{}regulatory elements (CREs) such as the initiator (Inr), TATA box and B recognition Element (BRE) are located in the core promoter.
+Motif discovery\hyp{}based analyses hypothesised that general sequence enrichments in the core promoter of plants such as GA elements, CA elements and pyrimidine (Y)\hyp{}patch elements might have a similar function to mammalian promoter CpG (CG) islands \autocite{yamamotoCharacteristicsCorePromoter2011,yamamotoHeterogeneityArabidopsisCore2009}.
 CpG sites in CpG islands are unmethylated when genes are expressed, and methylation in CpG sites can silence genes \autocite{birdDNAMethylationPatterns2002}.
-In mammals constitutive promoters are enriched for CpG islands over tissue-specific promoters \autocite{carninciGenomewideAnalysisMammalian2006} although some CpG islands which have a lower GC content are associated with tissue-specific genes \autocite{mendizabalWholegenomeBisulfiteSequencing2016}.
-Plants do not contain CpG islands \autocite{kapranovTranscriptionStartSite2009} and no single enrichment, including GA enrichment, is as enriched as CpG islands in mammals \autocite{megrawTranscriptionFactorAffinitybased2009}.
-
-In Arabidopsis, constitutive genes are known to have a weak TSS peak and wide transcription start region (TSR) (termed broad peak in mammals) while tissue-specific genes have a narrow TSR with a strong peak \autocite{mortonPairedEndAnalysisTranscription2014}.
-%check what peak classes my 4 gene categories have
-There is also a third peak class in plants called broad which covers a wide TSR with a strong TSS peak too.
-Constitutive genes are known to have a weaker expression in general than variable genes \autocite{czechowskiGenomeWideIdentificationTesting2005,mortonPairedEndAnalysisTranscription2014}.
-Constitutive genes are associated with gene body methylation \autocite{zhangGenomewideHighResolutionMapping2006, takunoBodyMethylatedGenesArabidopsis2012,aceitunoRulesGeneExpression2008} while tissue-specific genes are associated with promoter methylation \autocite{zhangGenomewideHighResolutionMapping2006}.
-Constitutive promoters are enriched for GA regions while variable promoters are depleted in GA regions \autocite{yamamotoHeterogeneityArabidopsisCore2009}.
-
-
-Multistimuli\hyp{}sensitive variably expressed genes were found to have significantly shorter 5$\prime$ UTR, gene length and cDNA lengths than constitutively expressed genes.
-This could be because early response genes have a selection pressure to respond faster to stimuli and smaller proteins may diffuse more quickly through cells and tissues to reach their target.
-Multistimuli\hyp{}sensitive variably expressed genes also had fewer introns and were more likely to have paralogues in the Arabidopsis genome than constitutively expressed genes \autocite{waltherRegulatoryCodeTranscriptional2007}.
-
-\subsection{Variably expressed and tissue-specific genes}
-\label{chapter1:introduction:variable-tissue-specific-genes}
-
-Variably expressed genes include tissue-specific genes expressed in one or a few tissues, and responsive genes which are expressed in many tissues but are very variable in their expression.
-These two categories are distinct from constitutive genes which are broadly and stably expressed across the majority of tissues and development stages.
-It is important to note that the degrees of expression variability and tissue\hyp{}specificity are on a spectrum.
-
-Network edges (TF\hyp{}target gene connections) have increased tissue\hyp{}specificity compared to network nodes (genes).
-Additionally, regulating nodes (TFs) are less likely to be tissue\hyp{}specific than their target genes.
-In humans nearly all TFs are associated with at least one tissue\hyp{}specific edge in all tissues, suggesting that even constitutively expressed TFs play a role in regulating tissue\hyp{}specific expression.
-Network hub genes which interact with lots of other genes were more likely to be non\hyp{}tissue specific.
-Tissue\hyp{}specific genes were less likely to be regulated by canonical TF\hyp{}DNA interactions in their promoter and were more likely to be regulated by non\hyp{}canonical means through TF complexes, alternative TFBSs or interactions outside of the promoter \autocite{sonawaneUnderstandingTissueSpecificGene2017}.
-
-Four different gene categories plus a control category were selected to study promoter architecture.
-These were constitutive, variable, non\hyp{}specific and tissue\hyp{}specific genes.
-
-\textcite{czechowskiGenomeWideIdentificationTesting2005} ranked the stability of genes based on their coefficient of variation (CV).
-Only genes present in \SI{80}{\percent} or more of developmental stages and tissues were included in the analysis.
-This means that the variably expressed genes excluded tissue/condition\hyp{}specific genes and were classed based on how variable their expression was across the different tissues and developmental stages.
-This was by design in the study to try to select stably expressed housekeeping genes for use as reference genes.
-
-A constitutive gene set with low coefficient of variation was selected along with a variable gene set with high coefficient of variation.
-Tissue/condition\hyp{}specific genes ranked using Tau tissue\hyp{}specificity were included as another gene set as their promoter architecture is expected to differ from constitutive and variably expressed non-tissue\hyp{}specific genes.
-The genes with the lowest Tau ranking were categorised as non\hyp{}specific genes.
-
-\subsection{GC content}
-\label{chapter1:introduction:gc-content}
-
-Mammalian constitutive promoters have a higher GC content than tissue\hyp{}specific promoters \autocite{vinogradovDNAHelixImportance2017,weiCharacterizationGenePromoters2019}.
-In plants TATA-containing promoters contain a larger GC-skew peaking at the TSS than TATA-less promoters \autocite{zuoIdentificationTATATATAless2011}.
-In GC-rich regions DNA shows higher flexibility \autocite{vinogradovBendableGenesWarmblooded2001,vinogradovDNAHelixImportance2003}, lower nucleosome formation potential \autocite{vinogradovNoncodingDNAIsochores2005} and increased ability to transition from B to Z-DNA conformation \autocite{vinogradovDNAHelixImportance2003} linked to higher expression.
-In Humans GC-rich sequence has a higher DNase-I sensitivity with more open chromatin \autocite{difilippoMappingDNaseIHypersensitive2008}.
-AT-rich regions show the opposite.
-Additionally, GC-rich regions show an increased mutation rate than AT-rich regions \autocite{vinogradovDNAHelixImportance2017}.
-This supports the fact that constitutive promoters evolve faster than variable promoters \autocite{farreHousekeepingGenesTend2007,carninciGenomewideAnalysisMammalian2006}.
-In Arabidopsis, I hypothesise that constitutive promoters will have a higher GC content than variable promoters and I hypothesise that non\hyp{}specific promoters will have a higher GC content than tissue\hyp{}specific promoters.
-
-\subsection{TFBS coverage}
-\label{chapter1:introduction:tfbs-coverage}
-
-There is conflicting evidence in humans for TFBS coverage differences between promoter types, potentially because variably expressed genes can be split into more than one class; multistimuli-sensitive genes and narrow-breadth specific stimuli response genes \autocite{waltherRegulatoryCodeTranscriptional2007}.
-Constitutive genes were found to have higher DNA entropy (less order) than tissue-specific genes, suggesting that tissue-specific genes are more complex and have a higher density of CREs than constitutive ones \autocite{thomasDNAEntropyReveals2015}.
-Constitutive promoters had more bps covered by TFBSs than tissue-specific promoters \autocite{mattioliHighthroughputFunctionalAnalysis2019}, suggesting that the promoters of constitutive genes are more complex.
-
-In Arabidopsis, genes responding to many stimuli have denser TFBS coverage than genes responding to a narrow breadth of stimuli, especially in the region directly upstream of the TSS.
-Variably expressed genes involved in stress response, cell growth and lipid transport are overrepresented in multistimuli-sensitive genes.
-Constitutive and tissue specific genes tended to respond to fewer stimuli.
-Interestingly, when only up-regulation or down-regulation responses to stimuli were classed as differential gene expression events, only the up-regulation events showed a significant positive correlation between breadth of response to motif density.
-There was no significant correlation between motif density and breadth of response for down-regulation events \autocite{waltherRegulatoryCodeTranscriptional2007}.
-The first 500 bp upstream of the TSS were found to contain a stronger correlation between breadth of stimuli response and motif density than 500-1000 bp upstream and 1000-3000 bp upstream of the TSS \autocite{waltherRegulatoryCodeTranscriptional2007}.
-In Arabidopsis I hypothesise that TFBS percentage coverage of promoters will be higher in variable genes responding to many stimuli than in constitutive genes and tissue-specific genes that respond to a narrow range of stimuli.
-
-\subsection{TF diversity}
-\label{chapter1:introduction:tf-diversity}
-
-There is conflicting evidence for the diversity of TFs binding promoter classes in mammals.
-Constitutive \textit{cis}\hyp{}regulatory modules (CRMs) in human cell lines recruit more TFs than tissue-specific CRMs, as they have more TFBSs each attracting multiple TFs \autocite{mattioliHighthroughputFunctionalAnalysis2019}.
-In pigs, more types of motifs were found in variable promoters than in constitutive \autocite{weiCharacterizationGenePromoters2019}.
-In Arabidopsis, 500 bp promoters had no significant GO term enrichment or gene family associations with constitutive or variable genes categories \autocite{waltherRegulatoryCodeTranscriptional2007}.
-Using 3kb promoters (cut short if there was an upstream gene), genes responding early on to biotic and abiotic stresses were compared with late response genes.
-Early response genes had \SI{30}{\percent} longer upstream intergenic regions and contained \SI{20}{\percent} more unique motifs than late response genes.
-The early response genes were more likely to be transcription factors associated with transcriptional regulation, signaling and stress response while late response genes were associated with non-regulatory functions such as biosynthesis and metabolism {\autocite{waltherRegulatoryCodeTranscriptional2007}}.
-
-In Arabidopsis I hypothesise that variable genes responding to many stimuli will contain a higher diversity of TFBSs than constitutive gene and tissue\hyp{}specific genes that respond to a narrow range of stimuli.
-
-\subsection{Bidirectionality}
-%define bidirectionality and why it might be a significant factor to investigate
-
-TATA-less promoters are enriched for bidirectionality \autocite{dhadiGenomewideComparativeAnalysis2009}.
-Since variable genes are enriched for TATA boxes, this suggests that constitutive promoters lacking TATA boxes are be more likely to be bidirectional.
-In humans, GA\hyp{}repeat regions were associated with divergent promoters.
-Additionally, the introduction of a GA\hyp{}binding protein binding site into unidirectional promoters turned \SI{67}{\percent} of them into bidirectional promoters~\autocite{collinsEtsRelatedTranscriptionFactor2007}.
-This suggests that certain TFBSs can change directionality.
-Since variable promoters are depleted in GA\hyp{}repeat regions~\autocite{yamamotoHeterogeneityArabidopsisCore2009}, a hypothesis would be that constitutive promoters are more likely to be divergent and bidirectional.
-However, in humans GA\hyp{}repeat regions are bound by the ETS\hyp{}family GA\hyp{}binding protein~\autocite{collinsEtsRelatedTranscriptionFactor2007} whereas in plants by the BARLEY B RECOMBINANT / BASIC PENTACYSTEINE (BBR/BPC) family~\autocite{theunePhylogeneticAnalysesGAGAMotif2019}, so they may function differently.
-Plant genes responding to many stimuli, i.e. variably expressed genes, are flanked by larger intergenic regions \autocite{waltherRegulatoryCodeTranscriptional2007} so are less likely to be overlapping other genes or to have bidirectional promoters.
-The longer intergenic regions possibly allow for increased regulation complexity.
-
-
-\subsection{TFBS enrichment}
-
-In animals, TATA boxes are enriched in variable promoters \autocite{engstromGenomicRegulatoryBlocks2007,carninciGenomewideAnalysisMammalian2006}.
-In plants, TATA boxes are enriched in genes responding to more stimuli (i.e. variably expressed genes) over genes responding to a narrow breadth of stimuli (i.e. constitutive genes, tissue\hyp{}specific genes).
-These variably expressed genes containing TATA boxes tend to have shorter 5$\prime$ UTRs \autocite{waltherRegulatoryCodeTranscriptional2007,molinaGenomeWideAnalysis2005,lichtenbergWordLandscapeNoncoding2009}
-Genes responding to stresses early on were more likely to contain a TATA box than genes that responded later \autocite{waltherRegulatoryCodeTranscriptional2007}.
-TATA boxes increase interspecies gene expression variation of the downstream gene \autocite{tiroshGeneticSignatureInterspecies2006}.
-Stress response motifs such as DRE, ABF and ABRE-like TFBSs \autocite{yamaguchi-shinozakiNovelCisactingElement1994} are associated with variably expressed genes with a large breadth of response \autocite{waltherRegulatoryCodeTranscriptional2007}.
-Genes responding to a narrow breadth of stimuli tend to be constitutive or tissue\hyp{}specific.
-Motifs associated with constitutive genes (TELO-box motif \autocite{tremousayguePlantInterstitialTelomere1999}; hexamer motif \autocite{chaubetIdentificationCiselementsRegulating1996}) and also those conferring tissue\hyp{}specific expression (e.g. LEAFYATAG \autocite{kamiyaIsolationCharacterizationRice2003}) were associated with narrow\hyp{}breadth response genes \autocite{waltherRegulatoryCodeTranscriptional2007}.
-Therefore, it would be useful to split variably expressed genes into narrow\hyp[{}breadth response and multistimuli response categories when making comparisons with constitutive genes.
-In Arabidopsis I hypothesise that TATA boxes will be enriched in variable genes compared to constitutive genes, and will be enriched in tissue\hyp{}specific genes over non\hyp{}specific genes.
-
-\subsection{TF differences}
-
-When comparing constitutive and variable TFs it would also be useful to split them into categories based on how many protein and DNA interactions they have.
-Genes coding for master\hyp{}regulator TFs are classed as multi\hyp{}interface (MI) hub genes, while those coding for lesser connected TFs are classed as single interface (SI) hub genes.
-Within MI genes, constitutive and tissue\hyp{}specific CDSs showed similar evolution rates, while within SI genes constitutive gene CDSs evolve more slowly than tissue-specific gene CDSs~\autocite{podderMultifunctionalityDominantlyDetermines2009}.
-MI tissue\hyp{}specific genes evolved more slowly than SI tissue\hyp{}specific genes, while both MI and SI constitutively expressed genes evolved at similar rates~\autocite{biswasEvolutionaryRateHeterogeneity2018}.
-This was explained by the fact that tissue\hyp{}specific MI genes are bound by more miRNAs than tissue\hyp{}specific SI genes~\autocite{biswasEvolutionaryRateHeterogeneity2018}, and genes with more miRNA targets evolve more slowly ~\autocite{chengRelationshipEvolutionMicroRNA2009}.
-%summarise the intro and introduce the hypotheses Im testing and the experiments. Can briefly give an overview of the methods.
-
-
-\section{Methods}
-\label{chapter1:methods}
-%add short summary paragraph linking to the last paragraph of the intro
-All data analysis and plotting was done using Python 3.7.8 \autocite{pythoncoreteamPythonDynamicOpen2020}.
-%name Python version too eg. 3.7.3
-The Shapiro\hyp{}Wilk normality test~\autocite{shapiroAnalysisVarianceTest1965} and Levene's homogeneity of variance~\autocite{leveneRobustTestsEquality1960} were used to test assumptions for parametric tests.
-For non\hyp{}parametric analyses the Kruskal\hyp{}Wallis \textit{H} test \autocite{kruskalUseRanksOneCriterion1952} was used to test for differences between promoter categories using the scikit-posthocs package (v0.6.4)\autocite{terpilowskiScikitposthocsPairwiseMultiple2019}.
-If necessary, Dunn's post hoc tests \autocite{dunnMultipleComparisonsUsing1964} were used with Bonferroni adjustment for multiple comparisons using the pingouin.kruskal package (v0.3.7)\autocite{vallatPingouinStatisticsPython2018}.
-All plots were created using Seaborn (v0.10.1) \autocite{michael_waskom_2020_3767070}.
-Significance annotations were added to plots using Statannot (v0.2.3; \url{https://github.com/webermarcolivier/statannot}).
-
-\subsection{Extraction of \textit{cis}-regulatory modules}\label{chapter1:methods:extraction-of-cis-regulatory-modules}
-
-Promoters were extracted from the Arabidopsis TAIR 10 \autocite{lameschArabidopsisInformationResource2012} genome assembly and Ensembl Plants \autocite{howeEnsemblGenomes20202020} annotation (\href{ftp://ftp.ensemblgenomes.org/pub/release-47/plants/gff3/arabidopsis_thaliana/}{.gff3 release 47 date 08/03/2020}) using a custom Python script (\href{https://github.com/Switham1/PromoterArchitecture/blob/master/src/data_sorting/extract_promoter.py}{extract\_promoter.py}, available at \url{https://github.com/Switham1/PromoterArchitecture}).
-Only promoters from genes on Arabidopsis chromosomes 1-5 were extracted.
-Using the same Python script promoters were extracted from protein coding genes that did not overlap other protein coding genes using pybedtools (version 0.8.1) \autocite{dalePybedtoolsFlexiblePython2011}.
-%What pybedtools version?
-Promoters were extracted 1000 base pairs (bp) upstream of the longest annotated transcript transcription start site (TSS) or until the nearest annotated protein coding gene, and 5$\prime$ UTRs were included downstream of the TSS up until the closest annotated coding sequence (CDS) ATG start codon.
-Genes where the whole promoter overlapped a protein coding gene, leaving only part of the 5$\prime$ UTR non-overlapping, were flagged and filtered out.
-%This is because coding sequences have different conservation patterns to non-coding regions.%see intro XXX%
-%Promoters with an upstream gene oriented in the reverse direction less than 2000 bp away were flagged to mitigate for potentially overlapping promoters.
-%This was because with overlapping promoters it is difficult to determine whether CREs belong to one promoter over the other or are used by both promoters.
-
-\subsection{Transcription factor binding site identification}
-\label{chapter1:methods:transcription-factor-binding-site-identification}
-%Add all software versions
-The resulting promoter annotations were transformed to bed format using BEDOPS (version 2.4.39) gff2bed~\autocite{nephBEDOPSHighperformanceGenomic2012}, and BEDTools (version 2.29.2) getfasta~\autocite{quinlanBEDToolsFlexibleSuite2010} was used to extract promoter sequences from the reference genome.
-Promoters were scanned for DAP\hyp{}seq TFBS motifs~\autocite{omalleyCistromeEpicistromeFeatures2016} using FIMO~\autocite{grantFIMOScanningOccurrences2011} (version 5.1.1) with a zero\hyp{}order background model created using fasta\hyp{}get\hyp{}markov~\autocite{baileyMEMESuiteTools2009}.
-A \textit{p}\hyp{}value threshold of \texttildelow0.0001 and max stored sequences \texttildelow5000000 was used, and the output was filtered using a \textit{q}\hyp{}value threshold of 0.05.
-Arabidopsis gene IDs for promoters and the TFs binding them were recovered for further analysis.
-
-\subsection{Gene selection}\label{chapter1:methods:gene-selection}
-
-To investigate the stability of gene expression, \textcite*{czechowskiGenomeWideIdentificationTesting2005} analysed microarray data from \textit{Arabidopsis thaliana} Col-0 across 79 different tissues, organs and developmental stages.
-This data enables genes to be ranked according to stability of expression across tissues using coefficient of variation (CV) values.
-The Tau tissue\hyp{}specificity \autocite{yanaiGenomewideMidrangeTranscription2005} was calculated for each gene and then the 100 most tissue\hyp{}specific and 100 most non\hyp{}specific genes were chosen.
-Only genes which had at least one TFBS found in their promoters using FIMO (see \autoref{chapter1:methods:transcription-factor-binding-site-identification}) were ranked according to CV and Tau.
-
-Recreating the methodology used by \textcite*{czechowskiGenomeWideIdentificationTesting2005}, only genes expressed in \SI{80}{\percent} of conditions and developmental stages based on mas5 calls were included when calculating CV.
-This step filtered out 10764 genes leaving 12046 genes.
-CV was used to select the 100 most constitutively expressed genes from raw expression data generated in their study.
-Alongside this, the 100 most variable genes were chosen.
-100 control genes were randomly selected from the central distribution of the expression CV ranked genes using the Tau ranking.
-This ensured that the selected genes were present in both CV and Tau datasets.
-To ensure even coverage, 10 genes were selected randomly from each of 10 bins covering the range of Tau values between the non\hyp{}specific and tissue\hyp{}specific gene sets.
-
-
-\subsection{Sliding window creation}
-\label{chapter1:methods:sliding-window-creation}
-%describe how sliding windows were created%
-Promoters were split into 100 bp sliding windows with a 50 bp step size using a custom Python script (\href{https://github.com/Switham1/PromoterArchitecture/blob/master/src/rolling_window/rolling_window.py}{rolling\_window.py}, available at \url{https://github.com/Switham1/PromoterArchitecture}).
-Windows with fewer than 100 promoters extending to that location were removed.
-For each sliding window plot, the median percentage GC content, TFBS coverage, open chromatin coverage or TF diversity was calculated. \SI{95}{\percent} confidence intervals were estimated using 10000 bootstraps.
-
-\subsection{GC content}
-{\label{chapter1:methods:gc-content}}
-%name the script and say how
-Percentage GC content of promoters and each promoter window was determined using Python to test the hypothesis that constitutive genes have a higher GC content than variable genes and the hypothesis that non\hyp{}specific genes have a higher GC content than tissue\hyp{}specific genes.
-%The Mann\hyp{}Whitney U test~\autocite{mannTestWhetherOne1947}
-
-
-\subsection{Transcription factor binding site coverage}
-{\label{chapter1:methods:transcription-factor-binding-site-coverage}}
-
-To test the hypotheses that the CRMs of variable genes will have a lower percentage of base pairs covered by at least one TFBS than CRMs of constitutive genes, and that tissue\hyp{}specific CRMs will have a lower percentage of base pairs covered than non\hyp{}specific CRMs, the BEDTools (v2.29.2) coverage tool was utilised \autocite{quinlanBEDToolsFlexibleSuite2010}.
-The number of base pairs covered by at least one motif in a given sequence was calculated using the BEDTools coverage tool.
-%The proportion of base pairs covered by TFBSs in promoters from different expression types were compared using the Kruskal\hyp{}Wallis \textit{H} test and Bonferroni
-%The proportion of base pairs covered by TFBSs in constitutive promoters was compared to variable promoters using a Mann Whitney U test~\autocite{mannTestWhetherOne1947}.
-
-\subsection{Open chromatin coverage}
-{\label{chapter1:methods:open-chromatin-coverage}}
-%talk about open chromatin in the intro
-Negative control (treated with NaOH) ATAC\hyp{}seq data was downloaded from \textcite{potterCytokininModulatesContextdependent2018} for root and shoot tissues.
-Individual bed files for each replicate were concatenated and BEDTools (v2.29.2) merge \autocite{quinlanBEDToolsFlexibleSuite2010} was used to combine overlapping peaks.
-An intersection for root and shoot open chromatin was created using BEDTools intersect \autocite{quinlanBEDToolsFlexibleSuite2010}.
-To test the hypothesis that the CRMs of variable genes will have a lower proportion of open chromatin than constitutive CRMs, and that non\hyp{}specific CRMs will have a lower proportion of open chromatin than tissue\hyp{}specific CRMs, BedTools coverage tool \autocite{quinlanBEDToolsFlexibleSuite2010} was used.
-The number of base pairs covered by root, shoot or the root\hyp{}shoot intersect open chromatin was calculated using BedTools coverage.
-%clearly explain the bootstrapping methodology
-
-\subsection{TF diversity}
-{\label{chapter1:methods:tf-diversity}}
-
-The unique TF count for each promoter and promoter window was calculated. This meant that if TFBSs for a TF were found several times within a promoter, that TF was only counted once.
-TFs were only classed as present in a promoter window if the centre of the TFBS was inside the window.
-To test the hypothesis that constitutive CRMs will have a more diverse TFBS profile than variable CRMs, and that non\hyp{}specific CRMs will have a more diverse TFBS profile than tissue\hyp{}specific CRMs, the Shannon diversity was calculated.
-The mapped motif annotations were analysed using the the skbio.diversity.alpha.shannon Python module (v0.5.6; \url{https://github.com/biocore/scikit-bio}) to calculate the Shannon diversity of individual TFs and also TF families binding each promoter or promoter window.
-%Python module version
-The Shannon diversity, unique TFBS counts and raw TFBS counts were analysed comparing constitutively expressed promoters to variable promoters.
-%The Mann\hyp{}Whitney U test was used~\autocite{mannTestWhetherOne1947}.
-
-As documented in \href{https://github.com/Switham1/PromoterArchitecture/blob/master/src/plotting/TF_diversity_plots_wholeprom.ipynb}{\texttt{TF\_diversity\_plots\_wholeprom.ipynb}} (available at \url{https://github.com/Switham1/PromoterArchitecture}), a table was created containing each promoter on a different row with each TF family in a different column.
-The numbers in each cell represent the number of times TFs belonging to a particular TF family are predicted to bind to a certain promoter.
-A principle component analysis was run where \SI{95}{\percent} of the variation was maintained with 22 components.
-Then hierarchical clustering was used (Python code from \url{http://www.nxn.se/valent/extract-cluster-elements-by-color-in-python}) to estimate the number of clusters, K, to be used in Kmeans clustering.
-The number of clusters was predicted using the silhouette method \autocite{rousseeuwSilhouettesGraphicalAid1987} and then used as K in Kmeans clustering using the sklearn.cluster.KMeans Python module (\url{https://github.com/scikit-learn/scikit-learn/tree/master/sklearn/cluster}).
-%version?
-
-\subsection{TATA box enrichment}
-\label{chapter1:methods:tata-box-enrichment}
-
-15 bp TATA box locations were downloaded from Eukaryotic Promoter Database (release: At\_EPDnew\_004) \autocite{dreosEukaryoticPromoterDatabase2017} present between -50 to 0 relative to the EPD TSS.
-Genomic Association Tester (GAT) \autocite{hegerGATSimulationFramework2013} (version 1.3.6) was used to
-compare enrichment of TATA boxes in constitutive and variable genes to test the hypothesis that variable genes are enriched for TATA boxes over constitutive genes, and to test the hypothesis that tissue\hyp{}specific genes are enriched for TATA boxes over non\hyp{}specific genes.
-The 15 bp TATA boxes were used as segments of interest.
-Constitutive and variable promoter annotations were separately tested for enrichment of TATA boxes compared to the background workspace file containing all 200 promoters of interest from both categories.
-Non\hyp{}specific and tissue\hyp{}specific promoter categories were tested in the same way.
-
-\subsection{Transcription factors binding \textit{cis}\hyp{}regulatory modules}
-\label{chapter1:methods:tfs-binding-crms}
-
-The coefficient of variation (CV) and Tau tissue\hyp{}specificity of TFs binding CRMs were mapped to each CRM.
-The hypothesis that there is no significant difference in CV of TFs binding CRMs in constitutive or variable categories and no significant difference in Tau of TFs binding CRMs in non\hyp{}specific or tissue\hyp{}specific categories was tested (\href{https://github.com/Switham1/PromoterArchitecture/blob/master/src/plotting/map_TF2CV_TF2Tau_combined.py}{map\_TF2C\_TF2Tau\_combined.py}, available at \url{https://github.com/Switham1/PromoterArchitecture}).
-
-\subsection{Functional analysis}
-\label{chapter1:methods:functional-analysis}
-
-A background gene set of all protein coding genes remaining after the filtering steps mentioned in \autoref{chapter1:methods:extraction-of-cis-regulatory-modules} (Extraction of \textit{cis}\hyp{}regulatory modules) was used so that all promoters contained at least one TFBS when scanned using FIMO \autocite{grantFIMOScanningOccurrences2011}.
-Gene ontology (GO) terms (go-basic.obo; 2020-08-11 release) were downloaded from the GO FTP site (\url{http://www.geneontology.org/GO.current.annotations.shtml}).
-GOATOOLS \autocite{klopfensteinGOATOOLSPythonLibrary2018} (version 1.0.6) was used for gene ontology enrichment analysis using Fisher's exact test \autocite{fisherInterpretationContingencyTables1922} and Benjamini/Hochberg false discovery rate (FDR) correction \autocite{benjaminiControllingFalseDiscovery1995}.
-clusterProfiler \autocite{yuClusterProfilerPackageComparing2012} (version 3.14.0) was used for (KEGG) gene set enrichment analysis \autocite{kanehisaKEGGKyotoEncyclopedia2000} with Benjamini/Hochberg FDR correction \autocite{benjaminiControllingFalseDiscovery1995}.
-
-\section{Results}
-\label{chapter1:results}
-%Add summary paragraph contextualising the results and adding a narrative link to the methodology
-%add open chromatin enrichment and TFBS enrichment. Also TFBS CV binding promoters
-3299 genes were flagged and removed from the analysis as their coding sequences were overlapping other coding sequences.
-484 genes were filtered from the analysis as the CRM did not generate significant matches to known TFBS motifs when scanned using the DAP\hyp{}seq TFBS motifs~\autocite{omalleyCistromeEpicistromeFeatures2016} with FIMO \autocite{grantFIMOScanningOccurrences2011}.
-
-An analysis pipeline was created to analyse promoter architecture of constitutive and variable genes.
-
-Following this filtering process the methodology described by \textcite{czechowskiGenomeWideIdentificationTesting2005} was used to select the top 100 constitutive and variable genes.
-Tau tissue\hyp{}specificity ranking was used to select the top 100  non\hyp{}specific and tissue\hyp{}specific genes.
-The mean $log_{2}$ expression of the genes in each category are shown in \autoref{fig:gene-group-expression}.
-1959 genes were flagged as having potentially overlapping promoters where the upstream gene was positioned in the opposite direction and was less than 2000 bp away from the TSS.
-17 constitutive, 6 variable, 15 non\hyp{}specific, 14 tissue\hyp{}specific and 11 control genes were flagged as having potentially overlapping promoters.
-%add table showing each gene set and number of genes in each one, overlap too
-%add CV and tau distribution combined plot showing each category including control
-%\begin{figure}[hbt!]
-%	\begin{center}
-%		\capstart
-%		\includegraphics[width=0.70\columnwidth]{genes/czechowski_co-oefficient_of_variation_distribution}
-%		\caption{
-%			\textbf{Coefficient of expression variation (CV) values for \textit{Arabidopsis thaliana} genes after filtering overlapping genes and genes with no significant TFBSs in their promoters.}
-%			CV values calculated as in \textcite{czechowskiGenomeWideIdentificationTesting2005}.
-%			The CV range of the top 100 constitutive genes with the lowest CVs is annotated with an arrow (blue range marker).
-%			The CV range of the top 100 variable genes with the highest CVs is annotated with an orange range marker).			
-%			\label{fig:cv-dist-allgenes}
-%		}
-%	\end{center}
-%\end{figure}
-
-
-\begin{figure}[hbt!]
-	\begin{center}
-		\capstart
-		\includegraphics[width=0.80\columnwidth]{genes/gene_group_expression}
-		\caption{
-			\textbf{Mean log2 expression of constitutive, variable, non\hyp{}specific and tissue\hyp{}specific gene categories in \textit{Arabidopsis thaliana} across 79 different tissues and developmental stages.}
-			Constitutive and variable categories chosen using coefficient of variation ranking as in \textcite{czechowskiGenomeWideIdentificationTesting2005}.
-			Tissue\hyp{}specific and non\hyp{}specific categories chosen using Tau tissue specificity ranking. \textit{N} = 100.
-			\label{fig:gene-group-expression}
-		}
-	\end{center}
-\end{figure}
-
-The expression CV distribution of the top 100 constitutive genes was narrower than the top 100 variable genes (\autoref{fig:cv-distribution}).
-
-\begin{figure}[hbt!]
-	\begin{center}
-		\capstart
-		\includegraphics[width=0.60\columnwidth]{genes/labelled_distribution_cv_distribution}
-		\caption{
-			\textbf{Expression CV distribution of constitutive and variable gene categories compared to all CV ranked genes.}
-			Constitutive and variable categories chosen using coefficient of variation ranking as in \textcite{czechowskiGenomeWideIdentificationTesting2005}.
-			\label{fig:cv-distribution}
-		}
-	\end{center}
-\end{figure}
-
-The Tau tissue\hyp{}specificity distribution of the top 100 tissue\hyp{}specific genes was narrower than the top 100 non\hyp{}specific genes (\autoref{fig:tau-distribution}).
-
-
-\begin{figure}[hbt!]
-	\begin{center}
-		\capstart
-		\includegraphics[width=0.60\columnwidth]{genes/labelled_distribution_tau_distribution}
-		\caption{
-			\textbf{Tau tissue\hyp{}specificity distribution of non\hyp{}specific and tissue\hyp{}specific gene categories compared to all Tau ranked genes.}
-			Tissue\hyp{}specific and non\hyp{}specific categories chosen using Tau tissue specificity ranking.
-			\label{fig:tau-distribution}
-		}
-	\end{center}
-\end{figure}
-
-A gene ontology (GO) enrichment analysis using Fisher's exact test \autocite{fisherInterpretationContingencyTables1922} and Benjamini/Hochberg FDR correction \autocite{benjaminiControllingFalseDiscovery1995} found 2 significantly enriched biological process (GO:0008150) GO terms for the top 300 constitutive genes, and 4 significantly enriched cellular component (GO:0005575) GO terms for the top 300 variable genes. For the top 300 non\hyp{}specific genes there were 3 significantly enriched cellular component GO terms. For the top 300 tissue\hyp{}specific genes there were 4 biological process, 7 cellular component and 6 molecular function (GO:0003674) significantly enriched GO terms.
-In the constitutive group 17 genes were associated with intracellular protein transport and 9 genes with endocytosis.
-Amongst variably expressed genes, 73 were associated with the nucleus, 55 with being extracellular, 32 with the cytosol and 3 with the plastid.
-In the non\hyp{}specific group 67 genes were associated with the mitochondrion, 60 genes with the cytosol and 28 genes with the Golgi apparatus.
-Amongst tissue\hyp{}specific genes 151 were associated with the pollen tube (GO:0009860, GO:0080092, GO:0010183, GO:0010584, GO:0090406, GO:0090404), 67 with the extracellular region,  31 with the chloroplast, 26 with protein binding, 15 with antiporter activity, 14 with the cytosol, 8 with the endomembrane system, 6 with apical plasma membrane,  8 with pectinesterase inhibitor activity and 8 with pectinesterase activity.
-
-A KEGG gene set enrichment analysis with Benjamini/Hochberg FDR correction found no enriched terms in constitutive or variable groups (\textit{P} \textgreater{} 0.05).
-
-%\begin{figure}[hbt!]
-%	\begin{center}
-%		\capstart
-%		\includegraphics[width=1\columnwidth]{genes/constitutive_Czechowski_sig_enrichment_BP}
-%		\caption{
-%			\textbf{Gene ontology lineage plot for the top 300 constitutive \textit{Arabidopsis thaliana} genes.}
-%			The top 300 constitutive genes were chosen based on coefficient of variation (CV) values as in \textcite{czechowskiGenomeWideIdentificationTesting2005} after filtering overlapping genes and genes with no TFBSs in their promoters.
-%			Boxes coloured as followed: light red, \textit{p} \textless{} 0.005; yellow, \textit{p} \textless{} 0.05; grey, \textit{p} \textgreater{} 0.05 (non-significant study terms).
-%			p < 0.01, light orange
-%			The gene ontology enrichment analysis was calculated using Fisher's exact test \autocite{fisherInterpretationContingencyTables1922} and Benjamini/Hochberg FDR \autocite{benjaminiControllingFalseDiscovery1995}.
-%			\label{fig:go-constitutive}
-%		}
-%		
-%	\end{center}
-%\end{figure}
-%
-%\begin{figure}[hbt!]
-%	\begin{center}
-%		\capstart
-%		\includegraphics[width=1\columnwidth]{genes/variable_Czechowski_sig_enrichment_CC}
-%		\caption{
-%			\textbf{Gene ontology lineage plot for the top 300 variable \textit{Arabidopsis thaliana} genes.}
-%			The top 300 variable genes were chosen based on coefficient of variation (CV) values as in \textcite{czechowskiGenomeWideIdentificationTesting2005} after filtering overlapping genes and genes with no TFBSs in their promoters.
-%			Boxes coloured as followed: light red, \textit{p} \textless{} 0.005; grey, \textit{p} \textgreater{} 0.05 (non-significant study terms).
-%			p < 0.01, light orange
-%			The gene ontology enrichment analysis was calculated using Fisher's exact test \autocite{fisherInterpretationContingencyTables1922} and Benjamini/Hochberg FDR correction \autocite{benjaminiControllingFalseDiscovery1995}.
-%			\label{fig:go-variable}
-%		}
-%		
-%	\end{center}
-%\end{figure}
-%
-%\begin{figure}[hbt!]
-%	\begin{center}
-%		\capstart
-%		\includegraphics[width=1\columnwidth]{genes/non-specific_Schmid_sig_enrichment_CC}
-%		\caption{
-%			\textbf{Gene ontology lineage plot for the top 300 non\hyp{}specific \textit{Arabidopsis thaliana} genes.}
-%			The top 300 non\hyp{}specific were chosen based on tau tissue\hyp{}specificity values after filtering overlapping genes and genes with no TFBSs in their promoters.
-%			Boxes coloured as followed: light red, \textit{p} \textless{} 0.005; grey, \textit{p} \textgreater{} 0.05 (non-significant study terms).
-%			p < 0.01, light orange
-%			The gene ontology enrichment analysis was calculated using Fisher's exact test \autocite{fisherInterpretationContingencyTables1922} and Benjamini/Hochberg FDR correction \autocite{benjaminiControllingFalseDiscovery1995}.
-%			\label{fig:go-variable}
-%		}
-%		
-%	\end{center}
-%\end{figure}
-%
-%\begin{figure}[hbt!]
-%	\begin{center}
-%		\capstart
-%		
-%		\rotatebox[origin=c]{90}{\includegraphics[width=1.5\columnwidth]{genes/tissue_specific_Schmid_sig_enrichment_BP}}
-%		\caption{
-%			\textbf{Gene ontology lineage plot for the top 300 tissue\hyp{}specific \textit{Arabidopsis thaliana} genes.}
-%			The top 300 tissue\hyp{}specific were chosen based on tau tissue\hyp{}specificity values after filtering overlapping genes and genes with no TFBSs in their promoters.
-%			Boxes coloured as followed: light red, \textit{p} \textless{} 0.005; grey, \textit{p} \textgreater{} 0.05 (non-significant study terms).
-%			p < 0.01, light orange
-%			The gene ontology enrichment analysis was calculated using Fisher's exact test \autocite{fisherInterpretationContingencyTables1922} and Benjamini/Hochberg FDR correction \autocite{benjaminiControllingFalseDiscovery1995}.
-%			\label{fig:go-variable}
-%		}
-%		
-%	\end{center}
-%\end{figure}
-
-
-\subsection{Open chromatin}
-CRMs from the four gene sets were overlapped with ATAC-seq data \autocite{potterCytokininModulatesContextdependent2018}.
-This allowed the chromatin accessibility to be described.
-Constitutive, variable and control CRMs had a significantly different percentage of nucleotides covered by open chromatin (Kruskal\hyp{}Wallis~\textit{H} = 37.5,~\textit{P} \textless{} 0.0001).
-Dunn's post hocs with Bonferroni correction showed that variable CRMs had a significantly lower percentage of nucleotides covered by open chromatin (\SI{35.0}{\percent} ± 35.1) than constitutive (\SI{54.1}{\percent} ± 33.3; ~\textit{P} \textless{} 0.001) or control (\SI{65.3}{\percent} ± 30.4; ~\textit{P} \textless{} 0.0001) CRMs (\autoref{fig:chromatin-coverage}A).
-Open chromatin coverage was significantly different between non\hyp{}specific, tissue\hyp{}specific and control gene types (Kruskal\hyp{}Wallis~\textit{H} = 75.3,~\textit{P} \textless{} 0.0001).
-Dunn's post hocs with Bonferroni correction revealed that tissue\hyp{}specific CRMs had a significantly lower percentage of nucleotides covered by open chromatin (\SI{20.4}{\percent} ± 30.2) than non\hyp{}specific (\SI{46.9}{\percent} ± 36.1; ~\textit{P} \textless{} 0.0001) or control (\SI{65.3}{\percent} ± 30.4; ~\textit{P} \textless{} 0.01) CRMs (\autoref{fig:chromatin-coverage}B)
-
-\begin{figure}[hbt!]
-	\begin{center}
-		\capstart
-		\includegraphics[width=1\columnwidth]{openchromatin/chromatin_coverage_violin}
-		\caption{
-			\textbf{Mean percentage open chromatin coverage in different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories.}
-			Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
-			5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.
-			Control genes identical in plots A and B.
-			A: Percentage base pairs (bp) covered by open chromatin in 100 constitutive, variable and control genes.
-			\textit{N}=100.
-			B: Percentage base pairs (bp) covered by open chromatin in 100 non\hyp{}specific, tissue\hyp{}specific and control genes.
-			\textit{N}=100.
-			Significance was calculated using Kruskal\hyp{}Wallis and Dunn's post hocs with Bonferroni correction.
-			**, \textit{P} \textless{} 0.01. ***, \textit{P} \textless{} 0.001. ****,\textit{P} \textless{} 0.0001. ns, not significant.
-			\label{fig:chromatin-coverage}
-		}
-	\end{center}
-\end{figure}
-A sliding window analysis revealed that from \textasciitilde{}350 bp to \textasciitilde{}650 bp upstream of the start codon the median open chromatin in constitutive CRMs decreased to zero while variable CRMs had a median percentage open chromatin of 0 (\autoref{fig:openchrom-sliding-window}A).
-From \textasciitilde{}250 bp to \textasciitilde{}450 bp upstream of the start codon the median open chromatin in non\hyp{}specific CRMs decreased to zero while tissue\hyp{}specific CRMs had a median percentage open chromatin of 0 (\autoref{fig:openchrom-sliding-window}B).
-
-\begin{figure}[!hbt]
-	\begin{center}
-		\capstart
-		\includegraphics[width=1\columnwidth]{openchromatin/genetypenocontrol_percentage_bases_covered_rootshootintersect_chrom_median_sliding_window}
-		\caption{
-			\textbf{Sliding window analysis of percentage open chromatin across different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories upstream of the start codon.}
-			Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
-			5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.
-			The median proportion of nucleotides falling within open chromatin peaks described by \textcite{potterCytokininModulatesContextdependent2018} was scored for 100 bp windows across selected CRMs.
-			The open chromatin peaks used were the intersect of root and shoot peaks derived from the negative control (treated with NaOH) ATAC\hyp{}seq data.
-			The windows were overlapping with a 50 bp offset.
-			The median value for each bin is displayed here at the central bp of the bin.
-			Shading represents \SI{95}{\percent} confidence intervals estimated using 10000 bootstraps.
-			A: constitutive and variable GC content sliding windows. \textit{N}=100.
-			B: non\hyp{}specific and tissue\hyp{}specific sliding windows. \textit{N}=100.
-			\label{fig:openchrom-sliding-window}
-		}
-	\end{center}
-\end{figure}
-
-To confirm whether this was a true difference or due to different 5$\prime$ UTR lengths between constitutive and variable genes, the percentage of root\hyp{}shoot intersect open chromatin of windows was plotted centred around the Araport11 TSS.
-This separated windows located in promoter regions from those in 5$\prime$ UTRs regions.
-The median percentage of open chromatin decreased upstream of the TSS for both constitutive and variable genes, and constitutive genes had a higher percentage open chromatin -100 to + 500 bp around the TSS (\autoref{fig:openchrom-sliding-window-araporttss}A).
-The median percentage of open chromatin decreased upstream of the TSS for non\hyp{}specific genes while tissue\hyp{}specific CRMs had a median percentage open chromatin of 0 across the whole CRM (\autoref{fig:openchrom-sliding-window-araporttss}B).
-
-
-
-\begin{figure}[!hbt]
-	\begin{center}
-		\capstart
-		\includegraphics[width=1\columnwidth]{openchromatin/Araport11_genetypenocontrol_percentage_bases_covered_rootshootintersect_chrom_median_sliding_window}
-		\caption{
-			\textbf{Sliding window analysis of percentage open chromatin across different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories centred around the transcription start site (TSS).}
-			Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
-			5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.
-			TSS is represented by 0 on the x-axis.
-			Data points are positioned in the centre of each 100 bp window.
-			Windows are offset by 50 bp.
-			Shading represents 95 confidence intervals estimated using 10000 bootstraps.
-			Median percentage of open chromatin peaks overlapping 100 bp windows.
-			Open chromatin peaks derived from the intersect of root and shoot peaks derived from negative control (treated with NaOH) ATAC\hyp{}seq data by \textcite{potterCytokininModulatesContextdependent2018}.
-			A: constitutive and variable GC content sliding windows. \textit{N}=100.
-			B: non\hyp{}specific and tissue\hyp{}specific sliding windows. \textit{N}=100.
-			\label{fig:openchrom-sliding-window-araporttss}
-		}
-	\end{center}
-\end{figure}
-
-When analyses were repeated with the top 300 CRMs in each category the results supported the findings of the top 100 CRMs.
-
-\subsection{GC content}
-%change style to match the start of the previous sections
-The hypothesis that constitutive genes have a higher GC content than variable genes was tested.
-GC content was significantly different between gene types (Kruskal\hyp{}Wallis~\textit{H} = 6.5,~\textit{P} \textless{} 0.05).
-Dunn's post hocs with Bonferroni correction revealed that mean percentage GC content was significantly higher in constitutive CRMs (\SI{32.8}{\percent} ± 4.3) than variable CRMs  (\SI{31.7}{\percent} ± 3.6;~\textit{P} \textless{} 0.05) (\autoref{fig:gc-content-wholeprom}A).
-The hypothesis that non\hyp{}specific genes have a higher GC content than tissue\hyp{}specific genes was tested. There was no significant difference between non\hyp{}specific, tissue\hyp{}specific and control categories (Kruskal\hyp{}Wallis~\textit{H} = 4.2,~\textit{P} \textgreater{} 0.05; (\autoref{fig:gc-content-wholeprom}B).
-
-\begin{figure}[hbt!]
-	\begin{center}
-		\capstart
-		\includegraphics[width=1\columnwidth]{GC_content/wholeprom/GC_content_box}
-		\caption{
-			\textbf{Mean percentage GC content in different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories.}
-			Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
-			5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.  Box plots have box boundaries that represent 25th, 50th (median) and 75th percentiles; whiskers are drawn up to the largest or smallest observed point that falls within 1.5 times the interquartile range.
-			Control genes are identical in plots A and B.
-			A: Percentage GC content in 100 constitutive, variable and control genes. *, \textit{P} \textless{} 0.05. ns, not significant. \textit{N}=100.
-			B: Percentage GC content in 100 non\hyp{}specific, tissue\hyp{}specific and control genes. There was no significant difference in GC content between categories. \textit{N}=100.
-			\label{fig:gc-content-wholeprom}
-		}
-	\end{center}
-\end{figure}
-
-A sliding window analysis revealed that percentage GC content looked higher for constitutive genes than variable genes and higher for non\hyp{}specific genes than tissue\hyp{}specific genes (\autoref{fig:gc-content-sliding-window}).
-
-\begin{figure}[hbt!]
-	\begin{center}
-		\capstart
-		\includegraphics[width=1\columnwidth]{GC_content/genetypenocontrol_percentage_GC_content_median_sliding_window}
-		\caption{
-			\textbf{Sliding window analysis of percentage GC content in different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories.}
-			Promoters were extracted 1000 base pairs (bp) upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
-			5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.
-			The median percentage GC content was scored for 100 bp windows across selected CRMs.
-			The windows were overlapping with a 50 bp offset.
-			The median value for each bin is displayed here at the central bp of the bin.
-			Shading represents 95 confidence intervals estimated using 10000 bootstraps.
-			A: constitutive and variable GC content sliding windows. \textit{N}=100.
-			B: non\hyp{}specific and tissue\hyp{}specific sliding windows. \textit{N}=100.
-			\label{fig:gc-content-sliding-window}
-		}
-	\end{center}
-\end{figure}
-
-Further analysis in the first 400 bp upstream of the ATG start codon showed that there was a significant difference between constitutive, variable and control CRM types (Kruskal\hyp{}Wallis~\textit{H} = 14.8,~\textit{P} \textless{} 0.001).
-
-Dunn's post hoc tests with Bonferroni correction revealed that within the 400 bp region constitutive promoters had a significantly higher GC content (\SI{35.0}{\percent} ± 5.0) than variable CRMs (\SI{33.1}{\percent} ± 4.7; ~\textit{P} \textless{} 0.001) and control CRMs (\SI{33.8}{\percent} ± 4.2; ~\textit{P} \textless{} 0.05) (\autoref{fig:gc-content-400bpprom}).
-In the same 400 bp CRM region there was a significant difference between non\hyp{}specific, tissue\hyp{}specific and control CRMs (Kruskal\hyp{}Wallis~\textit{H} = 22.8,~\textit{P} \textless{} 0.0001). Dunn's post hocs with Bonferroni correction revealed that non\hyp{}specific (\SI{33.6}{\percent} ± 5.6; ~\textit{P} \textless{} 0.001) and control CRMs (\SI{33.8}{\percent} ± 4.2; ~\textit{P} \textless{} 0.0001) had a significantly higher GC content  than tissue\hyp{}specific CRMs (\SI{31.2}{\percent} ± 3.9).
-
-\begin{figure}[hbt!]
-	\begin{center}
-		\capstart
-		\includegraphics[width=1\columnwidth]{GC_content/400bpprom/GC_content_box}
-		\caption{
-			\textbf{Mean percentage GC content of different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories in a 400 bp region upstream of the ATG start codon.}
-			Box plots have box boundaries that represent 25th, 50th (median) and 75th percentiles; whiskers are drawn up to the largest or smallest observed point that falls within 1.5 times the interquartile range.
-			Control genes are identical in plots A and B.
-			Significance was calculated using Kruskal\hyp{}Wallis followed by Dunn's post hocs with Bonferroni correction.
-			A: Percentage GC content in 100 constitutive, variable and control CRMs. \textit{N}=100.
-			B: Percentage GC content in 100 non\hyp{}specific, tissue\hyp{}specific and control genes. \textit{N}=100.
-			****, \textit{P} \textless{} 0.0001. ***, \textit{P} \textless{} 0.001. **, \textit{P} \textless{} 0.01. *, \textit{P} \textless{} 0.05. ns, not significant.
-			\label{fig:gc-content-400bpprom}
-		}
-	\end{center}
-\end{figure}
-
-When analyses were repeated using the top 300 CRMs in each category, all GC content findings supported those found when using the top 100 CRMs.
-
-
-\subsection{Transcription factor binding site coverage}
-The hypothesis that variable CRMs have a higher TFBS coverage than constitutive genes was tested.
-TFBS coverage was not significantly different between CRM types (Kruskal\hyp{}Wallis~\textit{H} = 2.4,~\textit{P} \textgreater{} 0.05; \autoref{fig:tfbs-coverage-wholeprom}A).
-The hypothesis that tissue\hyp{}specific genes have a higher TFBS coverage than non\hyp{}specific genes was also  tested.
-TFBS coverage did not differ significantly between non\hyp{}specific, tissue\hyp{}specific or control CRM types at the whole promoter level (Kruskal\hyp{}Wallis~\textit{H} = 5.6,~\textit{P} \textgreater{} 0.05; \autoref{fig:tfbs-coverage-wholeprom}B).
-
-\begin{figure}[hbt!]
-	\begin{center}
-		\capstart
-		\includegraphics[width=1\columnwidth]{TFBS_coverage/wholeprom/TFBS_coverage_box}
-		\caption{
-			\textbf{Mean percentage TFBS coverage of different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories.}
-			Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
-			5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.
-			Box plots have box boundaries that represent 25th, 50th (median) and 75th percentiles; whiskers are drawn up to the largest or smallest observed point that falls within 1.5 times the interquartile range.
-			Control genes are identical in plots A and B.
-			Significance was calculated using Kruskal\hyp{}Wallis.
-			A: There was no significant difference in TFBS coverage between constitutive, variable or control CRMs. \textit{N}=100.
-			B: There was no significant difference in TFBS coverage between non\hyp{}specific, tissue\hyp{}specific or control CRMs. \textit{N}=100.
-			\label{fig:tfbs-coverage-wholeprom}
-		}
-	\end{center}
-\end{figure}
-The same analysis was run again using only TFBSs that fall within open chromatin. TFBS coverage differed significantly between constitutive, variable and control categories (Kruskal\hyp{}Wallis~\textit{H} = 27.1,~\textit{P} \textless{} 0.0001; \autoref{fig:tfbs-coverage-wholeprom-openchrom}A).
-Dunn's post hocs with Bonferroni correction revealed that TFBS coverage in open chromatin of variable CRMs (\SI{7.3}{\percent} ± 8.8) was significantly lower than constitutive CRMs (\SI{11.3}{\percent} ± 8.5; ~\textit{P} \textless{} 0.001) and control CRMs (\SI{12.9}{\percent} ± 9.1; ~\textit{P} \textless{} 0.0001).
-TFBS coverage also differed significantly between non\hyp{}specific, tissue\hyp{}specific and control categories (Kruskal\hyp{}Wallis~\textit{H} = 72.9,~\textit{P} \textless{} 0.0001; \autoref{fig:tfbs-coverage-wholeprom-openchrom}B).
-Dunn's post hocs with Bonferroni correction revealed that TFBS coverage in open chromatin of tissue\hyp{}specific CRMs (\SI{3.5}{\percent} ± 6.0) was significantly lower than non\hyp{}specific CRMs (\SI{10.0}{\percent} ± 10.1; ~\textit{P} \textless{} 0.0001) and control CRMs (\SI{12.9}{\percent} ± 9.1; ~\textit{P} \textless{} 0.0001).
-Non\hyp{}specific genes had a significantly lower TFBS coverage in open chromatin than control genes (\textit{P} \textless{} 0.05).
-
-\begin{figure}[hbt!]
-	\begin{center}
-		\capstart
-		\includegraphics[width=1\columnwidth]{TFBS_coverage/wholeprom_openchrom/TFBS_coverage_violin}
-		\caption{
-			\textbf{Mean percentage coverage of TFBS falling within open chromatin across different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories.}
-			Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
-			5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.
-			Open chromatin peaks derived from the intersect of root and shoot peaks derived from negative control (treated with NaOH) ATAC\hyp{}seq data by \textcite{potterCytokininModulatesContextdependent2018}.
-			Control genes are identical in violin plots A and B.
-			Significance was calculated using Kruskal\hyp{}Wallis followed by Dunn's post hocs with Bonferroni correction.
-			A: Mean percentage coverage of TFBS falling within open chromatin in constitutive, variable and control CRMs. \textit{N}=100.
-			B: Mean percentage coverage of TFBS falling within open chromatin in non\hyp{}specific, tissue\hyp{}specific and control CRMs. \textit{N}=100.
-			****, \textit{P} \textless{} 0.0001. ***, \textit{P} \textless{} 0.001. *, \textit{P} \textless{} 0.05. ns, not significant.
-			\label{fig:tfbs-coverage-wholeprom-openchrom}
-		}
-	\end{center}
-\end{figure}
-
-
-A sliding window analysis revealed that TFBS coverage was higher in variable CRMs than constitutive CRMs (\autoref{fig:tfbs-coverage-sliding-window}A) and higher in tissue\hyp{}specific CRMs than in non\hyp{}specific CRMs (\autoref{fig:tfbs-coverage-sliding-window}B) in the first 400 bp region upstream of the ATG.
-
-\begin{figure}[hbt!]
-	\begin{center}
-		\capstart
-		\includegraphics[width=1\columnwidth]{TFBS_coverage/genetypenocontrol_percentage_bases_covered_median_sliding_window}
-		\caption{
-			\textbf{Sliding window analysis of percentage TFBS coverage in different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories.}
-			Promoters were extracted 1000 base pairs (bp) upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
-			5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.
-			The median percentage TFBS coverage was scored for 100 bp windows across selected CRMs.
-			The windows were overlapping with a 50 bp offset.
-			The median value for each bin is displayed here at the central bp of the bin.
-			Shading represents 95 confidence intervals estimated using 10000 bootstraps.
-			A: constitutive and variable GC content sliding windows. \textit{N}=100.
-			B: non\hyp{}specific and tissue\hyp{}specific sliding windows. \textit{N}=100.
-			\label{fig:tfbs-coverage-sliding-window}
-		}
-	\end{center}
-\end{figure}
-
-
-Further analysis in this 400 bp region revealed a significant difference between constitutive, variable and control CRM types (Kruskal\hyp{}Wallis~\textit{H} = 10.5,~\textit{P} \textless{} 0.01;\autoref{fig:tfbs-coverage-400bpprom}A).
-Dunn's post hocs with Bonferroni correction showed that variable promoters had a significantly higher percentage bp covered (\SI{26.1}{\percent} ± 14.6) than constitutive CRMs (\SI{20.0}{\percent} ± 13.7; \textit{P} \textless 0.01) and control CRMs (\SI{21.1}{\percent} ± 13.8; \textit{P} \textless 0.05).
-
-In the same 400 bp region there was a significant difference between non\hyp{}specific, tissue\hyp{}specific and control CRM types (Kruskal\hyp{}Wallis~\textit{H} = 8.5,~\textit{P} \textless{} 0.05; \autoref{fig:tfbs-coverage-400bpprom}B).
-Dunn's post hocs showed that tissue\hyp{}specific CRMs had significantly higher TFBS percentage coverage (\SI{25.1}{\percent} ± 14.6) than non\hyp{}specific CRMs (\SI{19.4}{\percent} ± 13.3; \textit{P} \textless 0.05).
-
-
-\begin{figure}[hbt!]
-	\begin{center}
-		\capstart
-		\includegraphics[width=1\columnwidth]{TFBS_coverage/400bpprom/TFBS_coverage_box}
-		\caption{
-			\textbf{Mean percentage TFBS coverage of different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories in a 400 bp region upstream of the ATG start codon.}
-			Box plots have box boundaries that represent 25th, 50th (median) and 75th percentiles; whiskers are drawn up to the largest or smallest observed point that falls within 1.5 times the interquartile range.
-			A: Mean percentage TFBS coverage in constitutive, variable and control CRMs. \textit{N}=100.
-			B: Mean percentage TFBS coverage in non\hyp{}specific, tissue\hyp{}specific and control CRMs. \textit{N}=100.
-			Significance was calculated using Kruskal\hyp{}Wallis and Dunn's post hocs with Bonferroni correction.
-			**, \textit{P} \textless{} 0.01. *, \textit{P} \textless{} 0.05. ns, not significant.
-			\label{fig:tfbs-coverage-400bpprom}
-		}
-	\end{center}
-\end{figure}
-
-Percentage coverage of TFBSs falling within open chromatin in the 400 bp region was significantly different between constitutive, variable and control CRMs (Kruskal\hyp{}Wallis~\textit{H} = 13.2,~\textit{P} \textless{} 0.01; \autoref{fig:tfbs-coverage-400bpprom-openchrom}A).
-Dunn's post hocs with Bonferroni correction showed that variable CRMs had a significantly lower TFBS coverage (\SI{10.5}{\percent} ± 14.2) in open chromatin than constitutive (\SI{15.2}{\percent} ± 13.4; \textit{P} \textless 0.05) and control CRMs (\SI{16.1}{\percent} ± 14.0; \textit{P} \textless 0.01).
-
-Within the same 400 bp region non\hyp{}specific, tissue\hyp{}specific and control CRMs also had significantly different TFBS coverage in open chromatin (Kruskal\hyp{}Wallis~\textit{H} = 74.7,~\textit{P} \textless{} 0.0001; \autoref{fig:tfbs-coverage-400bpprom-openchrom}B).
-Dunn's post hocs with Bonferroni correction revealed that tissue\hyp{}specific CRMs had significantly lower TFBS coverage (\SI{2.5}{\percent} ± 7.0) in open chromatin than non\hyp{}specific (\SI{13.4}{\percent} ± 14.0; \textit{P} \textless 0.0001) and control CRMs (\SI{16.1}{\percent} ± 14.0; \textit{P} \textless 0.0001).
-
-\begin{figure}[hbt!]
-	\begin{center}
-		\capstart
-		\includegraphics[width=1\columnwidth]{TFBS_coverage/400bpprom_openchrom/TFBS_coverage_violin}
-		\caption{
-			\textbf{Mean percentage coverage of TFBS falling within open chromatin in different Arabidopsis \textit{cis}\hyp{}regulatory module (CRM) expression categories in a 400 bp region upstream of the ATG start codon.}
-			A: Mean percentage coverage of TFBS falling within open chromatin in 400 bp constitutive, variable and control CRMs. \textit{N}=100.
-			B: Mean percentage coverage of TFBS falling within open chromatin in 400 bp non\hyp{}specific, tissue\hyp{}specific and control CRMs. \textit{N}=100.
-			Significance was calculated using Kruskal\hyp{}Wallis and Dunn's post hocs with Bonferroni correction.
-			**, \textit{P} \textless{} 0.01. *, \textit{P} \textless{} 0.05. ns, not significant.
-			\label{fig:tfbs-coverage-400bpprom-openchrom}
-		}
-	\end{center}
-\end{figure}
-
-
-When analyses were repeated using the top 300 CRMs in each category, most findings supported those found with the top 100 CRMs.
-However, at the whole CRM level, there was a significant difference in TFBS coverage between non\hyp{}specific, tissue\hyp{}specific and control CRMs (\textit{N} = 300; Kruskal\hyp{}Wallis~\textit{H} = 7.7;~\textit{P} \textless{} 0.05).
-Dunn's post hocs with Bonferroni correction revealed that tissue\hyp{}specific CRMs had a significantly higher TFBS coverage (\SI{19.0}{\percent} ± 8.8) than non\hyp{}specific CRMs (\SI{17.6}{\percent} ± 9.5; \textit{P} \textless 0.05).
-
-\subsection{TF diversity}
-The hypothesis that variable genes have a higher diversity of TFs binding them than constitutive genes was tested.
-There was no significant difference in TF (Kruskal\hyp{}Wallis~\textit{H} = 0.9,~\textit{P} \textgreater{} 0.05) or TF family Shannon diversity (Kruskal\hyp{}Wallis~\textit{H} = 0.5,~\textit{P} \textgreater{} 0.05) between constitutive, variable or control types (\autoref{fig:tf-diversity-wholeprom}A).
-
-There was also no significant difference in TF (Kruskal\hyp{}Wallis~\textit{H} = 2.3,~\textit{P} \textgreater{} 0.05) or TF family diversity (Kruskal\hyp{}Wallis~\textit{H} =2.3,~\textit{P} \textgreater{} 0.05) between non\hyp{}specific, tissue\hyp{}specific or control CRMs (\autoref{fig:tf-diversity-wholeprom}B).
-
-There was also no significant difference in TF or TF family Shannon diversity using TFBS falling within open chromatin between constitutive, variable and control CRMs (TF diversity: \textit{N} = 54, Kruskal\hyp{}Wallis~\textit{H} = 3.0,~\textit{P} \textgreater{} 0.05; TF family diversity: \textit{N} = 54, Kruskal\hyp{}Wallis~\textit{H} = 0.9,~\textit{P} \textgreater{} 0.05) or non\hyp{}specific, tissue\hyp{}specific or control CRMs (TF diversity: \textit{N} = 37, Kruskal\hyp{}Wallis~\textit{H} = 4.0,~\textit{P} \textgreater{} 0.05; TF family diversity: \textit{N} = 37, Kruskal\hyp{}Wallis~\textit{H} = 4.8,~\textit{P} \textgreater{} 0.05).
-
-\begin{figure}[hbt!]
-	\begin{center}
-		\capstart
-		\includegraphics[width=1\columnwidth]{TF_diversity/wholeprom/TF_diversity_box}
-		\caption{
-			\textbf{Shannon diversity of individual TFs (A) and TF families (B) of 100 constitutive (blue), 100 variable (orange) and 100 control (green) Arabidopsis \textit{cis}\hyp{}regulatory modules (CRMs).}
-			Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
-			5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.  Box plots have box boundaries that represent 25th, 50th (median) and 75th percentiles; whiskers are drawn up to the largest or smallest observed point that falls within 1.5 times the interquartile range.
-			There was no significant difference between categories for either TF Shannon diversity or TF family Shannon diversity.
-			\label{fig:tf-diversity-wholeprom}
-		}
-	\end{center}
-\end{figure}
-
-A sliding window analysis revealed that in the constitutive open chromatin region 50-150 bp upstream of the ATG start codon variable promoters looked to have slightly higher Shannon diversity than constitutive promoters (\autoref{fig:tf-diversity-sliding-window}A) and tissue\hyp{}specific promoters looked to have a higher Shannon diversity than non\hyp{}specific promoters (\autoref{fig:tf-diversity-sliding-window}B).
-Median TF family Shannon diversity did not differ from 0 at any point along the CRM for any gene category.
-
-In a 400 bp region upstream of the TSS the same TF Shannon diversity analyses were run.
-Again no significant difference in TF or TF family diversity was found between any CRM types whether using all TFBSs or only including those falling within open chromatin (All Kruskal-Wallis tests, ~\textit{P} \textgreater{} 0.05).
-
-
-\begin{figure}[hbt!]
-	\begin{center}
-		\capstart
-		\includegraphics[width=1\columnwidth]{TF_diversity/genetypenocontrol_TF_diversity_median_sliding_window}
-		\caption{
-			\textbf{Sliding window analysis of TF Shannon diversity in 100 constitutive (blue) and 100 variable (orange) Arabidopsis \textit{cis}\hyp{}regulatory modules (CRMs).}
-			Promoters were extracted 1000 base pairs (bp) upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
-			5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.
-			Data points are positioned in the centre of each 100 bp window.
-			Windows are offset by 50 bp.
-			Shading represents 95 confidence intervals estimated using 10000 bootstraps.
-			A: Median Shannon diversity of individual TFs sliding windows in constitutive and variable CRMs. \textit{N}=100.
-			B: Median Shannon diversity of individual TFs sliding windows in non\hyp{}specific and tissue\hyp{}specific CRMs. \textit{N}=100.
-			\label{fig:tf-diversity-sliding-window}
-		}
-	\end{center}
-\end{figure}
-
-A principal component analysis was run using the Shannon diversity of TF families binding promoters in each category to elucidate whether some TF families were more important for defining a promoter category.
-To test the hypothesis that constitutive genes are bound by a different set of TF families than variable genes, Kmeans clustering was conducted.
-Kmeans clustering of the diversity of TF families binding to 400 bp CRMs did not correspond to gene type \autoref{fig:pca-cv}).
-
-\begin{figure}[hbt!]
-	\begin{center}
-		\capstart
-		\includegraphics[width=1\columnwidth]{TF_diversity/400bpprom/PCA_Kmeans_TF_family_counts_cv}
-		\caption{
-			\textbf{Two PCA components accounting for the highest percent of variation for Shannon diversity of TF families binding promoters.}
-			A principal component analysis was run where \SI{95}{\percent} of the variation was maintained with 22 components.
-			Hierarchical clustering was used to estimate the number of clusters, K, using the silhouette method \autocite{rousseeuwSilhouettesGraphicalAid1987} which was then used in as K in Kmeans clustering.
-			A, points coloured with two Kmeans clusters.
-			B, points coloured by gene type. Constitutive genes, blue. Variable genes, orange. Control genes, green.
-			\label{fig:pca-cv}
-		}
-	\end{center}
-\end{figure}
-
-To test the hypothesis that non\hyp{}specific genes are bound by a different set of TF families than tissue\hyp{}specific genes, Kmeans clustering was conducted.
-Kmeans clustering of the diversity of TF families binding 400 bp CRMs did not correspond to gene type (\autoref{fig:pca-tau}).
-\begin{figure}[hbt!]
-	\begin{center}
-		\capstart
-		\includegraphics[width=1\columnwidth]{TF_diversity/400bpprom/PCA_Kmeans_TF_family_counts_tau}
-		\caption{
-			\textbf{Two PCA components accounting for the highest percent of variation for Shannon diversity of TF families binding promoters.}
-			A principal component analysis was run where \SI{95}{\percent} of the variation was maintained with 22 components.
-			Hierarchical clustering was used to estimate the number of clusters, K, using the silhouette method \autocite{rousseeuwSilhouettesGraphicalAid1987} which was then used in as K in Kmeans clustering.
-			A, points coloured with two Kmeans clusters.
-			B, points coloured by gene type. Non\hyp{specific} genes, green. Tissue\hyp{}specific genes, grey. Control genes, brown.
-			\label{fig:pca-tau}
-		}
-	\end{center}
-\end{figure}
-The number of genes included in the analyses of TF and TF family diversity using only TFBSs falling within open chromatin was low (ranging from \textit{N} = 20 to \textit{N} = 54) because genes with no TFBSs in open chromatin were filtered out.
-
-To increase sample size, all analyses were repeated using the top 300 CRMs in each category.
-The findings mainly supported the results found with the top 100 CRMs in each category except for the following.
-
-%At the whole CRM level there was no significant difference in TF (\textit{N} = 300; Kruskal\hyp{}Wallis~\textit{H} = 0.8, ~\textit{P} \textgreater{} 0.05) or TF family diversity (\textit{N} = 300; Kruskal\hyp{}Wallis~\textit{H} = 0.6, ~\textit{P} \textgreater{} 0.05) between constitutive, variable and control CRMs.
-%There was also no significant difference in TF (\textit{N} = 208; Kruskal\hyp{}Wallis~\textit{H} = 0.8;~\textit{P} \textgreater{} 0.05) or TF family diversity (\textit{N} = 208; Kruskal\hyp{}Wallis~\textit{H} = 1.0; ~\textit{P} \textgreater{} 0.05) when only using TFBSs falling within open chromatin.
-%There was a significant difference in TF Shannon diversity between non\hyp{}specific, tissue\hyp{}specific or control CRMs (\textit{N} = 300, Kruskal\hyp{}Wallis~\textit{H} = 13.2, ~\textit{P} \textless{} 0.01).
-%Dunn's post hocs with Bonferroni correction revealed that control genes had a significantly higher Shannon diversity (2.8 ± 0.8) than non\hyp{}specific (2.6 ± 1.0; ~\textit{P} \textless{} 0.05) and tissue\hyp{}specific genes (2.6 ± 0.9; ~\textit{P} \textless{} 0.01).
-%There was a significant difference TF family diversity non\hyp{}specific, tissue\hyp{}specific and control CRMs (\textit{N} = 300, Kruskal\hyp{}Wallis~\textit{H} = 8.0;~\textit{P} \textless{} 0.05).
-%Dunn's post hocs with Bonferroni correction revealed that control CRMs had a significantly higher TF family diversity (1.9 ± 0.5) than tissue\hyp{}specific CRMs (1.8 ± 0.6;~\textit{P} \textless{} 0.05).
-Using only TFBSs falling within open chromatin there was a significant difference in TF diversity between non\hyp{}specific, tissue\hyp{}specific and control CRMs (\textit{N} = 112, Kruskal\hyp{}Wallis~\textit{H} = 10.2;~\textit{P} \textless{} 0.01).
-Dunn's post hocs with Bonferroni correction revealed that tissue\hyp{}specific CRMs (2.1 ± 1.2) had a significantly lower TF diversity than non\hyp{}specific (2.5 ± 1.0;~\textit{P} \textless{} 0.05) and control CRMs (2.6 ± 0.9;~\textit{P} \textless{} 0.01).
-%Using only TFBSs falling within open chromatin there was also a significant difference in TF family diversity between non\hyp{}specific, tissue\hyp{}specific and control CRMs (\textit{N} = 112, Kruskal\hyp{}Wallis~\textit{H} = 11.5;~\textit{P} \textless{} 0.01).
-%Dunn's post hocs with Bonferroni correction revealed that tissue\hyp{}specific CRMs (1.4 ± 0.8) had a significantly lower TF family diversity than control CRMs (1.8 ± 0.6;~\textit{P} \textless{} 0.01).
-
-%At the 400 bp promoter level there was a significant difference in TF diversity between constitutive, variable and control CRMs (\textit{N} = 300; Kruskal\hyp{}Wallis~\textit{H} = 6.0, ~\textit{P} \textless{} 0.05).
-%However, Dunn's post hocs with Bonferroni correction revealed no significant difference between groups (\textit{P} \textgreater{} 0.05).
-
-%In the same 400 bp CRM there was no significant difference in TF family diversity between constitutive, variable and control CRMs (\textit{N} = 300; Kruskal\hyp{}Wallis~\textit{H} = 5.0, ~\textit{P} \textgreater{} 0.05).
-
-%At the 400 bp promoter level there was a significant difference in TF diversity between non\hyp{}specific, tissue\hyp{}specific and control CRMs (\textit{N} = 300; Kruskal\hyp{}Wallis~\textit{H} = 7.7, ~\textit{P} \textless{} 0.05).
-%Dunn's post hocs with Bonferroni correction revealed that non\hyp{}specific CRMs (2.1 ± 1.2) had a significantly lower TF diversity than control CRMs (2.3 ± 1.0;~\textit{P} \textless{} 0.05).
-There was also a significant difference in TF family diversity in the 400 bp CRM between non\hyp{}specific, tissue\hyp{}specific and control CRMs (\textit{N} = 300; Kruskal\hyp{}Wallis~\textit{H} = 8.1,~\textit{P} \textless{} 0.05).
-Dunn's post hocs with Bonferroni correction revealed that non\hyp{}specific CRMs (1.3 ± 0.8) had a significantly lower TF diversity than control CRMs (1.5 ± 0.7;~\textit{P} \textless{} 0.05) and tissue\hyp{}specific CRMs (1.5 ± 0.7;~\textit{P} \textless{} 0.05).
-
-%There was no significant difference in TF or TF family diversity in the 400 bp promoter within open chromatin between constitutive, variable and control CRMs or between non\hyp{}specific, tissue\hyp{}specific and control CRMs (All Kruskal-Wallis tests; \textit{P} \textgreater{} 0.05).
-
-
-%\begin{figure}[hbt!]
-%	\begin{center}
-%		\capstart
-%		\includegraphics[width=1\columnwidth]{TF_diversity/400bpprom/TF_diversity_box}
-%		\caption{
-%			\textbf{Shannon diversity of individual TFs (A) and TF families (B) of 100 constitutive (blue), 100 variable (orange) and 100 control (green) Arabidopsis \textit{cis}\hyp{}regulatory modules (CRMs) in a 400 bp region upstream of the ATG start codon.}
-%			Box plots have box boundaries that represent 25th, 50th (median) and 75th percentiles; whiskers are drawn up to the largest or smallest observed point that falls within 1.5 times the interquartile range.
-%			\label{fig:tf-diversity-400bpprom}
-%			Significance was calculated using Kruskal\hyp{}Wallis and Dunn's post hocs with Bonferroni correction.
-%			*, \textit{P} \textless{} 0.05. ns, not significant.
-%		}
-%	\end{center}
-%\end{figure}
-
-
-%ADD KMEANS CLUSTERING PLOT TOO
-
-\subsection{TATA box enrichment}
-
-Enrichment of 15 bp TATA boxes was compared between constitutive and
-variable genes to test the hypothesis that variable genes are enriched in TATA boxes.
-Variable promoters were enriched in TATA boxes (total TATA boxes = 53; observed bp=840; expected bp=643; log2fold=0.39;~\textit{P} \textless{} 0.01) compared to the background of all 200 constitutive and variable promoters
-(\autoref{fig:tata-enrichment}A).
-Conversely, constitutive promoters had significantly fewer TATA boxes compared to the background of all 200 constitutive and variable promoters (total TATA boxes = 29; observed bp=457; expected bp=656; log2fold=-0.52;~\textit{P} \textless{} 0.01).
-Enrichment of 15 bp TATA boxes was also compared between non\hyp{}specific and
-tissue\hyp{}specific genes to test the hypothesis that tissue\hyp{}specific genes are enriched in TATA boxes over non\hyp{}specific genes.
-
-Tissue\hyp{}specific promoters were not significantly enriched in TATA boxes (total TATA boxes = 33; observed bp=560; expected bp=484; log2fold=0.21;~\textit{P} \textgreater{} 0.05) compared to the background of all 200 non\hyp{}specific and tissue\hyp{}specific promoters.
-(\autoref{fig:tata-enrichment}B).
-Non\hyp{}specific promoters were also not significantly enriched in TATA boxes (total TATA boxes = 27; observed bp=432; expected bp=508; log2fold=-0.23;~\textit{P} \textgreater{} 0.05) compared to the background of all 200 non\hyp{}specific and tissue\hyp{}specific promoters.
-
-Analyses were run using the top 300 CRMs in each category.
-As with the top 100 CRMs, variable promoters were enriched in TATA boxes compared to background CRMs (total TATA boxes = 177; observed bp=2956; expected bp=2376; log2fold=0.31;~\textit{P} \textless{} 0.01) and constitutive CRMs had significantly fewer TATA boxes compared to background CRMs (total TATA boxes = 94; observed bp=1492; expected bp=2082; log2fold=-0.48;~\textit{P} \textless{} 0.01).
-Interestingly, tissue\hyp{}specific promoters were significantly enriched in TATA boxes compared to the background of all 600 non\hyp{}specific and tissue\hyp{}specific promoters (total TATA boxes = 144; observed bp=2417; expected bp=1833; log2fold=0.40;~\textit{P} \textless{} 0.01).
-Non\hyp{}specific promoters had significantly fewer TATA boxes compared to the background of all 600 promoters (total TATA boxes = 81; observed bp=1303; expected bp=1885; log2fold=-0.53;~\textit{P} \textless{} 0.01).
-
-\begin{figure}[!h]
-	\begin{center}
-		\capstart
-		\includegraphics[width=1\columnwidth]{TATA/TATA_enrichment_log2fold}
-		\caption{
-			\textbf{Log2\hyp{}fold enrichment of 15 bp TATA boxes in 100 variable (blue) and 100 constitutive (orange) Arabidopsis \textit{cis}\hyp{}regulatory modules (CRMs) compared to a background of constitutive and variable promoters combined.}
-			Promoters were extracted 1000 bp upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
-			5$\prime$ UTRs were extended downstream of the TSS to the closest coding region.
-			TATA box locations within 50 bp upstream of the Eukaryotic Promoter Database (EPD) TSS were downloaded from EPD \autocite{dreosInfluenceRotationalNucleosome2016}.
-			Gat software~\autocite{hegerGATSimulationFramework2013} was used to calculate enrichment.
-			\label{fig:tata-enrichment}
-		}
-	\end{center}
-\end{figure}
-
-\subsection{Transcription factors binding \textit{cis}\hyp{}regulatory modules}
-The TFs predicted to bind promoters in each category were analysed.
-The hypothesis that constitutive CRMs are not necessarily bound by only constitutive TFs but rather both constitutive and variable TFs was tested.
-The TF expression CV of TFs predicted to bind CRMs did not differ significantly between constitutive, variable and control CRMs (\textit{N} = 100; Kruskal\hyp{}Wallis~\textit{H} = 1.9; ~\textit{P} \textgreater{} 0.05).
-The TF expression CV of TFs predicted to bind CRMs in open chromatin also did not differ significantly between constitutive, variable and control CRMs (\textit{N} = 53; Kruskal\hyp{}Wallis~\textit{H} = 0.2;~\textit{P} \textgreater{} 0.05).
-
-The Tau tissue\hyp{}specificity of TFs predicted to bind CRMs did not differ significantly between tissue\hyp{}specific, non\hyp{}specific and control CRMs (\textit{N} = 100; Kruskal\hyp{}Wallis~\textit{H} = 3.8; ~\textit{P} \textgreater{} 0.05).
-The TF Tau tissue\hyp{}specificity of TFs predicted to bind CRMs in open chromatin also did not differ significantly between tissue\hyp{}specific, non\hyp{}specific and control CRMs (\textit{N} = 37; Kruskal\hyp{}Wallis~\textit{H} = 3.3;~\textit{P} \textgreater{} 0.05).
-
-In 400 bp CRMs there was a significant difference in TF expression CV of TFs predicted to bind CRMs between constitutive, variable and control CRMs (\textit{N} = 92; Kruskal\hyp{}Wallis~\textit{H} = 6.9;~\textit{P} \textless{} 0.05).
-However, Dunn's post hocs with Bonferroni correction did not reveal an significant difference between any two categories (~\textit{P} \textgreater{} 0.05).
-The TF expression CV of TFs predicted to bind 400 bp CRMs in open chromatin did not differ significantly between constitutive, variable and control CRMs (\textit{N} = 51; Kruskal\hyp{}Wallis~\textit{H} = 4.3;~\textit{P} \textgreater{} 0.05).
-
-In 400 bp CRMs there was a significant difference in TF Tau tissue\hyp{}specificity of TFs predicted to bind CRMs between tissue\hyp{}specific, non\hyp{}specific and control CRMs (\textit{N} = 92; Kruskal\hyp{}Wallis~\textit{H} = 6.2;~\textit{P} \textless{} 0.05).
-Dunn's post hocs with Bonferroni correction revealed no significant difference between any two categories ( ~\textit{P} \textgreater{} 0.05).
-The TF Tau tissue\hyp{}specificity of TFs predicted to bind 400 bp CRMs in open chromatin differed significantly between tissue\hyp{}specific, non\hyp{}specific and control CRMs (\textit{N} = 23; Kruskal\hyp{}Wallis~\textit{H} = 9.4;~\textit{P} \textless{} 0.01).
-Dunn's post hocs with Bonferroni correction revealed that the mean Tau tissue\hyp{}specificity was significantly higher for TFs binding non\hyp{}specific CRMs (0.70 ± 0.16) than TFs binding tissue\hyp{}specific CRMs (0.66 ± 0.16;~\textit{P} \textless{} 0.01; \autoref{fig:TFBS-TF-class-400bpprom-openchrom}).
-%add figure%
-\begin{figure}[hbt!]
-	\begin{center}
-		\capstart
-		\includegraphics[width=1\columnwidth]{TFBS_TF_class/400bpprom_openchrom/TF_expression_categories_box}
-		\caption{
-			\textbf{Tau tissue\hyp{}specificity of Arabidopsis TFs binding \textit{cis}\hyp{}regulatory modules (CRMs) falling within open chromatin in different gene expression categories in a 400 bp region upstream of the ATG start codon.}
-			A: Tau tissue\hyp{}specificity of TFs binding within open chromatin in 400 bp constitutive, variable and control CRMs. \textit{N}=100.
-			B: Tau tissue\hyp{}specificity of TFs binding within open chromatin in 400 bp non\hyp{}specific, tissue\hyp{}specific and control CRMs. \textit{N}=100.
-			Significance was calculated using Kruskal\hyp{}Wallis and Dunn's post hocs with Bonferroni correction.
-			**, \textit{P} \textless{} 0.01. ns, not significant.
-			\label{fig:TFBS-TF-class-400bpprom-openchrom}
-		}
-	\end{center}
-\end{figure}
-The analyses were repeated using the top 300 CRMs in each category.
-
-The TF expression CV of TFs predicted to bind CRMs did not differ significantly between constitutive, variable and control CRMs (\textit{N} = 299; Kruskal\hyp{}Wallis~\textit{H} = 0.5;~\textit{P} \textgreater{} 0.05).
-The TF expression CV of TFs predicted to bind CRMs in open chromatin also did not differ significantly between constitutive, variable and control CRMs (\textit{N} = 206; Kruskal\hyp{}Wallis~\textit{H} = 0.6; ~\textit{P} \textgreater{} 0.05).
-
-The TF Tau tissue\hyp{}specificity of TFs predicted to bind CRMs differed significantly between tissue\hyp{}specific, non\hyp{}specific and control CRMs (\textit{N} = 299; Kruskal\hyp{}Wallis~\textit{H} = 3.8;~\textit{P} \textless{} 0.05).
-Dunn's post hocs with Bonferroni correction revealed that TFs binding non\hyp{}specific CRMs had a significantly higher Tau tissue\hyp{}specificity (0.68 ± 0.16) than tissue\hyp{}specific CRMs (0.67 ± 0.16;~\textit{P} \textless{} 0.01).
-The TF Tau tissue\hyp{}specificity of TFs predicted to bind CRMs in open chromatin also differed significantly between tissue\hyp{}specific, non\hyp{}specific and control CRMs (\textit{N} = 112; Kruskal\hyp{}Wallis~\textit{H} = 9.0;~\textit{P} \textless{} 0.05).
-Dunn's post hocs with Bonferroni correction revealed that TFs binding non\hyp{}specific CRMs in open chromatin had a significantly higher Tau tissue\hyp{}specificity (0.68 ± 0.16) than control CRMs (0.66 ± 0.16; ~\textit{P} \textless{} 0.05).
-
-In 400 bp CRMs there was no significant difference in TF expression CV of TFs predicted to bind CRMs between constitutive, variable and control CRMs (\textit{N} = 275; Kruskal\hyp{}Wallis~\textit{H} = 2.0;~\textit{P} \textgreater{} 0.05).
-In the same 400bp region there was no significant difference in TF expression CV of TFs predicted to bind CRMs within open chromatin between constitutive, variable and control CRMs (\textit{N} = 177; Kruskal\hyp{}Wallis~\textit{H} = 1.1; ~\textit{P} \textgreater{} 0.05).
-
-
-
-In 400 bp CRMs there was a significant difference in TF Tau tissue\hyp{}specificity of TFs predicted to bind CRMs between tissue\hyp{}specific, non\hyp{}specific and control CRMs (\textit{N} = 279; Kruskal\hyp{}Wallis~\textit{H} = 7.6; ~\textit{P} \textless{} 0.05).
-Dunn's post hocs with Bonferroni correction revealed that TFs binding CRMs of non\hyp{}specific genes had a significantly higher Tau tissue\hyp{}specificity (0.67 ± 0.16) than TFs binding CRMs of tissue\hyp{}specific genes (0.66 ± 0.15;~\textit{P} \textless{} 0.05).
-There was a significant difference in TF Tau tissue\hyp{}specificity of TFs binding 400bp CRMs in open chromatin (\textit{N} = 85; Kruskal\hyp{}Wallis~\textit{H} = 21.7; ~\textit{P} \textless{} 0.0001).
-Dunn's post hocs with Bonferroni correction revealed that TFs binding non\hyp{}specific CRMs in open chromatin had significantly higher Tau tissue\hyp{}specificity (0.69 ± 0.16) than TFs binding tissue\hyp{}specific (0.65 ± 0.15;~\textit{P} \textless{} 0.0001) or control CRMs (0.66 ± 0.15;~\textit{P} \textless{} 0.01).
-
-
-
-
-
-%\subsection{Transcription factor target}
-%170 TFs in each category chosen - as only 571 TFs present in all genes set and needs to be divisible by 10 for the control set. Not many of the TFs predicted to bind promoters in the whole gene set (18 cv, 23 tau with top 150 TFs in each category). Control set still need standardising between the two sets. Leave this analysis out of chapter as samples sizes too small!
-
-%Mention top 300 in each category - non-specific significantly lower TF family diversity than tissue_specific p<0.05
-
-%TALK ABOUT 5$\prime$ UTR lengths - test if constitutive have longer 5$\prime$ UTR lengths (check for expected  hypothesis first and see if useful comparison or not)
-%\begin{figure}[!h]
-%	\begin{center}
-%		\capstart
-%		\includegraphics[width=1\columnwidth]{slidingwindow_combined/Czechowski_genetypenocontrol_all_combined_rw_median_sliding_window}
-%		\caption{
-%			Sliding window analysis of 100 constitutive (blue) and 100 variable (orange) Arabidopsis \textit{cis}\hyp{}regulatory modules (CRMs).
-%			Promoters were extracted 1000 base pairs (bp) upstream of the annotated Araport 11 \autocite{chengAraport11CompleteReannotation2017} TSS or until the nearest gene.
-%			5UTRs were extended downstream of the TSS to the closest coding region.
-%			Data points are positioned in the centre of each 100 bp window.
-%			Windows are offset by 50 bp.
-%			Shading represents 95 confidence intervals estimated using 10000 bootstraps.
-%			A: Median percentage of open chromatin peaks overlapping 100 bp windows. Open chromatin peaks derived from the intersect of root and shoot peaks derived from negative control (treated with NaOH) ATAC\hyp{}seq data by \textcite{potterCytokininModulatesContextdependent2018}.
-%			B: Position of Araport11 annotated transcription start site (TSS) upstream of the ATG start codon of the closest coding region.			
-%			C: Median percentage GC content in 100 bp windows. N = 95
-%			D: Median percentage bp covered by at least one transcription factor binding site.
-%			E: Shannon diversity of individual transcription factors binding within each 100 bp window.
-%			\label{fig:all-combined-sliding-window}
-%		}
-%	\end{center}
-%\end{figure}
-
-\end{document}
-
-
+In animals, TATA boxes are enriched in variable promoters~\autocite{engstromGenomicRegulatoryBlocks2007,carninciGenomewideAnalysisMammalian2006}, while CpG islands are enriched in constitutive promoters.
+Additionally, mammalian constitutive promoters have a higher GC content than responsive promoters~\autocite{vinogradovDNAHelixImportance2017, weiCharacterizationGenePromoters2019}.
+The proximal promoter region typically extends ~200\hyp{}300 bp upstream of the TSS and includes the part of the core promoter upstream of the TSS. The proximal promoter region also includes CREs for proteins including transcription factors.
+The distal promoter can extend several 1000 bp upstream of the proximal promoter, and contains more CREs. However, these often have weaker influence on transcription than those in the proximal \autocite{pandiarajanVivoPromoterEngineering2018}.
+
+\textcite*{mortonPairedEndAnalysisTranscription2014} used paired\hyp{}end analysis of TSSs (PEAT) to create a
+dataset of TSSs from \textit{Arabidopsis thaliana} root samples. This
+dataset was used to create a machine learning model called the Plant
+PEAT Peaks (3PEAT) model, which predicts the TSS probability at any
+given nucleotide. The majority of core plant promoters were found to be
+TATA\hyp{}less, and instead contained many other CREs. \textcite*{thieffryCharacterizationArabidopsisThaliana2020} conducted cap\hyp{}analysis gene expression (CAGE) in Arabidopsis which agreed with \SI{95}{\percent} of the PEAT TSSs and was also more sensitive at
+detecting more lowly expressed TSSs. Many core promoters contain a
+cluster of multiple TSSs called the transcription start region (TSR)~\autocite{carninciGenomewideAnalysisMammalian2006,rachMotifCompositionConservation2009,niPairedendSequencingStrategy2010}. TSRs can be split into classes based on how wide a
+region they cover in the core promoter. Narrow regions are associated
+with strong, spatio\hyp{}temporal expression, and broader regions with the
+weaker expression often associated with constitutively expressed
+maintenance genes~\autocite{mortonPairedEndAnalysisTranscription2014}.
+
+\paragraph{The enhancer}\label{chapter1:the-enhancer}
+
+Enhancers increase promoter activity, improving the spatio\hyp{}temporal
+specificity of transcription in their target genes. Like promoters,
+enhancers are DNA sequences that can contain many CREs recruiting a
+variety of TFs and ncRNAs. Enhancers help activate transcription
+regardless of their location, orientation or distance from promoters of
+genes~\autocite{banerjiExpressionBetaglobinGene1981} (\autoref{fig:crm}). There
+are several models explaining how enhancers work: (i) The proteins bound
+to enhancers and promoters interact with each other by looping out the
+DNA in between them~\autocite{carterLongrangeChromatinRegulatory2002,tolhuisLoopingInteractionHypersensitive2002,vilarDNALoopingGene2005,delaatChapterThreeDimensional2008,amanoChromosomalDynamicsShh2009}.
+These interactions form the
+transcription initiation protein complexes. This model is the most
+highly accepted model. (ii) Enhancers can act by nucleosome remodelling,
+supercoiling of DNA, and altering chromatin structure, facilitating the
+entry of regulatory proteins to activate transcription~\autocite{corlessEffectsDNASupercoiling2016}. (iii) It has been suggested that both enhancers and
+promoters share a common regulatory code, with transcription being
+initiated at both~\autocite{coreNascentRNASequencing2008,engreitzLocalRegulationGene2016}. RNA polymerase II binds the core
+promoter where it transcribes DNA in both the sense and antisense
+directions. This is called bidirectional transcription. At promoters
+this typically yields long, stable polyadenylated transcripts in the
+sense direction, and short, unstable non\hyp{}polyadenylated transcripts in
+the antisense direction~\autocite{anderssonPromoterEnhancerWhat2015}. At enhancers, unstable RNAs
+called enhancer RNAs are produced in both directions~\autocite{dingEnhancerRNAsERNAs2018}.
+These ncRNAs, along with cohesin, can stabilise long range
+enhancer\hyp{}promoter interactions~\autocite{oromLongNoncodingRNAs2010}. In addition, introns
+containing enhancers can sometimes be more important than the promoter
+for initiating transcription~\autocite{gallegosIntronDNASequences2017}. In \textit{Drosophila}, two
+classes of enhancers were identified that were specific to either
+constitutively expressed promoters and variable promoters respectively~\autocite{zabidiEnhancerCorepromoterSpecificity2015}.
+More than one enhancer can loop to the same promoter, and promoters with more enhancer loop interactions were more conserved than promoters forming fewer enhancer interactions~\autocite{dankoDynamicEvolutionRegulatory2018a}.
+
+\paragraph{The 5'-untranslated region}\label{chapter1:the-5-untranslated-region}
+
+In protein coding genes, the 5'UTR is the stretch of DNA found between a
+TSS and the translation start codon. This region is transcribed into
+mRNA but is not translated into protein. Plant 5'UTRs can contain a
+pyrimidine\hyp{}rich region (5'UTR Py\hyp{}rich stretch) which greatly improves
+the transcription rate~\autocite{choudhuryComparativeStudyCultivar2009,duIsolationFunctionalCharacterization2010,bianCloningExpressionCharacterization2011}.
+The 5' ends of the mRNAs are
+processed by the replacement of the free triphosphate group with a
+guanosine triphosphate. Once in place, this 5' cap plays a role in the
+recognition of the mRNA by the ribosome~\autocite{byszewskaRNAMethyltransferasesInvolved2014,ramanathanMRNACappingBiological2016}. The mRNAs of
+mitochondria~\autocite{temperleyHumanMitochondrialMRNAs2010} and chloroplasts~\autocite{mondeProcessingDegradationChloroplast2000} are
+not capped. Once transcribed, the 5'UTR sequence can contain an upstream
+open reading frame (uORF) (\SI{50}{\percent} of human 5'UTRs do)~\autocite{calvoUpstreamOpenReading2009},
+a guanine\hyp{}rich region~\autocite{beaudoinUTRGquadruplexStructures2010} and an internal ribosome entry
+site (IRES)~\autocite{jimenez-gonzalezFunctionalStructuralAnalysis2014}.
+Alternative 5'UTRs can be produced via alternative splicing or through
+transcription initiation from a different TSS~\autocite{smithPosttranscriptionalRegulationGene2008}.
+Because current TSS annotations in the Arabidopsis genome~\autocite{lameschArabidopsisInformationResource2012} are not accurate~\autocite{mortonPairedEndAnalysisTranscription2014,thieffryCharacterizationArabidopsisThaliana2020} and the 5'UTR may contain CREs, it is important to include the 5'UTR in regulatory sequence studies to encompass the whole TSR.
+
+\subsubsection{\textit{Trans}-acting DNA regulation}\label{chapter1:trans-acting-dna-regulation}
+
+A \textit{trans}\hyp{}regulatory sequence is a DNA sequence that contains a
+gene encoding for a protein or ncRNA that is used in the regulation of
+another target gene~\autocite{watsonRecombinantDNAGenes2007}. \textit{Trans}\hyp{}acting regulation
+can involve the specific binding of a \textit{trans}\hyp{}acting molecule such
+as a TF or ncRNA to a DNA CRE. Another form of \textit{trans}\hyp{}acting
+regulation involves non\hyp{}specific DNA binding by molecules such as
+eukaryotic histone proteins in nucleosomes~\autocite{zhangIntrinsicHistoneDNAInteractions2009}.
+
+\paragraph{Sequence specific \textit{trans}-regulation}\label{chapter1:sequence-specific-trans-regulation}
+
+TFs are \textit{trans}\hyp{}acting proteins with domains which bind to TFBSs in
+DNA. ncRNAs can contain DNA binding domains which form triple helices
+with certain \textit{cis}\hyp{}regulatory elements called triplex target sites
+(TTS)~\autocite{kuoDetectionRNADNA2019}. TFs and ncRNAs can contain domains which
+interact with other proteins to form complexes which can enhance or
+repress gene transcription. Some TFs are able to bind DNA as both
+homodimers and heterodimers, increasing regulatory combinations. DNA
+regulatory modules such as enhancers can be found on different
+chromosomes to the gene they are regulating, where they function in
+\textit{trans}~\autocite{geyerTissuespecificTranscriptionalEnhancers1990,xuTransientHomologousChromosome2006,lomvardasInterchromosomalInteractionsOlfactory2006}.
+
+TFs are often part of large families, and many TFs within the same
+family can bind to highly overlapping sets of binding sites. TFs from
+different families such as bZIPs and bHLHs can compete to bind the same
+TFBS~\autocite{toledo-ortizHY5PIFRegulatoryModule2014}. Change in the expression of one TF can
+result in cross talk, where the expression of gene targets of other TFs
+from the same family are also altered~\autocite{nuruzzamanRolesNACTranscription2013}. Plant TF
+families have higher expansion rates than other eukaryotes, not only due
+to genome duplications, but also due to increased retention of duplications
+within TF families compared to other plant genes~\autocite{shiuTranscriptionFactorFamilies2005}.
+
+An important aspect of TF\hyp{}DNA interactions is the DNA shape. Most
+DNA\hyp{}protein interactions occur in the major groove, where bases are most
+accessible~\autocite{paboProteinDNARecognition1984}, although some occur in the minor groove~\autocite{bewleyMinorGroovebindingArchitectural1998}. TFs undergo rapid rebinding to ensure the correct orientation is achieved during docking to DNA~\autocite{ganjiDNABindingProteins2016}. The
+DNA base cytosine can be methylated, becoming 5\hyp{}methylcytosine (5mC). By
+comparing TF binding affinity to TFBSs with and without 5mC, it has been
+suggested that TFs might belong to three main groups: (i)
+methylation\hyp{}inhibited, (ii) methylation\hyp{}insensitive and (iii)
+methylation\hyp{}preferred \autocite{huangPiecingTogetherCisregulatory2018}. Out of \SI{30}{\percent} of
+Arabidopsis TFs studied, \SI{76}{\percent} were sensitive to methylation in
+their corresponding TFBSs~\autocite{omalleyCistromeEpicistromeFeatures2016}. In a GRN it is important
+to incorporate the sequence specific interactions between
+\textit{trans}\hyp{}acting molecules, and also between themselves and
+regulatory regions in DNA to better understand how to manipulate
+networks.
+
+\paragraph{Chromatin}\label{chapter1:chromatin}
+
+Eukaryotic genomes are packed into chromatin, a complex of protein, RNA
+and DNA~\autocite{mondalCharacterizationRNAContent2010}, made up of repeating units called
+nucleosomes consisting of a histone octamer wrapped around by \num{146} or \num{147}
+bp of DNA~\autocite{richmondStructureDNANucleosome2003}. Many DNA CRMs such as promoters and
+enhancers are depleted of nucleosomes and some are nucleosome
+free~\autocite{struhlDeterminantsNucleosomePositioning2013}. In gene regulatory studies it is important to
+incorporate data on non\hyp{}sequence specific interactions between
+\textit{trans}\hyp{}acting molecules (\eg{} nucleosome histone proteins) and DNA,
+as they reduce how accessible DNA is to other \textit{trans}\hyp{}acting
+molecules. Nucleosomes can inhibit the access of TFs to TFBSs. Chromatin
+regions highly accessible to DNA\hyp{}binding proteins are called
+deoxyribonuclease (DNase) I hypersensitive sites (DHSs) and these can be
+mapped following DNase I digestion.
+
+A class of pioneer TFs are able to bind their targets in the presence of nucleosomes.
+These pioneer TFs recruit nucleosome remodelers to open up chromatin, allowing previously blocked TFs access to the region~\autocite{zaretPioneerTranscriptionFactors2011}.
+In yeast (\textit{Saccharomyces cerevisiae}), stiff DNA poly(dA:dT) regions~\autocite{yuanGenomeScaleIdentificationNucleosome2005,hughesFunctionalEvolutionaryApproach2012} and poly(dG:dC) regions~\autocite{mccallCrystalStructureGGGGCCCC1985} were shown to be depleted of nucleosomes, whereas non\hyp{}homopolymeric GC\hyp{}rich regions favour nucleosome formation~\autocite{struhlDeterminantsNucleosomePositioning2013}.
+Yeast promoters containing GC\hyp{}rich motifs and poly(A) motifs concentrated in a narrow region tend to be nucleosome free.
+Promoters with the same two motifs in a broader region are characterised by `fragile' nucleosomes, which are less stable.
+Fragile nucleosome promoters tend to be highly expressed.
+The two motifs have been shown to recruit and/or activate the chromatin structure remodelling complex (RSC) which pushes away flanking nucleosomes, creating a nucleosome free region or space for a fragile nucleosome to form.
+To induce nucleosome fragility, Rap1 binding sites were needed upstream of the GC\hyp{}rich and poly(A) motifs~\autocite{kubikNucleosomeStabilityDistinguishes2015}.
+Fragile nucleosomes have been detected in maize~\autocite{veraDifferentialNucleaseSensitivity2014} and Arabidopsis~\autocite{passGenomewideChromatinMapping2017}.
+
+\subsubsection{Identification of CREs}\label{chapter1:identification-of-cres}
+
+In order to understand how DNA\hyp{}protein interactions affect gene function it is necessary to understand which proteins bind to specific binding sites in DNA.
+Earlier methods involved \textit{in vitro} techniques, however more recent studies identify sites bound by proteins \textit{in vivo}, preserving both context and DNA sequences involved.
+A recent \textit{in vitro} method~\autocite{omalleyCistromeEpicistromeFeatures2016} maps protein\hyp{}DNA interactions using DNA retaining \textit{in vivo} features.
+Mapping chromatin accessibility and TFBSs helps inform our understanding of gene regulation, and therefore is the basis of understanding and reconstructing gene regulatory networks.
+
+\subsubsection{Identification of chromatin accessible
+regions}\label{chapter1:identification-of-chromatin-accessible-regions}
+
+In the past, it was difficult to annotate non\hyp{}coding DNA regions, and at the genomic scale it was only possible to detect the presence or absence or `regulatory regions'.
+As detailed in section \ref{chromatin} (chromatin), CRMs tend to be nucleosome free regions, are very sensitive to digestion by DNase I, and are called DHSs. Many DHS assays have been used to characterise CRMs.
+Chromatin accessibility of DNA to DNase I was probed by Southern blotting where, following DNase I digestion, DNA was purified, digested using restriction enzymes, transferred to a membrane then hybridised with radioactively labelled DNA~\autocite{wuChromatinStructureSpecific1979,matherMethylationStatusDNase1983,benderVglobinGeneSwitching2000,wangChromatinStructureMapping2001}.
+This was challenging, limited to short stretches of DNA and not very sensitive~\autocite{cockerillIdentificationDNaseIHypersensitive2000}.
+DHS methods using PCR (polymerase chain reaction)~\autocite{pfeiferChromatinDifferencesActive1991,fengHighresolutionAnalysisCfos1992} and later quantitative PCR (qPCR)~\autocite{mcarthurQuantificationDNaseIsensitivityRealtime2001,dorschnerHighthroughputLocalizationFunctional2004,martinsTrackingChromatinStates2007} were developed to improve upon the Southern blotting technique for identification of chromatin accessible regions.
+DNase I assays were combined with genome\hyp{}wide tiling arrays (DNase-chip) with sequencing~\autocite{crawfordIdentifyingGeneRegulatory2004,saboGenomewideIdentificationDNaseI2004}, and without sequencing~\autocite{crawfordDNasechipHighresolutionMethod2006,saboGenomescaleMappingDNase2006,followsIdentifyingGeneRegulatory2006,shuDistinctModesDNA2012} for genome\hyp{}wide profiling of chromatin accessibility.
+
+As an alternative to DNase assays, a high\hyp{}throughput assay later called formaldehyde\hyp{}assisted isolation of regulatory elements (FAIRE) was developed~\autocite{nagyGenomewideDemarcationRNA2003}.
+In this assay, formaldehyde\hyp{}crosslinked chromatin and reference non\hyp{}crosslinked chromatin is extracted using phenol\hyp{}chloroform.
+Histone\hyp{}free DNA is collected in the aqueous phase, and enrichment of histone\hyp{}free DNA regions from crosslinked DNA are identified by comparing to the non\hyp{}crosslinked reference on a microarray.
+
+More recent methods combine high\hyp{}throughput sequencing with previous methods, such as DNase-chip with sequencing (DNase I-seq)~\autocite{boyleHighResolutionMappingCharacterization2008} and the FAIRE assay with sequencing (FAIRE-seq)~\autocite{giresiFAIREFormaldehydeAssistedIsolation2007}.
+Although DNase-chip was previously combined with sequencing~\autocite{crawfordGenomewideMappingDNase2006}, this only identified \SI{20}{\percent} of DHS sites. Higher throughput sequencing allowed production of genome wide DHS maps~\autocite{boyleHighResolutionMappingCharacterization2008}.
+The combination of DNase I-seq with FAIRE-seq to map open chromatin is more effective than either assay alone~\autocite{songOpenChromatinDefined2011}.
+DNase I-seq and FAIRE-seq require millions of cells as starting material, with time\hyp{}consuming sample preparations.
+This means heterogeneity between cells can be drowned out.
+To improve on this, genome\hyp{}wide DNase I-seq has since been scaled down to single cells, called scDNase-seq~\autocite{jinGenomewideDetectionDNase2015}.
+
+The assay for transposase\hyp{}accessible chromatin using sequencing (ATAC\hyp{}seq)~\autocite{buenrostroTranspositionNativeChromatin2013} was developed to require fewer cells in the starting material.
+ATAC\hyp{}seq identifies nucleosome\hyp{}bound and nucleosome free regions, along with footprinting of DNA binding proteins.
+This method builds on the fact that transposons were shown to integrate into active regulatory regions \textit{in vivo}~\autocite{gangadharanDNATransposonHermes2010}, and uses Tn5 transposase to integrate its adaptor payload into DNA within chromatin accessible regions. ATAC\hyp{}seq uses a simple two\hyp{}step process of Tn5 insertion followed by PCR and sequencing, whereas FAIRE\hyp{}seq and DNase I\hyp{}seq have many more steps and take several days~\autocite{buenrostroTranspositionNativeChromatin2013}.
+Single cell ATAC\hyp{}seq (scATAC\hyp{}seq) has also been achieved~\autocite{cusanovichMultiplexSinglecellProfiling2015,buenrostroSinglecellChromatinAccessibility2015}.
+The cutting bias of DNase I in DNase I\hyp{}seq~\autocite{heRefinedDNaseseqProtocol2014} and Tn5 transposase in ATAC\hyp{}seq~\autocite{martinsUniversalCorrectionEnzymatic2018} needs to be corrected computationally when analysing data~\autocite{liuLongNoncodingRNA2019a}.
+
+ATAC\hyp{}seq and DNase I\hyp{}seq identify regions of open chromatin which correlate to nucleosome occupancy.
+Nucleosome occupancy itself can be profiled genome\hyp{}wide using micrococcal nuclease digestion followed by sequencing (MNase\hyp{}seq) \autocite{weberH2ANucleosomesEnriched2010,henikoffEpigenomeCharacterizationSingle2011,pajoroProfilingNucleosomeOccupancy2018}.
+In Mnase\hyp{}seq, DNA is digested using MNase unless it is protected by nucleosomes.
+Protected DNA can then be sequenced in a high\hyp{}throughput manner to identify nucleosome sites.
+An alternative to MNase\hyp{}seq called NOMe\hyp{}seq (nucleosome occupancy and methylome sequencing)~\autocite{kellyGenomewideMappingNucleosome2012} uses GpC methyltransferase which methylates GpC dinucleotides not protected by nucleosomes or strongly binding proteins.
+Native methylation uses CpG dinucleotide cytosine methylation, whereas the added GpC methyltransferase methylates GpC dinucleotide cytosines.
+Using this information, both nucleosome occupancy and endogenous DNA methylation can be obtained simultaneously.
+
+\subsection{Identification of specific DNA-protein
+interactions}\label{chapter1:identification-of-specific-dna-protein-interactions}
+
+DNase I is used to footprint DNA\hyp{}protein interactions.
+\textit{In vitro} DNase I footprinting is where radioactively labelled DNA fragments are incubated with and without the protein of interest, then digested with DNase I and analysed by electrophoresis and autoradiography~\autocite{galasDNAseFootprintingSimple1978}.
+Bound proteins protect the DNA backbone from digestion by DNase I, allowing identification of specific binding sites of proteins on DNA.
+Another method for characterising DNA\hyp{}protein interactions is the electrophoretic mobility shift assay (EMSA)~\autocite{garnerGelElectrophoresisMethod1981}, which quantifies the binding of proteins to DNA.
+A fragment of DNA containing a putative TFBS is fluorescently or radioactively labelled and is run on a polyacrylamide gel with and without the protein of interest.
+DNA\hyp{}protein complexes run more slowly on the gel than DNA on its own.
+
+More recent techniques include systematic evolution of ligands by exponential enrichment (SELEX).
+SELEX is an \textit{in vitro} assay where libraries of randomly generated nucleic acid ligands of fixed length are flanked by 5' and 3' primers~\autocite{tuerkSystematicEvolutionLigands1990}.
+The oligonucleotide library is exposed to a protein of interest, unbound oligos are removed, and then oligos are amplified using PCR.
+This cycle is repeated several times until the oligo population is enriched for ones which bind protein.
+These are then identified and characterised.
+SELEX has recently been modified to investigate the location and orientation of TFBSs in DNA wrapped around nucleosomes, with a technique called nucleosome consecutive affinity purification (NCAP)\hyp{}SELEX~\autocite{zhuInteractionLandscapeTranscription2018}.
+This uses SELEX to enrich nucleosome bound DNA, and then DNA is incubated with TFs.
+Using nucleosome and TF tags, DNA is separated based on whether or not it is bound by nucleosomes and TFs, and is then sequenced.
+This infers whether the addition of a certain TF affects the stability of the nucleosome, and identifies TF binding specificities and positions on nucleosomal DNA.
+
+Chromatin immunoprecipitation (ChIP) was developed to map protein\hyp{}DNA crosslinking \textit{in vivo}.
+There are two types of ChIP, differentiated by starting input.
+XChIP uses chromatin fixed with formaldehyde and sheared by sonication~\autocite{solomonMappingProteinDNAInteractions1988,orlandoMappingChromosomalProteins2000}, and NChIP uses native chromatin from nuclei digested by micrococcal nuclease~\autocite{hebbesDirectLinkCore1988}.
+Protein specific antibodies are then used to pull down the protein of interest bound to DNA.
+The resulting DNA sequences are then purified and analysed using Southern blot, PCR or qPCR~\autocite{dasChromatinImmunoprecipitationAssay2004}, although PCR bias may mean AT\hyp{}rich sequences are amplified more than GC\hyp{}rich ones~\autocite{weinmannIdentificationUnknownTarget2002}.
+NChIP is most useful for mapping the DNA target of histone modifiers, while XChIP is most useful for mapping TF\hyp{}DNA interactions.
+Even so, some TF\hyp{}DNA interactions have been successfully mapped using NChIP~\autocite{gregoryDNAMethylationLinked2001}.
+ChIP has been combined with sequencing to identify DNA sequences where proteins bind~\autocite{weinmannUseChromatinImmunoprecipitation2001}, and also combined with DNA footprinting, to identify specific TFBSs~\autocite{leekangCombiningChromatinImmunoprecipitation2002}.
+Although these methods accurately identify TFBSs in DNA, a drawback is that they are very low throughput.
+
+To increase throughput, ChIP was combined with whole\hyp{}genome microarrays (ChIP\hyp{}chip), creating high resolution genome wide maps of DNA\hyp{}protein interactions~\autocite{weinmannIsolatingHumanTranscription2002,wellsIdentificationNovelPRb2003,renGenomeWideLocationFunction2000}.
+\textcite*{buckChIPchipConsiderationsDesign2004} provide an excellent review of this.
+Briefly, XChIP is carried out, and DNA fragments enriched for protein binding are purified and fluorescently labelled.
+Genomic DNA prepared by immunoprecipitation is used as a reference, amplified, and labelled with a different tag.
+The two probes are hybridised onto a single DNA microarray.
+Areas of the genome enriched for DNA\hyp{}protein binding are identified, and exact binding sites can be predicted \textit{in silico}~\autocite{liuAlgorithmFindingProtein2002}.
+
+ChIP\hyp{}chip is limited in that only a subset of TFBSs are retrieved due to the array design.
+Also, ChIP\hyp{}chip is restricted to species for which whole\hyp{}genome tiling arrays have been made.
+With the advance of high\hyp{}throughput sequencing technology, these limitations were overcome through the development of ChIP\hyp{}seq, where ChIP DNA is sequenced in a high\hyp{}throughput way, providing greater sensitivity, resolution and specificity than ChIP\hyp{}chip~\autocite{johnsonGenomeWideMappingVivo2007}.
+
+ChIP\hyp{}seq provides genome\hyp{}wide TFBS mapping for specific TFs.
+Even so, TFBS information is available for relatively few TFs.
+This is because ChIP\hyp{}seq is not scalable for high\hyp{}throughput identification of 1000s of TF\hyp{}DNA interactions as it is dependent on antibody quality, is difficult for lowly expressed proteins and is challenging to perform~\autocite{kidderChIPSeqTechnicalConsiderations2011}.
+
+Another method of identifying DNA-protein interactions is DNA adenine methyltransferase identification (DamID)~\autocite{steenselIdentificationVivoDNA2000}. DamID uses the \textit{E. coli} DNA adenine methyltransferase (Dam) fused to a TF or chromatin protein of interest.
+Wherever the protein of interest binds, even transiently, Dam methylates adenine in GATC motifs~\autocite{sanchez-romeroDNAMethylationBacteria2015}.
+DNA is then extracted and fragmented by the methylation sensitive restriction endonuclease DpnI.
+Methylated sequences are then amplified by PCR and then sequenced.
+DamID and ChIP methods are fundamentally different.
+DamID shows where a protein has previously been in close proximity to DNA, even transiently, while ChIP shows where a protein binds DNA at a given time point.
+DamID is good for identifiying DNA-protein interactions which are low in abundance, while ChIP methods struggle to pick them up.
+ChIP on the other hand is good for profiling DNA-protein interactions at short time intervals, while Dam-fusions require expression for several hours to achieve sufficient methylation~\autocite{augheyDamItGood2016}.
+
+The protein binding microarray (PBM) is another method of identifying TF-DNA interactions developed by \textcite*{bulykProteinBindingMicroarrays2007}. In this method, a TF of interest is expressed with an epitope tag which is purified and then applied to a DNA microarray. Any non-bound protein is washed away and then the microarray is stained with a primary antibody specific to the epitope tag. The signal intensity can be quantified as it corresponds to the number of DNA-protein binding events. PBM analysis was utilised in Arabidopsis to identify DNA binding motifs for 63 TFs~\autocite{franco-zorrillaDNAbindingSpecificitiesPlant2014}.
+
+The recently developed \textit{in vitro} DNA affinity purification sequencing (DAP-seq) offers a scalable alternative to ChIP and increased specificity compared to motifs generated by PBMs and SELEX~\autocite{omalleyCistromeEpicistromeFeatures2016}.
+DAP\hyp{}seq uses \textit{in vitro} expressed TFs to find binding locations on genomic DNA retaining its \textit{in vivo} properties.
+Briefly, a genomic DNA library is prepared by attaching a small DNA sequencing adaptor onto purified, fragmented genomic DNA.
+Separately, affinity\hyp{}purified TFs are prepared by \textit{in vitro} expression.
+The DNA library is added to each specific TF, and unbound DNA is washed away.
+The bound fraction is amplified and sequenced.
+Reads are mapped to a reference genome and enriched peaks are used to identify TFBSs.
+As this uses genomic DNA, which contains cell, tissue and organism specific methylation, methylation preferences of TFs can be mapped.
+This is done using a modified DAP\hyp{}seq protocol called ampDAP\hyp{}seq, where a DNA library has any modifications removed by use of a PCR step.
+This data can be compared to DAP\hyp{}seq data to assess the methylation preferences of TF binding~\autocite{omalleyCistromeEpicistromeFeatures2016}.
+
+Methods like ChIP, DamID, PBMs and DAP-seq are TF\hyp{}centred methods.
+The yeast one\hyp{}hybrid (Y1H) assay is a DNA centred method to identify proteins binding the DNA~\autocite{liIsolationORC6Component1993}.
+It involves a report construct where the promoter DNA of interest (termed the bait) is placed upstream of a reporter protein.
+A TF of interest (termed the prey) is fused to a yeast transcription activation domain and is expressed in an expression construct.
+Both constructs are introduced to a yeast strain, and if the TF of interest binds the DNA of interest then the yeast activator domain induces the reporter expression.
+The downside of Y1H assays is that they do not identify whether a TF of interest activates or represses a promoter~\autocite{reece-hoyesYeastOnehybridAssays2012}.
+The throughput of Y1H assays were enhanced using a robotic mating platform~\autocite{reece-hoyesEnhancedYeastOnehybrid2011}.
+Recently, this enhanced Y1H assay was used in plants to elucidate interactions between nitrogen-responsive genes~\autocite{gaudinierTranscriptionalRegulationNitrogenassociated2018}.
+
+The \textit{in vitro} techniques such as DAP-seq, Y1H and PBMs fail to account for \textit{in vivo} features such as chromatin structure, protein-protein interactions and TF combinations.
+The \textit{in vivo} method ChIP does not show whether a TF-DNA interaction leads to gene expression, and it often poorly predicts TF regulation~\autocite{brooksNetworkWalkingCharts2019}.
+TF perturbation using overexpressing or knockout transgenic lines are one way of validating targets but these methods are time consuming and do not scale well in eukaryotes.
+It is also not possible to distinguish direct from indirect targets.
+A technique called transient assay reporting genome\hyp{}wide effects of transcription factors (TARGET) was developed in plant protoplasts~\autocite{bargmannTARGETTransientTransformation2013}.
+Briefly, the TF of interest is fused to a glucocorticoid receptor (GR) and expressed transiently in protoplasts.
+The expression plasmid also contains a separate expression cassette with red fluorescent protein (RFP) enabling fluoresence\hyp{}activated cell sorting (FACS) of transformed protoplasts~\autocite{bargmannFluorescenceActivatedCell2010}.
+The GR-TF fusion is held in the cytoplasm by HSP90-GR binding. Dexamethasone (DEX) is added which disrupts the HSP90-GR binding and induces nuclear localisation of the TF.
+Target gene induction after DEX treatment with and without the presence of a translation inhibitor, cycloheximide (CHX), is measured using qPCR analysis.
+This shows direct and indirect gene regulation.
+Recently, the TARGET method was scaled up using an empty vector control allowing 24 TF assays per day (8 TFs with 3 replicates)~\autocite{brooksNetworkWalkingCharts2019}.
+All samples including the empty vector were treated with CHX, mitigating the need to compare CHX positive and negative samples.
+Cells separately transfected with either RFP or green fluorescent protein (GFP) were pooled in pairs, allowing the simultaneous FACS of two TFs in each well.
+After FACS, RNA-seq analysis was used to identify activated or repressed targets.
+However, this scaled up method only detects direct targets.
+It is necessary to combine TF-target methods to fully illucidate connections in GRNs.
+A time\hyp{}series micro-ChIP protocol for use with small cell samples~\autocite{dahlMChIPRapidMicro2008} was modified for use with the TARGET assay~\autocite{paraMChIPSeqGenomeWideMapping2018} allowing both methods to be run on the same samples~\autocite{paraHitandrunTranscriptionalControl2014, doidyHitandRunTranscriptionNovo2016}.
+A recent study combined micro-ChIP, DamID and the TARGET assay allowing transiently bound targets of the NLP7 TF to be identified five minutes after nuclear localisation of the TF~\autocite{alvarezTransientGenomewideInteractions2020}.
+These studies also utilised 4-thiouracil (4tU) labelling of nascent transcripts~\autocite{sidaway-leeDirectMeasurementTranscription2014}, allowing affinity-based capture of \textit{de novo} synthesised RNA.
+By monitoring TF-DNA interactions over time and using 4tU labelling and steady\hyp{}state RNA-seq these two methods showed that targets of bZIP1 and NLP7 continued to be actively transcribed even after the TFs dissociated from their targets.
+
+In Arabidopsis, recent DNase I\hyp{}seq data~\autocite{sullivanMappingDynamicsRegulatory2014} was published, predicting active regulatory regions where many TFs can bind.
+The development of DAP\hyp{}seq has characterised specific TFBSs from a third of Arabidopsis TFs~\autocite{omalleyCistromeEpicistromeFeatures2016}.
+Therefore, TFBS data can now be overlayed with the DNase I\hyp{}seq footprint data to map regulatory regions in Arabidopsis.
+TFBSs can also be predicted \textit{de novo} with software that can construct position weight matrices (PWMs) describing the binding motifs of a TFs, such as MEME~\autocite{baileyFittingMixtureModel1994}, and the faster STEME~\autocite{reidSTEMEEfficientEM2011}.
+Motif prediction has a high false positive rate~\autocite{zambelliMotifDiscoveryTranscription2013}.
+Algorithms such as RPMCMC~\autocite{ikebataRepulsiveParallelMCMC2015} and DREME~\autocite{baileyDREMEMotifDiscovery2011} offer cofactor motif discovery, which for example can predict whether TFs form homo and heterodimers when they bind.
+In 2015, convolutional neural network (CNN) models were able to learn filters similar to PWM motif matching, and these algorithms outperformed PWM algorithms~\autocite{alipanahiPredictingSequenceSpecificities2015}.
+An unpublished CNN model incorporates TF\hyp{}TF interactions during its TFBS prediction~\autocite{lanchantinPrototypeMatchingNetworks2017}.
+
+\subsection{Evolution of gene regulation}
+{\label{chapter1:evolution-of-gene-regulation}}
+
+Investigations into the DNA conservation landscape have identified
+conserved DNA regions within populations and across species, and this is
+because of selection pressure. Evolutionary selection pressure is higher
+for coding exon sequences than it is for non\hyp{}coding regulatory sequences
+such as the promoter, 5' and 3'UTRs in mammals~\autocite{lindblad-tohHighresolutionMapHuman2011} and
+plants~\autocite{haudryAtlas900002013}. However, functional motifs such as TFBSs
+within non\hyp{}coding regions exhibit high levels of evolutionary
+conservation~\autocite{zhaoConservedMotifsPrediction2012}. When these functional motifs change,
+for example due to random mutations called single nucleotide
+polymorphisms (SNPs), they can cause changes in expression
+level~\autocite{rockmanAbundantRawMaterial2002} and potentially even network
+rewiring~\autocite{liEvolutionTranscriptionNetworks2010}. This can be through a change in the
+affinity of TFs to the TFBS, addition or deletion of sites, change in
+the spacing of TFBSs, or change in nucleosome conformation in the area~\autocite{fyonEnhancerRunawayEvolution2015}.
+
+Some genes may have multiple copies in the genome, which express
+products with similar functions~\autocite{guRapidDivergenceExpression2002}. In redundant copies,
+the selection pressure on motifs in their non\hyp{}coding regions may be
+reduced, resulting in random mutations accumulating in the motifs. These
+gene copies therefore may have different spatio\hyp{}temporal expression
+patterns~\autocite{forcePreservationDuplicateGenes1999}. These different expression patterns could
+have evolved following genome expansion. New genes can be formed through
+evolutionary whole genome duplications, creating ohnologues.
+Additionally, small\hyp{}scale duplications (SSDs) can occur. One such
+example is tandem duplication, which creates consecutive gene copies in
+the genome due to unequal crossing over~\autocite{freelingBiasPlantGene2009}. Other SSDs
+include retroposed duplicates, created through RNA\hyp{}mediated
+retroposition; proximal duplicates, where duplicate genes are separated
+by a few genes; and dispersed duplicates, where duplicates are found
+throughout the genome, not in syntenic homologous chromosome
+regions~\autocite{arsovskiEvolutionCisRegulatoryElements2015}.
+
+There are two types of genetic events affecting gene regulation: (i)
+those caused by point mutations of existing sequences, and (ii) those
+caused by genome expansion driven by transposable elements, genome
+duplications and small scale duplications (SSDs)~\autocite{marnettoEvolutionaryRewiringHuman2018}. Once duplicated, mutations can arise in one paralogue turning it into a
+non\hyp{}functional pseudogene~\autocite{zhangEvolutionGeneDuplication2003}. If the original gene had
+several functions, these can be shared between both paralogues, in a
+process called subfunctionalisation. Regulatory subfunctionalisation can
+occur where paralogues retain the same function but tissue specific
+expression patterns become shared between them. Another possibility
+following gene duplication is that one paralogue can acquire a new
+function whilst the other maintains its original function, which is
+called neofunctionalisation. In regulatory neofunctionalisation, one
+paralogue acquires a novel expression pattern, while the other keeps its
+original expression pattern. Duplicated genes can undergo both neo- and
+subfunctionalisation~\autocite{heRapidSubfunctionalizationAccompanied2005}. Duplicated genes can also both
+maintain ancestral function and expression pattern, adding to robustness
+of their regulatory network~\autocite{guRoleDuplicateGenes2003}. However, gene
+duplication can cause fragility in GRNs, instead of improving their
+robustness. This may be he case if the function of the protein of one
+paralogue becomes dependent on the presence of the other~\autocite{dissGeneDuplicationCan2017}. Hypofunctionalisation has also been proposed, where
+the expression level of the paralogues decreases, meaning both copies
+are required for normal function~\autocite{qianMaintenanceDuplicateGenes2010,veitiaGeneDuplicatesAgents2017}.
+
+Mutations within CREs of duplicated genes are the likely cause of
+regulatory neo- and subfunctionalisation~\autocite{arsovskiEvolutionCisRegulatoryElements2015}. Recently,
+duplicated genes in yeast were shown to quickly gain TFBSs after
+duplication~\autocite{tsaiEvolutionCisregulatoryElements2012}. Additionally, it has been suggested that
+in all eukaryotic diploid organisms, enhancer strength may increase in a
+runaway fashion due to the competition for expression between homologous
+enhancer alleles~\autocite{fyonEnhancerRunawayEvolution2015}. In plants, the distribution of
+known core promoter elements with respect to the TSS is conserved within
+monocots and dicots~\autocite{kumariGenomeWideComputationalPrediction2013}.
+
+\subsection{Engineering regulation}\label{engineering-regulation}
+
+\subsubsection{Development of synthetic regulatory elements for
+microbes}\label{chapter1:development-of-synthetic-regulatory-elements-for-microbes}
+
+Many studies have described the assembly and characterisation of
+promoter libraries for microbes. For example, in \textit{E. coli} ,
+directed evolution was used to engineer a broad range of precise
+promoter strengths~\autocite{alperTuningGeneticControl2005}. Promoters made in this way tend
+to have a broad host range~\autocite{jensenSequenceSpacersConsensus1998}. Combinatorial libraries
+of random promoter architectures has also been achieved in \textit{E.
+coli~}~\autocite{coxProgrammingGeneExpression2007}. They show that gene expression can be
+regulated by over five orders of magnitude. The location of regulatory
+elements within a promoter was key to determining the expression level,
+with those located closer to the TSS more effective than those further
+away. Some regulatory elements were dominant over others when located in
+the same promoter. More directed semi\hyp{}rational promoter engineering
+focussed on retaining the consensus sequence of TFBSs, and mutating
+spacers~\autocite{jensenSequenceSpacersConsensus1998}. Rational promoter design increased \textit{E.
+coli} promoter activity through the addition of a TFBS~\autocite{zhangDesignDynamicSensorregulator2012}. A synthetic promoter utilising an AND gate, where it
+is only activated in the presence of two TFs, was also created
+in \textit{E. coli}~\autocite{wangEngineeringModularOrthogonal2011}. A ratiometric expression assay was
+used in \textit{E. coli} to characterise gene expression level, by
+measuring activity of promoters compared to a reference, and variation
+between experiments was reduced by \texttildelow\SI{50}{\percent} \autocite{kellyMeasuringActivityBioBrick2009}.
+
+Synthetic promoter libraries in the yeasts \textit{Komagataella
+pastoris}~\autocite{hartnerPromoterLibraryDesigned2008} and \textit{S. cerevisiae}~\autocite{nevoigtEngineeringPromoterReplacement2006} showed that promoter strength could be changed by introducing mutations in TFBSs. Synthetic promoters were used to study nucleosome occupancy
+effects on transcription, and allowed the rational design of synthetic
+promoters with increased transcription~\autocite{curranDesignSyntheticYeast2014}. A massively
+parallel reporter assay (MPRA) was used to test semi\hyp{}random 312 bp
+constitutive and 246 bp responsive promoters in \textit{S. cerevisiae},
+where conserved regions containing TFBSs remained the same~\autocite{kotopkaModeldrivenGenerationArtificial2020}. Machine
+learning facilitated the \textit{in silico} design of new promoters of
+specific expression levels, including expression higher than in any of
+the test data set used to train the model. When tested \textit{in
+vivo} these designed promoters had similar expression levels to the
+predicted values. Synthetic minimal yeast promoter
+libraries were generated to identify minimal upstream activating
+elements, and this led to the development of a promoter reduced by \SI{80}{\percent}
+in size which still achieved high expression levels~\autocite{reddenDevelopmentCharacterizationSynthetic2015}.
+
+The use of synthetic TFs allows control of gene expression
+heterologously in many systems, and allows the design of tissue specific and
+or constitutive promoters, as synthetic TFs can themselves be controlled
+by tissue specific or constitutive promoters. Synthetic TFs have been
+created in yeast using zinc fingers~\autocite{khalilSyntheticBiologyFramework2012}, with a
+methodology allowing construction of an unlimited number of different
+synthetic TFs. Transcriptional output was tuned through modification of
+zinc finger binding sites in promoters, as well as through modifications
+to the zinc finger protein itself. Later, inducible synthetic
+transcription activator\hyp{}like effectors (TALEs) and dCas9\hyp{}based synthetic
+TFs together with small synthetic promoters were trialled, also in yeast~\autocite{machensSyntheticPromotersTranscription2017}. Synthetic TFs have been designed using zinc fingers in \textit{E. coli} too~\autocite{husseyProgrammableT7basedSynthetic2018}. This enabled activation of promoters, rather than de\hyp{}repression of promoters which had been used in
+the past, as bacterial promoters are generally on by default~\autocite{browningLocalGlobalRegulation2016}.
+
+\subsubsection{Synthetic regulatory elements for plants}\label{chapter1:synthetic-regulatory-elements-for-plants}
+
+Promoter studies in yeast~\autocite{reddenDevelopmentCharacterizationSynthetic2015,boerDecipheringEukaryoticGeneregulatory2019,kotopkaModeldrivenGenerationArtificial2020} and human cell lines~\autocite{mattioliHighthroughputFunctionalAnalysis2019} often rely on high\hyp{}throughput testing of randomised promoters to identify synthetic promoters with the desired characteristics.
+High\hyp{}throughput reporter assays such as massively parallel reporter assays (MPRAs) are not currently achievable in plants, even in plant protoplasts, as it is not guaranteed that a cell will not receive more than one promoter.
+Therefore, the rational design of synthetic promoters is required in plants.
+
+Ratiometric expression assays in plants can be achieved~\autocite{brucknerLibrarySyntheticTranscription2015}, in a way similar to that done in \textit{E. coli}~\autocite{kellyMeasuringActivityBioBrick2009}, which increases the resolution of expression characterisation.
+This can be used to validate the expression of synthetic promoters.
+Synthetic promoters were used to study flanking sequence changes of tissue\hyp{}specific CREs in rice~\autocite{wangNovelGreenTissuespecific2015}.
+This identified functional expression pattern changes, and led to the design of five synthetic promoters which were specific to different
+green tissues.
+Increasing the number of TFBSs in pathogen\hyp{}inducible synthetic promoters increased transcription in Arabidopsis~\autocite{rushtonSyntheticPlantPromoters2002}.
+However, too many repeated \textit{cis}\hyp{}regions in a promoter led to an increase in background induction of promoters, possibly by increasing basal level of transcription through allowing increased binding of normally low affinity TFs.
+Increased motif copy number was also shown to increase expression in tobacco~\autocite{sawantVarietySynergisticAntagonistic2005} and rice~\autocite{wuGCN4MotifRice1998a}.
+
+As well as microbes~\autocite{khalilSyntheticBiologyFramework2012}, synthetic zinc finger TFs were successfully developed in multicellular eukaryotes such as Arabidopsis~\autocite{guanHeritableEndogenousGene2002}.
+More recently, a library of synthetic transcription activator\hyp{}like effector (TALE)\hyp{}activated promoters has been developed in plants~\autocite{brucknerLibrarySyntheticTranscription2015}, demonstrating a range of promoter strengths.
+Synthetic dCas9-based TFs have also been used in plants~\autocite{piatekRNAguidedTranscriptionalRegulation2015}.
+
+\subsubsection{Towards engineering regulation in plants}\label{chapter1:towards-engineering-regulation-in-plants}
+%read https://www.sciencedirect.com/science/article/pii/B9780444640857000101 to update this section
+Promoter engineering can be divided into two approaches to generate novel promoters: i) library generation for random promoter mutagenesis, and ii) generation of \textit{de novo} promoters.
+Recent studies have shown that genetic variation can be created in plants via pooled transformation of CRISPR-Cas9 libraries~\autocite{jacobsGenerationCollectionMutant2017,luGenomewideTargetedMutagenesis2017,mengConstructionGenomeWideMutant2017,jacobsGenerationCollectionMutant2017,baiGenerationMultiplexMutagenesis2020}. The development of a near PAM (protospacer\hyp{}adjacent motif)\hyp{}less Cas9 will allow even more variation to be introduced~\autocite{waltonUnconstrainedGenomeTargeting2020}. Tissue\hyp{}specific mutations in certain cell types can also be generated by using CRISPR tissue-specific knockout (CRISPR-TSKO), allowing lethal knockout genes to be studied, and allowing tissue-specific hypotheses to be tested in the future~\autocite{decaesteckerCRISPRTSKOTechniqueEfficient2019}.
+
+Using the various synthetic biology approaches detailed above, catalogues of standardised parts, such as synthetic promoters and TFs, can be produced~\autocite{patronStandardsPlantSynthetic2015}, and then these can easily be used to rewire gene regulatory networks.
+Since the recent development of DAP\hyp{}seq and DNase I\hyp{}seq datasets in Arabidopsis, more accurate mapping of TFBSs is achievable, which will help in the design of synthetic regulatory sequences for fine tuning of gene regulation.
+Precise genome editing tools such as transcription activator-like effector nucleases (TALEN) and clustered regularly interspaced palindromic repeats (CRISPR)-Cas systems can be used to edit plant genomes~\autocite{malzahnPlantGenomeEditing2017}.
+Improved editing can make specific changes to CRMs, allowing easier testing of regulatory hypotheses.
+These genome editing techniques can also be deployed as synthetic transcription factors such as TALE- and dCas9\hyp{}based TFs.
+Spatio\hyp{}temporal design of promoters will allow specific expression patterns, and the range of expression levels of synthetic promoters will allow for specific regulation in synthetic circuits.
+Synthetic regulation of transcription will allow network rewiring by altering native TF\hyp{}DNA networks, and will also allow incorporation of synthetic circuits which do not interfere with endogenous networks.
+
+\subsection{Aims and experimental approach}\label{chapter1:aims-and-experimental-approach}
+
+The main aim of this project is to determine how CREs evolve and to
+explore if and how changes in plant gene regulatory sequences can
+generate novel expression patterns and rewire gene\hyp{}regulatory networks.
+To investigate these questions, three approaches are being taken:
+
+In the first approach, I am comparing CRM architecture (specifically in
+promoter and 5'UTR) of constitutively expressed genes to variable genes.
+Specifically, I will find changes in the identity, context and frequency
+of TFBSs within the CRMs.
+
+\textbf{Hypotheses:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textit{Cis}\hyp{}regulatory modules of variable genes will have a lower
+  percentage of bp covered by at least one TFBS than CRMs of
+  constitutive genes.
+\item
+  Constitutive CRMs will have a more diverse TFBS profile than variable
+  CRMs both for TF family and individual TFs as they will require a
+  wider range of TF binding to be actively expressed across many
+  different tissues and conditions
+\item
+  Variable genes will be enriched for TATA boxes compared to
+  constitutive genes
+\item
+Constitutive promoters will have a higher GC content than variable promoters
+\item
+Constitutive promoters will be more conserved than variable promoters
+\end{itemize}
+
+In the second approach, I am designing and testing variants of plant
+regulatory sequences to determine how changes in primary sequences
+affect the affinity of TFs to their target motifs and how this affects
+expression of the target gene. To do this, a CRISPR library will be
+constructed and delivered to add variation to the promoter of a nitrogen
+response master regulator. Mutations causing changes to expression and
+phenotype will be investigated to see if they fall within TFBSs. If they
+do, co\hyp{}expression analyses of transient promoters with and without the
+mutations along with their cognate TF will be tested using a rapid,
+transient ratiometric protocol in Arabidopsis leaf and root
+protoplasts that has previously been established in the laboratory. This
+will test whether the promoter still responds to the TF after being
+mutated. Changes in the affinity of TFs for their target sequences will
+be investigated using electrophoresis mobility shift assays (EMSA) and,
+in the future, using a novel plate\hyp{}based protein\hyp{}DNA affinity assay
+currently being developed by colleagues.
+
+\textbf{Hypotheses:}
+
+\begin{itemize}
+\tightlist
+\item
+  Mutations to the core elements of TFBSs will reduce or eliminate TF
+  binding.
+\item
+  Changes to the position or sequence context of TFBS may increase or
+  reduce the affinity of TFs for their target sequences resulting in
+  changes (amplitude or tissue specificity) to gene expression.
+\item
+  {Disrupted TFBSs closest to the transcription start site (TSS) will
+  have the greatest influence on the rate of transcription.}
+\item
+  Information about the identity, context and frequency of TFBSs will
+  enable the engineering of endogenous regulatory sequences to alter the
+  expression levels and tissue\hyp{}specificity of genes, including TFs which
+  may result in large\hyp{}scale transcriptional remodelling.
+\end{itemize}
+
+In the third approach, genetic feedback will be engineered into the
+N\hyp{}response network. A synthetic promoter containing binding sites for a
+nitrate\hyp{}responsive TF will be generated. To validate the functionality
+of the synthetic promoter, its expression will be tested tested with and
+without the co\hyp{}expression of its cognate TF for expression changes using a transient ratiometric protocol in Arabidopsis protoplasts.
+The affinity of the TF to the target sequence will also be tested.
+dCas9\hyp{}activators and repressors binding to the promoter of a nitrate\hyp{}response master regulator will be introduced as transgenes under the control of the synthetic N\hyp{}responsive promoter, introducing positive or negative feedback.
+The gene expression and plant phenotype will be analysed.
+
+\textbf{Hypotheses:}
+
+\begin{itemize}
+\tightlist
+\item
+  The synthetic promoter will respond more strongly to nitrogen when it contains more TFBSs for the same N\hyp{}responsive TF.
+\item
+  Positive and negative feedback can be engineered into the nitrogen pathway leading to a faster or slower response to nitrate.
+\item
+The engineered feedback will cause expression changes and a change in plant phenotype
+\end{itemize}
