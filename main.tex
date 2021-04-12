@@ -21,10 +21,10 @@
 
 \PassOptionsToPackage{hyphens}{url}
 \usepackage[colorlinks = true,
-            linkcolor = blue,
-            urlcolor  = blue,
-            citecolor = blue,
-            anchorcolor = blue]{hyperref}
+						linkcolor = blue,
+						urlcolor  = blue,
+						citecolor = blue,
+						anchorcolor = blue]{hyperref}
 %make link to figure show all figure
 \usepackage{hypcap}
 \usepackage{etoolbox}
@@ -35,8 +35,8 @@
 \makeatother{}
 
 \renewenvironment{abstract}
-  {{\bfseries\noindent{\abstractname}\par\nobreak}\footnotesize}
-  {\bigskip}
+	{{\bfseries\noindent{\abstractname}\par\nobreak}\footnotesize}
+	{\bigskip}
 
 %\titlespacing{\section}{0pt}{*3}{*1}
 %\titlespacing{\subsection}{0pt}{*2}{*0.5}
@@ -78,17 +78,17 @@
 \usepackage[UKenglish]{babel}
 \selectlanguage{british}
 \usepackage[
-    backend=biber,
-    style=nature,maxcitenames=2, 
-    backref=true %add backreferences in bibliography
-  ]{biblatex}
+		backend=biber,
+		style=nature,maxcitenames=2, 
+		backref=true %add backreferences in bibliography
+	]{biblatex}
 
 %add backreferences in bibliography inside page brackets
 \DefineBibliographyStrings{english}{%
 	backrefpage = {page},% originally "cited on page"
 	backrefpages = {pages},% originally "cited on pages"
 }  
-  
+	
 \addbibresource{bibliography/biblio.bib}
 %\addbibresource{bibliography/main_biber.bib}
 %make letter spacing better
@@ -125,17 +125,17 @@
 % \def\example{This is an example macro.}
 % Supplementary material
 \newcommand{\beginsupplement}{%
-        \setcounter{table}{0}
-        \renewcommand{\thetable}{S\arabic{table}}%
-        \setcounter{figure}{0}
-        \renewcommand{\thefigure}{S\arabic{figure}}%
-     }
-     
+				\setcounter{table}{0}
+				\renewcommand{\thetable}{S\arabic{table}}%
+				\setcounter{figure}{0}
+				\renewcommand{\thefigure}{S\arabic{figure}}%
+		 }
+		 
 % Keywords command
 \providecommand{\keywords}[1]
 {
-  \small	
-  \textbf{\textit{Keywords}} #1
+	\small	
+	\textbf{\textit{Keywords}} #1
 }
 % -----
 
@@ -171,16 +171,16 @@
 \maketitle{}
 \endgroup{}
 \begin{abstract}
-  Manipulation of plant growth will help to increase crop yields to feed the growing human population.
-  Plant growth in response to environmental changes is coordinated by suites of genes working combinatorially within complex gene regulatory networks (GRNs) composed of multitudes of connections, including those between transcription factors (TFs) and recognition sequences associated with the genes they regulate.
-  Synthetic biology approaches allow the potential to engineer GRNs by manipulation of regulatory sequences.
-  This project aims to: (i) Compare promoter architectural differences between constitutive and variably expressed genes.
-  (ii) Determine how changes in promoter sequence affect the affinity of TFs to their target motifs and how downstream gene expression is affected.
-  (iii) Engineer genetic feedback into the nitrogen\hyp{}response network using a nitrogen\hyp{}responsive synthetic promoter controlling a synthetic TF which activates or represses a nitrogen\hyp{}response master regulator.
-  To date, I have constructed an analytical pipeline to analyse the promoters of constitutive and variable genes and have confirmed that variable genes are enriched for TATA box motifs associated with transcription activation over constitutive genes.
-  I have also tested the co\hyp{}expression of TFs with promoters of interest in a rapid, transient Arabidopsis protoplast assay to quantify expression with and without the addition of potential cognate TFs, confirming that NLP7 activates the \textit{NIR1} promoter.
-  %%% link future work more smoothly with previous part of abstract - why is it the next logical step?
-  In the future a CRISPR library will be constructed and delivered to add variation to the promoter of a nitrogen response master regulator. Plant lines containing mutations will be analysed, determining how the downstream gene expression is affected and whether mutations disrupt important promoter motifs.
+	Manipulation of plant growth will help to increase crop yields to feed the growing human population.
+	Plant growth in response to environmental changes is coordinated by suites of genes working combinatorially within complex gene regulatory networks (GRNs) composed of multitudes of connections, including those between transcription factors (TFs) and recognition sequences associated with the genes they regulate.
+	Synthetic biology approaches allow the potential to engineer GRNs by manipulation of regulatory sequences.
+	This project aims to: (i) Compare promoter architectural differences between constitutive and variably expressed genes.
+	(ii) Determine how changes in promoter sequence affect the affinity of TFs to their target motifs and how downstream gene expression is affected.
+	(iii) Engineer genetic feedback into the nitrogen\hyp{}response network using a nitrogen\hyp{}responsive synthetic promoter controlling a synthetic TF which activates or represses a nitrogen\hyp{}response master regulator.
+	To date, I have constructed an analytical pipeline to analyse the promoters of constitutive and variable genes and have confirmed that variable genes are enriched for TATA box motifs associated with transcription activation over constitutive genes.
+	I have also tested the co\hyp{}expression of TFs with promoters of interest in a rapid, transient Arabidopsis protoplast assay to quantify expression with and without the addition of potential cognate TFs, confirming that NLP7 activates the \textit{NIR1} promoter.
+	%%% link future work more smoothly with previous part of abstract - why is it the next logical step?
+	In the future a CRISPR library will be constructed and delivered to add variation to the promoter of a nitrogen response master regulator. Plant lines containing mutations will be analysed, determining how the downstream gene expression is affected and whether mutations disrupt important promoter motifs.
 \end{abstract}
 
 %make a black bar where overfull\
@@ -206,10 +206,11 @@ transcription start site; transcription start region.
 %\subfile{chapters/chapter1}
 %\include{chapters/chapter1}
 \subfile{chapters/chapter2}
-% \subfile{chapters/chapter3}
-% \subfile{chapters/chapter4}
-% \subfile{chapters/chapter5}
-% \subfile{chapters/chapter6}
+\subfile{chapters/chapter3}
+\subfile{chapters/chapter4}
+\subfile{chapters/chapter5}
+\subfile{chapters/chapter6}
+\subfile{chapters/chapter7}
 \FloatBarrier{}
 %\section*{References}
 %\emergencystretch=3em.
