@@ -159,14 +159,14 @@ Four nitrogen master regulator genes were chosen to target within the gene regul
 These were ARF18 (AT3G61830), ARF9 (AT4G23980), DREB26 (AT1G21910) and NLP7 (AT4G24020).
 Shoot and root ATAC-seq data (see section~\ref{chapter2:methods:open-chromatin-coverage} Open chromatin coverage \autocite{potterCytokininModulatesContextdependent2018}) was overlayed over the non-coding regions upstream of the ATG start codon of each gene.
 A region of \textasciitilde{}500 bp falling within open chromatin was chosen for each Arabidopsis gene and was scanned for SpCas9 NGG PAM sites using CRISPOR~\autocite{concordetCRISPORIntuitiveGuide2018} (TAIR 10 \autocite{lameschArabidopsisInformationResource2012} genome assembly, Ensembl Plants \autocite{howeEnsemblGenomes20202020} version 76).
-Using a custom Python \autocite{pythoncoreteamPythonDynamicOpen2020} script (available on GitHub: \url{https://github.com/Switham1/PromoterArchitecture/blob/master/src/CRISPR_library/Choose_guides.ipynb}), guides with on\hyp{}target efficiency \autocite{doenchOptimizedSgRNADesign2016} of <\SI{40}{\percent} were filtered out.
+Using a custom Python \autocite{pythoncoreteamPythonDynamicOpen2020} script (available on GitHub: \url{https://github.com/Switham1/PromoterArchitecture/blob/master/src/CRISPR_library/Choose_guides.ipynb}), guides with on\hyp{}target efficiency \autocite{doenchOptimizedSgRNADesign2016} of \textless{}\SI{40}{\percent} were filtered out.
 Roughly 30 guides per gene were chosen.
 Each guide was allocated at least once to a guide pair roughly 90-110 bp apart, generating 96 PAM pairs.
 This was to increase the chance of large deletions between the two PAM sites.
-Virtual Chen \autocite{chenDynamicImagingGenomic2013} guide scaffolds were created using virtual PCRs, then all virtual plasmid maps were generated.
+Virtual Chen \autocite{chenDynamicImagingGenomic2013} guide scaffolds were created using virtual PCRs, then all virtual plasmid maps were generated using PyDNA (version 3.0.2 \autocite{pereiraPydnaSimulationDocumentation2015}) and DNA Cauldron (version 2.0.1; \url{https://github.com/Edinburgh-Genome-Foundry/DnaCauldron}).
 Once the assembly plan was generated, 122 guide scaffolds, 122 sgRNA cassettes and 96 SpCas9 final constructs each containing a guide pair were assembled in the lab.
 %see supplementary table
-The final constructs used a pCsA loop acceptor~\autocite{pollakLoopAssemblySimple2018} with pepsw1kn0114 (\textit{NOS:TMV}-nptII-\txtit{OCS}; Kanamycin resistance) in position 1, pepsw1kn0333 (\textit{YAO}:Cas9 (with potato intron IV2):\textit{E9}; as in plasmid BCJJ345 on Addgene: \url{https://www.addgene.org/117504/} \autocite{castelOptimizationTDNAArchitecture2019}) in position 2, \textit{U626}:guide1 in position 3 and \textit{U626}:guide2 in position 4.
+The final constructs used a pCsA loop acceptor~\autocite{pollakLoopAssemblySimple2018} with pepsw1kn0114 (\textit{NOS:TMV}-nptII-\textit{OCS}; kanamycin resistance) in position 1, pepsw1kn0333 (\textit{YAO}:Cas9 (with potato intron IV2):\textit{E9}; as in plasmid BCJJ345 on Addgene: \url{https://www.addgene.org/117504/} \autocite{castelOptimizationTDNAArchitecture2019}) in position 2, \textit{U626}:guide1 in position 3 and \textit{U626}:guide2 in position 4.
 
 \subsection{Digestion-ligation reaction}\label{chapter2:methods:digestion-ligation-reaction}
 
@@ -255,7 +255,8 @@ containing test promoters controlling nano luciferase (LucN) were added to a tot
 (pEPSW1KN0036) was used. For the nitrate responsive positive
 control \textit{NIR1}:LucN and/or \textit{NRP:}LucN (pEPSW1KN0092) was used. All samples were run in triplicate.
 
-For TF\hyp{}promoter co\hyp{}expression experiments only test plasmids containing 1000 bp promoters were used. \SI{1000}{\fmol} of each plasmid was added, apart from the delivery calibrator \textit{35s:TMV}:LucF (pEPSW1KN0072) where \SI{500}{\fmol} were added.
+For TF\hyp{}promoter co\hyp{}expression experiments only test plasmids containing 1000 bp promoters were used.
+\SI{1000}{\fmol} of each plasmid was added, apart from the delivery calibrator \textit{35s:TMV}:LucF (pEPSW1KN0072) where \SI{500}{\fmol} were added.
 In these experiments, one or more plasmids coding for TFs under the control of~\textit{35S}:TMV were co\hyp{}expressed with a plasmid containing the promoter of interest controlling LucN.
 The promoters tested contained the consensus binding sites for the TFs that were co\hyp{}expressed with them.
 The total concentration of TF plasmids added was \SI{1000}{\fmol}. If more than one TF was co-expressed in the same well, they were added in equimolar ratios (e.g., \SI{500}{\fmol} of TF A, \SI{500}{\fmol} of TF B).
@@ -276,7 +277,7 @@ For some nitrate experiments protoplasts were induced with either \SI{10}{\milli
 
 \section{Luciferase assay}\label{chapter2:methods:luciferase-assay}
 
-Protoplasts were removed from the illuminated incubator and centrifuged for 2 minutes at 200~RCF .
+Protoplasts were removed from the illuminated incubator and centrifuged for 2 minutes at 200~RCF.
 A lysis buffer\hyp{}protease inhibitor mix was made, containing a 1/5 dilution of 5X Promega passive lysis buffer E1941, 1/100 dilution of Sigma protease inhibitor cocktail P9599.
 Supernatant was removed, and \SI{30}{\micro\litre} of lysis buffer protease inhibitor mix was added to each well, pipetting up and down to mix.
 The plate was put on ice for 15 minutes, then centrifuged at 3700~RCF for 10 minutes at \SI{4}{\degreeCelsius}.
@@ -293,15 +294,15 @@ This measured the nano\hyp{}luciferase luminescence.
 \section{Transformation of electrocompetent~\textit{Agrobacterium tumefaciens}}
 
 GV3101 Agrobacterium cells were thawed on ice.
-Sterile \SI{2}{\mm} cuvettes (Geneflow E6-0060) and chamber slide were placed on ice.
+Sterile \SI{2}{\mm} cuvettes (Geneflow E6\hyp{}0060) and chamber slide were placed on ice.
 \SI{20}{\micro\litre} of bacteria and \SI{0.9}{\micro\litre} of \SI{110}{\nano\gram\per\micro\litre} DNA were added to each cuvette.
 Cuvettes were placed in the chamber slide on a BioRad Gene Pulser Xcell and were electroporated with one pulse using the Agro program (\SI{2.5}{\kilo\volt}).
 \SI{500}{\micro\litre} of terrific broth~\autocite{tartoffImprovedMediaGrowing} was added to each cuvette and then the contents was transferred to \SI{1.5}{\ml} microcentrifuge tubes.
 Agrobacteria was incubated at \SI{28}{\degree\celsius} for 2 hours with 220 rpm shaking.
 Tubes were then centrifuged at 10000 RCF for 1 minute after which the supernatant was removed leaving \SI{40}{\micro\litre} in the bottom.
-Cells were resuspended and then \SI{20}{\micro\litre} was transferred to flat-bottom 6 well plates (CytoOne CC7672-7506) containing LB agar with \SI{50}{\micro\gram\per\ml} spectinomycin, \SI{50}{\micro\gram\per\ml} rifampicin and \SI{25}{\micro\gram\per\ml} gentamicin selection.
+Cells were resuspended and then \SI{20}{\micro\litre} was transferred to flat-bottom 6 well plates (CytoOne CC7672\hyp{}7506) containing LB agar with \SI{50}{\micro\gram\per\ml} spectinomycin, \SI{50}{\micro\gram\per\ml} rifampicin and \SI{25}{\micro\gram\per\ml} gentamicin selection.
 Glass beads were used to spread the plates.
-Plates were then incubated for 2-3 days at \SI{28}{\degree\celsius}.
+Plates were then incubated for 2\textendash{}3 days at \SI{28}{\degree\celsius}.
 
 Medium sized colonies were grown overnight in \SI{5}{\ml} liquid LB with \SI{50}{\micro\gram\per\ml} spectinomycin, \SI{50}{\micro\gram\per\ml} rifampicin and \SI{25}{\micro\gram\per\ml} gentamicin selection at \SI{28}{\degree\celsius} with 220 rpm shaking.
 \SI{20}{\percent} glycerol stocks were taken and stored at \SI{-70}{\degreeCelsius}.
@@ -318,7 +319,7 @@ Autoclave bags were taped closed and placed inside black bin liners for 24 hours
 Plants were grown with long days until seeds collection, where a paper seed bag was taped over the influorescence of plants for collection.
 Transgenic Seeds were then sown on \SI{0.8}{\percent} LB \SI{3}{\percent} sucrose agar with \SI{100}{\micro\gram\per\ml} Kanamycin selection.
 Wild type Col-0 seeds were sown without Kanamycin selection.
-After 2-3 weeks, 200 transgenic and 8 wild type T1 plants were transferred to soil.
+After 2\textendash{}3 weeks, 200 transgenic and 8 wild type T1 plants were transferred to soil.
 These plants were bagged for seed collection once they were flowering.
 
 \end{document}
