@@ -72,7 +72,7 @@ The number of base pairs covered by at least one motif in a given sequence was c
 
 \subsection{Open chromatin coverage}\label{chapter2:methods:open-chromatin-coverage}
 %talk about open chromatin in the intro
-Negative control (treated with NaOH) ATAC\hyp{}seq data was downloaded from \textcite{potterCytokininModulatesContextdependent2018} for root and shoot tissues.
+Negative control (treated with \SI{5}{\micro\Molar} NaOH) ATAC\hyp{}seq data was downloaded from \textcite{potterCytokininModulatesContextdependent2018} for root and shoot tissues.
 Individual bed files for each replicate were concatenated and BEDTools (v2.29.2) merge \autocite{quinlanBEDToolsFlexibleSuite2010} was used to combine overlapping peaks.
 An intersection for root and shoot open chromatin was created using BEDTools intersect \autocite{quinlanBEDToolsFlexibleSuite2010}.
 To test the hypothesis that the CRMs of variable genes will have a lower proportion of open chromatin than constitutive CRMs, and that non\hyp{}specific CRMs will have a lower proportion of open chromatin than tissue\hyp{}specific CRMs, BedTools coverage tool \autocite{quinlanBEDToolsFlexibleSuite2010} was used.
@@ -153,6 +153,20 @@ For transient plant co\hyp{}expression assays these were assembled into level 1 
 %The previously assembled level 0 basic parts were assembled into 24 complete expression vectors called level 1 plasmids~\autocite{marillonnetSyntheticDNAAssembly2020}.
 % Plasmids containing these genes were created for transient protein expression in~\textit{E. coli} (pOpinF backbone: \url{https://www.addgene.org/26042/}; plasmids
 % pEPSW1KN0079-84). The same 6 N\hyp{}responsive coding sequences were used in plasmids for cell free protein synthesis (pEPSW1KN0085-90).
+
+\subsection{Design of guides and construction of CRISPR library}\label{chapter2:methods:design-of-guides}
+Four nitrogen master regulator genes were chosen to target within the gene regulatory subnetwork.
+These were ARF18 (AT3G61830), ARF9 (AT4G23980), DREB26 (AT1G21910) and NLP7 (AT4G24020).
+Shoot and root ATAC-seq data (see section~\ref{chapter2:methods:open-chromatin-coverage} Open chromatin coverage \autocite{potterCytokininModulatesContextdependent2018}) was overlayed over the non-coding regions upstream of the ATG start codon of each gene.
+A region of \textasciitilde{}500 bp falling within open chromatin was chosen for each Arabidopsis gene and was scanned for SpCas9 NGG PAM sites using CRISPOR~\autocite{concordetCRISPORIntuitiveGuide2018} (TAIR 10 \autocite{lameschArabidopsisInformationResource2012} genome assembly, Ensembl Plants \autocite{howeEnsemblGenomes20202020} version 76).
+Using a custom Python \autocite{pythoncoreteamPythonDynamicOpen2020} script (available on GitHub: \url{https://github.com/Switham1/PromoterArchitecture/blob/master/src/CRISPR_library/Choose_guides.ipynb}), guides with on\hyp{}target efficiency \autocite{doenchOptimizedSgRNADesign2016} of <\SI{40}{\percent} were filtered out.
+Roughly 30 guides per gene were chosen.
+Each guide was allocated at least once to a guide pair roughly 90-110 bp apart, generating 96 PAM pairs.
+This was to increase the chance of large deletions between the two PAM sites.
+Virtual Chen \autocite{chenDynamicImagingGenomic2013} guide scaffolds were created using virtual PCRs, then all virtual plasmid maps were generated.
+Once the assembly plan was generated, 122 guide scaffolds, 122 sgRNA cassettes and 96 SpCas9 final constructs each containing a guide pair were assembled in the lab.
+%see supplementary table
+The final constructs used a pCsA loop acceptor~\autocite{pollakLoopAssemblySimple2018} with pepsw1kn0114 (\textit{NOS:TMV}-nptII-\txtit{OCS}; Kanamycin resistance) in position 1, pepsw1kn0333 (\textit{YAO}:Cas9 (with potato intron IV2):\textit{E9}; as in plasmid BCJJ345 on Addgene: \url{https://www.addgene.org/117504/} \autocite{castelOptimizationTDNAArchitecture2019}) in position 2, \textit{U626}:guide1 in position 3 and \textit{U626}:guide2 in position 4.
 
 \subsection{Digestion-ligation reaction}\label{chapter2:methods:digestion-ligation-reaction}
 
@@ -295,7 +309,7 @@ Medium sized colonies were grown overnight in \SI{5}{\ml} liquid LB with \SI{50}
 \section{Transformation of \textit{Arabidopsis thaliana} by floral dip}\label{chapter2:methods:floral-dip}
 
 Col-0 Arabidopsis plants were grown in soil with long days until flowering (\textasciitilde{}4 weeks old).
-For the CRISPR library, 96 Agrobacteria strains were grown overnight in \SI{5}{\ml} liquid LB with \SI{50}{\micro\gram\per\ml} spectinomycin, \SI{50}{\micro\gram\per\ml} rifampicin and \SI{25}{\micro\gram\per\ml} gentamicin selection at \SI{28}{\degree\celsius} with 220 rpm shaking.
+For the CRISPR library, 96 Agrobacteria strains (each containing one of the 96 CRISPR constructs described in section~\ref{chapter2:methods:design-of-guides} Design of guides and construction of CRISPR library) were grown overnight in \SI{5}{\ml} liquid LB with \SI{50}{\micro\gram\per\ml} spectinomycin, \SI{50}{\micro\gram\per\ml} rifampicin and \SI{25}{\micro\gram\per\ml} gentamicin selection at \SI{28}{\degree\celsius} with 220 rpm shaking.
 Cells were centrifuged at 3700 RCF for 10 mins and resuspended in fresh \SI{5}{\percent} sucrose solution to OD600 \textasciitilde{}0.8.
 All strains were mixed together equally (\SI{3}{\ml} each) and Silvet L-77 was added to \SI{0.05}{\percent}.
 Agrobacteria was transferred to \SI{9x30}{\ml} spray bottles.
