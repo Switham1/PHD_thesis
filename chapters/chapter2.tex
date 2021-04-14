@@ -161,7 +161,7 @@ Shoot and root ATAC-seq data (see section~\ref{chapter2:methods:open-chromatin-c
 A region of \textasciitilde{}500 bp falling within open chromatin was chosen for each Arabidopsis gene and was scanned for SpCas9 NGG PAM sites using CRISPOR~\autocite{concordetCRISPORIntuitiveGuide2018} (TAIR 10 \autocite{lameschArabidopsisInformationResource2012} genome assembly, Ensembl Plants \autocite{howeEnsemblGenomes20202020} version 76).
 Using a custom Python \autocite{pythoncoreteamPythonDynamicOpen2020} script (available on GitHub: \url{https://github.com/Switham1/PromoterArchitecture/blob/master/src/CRISPR_library/Choose_guides.ipynb}), guides with on\hyp{}target efficiency \autocite{doenchOptimizedSgRNADesign2016} of \textless{}\SI{40}{\percent} were filtered out.
 Roughly 30 guides per gene were chosen.
-Each guide was allocated at least once to a guide pair roughly 90-110 bp apart, generating 96 PAM pairs.
+Each guide was allocated at least once to a guide pair roughly 90\textendash{}110 bp apart, generating 96 PAM pairs.
 This was to increase the chance of large deletions between the two PAM sites.
 Virtual Chen \autocite{chenDynamicImagingGenomic2013} guide scaffolds were created using virtual PCRs, then all virtual plasmid maps were generated using PyDNA (version 3.0.2 \autocite{pereiraPydnaSimulationDocumentation2015}) and DNA Cauldron (version 2.0.1; \url{https://github.com/Edinburgh-Genome-Foundry/DnaCauldron}).
 Once the assembly plan was generated, 122 guide scaffolds, 122 sgRNA cassettes and 96 SpCas9 final constructs each containing a guide pair were assembled in the lab.
@@ -321,5 +321,7 @@ Transgenic Seeds were then sown on \SI{0.8}{\percent} LB \SI{3}{\percent} sucros
 Wild type Col-0 seeds were sown without Kanamycin selection.
 After 2\textendash{}3 weeks, 200 transgenic and 8 wild type T1 plants were transferred to soil.
 These plants were bagged for seed collection once they were flowering.
+
+\section{Transient assay reporting genome\hyp{}wide effects of transcription factors (TARGET)}\label{chapter2:methods:TARGET}
 
 \end{document}
