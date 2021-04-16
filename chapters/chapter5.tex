@@ -13,12 +13,41 @@ Additionally, the use of different groups of proteins across tissue types might 
 In absence of the pioneer CRE, transcription was activated via passive cooperativity.
 When the order of TFBSs was changed, the expression did not significantly change.
 This supported the passive cooperativity model of opening chromatin, ruling out TF-TF interactions between the TFs binding the minsyns.
-It was also possible to predict the strength of minimal synthetic promtoers from their sequence.
-Using a similar approach to \textcite*{caiRationalDesignMinimal2020}, I would like to design synthetic minimal nitrogen-responsive promoters for use in a synthetic genetic feedback controller (Chapter \ref{chapter6}: Adding synthetic genetic feedback control).
+It was also possible to predict the strength of minimal synthetic promoters from their sequence.
+Using a similar approach to \textcite*{caiRationalDesignMinimal2020}, I would like to design synthetic minimal nitrogen-responsive promoters for use in a synthetic genetic feedback controller (Chapter~\ref{chapter6}: Adding synthetic genetic feedback control).
 \section{Aims}\label{chapter5:aims}
 The aim is to design, build and quantitatively test the expression of several synthetic minimal N\hyp{}responsive promoters using a dual luciferase ratiometric assay in Arabidopsis protoplasts.
 Ideally several promoters of different strengths responding to different N\hyp{}responsive TFs will be generated.
 Some of these synthetic N\hyp{}responsive promoters will then be used to control synthetic TFs in a genetic feedback controller in chapter~\ref{chapter6}.
+Placing TATA boxes in between TFBSs has been shown to increase induction of transcription and the activation ratio in yeast \autocite{kotopkaModeldrivenGenerationArtificial2020}.
+I hypothesise that adding TATA boxes in between TFBSs in Arabidopsis promoters will also increase induction and the activation ratio.
+
 \section{Results}\label{chapter5:results}
+
+Several different synthetic N\hyp{}responsive promoters were designed, built and tested.
+Promoters containing four NRE (nitrate response element which binds the NLP7 TF) TFBSs were tested using different spacing and spacers between binding sites.
+To test the hypothesis that adding TATA boxes in between TFBSs will increase the activation ratio and induction of promoters, 6 bp TATA boxes were added in between each NRE TFBS, and compared to 6 bp of random sequence with equal ATCG ratios.
+To test if having longer spacers would allow TFs the space to bind and recruit RNA polymerase more easily, versions of the NRE promoters were tested with a 20 bp spacer vs only 6 bp spacer.
+(I WILL ADD A FIGURE SHOWING EACH PROMOTER DESIGN ABOVE THE PLOT SHOWING THE PROMOTER EXPRESSION. I WILL ALSO ADD THE NEGATIVE CONTROL STAP4 EXPRESSION TO EACH PLOT).
+\begin{figure}[hbt!]
+	\begin{center}
+		\capstart
+		\includegraphics[width=0.60\columnwidth]{luminescence/mar2021_synpromoters/scatter4x[NRE-random]}
+		\caption{
+			\textbf{Luminescence of the transiently expression 4x[NRE-random] promoter with or without co\hyp{}expression of the NLP7 TF in Arabidopsis leaf protoplasts}
+			\SI{1000}{\fmol} of 4x[NRE-random]:LucN plasmid and \SI{500}{\fmol} of delivery calibrator \textit{35S}:LucF used during transformation of protoplasts.
+			For TF co\hyp{}
+			expression \SI{1000}{\fmol} of \textit{35S}:NLP7 plasmid DNA was added during transformation.
+			\textit{STAP4}, negative control.
+			Plants were grown in soil for 3\textendash{}6 weeks before harvesting of protoplasts.
+			Significance tested using Mann-Whitney.
+			*, \textit{P} \textless{} 0.05.
+			\textit{n} = 5\textendash{}6.
+			\label{fig:4xnre-random}
+		}
+	\end{center}
+\end{figure}
+
+
 
 \end{document}
