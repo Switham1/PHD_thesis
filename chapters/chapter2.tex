@@ -139,7 +139,7 @@ The positive control plasmids pEPSW1KN0035 (\textit{NOS}:LucN) and pEPSW1KN0071 
 
 \subsection{Transcription factors}\label{chapter2:methods:synthetic-transcription-factors}
 
-CDSs (see section~{\ref{chapter2:methods:gene-selection}} gene selection) were imported into Benchling (available at \url{http://www.benchling.com}; unpublished) from EnsemblPlants (release 42~\autocite{kerseyEnsemblGenomes20182018}).
+CDSs (see \autoref{chapter2:methods:gene-selection} Gene selection) were imported into Benchling (available at \url{http://www.benchling.com}; unpublished) from EnsemblPlants (release 42~\autocite{kerseyEnsemblGenomes20182018}).
 Any illegal restriction enzyme sites were mutated to synonymous codons with similar Arabidopsis codon usage.
 CDSs were ordered from Twist Bioscience.
 These included ANAC032 (AT1G77450), ANR1 (AT2G14210), ARF18 (AT3G61830), ARF9 (AT4G23980), NLP6 (AT1G64530), NLP7 (AT4G24020), DREB26 (AT1G21910), TCP20 (AT3G27010), TGA1 (AT5G65210), bZIP3 (AT5G15830) and HHO2 (AT1G68670).
@@ -157,7 +157,7 @@ For transient plant co\hyp{}expression assays these were assembled into level 1 
 \subsection{Design of guides and construction of CRISPR library}\label{chapter2:methods:design-of-guides}
 Four nitrogen master regulator genes were chosen to target within the gene regulatory subnetwork.
 These were ARF18 (AT3G61830), ARF9 (AT4G23980), DREB26 (AT1G21910) and NLP7 (AT4G24020).
-Shoot and root ATAC-seq data (see section~\ref{chapter2:methods:open-chromatin-coverage} Open chromatin coverage \autocite{potterCytokininModulatesContextdependent2018}) was overlayed over the non-coding regions upstream of the ATG start codon of each gene.
+Shoot and root ATAC-seq data (see \autoref{chapter2:methods:open-chromatin-coverage} Open chromatin coverage \autocite{potterCytokininModulatesContextdependent2018}) was overlayed over the non-coding regions upstream of the ATG start codon of each gene.
 A region of \textasciitilde{}500 bp falling within open chromatin was chosen for each Arabidopsis gene and was scanned for SpCas9 NGG PAM sites using CRISPOR~\autocite{concordetCRISPORIntuitiveGuide2018} (TAIR 10 \autocite{lameschArabidopsisInformationResource2012} genome assembly, Ensembl Plants \autocite{howeEnsemblGenomes20202020} version 76).
 Using a custom Python \autocite{pythoncoreteamPythonDynamicOpen2020} script (available on GitHub: \url{https://github.com/Switham1/PromoterArchitecture/blob/master/src/CRISPR_library/Choose_guides.ipynb}), guides with on\hyp{}target efficiency \autocite{doenchOptimizedSgRNADesign2016} of \textless{}\SI{40}{\percent} were filtered out.
 Roughly 30 guides per gene were chosen.
@@ -256,7 +256,7 @@ containing test promoters controlling nano luciferase (LucN) were added to a tot
 control \textit{NIR1}:LucN and/or \textit{NRP:}LucN (pEPSW1KN0092) was used. All samples were run in triplicate.
 
 For TF\hyp{}promoter co\hyp{}expression experiments only test plasmids containing 1000 bp promoters were used.
-\SI{1000}{\fmol} of each plasmid was added, apart from the delivery calibrator \textit{35s:TMV}:LucF (pEPSW1KN0072) where \SI{500}{\fmol} were added.
+\SI{500}{\fmol} of the the delivery calibrator \textit{35s:TMV}:LucF (pEPSW1KN0072) was added, and \SI{1000}{\fmol} of each promoter\hyp{}containing plasmid was added.
 In these experiments, one or more plasmids coding for TFs under the control of~\textit{35S}:TMV were co\hyp{}expressed with a plasmid containing the promoter of interest controlling LucN.
 The promoters tested contained the consensus binding sites for the TFs that were co\hyp{}expressed with them.
 The total concentration of TF plasmids added was \SI{1000}{\fmol}. If more than one TF was co-expressed in the same well, they were added in equimolar ratios (e.g., \SI{500}{\fmol} of TF A, \SI{500}{\fmol} of TF B).
@@ -310,7 +310,7 @@ Medium sized colonies were grown overnight in \SI{5}{\ml} liquid LB with \SI{50}
 \section{Transformation of \textit{Arabidopsis thaliana} by floral dip}\label{chapter2:methods:floral-dip}
 
 Col-0 Arabidopsis plants were grown in soil with long days until flowering (\textasciitilde{}4 weeks old).
-For the CRISPR library, 96 Agrobacteria strains (each containing one of the 96 CRISPR constructs described in section~\ref{chapter2:methods:design-of-guides} Design of guides and construction of CRISPR library) were grown overnight in \SI{5}{\ml} liquid LB with \SI{50}{\micro\gram\per\ml} spectinomycin, \SI{50}{\micro\gram\per\ml} rifampicin and \SI{25}{\micro\gram\per\ml} gentamicin selection at \SI{28}{\degree\celsius} with 220 rpm shaking.
+For the CRISPR library, 96 Agrobacteria strains (each containing one of the 96 CRISPR constructs described in \autoref{chapter2:methods:design-of-guides} Design of guides and construction of CRISPR library) were grown overnight in \SI{5}{\ml} liquid LB with \SI{50}{\micro\gram\per\ml} spectinomycin, \SI{50}{\micro\gram\per\ml} rifampicin and \SI{25}{\micro\gram\per\ml} gentamicin selection at \SI{28}{\degree\celsius} with 220 rpm shaking.
 Cells were centrifuged at 3700 RCF for 10 mins and resuspended in fresh \SI{5}{\percent} sucrose solution to OD600 \textasciitilde{}0.8.
 All strains were mixed together equally (\SI{3}{\ml} each) and Silvet L-77 was added to \SI{0.05}{\percent}.
 Agrobacteria was transferred to \SI{9x30}{\ml} spray bottles.
