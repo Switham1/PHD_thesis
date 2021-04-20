@@ -2,6 +2,59 @@
 
 \begin{document}
 \chapter{Progress since May 2020}\label{progress}
+Note - main literature review has been excluded from this report as it was submitted last year but it will be included in my final thesis.
+
+\textbf{Background}
+Over thousands of years crops have been domesticated to fix desirable traits.
+A side effect of this is that genetic bottlenecks reduced variation over time \autocite{tanksleySeedBanksMolecular1997}.
+Many crop\hyp{}improvement methods aim to increase diversity.
+For example, mutagenesis and marker assisted breeding generate variation over the whole genome, and then desirable phenotypes are selected for and then back\hyp{}crossed to remove undesired mutations \autocite{tuberosaMarkerAssistedbreddingBreedSee2012}.
+An advantage is that an understanding of the genes involved is unnecessary, but it can take many years over many generations to breed traits into elite lines.
+Transgenesis and genome engineering methods are much more specific, only editing genes of interest.
+A background understanding of which genes to edit is necessary but these methods are much faster and engineering of elite lines directly may be possible \autocite{sedeekPlantGenomeEngineering2019}.
+
+Most genome editing to date has focussed on mutating coding sequences (CDSs).
+For example, Gn1a regulates the number of reproductive organs in rice, and GS3 regulates grain size.
+Mutations in \textit{GS3} and \textit{Gn1a} coding sequences lead to an increase in grain size and grain number \autocite{shenQTLEditingConfers2018}.
+In the cucumber, the translation initiation factor eIF4E translates the RNA of several viruses.
+Loss of function of this gene confers virus resistance \autocite{chandrasekaranDevelopmentBroadVirus2016}.
+In tomato, LBD40 has a role in lateral organ development and jasmonate signalling.
+Loss of function of this gene resulted in increased drought tolerance \autocite{liuCRISPRCas9Targeted2020}.
+
+Engineering of \textit{cis}\hyp{}regulatory regions is an emerging strategy.
+Compared to mutations in coding sequences that alter protein structure, \textit{cis}\hyp{}regulatory variants are often less pleiotropic and cause subtle phenotypic changes by modifying the pattern, timing or strength of gene expression \autocite{wittkoppCisregulatoryElementsMolecular2012}.
+The rice \textit{SWEET14} gene codes for a sucrose transporter, and is also susceptible to bacterial blight.
+Disruption of the CDS confers blight resistance but plants have reduced growth as they lose function of the sugar transporter.
+4 bp and 9 bp modifications to the \textit{SWEET14} promoter conferred blight resistance without significantly affecting plant growth \autocite{liHighefficiencyTALENbasedGene2012}.
+The CLAVATA-WUSCHEL feedback signalling pathway controls meristem size \autocite{somssichCLAVATAWUSCHELSignalingShoot2016}.
+WUS is expressed in the organising centre of the meristem where it increases the expression of the secreted peptide CLV3.
+CLV3 binds to the receptor CLV1 which repressed \textit{WUS} expression.
+In tomato, mutations in the \textit{CLV3} and \textit{WUS} promoters increased the locule number and fruit size due to stem cell overproliferation \autocite{rodriguez-lealEngineeringQuantitativeTrait2017}.
+Recently, the promoter of the \textit{CLV3} orthologue \textit{CLE7} in maize was mutated \autocite{liuEnhancingGrainyieldrelatedTraits2021}.
+Several mutations increased grain yield, while one mutation decreased grain yield.
+
+In my project I will be using genome engineering approaches to add variation into \textit{Arabidopsis thaliana} as it is a model plant with lots of data already published.
+Specifically, I will engineer genes in the nitrogen\hyp{}response network.
+The nitrogen cycle is one of the most important biogeochemical cycles on earth \autocite{lehnertReversingNitrogenFixation2018}.
+Atmospheric nitrogen is converted to ammonium by nitrogen fixing bacteria in the soil such as Rhizobium and Azotobacter.
+Ammonium is then converted to nitrite then nitrate by nitrifying bacteria.
+Both ammonium and nitrate are readily absorbed by plant roots.
+Nitrogen is often the most limiting essential nutrient for crop growth.
+Crops developed during the Green Revolution were bred specifically to respond to fertilisers and increase yields.
+Problems with overuse of fertiliser include the release of the greenhouse gases nitrous oxide from the soil \autocite{zumftcellBiologyMolecular1997} and carbon dioxide from production of the fertiliser.
+Soluble ions such as nitrate are washed into water ways causing eutrophication \autocite{gallowayChronologyHumanUnderstanding2013}.
+N fertiliser is inaccessible to farmers in developing regions due to the price and disrupted supply chains.
+It is desirable to increase the N\hyp{}use efficiency of crops to reduce the dependency on nitrogen fertilisers.
+Changes in N impact many plant traits such as growth and development, lateral roots, root depth, rosette size and flowering time \autocite{abalosPlantTraitbasedApproaches2019,castromarinNitrateRegulatesFloral2011}.
+These traits are the result of large\hyp{}scale transcriptional change.
+Recent systems biology approaches have identified a subnetwork of candidate TFs coordinating these changes \autocite{gaudinierTranscriptionalRegulationNitrogenassociated2018,varalaTemporalTranscriptionalLogic2018}.
+The predicted edges in the subnetwork form several feed\hyp{}forward loops (FFLs).
+The subnetwork is predicted to coordinate responses of many downstream genes.
+NLP7 and TGA1 knockouts no longer grow lateral roots in response to N, and downstream genes no longer change expression in response to N.
+This is also expected to be true for ARF18 and ARF9 \autocite{gaudinierTranscriptionalRegulationNitrogenassociated2018}.
+Loss of function of these master regulators individually and in combination will disrupt the plant response to N.
+We would like to validate connections in the network so that we understand the role of network motifs (e.g., FFLs) in regulating responses to changes in nitrate.
+This will enable us to rationally and predictably engineer the subnetwork to improve the nitrogen use\hyp{}efficiency.
 
 \textbf{Adding novel genetic variation to promoter regions to disrupt edges}
 Four nitrogen master regulators were identified. \textasciitilde{}500 bp open chromatin regions in each promoter were identified. These regions were scanned for SpCas9 PAMs sites. 122 guides were designed ensuring predicted on-target efficiency of \textgreater{} \SI{40}{\percent}, with \textasciitilde{}30 guides per promoter. A custom Python script allocated each guide into a pair 90-110 bp apart with the aim of increasing the variety of mutations, with a chance to cause a large deletion between the two PAM sites in a pair. 122 sgRNA cassettes were constructed and used to build 96 final Cas9 constructs each containing a guide pair using Golden Gate assembly. 96 strains of Agrobacteria were transformed with the plasmids. These strains were combined equally and then sprayed onto ~100 Col-0 Arabidopsis thaliana plants using the Agrobacterium-mediated floral dip method. Seeds were collected, grown on selectable kanamycin media and 200 T1 lines were transferred to soil. These plants have now been bagged ready for seed collection. In the future 500 T2 lines will be grown and genotyped using a CRISPR sequencing approach. Plants containing a range of variation in the promoter regions of interest will be grown to T3 level for phenotyping and expression analysis using RNA-seq.
