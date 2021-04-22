@@ -128,7 +128,7 @@ The level 0 standard parts were assembled into complete expression vectors calle
 \subsection{Synthetic promoters}\label{chapter2:methods:synthetic-promoters}
 
 To test promoters transiently in plants they were cloned into level 0 standard vectors~\autocite{marillonnetSyntheticDNAAssembly2020}.
-Arabidopsis TFBSs consensus sequences were identified on \url{http://neomorph.salk.edu/dev/pages/shhuang/dap_web/pages/browse_table_aj.php}.
+Arabidopsis TFBSs consensus sequences were identified on the plant cistrome database \autocite{omalleyCistromeEpicistromeFeatures2016} (\url{http://neomorph.salk.edu/dev/pages/shhuang/dap_web/pages/browse_table_aj.php}).
 The first batch of synthetic promoters contained TFBSs as follows: 1xANR1, 1xNLP7, 1x[TCP20-NLP7], 4xANR1, 4xNLP7, 4x[TCP20-NLP7], 4xNRE (plasmids pEPSW0CM0095\textendash{}101).
 The second batch of synthetic promoters contained TFBSs as follows: 4x[NRE-TATA] no spacing, 4x[NRE-TATA] separated by 20bp spacing downstream of NRE, 4x[NRE-random] (equal ATGC ratios), 4x[NRE-random] (equal ATGC ratios) separated by 20bp spacing downstream of NRE, 3xHHO2-minsyn\_105, minsyn\_105—3xHHO2, 4x[bZIP3-random], 4x[TGA1-random], 2x[bZIP3-random-NRE-random], 2x[TGA1-random-NRE-random] (plasmids pEPSW0CM0336\textendash{}345).
 A negative control STAP4 promoter was created (pEPSW0CM0093).
@@ -155,9 +155,9 @@ For transient plant co\hyp{}expression assays these were assembled into level 1 
 % pEPSW1KN0079-84). The same 6 N\hyp{}responsive coding sequences were used in plasmids for cell free protein synthesis (pEPSW1KN0085-90).
 
 \subsection{Design of guides and construction of CRISPR library}\label{chapter2:methods:design-of-guides}
-Four nitrogen master regulator genes were chosen to target within the gene regulatory subnetwork.
+The \textit{cis}\hyp{}regulatory regions of four nitrogen master regulator genes within the gene regulatory subnetwork were selected to target.
 These were ARF18 (AT3G61830), ARF9 (AT4G23980), DREB26 (AT1G21910) and NLP7 (AT4G24020).
-Shoot and root ATAC-seq data (see \autoref{chapter2:methods:open-chromatin-coverage} Open chromatin coverage \autocite{potterCytokininModulatesContextdependent2018}) was overlayed over the non-coding regions upstream of the ATG start codon of each gene.
+Shoot and root ATAC-seq data \autocite{potterCytokininModulatesContextdependent2018} (see \autoref{chapter2:methods:open-chromatin-coverage} Open chromatin coverage) was overlayed over the non-coding regions upstream of the ATG start codon of each gene.
 A region of \textasciitilde{}500 bp falling within open chromatin was chosen for each Arabidopsis gene and was scanned for SpCas9 NGG PAM sites using CRISPOR~\autocite{concordetCRISPORIntuitiveGuide2018} (TAIR 10 \autocite{lameschArabidopsisInformationResource2012} genome assembly, Ensembl Plants \autocite{howeEnsemblGenomes20202020} version 76).
 Using a custom Python \autocite{pythoncoreteamPythonDynamicOpen2020} script (available on GitHub: \url{https://github.com/Switham1/PromoterArchitecture/blob/master/src/CRISPR_library/Choose_guides.ipynb}), guides with on\hyp{}target efficiency \autocite{doenchOptimizedSgRNADesign2016} of \textless{}\SI{40}{\percent} were filtered out.
 Roughly 30 guides per gene were chosen.
@@ -170,7 +170,7 @@ The final constructs used a pCsA loop acceptor~\autocite{pollakLoopAssemblySimpl
 
 \subsection{Digestion-ligation reaction}\label{chapter2:methods:digestion-ligation-reaction}
 
-In a \SI{0.2}{\milli\litre} PCR tubes or 96 well plates one-step digestion-ligation reactions were carried out, as detailed in Support Protocol 1 in \textcite*{patronDNAAssemblyPlant2016}, with a few alterations.
+In a \SI{0.2}{\milli\litre} PCR tubes or in 96 well plates one-step digestion-ligation reactions were carried out, as detailed in Support Protocol 1 in \textcite*{patronDNAAssemblyPlant2016}, with a few alterations.
 A final reaction volume of \SI{10}{\micro\litre} per well was used instead of \SI{20}{\micro\litre}, with final concentrations of \SI{1}{\nano\Molar} of acceptor
 plasmid and \SI{2}{\nano\Molar} of coding sequence DNA.
 For the pUAP1 and pUPD2 acceptor plasmids, a 1X final concentration of New England Biolabs (NEB) T4 DNA ligase buffer (final concentration: \SI{50}{\milli\Molar} Tris-HCl, \SI{10}{\milli\Molar} MgCl\textsubscript{2}, \SI{1}{\milli\Molar} ATP, \SI{10}{\milli\Molar} DTT) was used.
@@ -200,7 +200,7 @@ Colonies with correct insert sizes were grown overnight in \SI{100}{\ml} liquid 
 \SI{20}{\percent} glycerol stocks were taken and stored at \SI{-70}{\degreeCelsius}.
 QIAGEN Plasmid~\textit{Plus} Midi Kit with manifold was used to extract and purify DNA.
 DNA concentration was measured on a CLARIOstar Plus plate reader.
-Constructs were sequenced by IDT, Eurofins or Genewiz in both directions to confirm identity.
+Constructs were sequenced by Eurofins or Genewiz in both directions to confirm identity.
 Plasmid details can be found in {Supplementary Table 1}.
 
 \section{Plant growth}{\label{chapter2:methods:plant-growth}}
@@ -219,7 +219,7 @@ Protoplast extraction was carried out as described~\autocite{yooArabidopsisMesop
 Plant tissue was added to a petri dish and chopped into \textasciitilde{}\SI{4}{\mm} lengths.
 The enzyme digestion solution was added containing \SI{1.5}{\percent} cellulase and \SI{0.3}{\percent} macerozyme.
 Leaves were digested for 4 hours at \SI{22}{\degreeCelsius} with shaking.
-During filtering (\SI{75}{\micro\litre} filter) \SI{2}{\ml} (leaf) of W5 solution was used to wash the protoplasts.
+During filtering (\SI{75}{\micro\litre} filter) \SI{2}{\ml} of W5 solution was used to wash the protoplasts.
 After filtering, protoplasts were centrifuged at 200~RCF (leaf) for 2 minutes.
 After leaving on ice to settle for 30 minutes, supernatant was removed and \SI{1}{\ml} of MMG solution was added.
 Using a cut pipette tip, leaf protoplasts were loaded to the top of \SI{5}{\ml} of \SI{21}{\percent} sucrose solution in a \SI{15}{\ml} centrifuge tube.
@@ -262,18 +262,18 @@ The promoters tested contained the consensus binding sites for the TFs that were
 The total concentration of TF plasmids added was \SI{1000}{\fmol}. If more than one TF was co-expressed in the same well, they were added in equimolar ratios (e.g., \SI{500}{\fmol} of TF A, \SI{500}{\fmol} of TF B).
 
 \SI{200}{\micro\litre} of protoplast solution (\SI{e5}{\per\ml}) was slowly added to each well, using cut pipette tips to avoid damaging cells.
-\SI{200}{\micro\litre} + \si{\micro\litre} of plasmid solution added of PEG solution was added to each well, and the plate was covered and inverted 20 times to mix.
+\SI{200}{\micro\litre} plus the volume of the plasmid solution used of PEG solution was added to each well, and the plate was covered and inverted 20 times to mix.
 \SI{1.2}{\ml} of W5 solution was added, and plate was inverted 20 times to mix.
-The plate was centrifuged at 400~RCF (root) or 100~RCF (leaf) for 2 minutes, and supernatant was removed.
+The plate was centrifuged at 100~RCF for 2 minutes, and supernatant was removed.
 Leaf protoplasts were resuspended with \SI{120}{\micro\litre} W5, instead of WI solution.
-For nitrate induction experiments W5 containing \SI{10}{\milli\Molar} KNO\textsubscript{3} was used instead for either overnight induction or induction for 2 hours before continuing to the luciferase assay.
-Root protoplasts were resuspended in either replete (0.4 M glucose, \SI{3}{\milli\Molar} MES, major salts~\autocite{nagyCallusInductionPlant1976}: \SI{24.72}{\milli\Molar} KNO\textsubscript{3}, \SI{1.01}{\milli\Molar} (NH\textsubscript{4})\textsubscript{2}SO\textsubscript{4}, \SI{1.01}{\milli\Molar} MgSO\textsubscript{4}.7H\textsubscript{2}O, \SI{1.48}{\milli\Molar} KH\textsubscript{2}PO\textsubscript{4}, \SI{3.12}{\milli\Molar} NH\textsubscript{4}NO\textsubscript{3}, \SI{0.89}{\milli\Molar} CaCl\textsubscript{2}, minor salts~\autocite{gamborgNutrientRequirementsSuspension1968}: \SI{101.9}{\micro\Molar} H\textsubscript{3}BO\textsubscript{3}, \SI{100.05}{\micro\Molar} MNCl.4H\textsubscript{2}O, \SI{31.99}{\micro\Molar} ZnSO\textsubscript{4}.7H\textsubscript{2}O, \SI{5}{\micro\Molar} KI, \SI{1.03}{\micro\Molar} Na\textsubscript{2}MoO\textsubscript{4}.2H\textsubscript{2}O, \SI{0.1}{\micro\Molar} CuSO\textsubscript{4}.5H\textsubscript{2}O, \SI{0.09}{\micro\Molar} COCl\textsubscript{2}.6H\textsubscript{2}O, \SI{100}{\micro\Molar}  NaFe\hyp{}EDTA, \SI{0.12}{\gram\per\l} Gamborg B5 vitamins) or nitrate\hyp{}free (\SI{0.4}{\Molar} glucose, \SI{3}{\milli\Molar} MES, major salts \autocite{nagyCallusInductionPlant1976}: \SI{156.3}{\milli\Molar} glutamine, \SI{1.01}{\milli\Molar} (NH\textsubscript{4})\textsubscript{2}SO\textsubscript{4}, \SI{1.01}{\milli\Molar} MgSO\textsubscript{4}.7H\textsubscript{2}O, \SI{1.48}{\milli\Molar} KH\textsubscript{2}PO\textsubscript{4}, \SI{0.89}{\milli\Molar} CaCl\textsubscript{2}, minor salts~\autocite{gamborgNutrientRequirementsSuspension1968}: \SI{101.9}{\micro\Molar} H\textsubscript{3}BO\textsubscript{3}, \SI{100.05}{\micro\Molar} MNCl.4H\textsubscript{2}O, \SI{31.99}{\micro\Molar} ZnSO\textsubscript{4}.7H\textsubscript{2}O, \SI{5}{\micro\Molar} KI, \SI{1.03}{\micro\Molar} Na\textsubscript{2}MoO\textsubscript{4}.2H\textsubscript{2}O, \SI{0.1}{\micro\Molar} CuSO\textsubscript{4}.5H\textsubscript{2}O, \SI{0.09}{\micro\Molar} COCl\textsubscript{2}.6H\textsubscript{2}O, \SI{100}{\micro\Molar}  NaFe\hyp{}EDTA, \SI{0.12}{\g\per\l} Gamborg B5 vitamins) K3G1 nutrient solution without hormones to pH 5.7 with KOH.
-K3G1 mediums were filter sterilised with a Sartorious Minisart® syringe \SI{0.22}{\um} filter.
+%For nitrate induction experiments, W5 containing \SI{10}{\milli\Molar} KNO\textsubscript{3} was used instead for either overnight induction or induction for 2 hours before continuing to the luciferase assay.
+%Root protoplasts were resuspended in either replete (0.4 M glucose, \SI{3}{\milli\Molar} MES, major salts~\autocite{nagyCallusInductionPlant1976}: \SI{24.72}{\milli\Molar} KNO\textsubscript{3}, \SI{1.01}{\milli\Molar} (NH\textsubscript{4})\textsubscript{2}SO\textsubscript{4}, \SI{1.01}{\milli\Molar} MgSO\textsubscript{4}.7H\textsubscript{2}O, \SI{1.48}{\milli\Molar} KH\textsubscript{2}PO\textsubscript{4}, \SI{3.12}{\milli\Molar} NH\textsubscript{4}NO\textsubscript{3}, \SI{0.89}{\milli\Molar} CaCl\textsubscript{2}, minor salts~\autocite{gamborgNutrientRequirementsSuspension1968}: \SI{101.9}{\micro\Molar} H\textsubscript{3}BO\textsubscript{3}, \SI{100.05}{\micro\Molar} MNCl.4H\textsubscript{2}O, \SI{31.99}{\micro\Molar} ZnSO\textsubscript{4}.7H\textsubscript{2}O, \SI{5}{\micro\Molar} KI, \SI{1.03}{\micro\Molar} Na\textsubscript{2}MoO\textsubscript{4}.2H\textsubscript{2}O, \SI{0.1}{\micro\Molar} CuSO\textsubscript{4}.5H\textsubscript{2}O, \SI{0.09}{\micro\Molar} COCl\textsubscript{2}.6H\textsubscript{2}O, \SI{100}{\micro\Molar}  NaFe\hyp{}EDTA, \SI{0.12}{\gram\per\l} Gamborg B5 vitamins) or nitrate\hyp{}free (\SI{0.4}{\Molar} glucose, \SI{3}{\milli\Molar} MES, major salts \autocite{nagyCallusInductionPlant1976}: \SI{156.3}{\milli\Molar} glutamine, \SI{1.01}{\milli\Molar} (NH\textsubscript{4})\textsubscript{2}SO\textsubscript{4}, \SI{1.01}{\milli\Molar} MgSO\textsubscript{4}.7H\textsubscript{2}O, \SI{1.48}{\milli\Molar} KH\textsubscript{2}PO\textsubscript{4}, \SI{0.89}{\milli\Molar} CaCl\textsubscript{2}, minor salts~\autocite{gamborgNutrientRequirementsSuspension1968}: \SI{101.9}{\micro\Molar} H\textsubscript{3}BO\textsubscript{3}, \SI{100.05}{\micro\Molar} MNCl.4H\textsubscript{2}O, \SI{31.99}{\micro\Molar} ZnSO\textsubscript{4}.7H\textsubscript{2}O, \SI{5}{\micro\Molar} KI, \SI{1.03}{\micro\Molar} Na\textsubscript{2}MoO\textsubscript{4}.2H\textsubscript{2}O, \SI{0.1}{\micro\Molar} CuSO\textsubscript{4}.5H\textsubscript{2}O, \SI{0.09}{\micro\Molar} COCl\textsubscript{2}.6H\textsubscript{2}O, \SI{100}{\micro\Molar}  NaFe\hyp{}EDTA, \SI{0.12}{\g\per\l} Gamborg B5 vitamins) K3G1 nutrient solution without hormones to pH 5.7 with KOH.
+%K3G1 mediums were filter sterilised with a Sartorious Minisart® syringe \SI{0.22}{\um} filter.
 \SI{200}{\micro\litre} of \SI{0.1}{\percent} BSA (bovine serum albumin) solution was added to wells in a new spectrophotometer plate.
 After 2 minutes, BSA was removed, and protoplasts were added to wells in the new plate.
 For leaf protoplasts the spectrophotometer plate was incubated overnight for 18 hours with light intensity of approximately \SI{70}{\umol\per\square\meter\per\s} at \SI{22}{\degreeCelsius}.
-For root protoplasts the plate was wrapped in foil and incubated for 18 hours in the dark.
-For some nitrate experiments protoplasts were induced with either \SI{10}{\milli\Molar} final concentration KNO\textsubscript{3} in W5 buffer, or W5 buffer on its own in the morning for 2 hours before continuing to the luciferase assay.
+%For root protoplasts the plate was wrapped in foil and incubated for 18 hours in the dark.
+%For some nitrate experiments protoplasts were induced with either \SI{10}{\milli\Molar} final concentration KNO\textsubscript{3} in W5 buffer, or W5 buffer on its own in the morning for 2 hours before continuing to the luciferase assay.
 
 \section{Luciferase assay}\label{chapter2:methods:luciferase-assay}
 
@@ -298,19 +298,19 @@ Sterile \SI{2}{\mm} cuvettes (Geneflow E6\hyp{}0060) and chamber slide were plac
 \SI{20}{\micro\litre} of bacteria and \SI{0.9}{\micro\litre} of \SI{110}{\nano\gram\per\micro\litre} DNA were added to each cuvette.
 Cuvettes were placed in the chamber slide on a BioRad Gene Pulser Xcell and were electroporated with one pulse using the Agro program (\SI{2.5}{\kilo\volt}).
 \SI{500}{\micro\litre} of terrific broth~\autocite{tartoffImprovedMediaGrowing} was added to each cuvette and then the contents was transferred to \SI{1.5}{\ml} microcentrifuge tubes.
-Agrobacteria was incubated at \SI{28}{\degree\celsius} for 2 hours with 220 rpm shaking.
+Agrobacteria was incubated at \SI{28}{\celsius} for 2 hours with 220 rpm shaking.
 Tubes were then centrifuged at 10000 RCF for 1 minute after which the supernatant was removed leaving \SI{40}{\micro\litre} in the bottom.
 Cells were resuspended and then \SI{20}{\micro\litre} was transferred to flat-bottom 6 well plates (CytoOne CC7672\hyp{}7506) containing LB agar with \SI{50}{\micro\gram\per\ml} spectinomycin, \SI{50}{\micro\gram\per\ml} rifampicin and \SI{25}{\micro\gram\per\ml} gentamicin selection.
 Glass beads were used to spread the plates.
-Plates were then incubated for 2\textendash{}3 days at \SI{28}{\degree\celsius}.
+Plates were then incubated for 2\textendash{}3 days at \SI{28}{\celsius}.
 
-Medium sized colonies were grown overnight in \SI{5}{\ml} liquid LB with \SI{50}{\micro\gram\per\ml} spectinomycin, \SI{50}{\micro\gram\per\ml} rifampicin and \SI{25}{\micro\gram\per\ml} gentamicin selection at \SI{28}{\degree\celsius} with 220 rpm shaking.
-\SI{20}{\percent} glycerol stocks were taken and stored at \SI{-70}{\degreeCelsius}.
+Medium sized colonies were grown overnight in \SI{5}{\ml} liquid LB with \SI{50}{\micro\gram\per\ml} spectinomycin, \SI{50}{\micro\gram\per\ml} rifampicin and \SI{25}{\micro\gram\per\ml} gentamicin selection at \SI{28}{\celsius} with 220 rpm shaking.
+\SI{20}{\percent} glycerol stocks were taken and stored at \SI{-70}{\celsius}.
 
 \section{Transformation of \textit{Arabidopsis thaliana} by floral dip}\label{chapter2:methods:floral-dip}
 
 Col-0 Arabidopsis plants were grown in soil with long days until flowering (\textasciitilde{}4 weeks old).
-For the CRISPR library, 96 Agrobacteria strains (each containing one of the 96 CRISPR constructs described in \autoref{chapter2:methods:design-of-guides} Design of guides and construction of CRISPR library) were grown overnight in \SI{5}{\ml} liquid LB with \SI{50}{\micro\gram\per\ml} spectinomycin, \SI{50}{\micro\gram\per\ml} rifampicin and \SI{25}{\micro\gram\per\ml} gentamicin selection at \SI{28}{\degree\celsius} with 220 rpm shaking.
+For the CRISPR library, 96 Agrobacteria strains (each containing one of the 96 CRISPR constructs described in \autoref{chapter2:methods:design-of-guides} Design of guides and construction of CRISPR library) were grown overnight in \SI{5}{\ml} liquid LB with \SI{50}{\micro\gram\per\ml} spectinomycin, \SI{50}{\micro\gram\per\ml} rifampicin and \SI{25}{\micro\gram\per\ml} gentamicin selection at \SI{28}{\celsius} with 220 rpm shaking.
 Cells were centrifuged at 3700 RCF for 10 mins and resuspended in fresh \SI{5}{\percent} sucrose solution to OD600 \textasciitilde{}0.8.
 All strains were mixed together equally (\SI{3}{\ml} each) and Silvet L-77 was added to \SI{0.05}{\percent}.
 Agrobacteria was transferred to \SI{9x30}{\ml} spray bottles.
