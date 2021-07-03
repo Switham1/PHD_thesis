@@ -46,7 +46,7 @@ CV was used to select the 100 most constitutively expressed genes from raw expre
 Alongside this, the 100 most variable genes were chosen.
 100 control genes were randomly selected from the central distribution of the expression CV ranked genes using the Tau ranking.
 This ensured that the selected genes were present in both CV and Tau datasets.
-To ensure even coverage, 10 genes were selected randomly from each of 10 bins covering the range of Tau values between the non\hyp{}specific and tissue\hyp{}specific gene sets.
+To ensure even sampling across the distribution of CV/Tau values, 10 genes were selected randomly from each of 10 bins covering the range of Tau values between the non\hyp{}specific and tissue\hyp{}specific gene sets.
 
 
 \subsection{Sliding window creation}\label{chapter2:methods:sliding-window-creation}
@@ -54,12 +54,12 @@ To ensure even coverage, 10 genes were selected randomly from each of 10 bins co
 %describe how sliding windows were created%
 Promoters were split into 100 bp sliding windows with a 50 bp step size using a custom Python script (\href{https://github.com/Switham1/PromoterArchitecture/blob/master/src/rolling_window/rolling_window.py}{rolling\_window.py}, available at \url{https://github.com/Switham1/PromoterArchitecture}).
 Windows with fewer than 100 promoters extending to that location were removed.
-For each sliding window plot, the median percentage GC content, TFBS coverage, open chromatin coverage or TF diversity was calculated. \SI{95}{\percent} confidence intervals were estimated using 10000 bootstraps.
+For each sliding window plot, the median percentage GC content, TFBS coverage, open chromatin coverage or TF diversity was calculated. \SI{95}{\percent} confidence intervals were estimated using 10000 bootstrap iterations using Seaborn (v0.10.1).
 
 \subsection{GC content}\label{chapter2:methods:gc-content}
 
 %name the script and say how
-Percentage GC content of promoters and each promoter window was determined using Python to test the hypothesis that constitutive genes have a higher GC content than variable genes and the hypothesis that non\hyp{}specific genes have a higher GC content than tissue\hyp{}specific genes.
+Percentage GC content of promoters and each promoter window was determined using Python (\url{https://github.com/Switham1/PromoterArchitecture/blob/master/src/data_sorting/promoter_GC_content.py} to test the hypothesis that constitutive genes have a higher GC content than variable genes and the hypothesis that non\hyp{}specific genes have a higher GC content than tissue\hyp{}specific genes.
 %The Mann\hyp{}Whitney U test~\autocite{mannTestWhetherOne1947}
 
 
@@ -160,7 +160,7 @@ These were ARF18 (AT3G61830), ARF9 (AT4G23980), DREB26 (AT1G21910) and NLP7 (AT4
 Shoot and root ATAC-seq data \autocite{potterCytokininModulatesContextdependent2018} (see \autoref{chapter2:methods:open-chromatin-coverage} Open chromatin coverage) was overlayed over the non-coding regions upstream of the ATG start codon of each gene.
 A region of \textasciitilde{}500 bp falling within open chromatin was chosen for each Arabidopsis gene and was scanned for SpCas9 NGG PAM sites using CRISPOR~\autocite{concordetCRISPORIntuitiveGuide2018} (TAIR 10 \autocite{lameschArabidopsisInformationResource2012} genome assembly, Ensembl Plants \autocite{howeEnsemblGenomes20202020} version 76).
 Using a custom Python \autocite{pythoncoreteamPythonDynamicOpen2020} script (available on GitHub: \url{https://github.com/Switham1/PromoterArchitecture/blob/master/src/CRISPR_library/Choose_guides.ipynb}), guides with on\hyp{}target efficiency \autocite{doenchOptimizedSgRNADesign2016} of \textless{}\SI{40}{\percent} were filtered out.
-Roughly 30 guides per gene were chosen.
+30 guides per gene were chosen.
 Each guide was allocated at least once to a guide pair roughly 90\textendash{}110 bp apart, generating 96 PAM pairs.
 This was to increase the chance of large deletions between the two PAM sites.
 Virtual Chen \autocite{chenDynamicImagingGenomic2013} guide scaffolds were created using virtual PCRs, then all virtual plasmid maps were generated using PyDNA (version 3.0.2 \autocite{pereiraPydnaSimulationDocumentation2015}) and DNA Cauldron (version 2.0.1; \url{https://github.com/Edinburgh-Genome-Foundry/DnaCauldron}).
@@ -313,7 +313,7 @@ Col-0 Arabidopsis plants were grown in soil with long days until flowering (\tex
 For the CRISPR library, 96 Agrobacteria strains (each containing one of the 96 CRISPR constructs described in \autoref{chapter2:methods:design-of-guides} Design of guides and construction of CRISPR library) were grown overnight in \SI{5}{\ml} liquid LB with \SI{50}{\micro\gram\per\ml} spectinomycin, \SI{50}{\micro\gram\per\ml} rifampicin and \SI{25}{\micro\gram\per\ml} gentamicin selection at \SI{28}{\celsius} with 220 rpm shaking.
 Cells were centrifuged at 3700 RCF for 10 mins and resuspended in fresh \SI{5}{\percent} sucrose solution to OD600 \textasciitilde{}0.8.
 All strains were mixed together equally (\SI{3}{\ml} each) and Silvet L-77 was added to \SI{0.05}{\percent}.
-Agrobacteria was transferred to \SI{9x30}{\ml} spray bottles.
+Agrobacteria was transferred to 9x\SI{30}{\ml} spray bottles.
 Arabidopsis plants were placed inside an autoclave bag and the flowers were sprayed with the Agrobacteria.
 Autoclave bags were taped closed and placed inside black bin liners for 24 hours before being removed from both bags.
 Plants were grown with long days until seeds collection, where a paper seed bag was taped over the influorescence of plants for collection.
