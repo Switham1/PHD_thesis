@@ -1,0 +1,2 @@
+            Source  ddof1         H     p-unc
+Kruskal  gene_type      2  1.347297  0.509845

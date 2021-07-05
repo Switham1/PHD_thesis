@@ -1,1 +1,1 @@
-number_of_genes_in_each_category=51
+number_of_TFs_in_each_category=51
